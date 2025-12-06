@@ -1,0 +1,114 @@
+{
+    "hero": {
+        "headline": "48秒，從麵粉到一碗熱騰騰的牛肉麵",
+        "subheadline": "全球首創 AI 驅動機器人廚房生態系統",
+        "cta_partner": "成為合作夥伴",
+        "cta_watch": "觀看運作演示"
+    },
+    "roi": {
+        "title": "投資回報率計算器",
+        "label_daily_sales": "每日銷量 (碗)",
+        "label_price": "平均客單價 (€)",
+        "result_monthly_profit": "月淨利潤",
+        "result_payback": "回本週期",
+        "unit_months": "個月",
+        "calculate_returns": "計算您的",
+        "potential_returns": "潛在回報",
+        "estimate_earnings": "根據我們巴塞隆納試點數據估算您的收益。",
+        "gross_margin": "毛利率",
+        "fixed_costs": "每月固定成本",
+        "total_investment": "總投資額",
+        "monthly_revenue": "月營收",
+        "annual_net_profit": "年淨利潤"
+    },
+    "products": {
+        "title": "自動化艦隊",
+        "noodle_bar": {
+            "headline": "旗艦產品：48秒奇蹟",
+            "specs": {
+                "footprint": "3.8m² 佔地",
+                "throughput": "60-75 碗/小時",
+                "operation": "24/7 全天候運作"
+            },
+            "description": "從麵粉到饗宴的全自動化流程。專為機場、大學和醫院設計，具備自清潔循環功能。"
+        },
+        "soup_robot": {
+            "headline": "標準化大師工藝",
+            "specs": {
+                "chef": "0 廚師需求",
+                "energy": "節能 29%",
+                "temp": "恆溫控制"
+            },
+            "description": "以一致的 6-8 小時慢燉邏輯，複製大師級廚師的精準度。"
+        },
+        "wok_robot": {
+            "headline": "'鑊氣' 的藝術",
+            "specs": {
+                "recipes": "100+ 食譜",
+                "seasoning": "自動調味",
+                "heating": "感應加熱"
+            },
+            "description": "透過精確的運動控制和自動翻炒，捕捉熱炒的靈魂。"
+        }
+    },
+    "trust": {
+        "title": "巨人肩膀上的創新",
+        "vision": {
+            "title": "打破鐵三角",
+            "text": "傳統餐飲迫使在速度、品質和成本之間做出妥協。我們同時解決了這三個問題。"
+        },
+        "dufengxuan": {
+            "title": "獨鳳軒",
+            "tag": "湯品標準制定者",
+            "text": "類比熬煮技術，確保大規模生產下仍有大師級的高湯品質。"
+        },
+        "pandagold": {
+            "title": "金熊貓",
+            "tag": "全球供應鏈",
+            "text": "優質凍乾食材，符合法規全球配送。"
+        },
+        "stats": {
+            "label": "國家專利",
+            "value": "300+"
+        },
+        "global": {
+            "text": "總部位於巴塞隆納。目標在 2028 年擴展至 16,000 個節點。"
+        }
+    },
+    "contact": {
+        "title": "智慧分流",
+        "hq_title": "全球總部",
+        "address": "Carrer de la Diputació, 246, 08007 巴塞隆納, 西班牙",
+        "phone": "+34 93 123 45 67",
+        "email": "hello@botsandbowls.com",
+        "form": {
+            "role_label": "我是...",
+            "role_franchisee": "加盟商",
+            "role_investor": "投資者",
+            "role_media": "媒體",
+            "region_label": "地區",
+            "region_europe": "歐洲",
+            "region_asia": "亞洲",
+            "region_americas": "美洲",
+            "region_other": "其他",
+            "name_label": "姓名",
+            "contact_label": "聯絡方式 (Email/電話)",
+            "submit": "開始 AI 諮詢"
+        }
+    },
+    "footer": {
+        "products": "產品",
+        "roi": "ROI 計算器",
+        "about": "關於我們",
+        "contact": "聯絡我們",
+        "privacy": "隱私政策",
+        "terms": "服務條款",
+        "copyright": "版權所有 © 2025 Can Ramen 2024 SL"
+    },
+    "nav": {
+        "fleet": "艦隊",
+        "profit": "利潤",
+        "trust": "信任",
+        "contact": "聯絡"
+    }
+}

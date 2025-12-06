@@ -1,0 +1,114 @@
+{
+    "hero": {
+        "headline": "48 segundos. De la harina al festín.",
+        "subheadline": "El primer ecosistema de cocina robótica impulsado por IA del mundo.",
+        "cta_partner": "Convertirse en socio",
+        "cta_watch": "Ver cómo funciona"
+    },
+    "roi": {
+        "title": "Calculadora de retorno de inversión",
+        "label_daily_sales": "Ventas diarias (Tazones)",
+        "label_price": "Precio medio (€)",
+        "result_monthly_profit": "Beneficio neto mensual",
+        "result_payback": "Periodo de recuperación",
+        "unit_months": "Meses",
+        "calculate_returns": "Calcule sus",
+        "potential_returns": "Retornos Potenciales",
+        "estimate_earnings": "Estime sus ganancias basándose en los datos de nuestro piloto en Barcelona.",
+        "gross_margin": "Margen Bruto",
+        "fixed_costs": "Costos Fijos Mensuales",
+        "total_investment": "Inversión Total",
+        "monthly_revenue": "Ingresos Mensuales",
+        "annual_net_profit": "Beneficio Neto Anual"
+    },
+    "products": {
+        "title": "La Flota de Autómatas",
+        "noodle_bar": {
+            "headline": "El Buque Insignia: Milagro de 48 Segundos",
+            "specs": {
+                "footprint": "Huella de 3.8m²",
+                "throughput": "60-75 Tazones/Hora",
+                "operation": "Operación 24/7"
+            },
+            "description": "Totalmente automatizado desde la harina hasta el festín. Construido para aeropuertos, universidades y hospitales con ciclos de autolimpieza."
+        },
+        "soup_robot": {
+            "headline": "Artesanía Maestra Estandarizada",
+            "specs": {
+                "chef": "0 Chef Requerido",
+                "energy": "29% Ahorro de Energía",
+                "temp": "Control de Temp. Constante"
+            },
+            "description": "Replica la precisión del maestro chef con una lógica de cocción lenta consistente de 6-8 horas."
+        },
+        "wok_robot": {
+            "headline": "El Arte del 'Wok Hei'",
+            "specs": {
+                "recipes": "100+ Recetas",
+                "seasoning": "Auto-Condimento",
+                "heating": "Calentamiento por Inducción"
+            },
+            "description": "Captura el alma del salteado con control de movimiento preciso y lanzamiento automatizado."
+        }
+    },
+    "trust": {
+        "title": "Impulsado por Gigantes",
+        "vision": {
+            "title": "Rompiendo el Triángulo de Hierro",
+            "text": "La comida tradicional obliga a elegir entre Velocidad, Calidad y Costo. Nosotros resolvimos los tres."
+        },
+        "dufengxuan": {
+            "title": "Dufengxuan (獨鳳軒)",
+            "tag": "Estándar de Sopas",
+            "text": "Tecnología de elaboración analógica que garantiza caldo de calidad de maestro chef a escala."
+        },
+        "pandagold": {
+            "title": "PandaGold (金熊貓)",
+            "tag": "Cadena de Suministro Global",
+            "text": "Ingredientes liofilizados premium entregados globalmente con cumplimiento."
+        },
+        "stats": {
+            "label": "Patentes Nacionales",
+            "value": "300+"
+        },
+        "global": {
+            "text": "Sede en Barcelona. Expansión apuntando a 16,000 nodos para 2028."
+        }
+    },
+    "contact": {
+        "title": "Triaje Inteligente",
+        "hq_title": "Sede Global",
+        "address": "Carrer de la Diputació, 246, 08007 Barcelona, España",
+        "phone": "+34 93 123 45 67",
+        "email": "hello@botsandbowls.com",
+        "form": {
+            "role_label": "Soy un...",
+            "role_franchisee": "Franquiciado",
+            "role_investor": "Inversor",
+            "role_media": "Medios",
+            "region_label": "Región",
+            "region_europe": "Europa",
+            "region_asia": "Asia",
+            "region_americas": "Américas",
+            "region_other": "Otro",
+            "name_label": "Nombre",
+            "contact_label": "Detalles de Contacto (Email/Teléfono)",
+            "submit": "Iniciar Consulta IA"
+        }
+    },
+    "footer": {
+        "products": "Productos",
+        "roi": "Calculadora ROI",
+        "about": "Sobre Nosotros",
+        "contact": "Contacto",
+        "privacy": "Política de Privacidad",
+        "terms": "Términos de Servicio",
+        "copyright": "Copyright © 2025 Can Ramen 2024 SL"
+    },
+    "nav": {
+        "fleet": "Flota",
+        "profit": "Beneficio",
+        "trust": "Confianza",
+        "contact": "Contacto"
+    }
+}

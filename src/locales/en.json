@@ -1,0 +1,114 @@
+{
+  "hero": {
+    "headline": "48 Seconds. From Flour to Feast.",
+    "subheadline": "The World's First AI-Powered Robotic Kitchen Ecosystem.",
+    "cta_partner": "Become a Partner",
+    "cta_watch": "Watch How It Works"
+  },
+  "roi": {
+    "title": "Investment ROI Calculator",
+    "label_daily_sales": "Daily Sales (Bowls)",
+    "label_price": "Avg. Ticket Price (€)",
+    "result_monthly_profit": "Monthly Net Profit",
+    "result_payback": "Payback Period",
+    "unit_months": "Months",
+    "calculate_returns": "Calculate Your",
+    "potential_returns": "Potential Returns",
+    "estimate_earnings": "Estimate your earnings based on our Barcelona pilot data.",
+    "gross_margin": "Gross Margin",
+    "fixed_costs": "Fixed Monthly Costs",
+    "total_investment": "Total Investment",
+    "monthly_revenue": "Monthly Revenue",
+    "annual_net_profit": "Annual Net Profit"
+  },
+  "products": {
+    "title": "The Automaton Fleet",
+    "noodle_bar": {
+      "headline": "The Flagship: 48-Second Miracle",
+      "specs": {
+        "footprint": "3.8m² Footprint",
+        "throughput": "60-75 Bowls/Hour",
+        "operation": "24/7 Operation"
+      },
+      "description": "Fully automated from flour to feast. Built for airports, universities, and hospitals with self-cleaning cycles."
+    },
+    "soup_robot": {
+      "headline": "Standardized Master Craft",
+      "specs": {
+        "chef": "0 Chef Required",
+        "energy": "29% Energy Saving",
+        "temp": "Constant Temp Control"
+      },
+      "description": "Replicates master chef precision with consistent 6-8 hour slow-cooking logic."
+    },
+    "wok_robot": {
+      "headline": "The Art of 'Wok Hei'",
+      "specs": {
+        "recipes": "100+ Recipes",
+        "seasoning": "Auto-Seasoning",
+        "heating": "Induction Heating"
+      },
+      "description": "Captures the soul of stir-fry with precise motion control and automated tossing."
+    }
+  },
+  "trust": {
+    "title": "Powered by Giants",
+    "vision": {
+      "title": "Breaking the Iron Triangle",
+      "text": "Traditional dining forces a trade-off between Speed, Quality, and Cost. We solved all three."
+    },
+    "dufengxuan": {
+      "title": "Dufengxuan (獨鳳軒)",
+      "tag": "Soup Standard Setter",
+      "text": "Analog brewing technology ensuring master-chef quality broth at scale."
+    },
+    "pandagold": {
+      "title": "PandaGold (金熊貓)",
+      "tag": "Global Supply Chain",
+      "text": "Premium freeze-dried ingredients delivered globally with compliance."
+    },
+    "stats": {
+      "label": "National Patents",
+      "value": "300+"
+    },
+    "global": {
+      "text": "HQ in Barcelona. Expansion targeting 16,000 nodes by 2028."
+    }
+  },
+  "contact": {
+    "title": "Smart Triage",
+    "hq_title": "Global HQ",
+    "address": "Carrer de la Diputació, 246, 08007 Barcelona, Spain",
+    "phone": "+34 93 123 45 67",
+    "email": "hello@botsandbowls.com",
+    "form": {
+      "role_label": "I am a...",
+      "role_franchisee": "Franchisee",
+      "role_investor": "Investor",
+      "role_media": "Media",
+      "region_label": "Region",
+      "region_europe": "Europe",
+      "region_asia": "Asia",
+      "region_americas": "Americas",
+      "region_other": "Other",
+      "name_label": "Name",
+      "contact_label": "Contact Details (Email/Phone)",
+      "submit": "Start AI Consultation"
+    }
+  },
+  "footer": {
+    "products": "Products",
+    "roi": "ROI Calculator",
+    "about": "About Us",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "Copyright © 2025 Can Ramen 2024 SL"
+  },
+  "nav": {
+    "fleet": "Fleet",
+    "profit": "Profit",
+    "trust": "Trust",
+    "contact": "Contact"
+  }
+}

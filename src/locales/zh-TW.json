@@ -1,9 +1,14 @@
 {
     "hero": {
-        "headline": "48秒，從麵粉到一碗熱騰騰的牛肉麵",
-        "subheadline": "全球首創 AI 驅動機器人廚房生態系統",
-        "cta_partner": "成為合作夥伴",
-        "cta_watch": "觀看運作演示"
+        "title_line1": "頂級拉麵.",
+        "title_line2": "無人極速.",
+        "subtitle": "體驗全球首個AI驅動的機器人廚房生態系統。48秒內呈上新鮮熱騰騰的美味。",
+        "cta_primary": "開始AI諮詢",
+        "cta_secondary": "觀看運作演示",
+        "badge": "AI驅動廚房"
+    },
+    "video_gallery": {
+        "title": "實地體驗"
     },
     "roi": {
         "title": "投資回報率計算器",

@@ -11,7 +11,7 @@ export function VideoGallery() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-sans mb-4">
-                        Experience the Future / 實地體驗
+                        {t("video_gallery.title")}
                     </h2>
                     <div className="h-1 w-20 bg-neon-orange rounded-full mx-auto" />
                 </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import { GlassContainer } from "@/components/ui/GlassContainer";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
@@ -15,106 +14,66 @@ export function Hero() {
   };
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-background">
-      {/* Background Image */}
+    <div className="relative h-screen w-full overflow-hidden bg-black">
+      {/* Background Image - High Quality Food First */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero-bg.png"
-          alt="Futuristic Technology"
-          className="h-full w-full object-cover opacity-90"
+          alt="Gourmet Ramen Bowl"
+          className="h-full w-full object-cover opacity-80"
         />
-        {/* Gradient Overlay (Light Mode) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/40 to-background" />
+        {/* Dark Overlay for Text Contrast */}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
       </div>
 
       <div className="relative z-10 flex h-full flex-col justify-center px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          {/* Text Content */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+        <div className="mx-auto max-w-7xl w-full text-center">
+
+          {/* Main Content - Clean & Bold */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left"
+            className="flex flex-col items-center"
           >
-            <div className="inline-flex items-center rounded-full border border-neon-orange/30 bg-neon-orange/10 px-3 py-1 text-sm font-medium text-neon-orange backdrop-blur-md mb-6">
-              <span className="flex h-2 w-2 rounded-full bg-neon-orange mr-2 animate-pulse"></span>
-              {t("hero.badge")}
-            </div>
-            
-            <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-foreground mb-6 font-sans">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-white mb-8 font-sans drop-shadow-lg">
               {t("hero.title_line1")} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-orange to-red-500">
+              <span className="text-neon-orange">
                 {t("hero.title_line2")}
               </span>
             </h1>
-            
-            <p className="mt-4 text-xl text-gray-600 max-w-lg mb-10 font-light">
+
+            <p className="mt-4 text-xl sm:text-2xl text-gray-100 max-w-2xl mb-12 font-medium drop-shadow-md">
               {t("hero.subtitle")}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button 
+            <div className="flex flex-col sm:flex-row gap-6">
+              <button
                 onClick={() => handleScrollTo('contact')}
-                className="px-8 py-4 rounded-full bg-neon-orange text-white font-bold text-lg hover:bg-orange-600 hover:shadow-[0_0_20px_rgba(255,107,0,0.4)] transition-all transform hover:scale-105"
+                className="px-10 py-5 rounded-full bg-neon-orange text-white font-bold text-xl hover:bg-orange-600 hover:shadow-[0_0_30px_rgba(255,107,0,0.5)] transition-all transform hover:scale-105"
               >
                 {t("hero.cta_primary")}
               </button>
-              <button 
+              <button
                 onClick={() => handleScrollTo('video-gallery')}
-                className="px-8 py-4 rounded-full glass text-foreground font-bold text-lg hover:bg-white/80 transition-all border border-black/10"
+                className="px-10 py-5 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold text-xl hover:bg-white/20 transition-all"
               >
-                 {t("hero.cta_secondary")}
+                {t("hero.cta_secondary")}
               </button>
             </div>
-          </motion.div>
-
-          {/* Hero Visual / Data */}
-          <motion.div
-             initial={{ opacity: 0, scale: 0.9 }}
-             animate={{ opacity: 1, scale: 1 }}
-             transition={{ duration: 0.8, delay: 0.2 }}
-             className="hidden lg:block relative"
-          >
-             {/* Floating Elements */}
-             <motion.div 
-                animate={{ y: [0, -20, 0] }}
-                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                className="absolute -top-10 -right-10 z-20"
-             >
-                <GlassContainer className="p-6 bg-white/80 border-black/5">
-                    <div className="text-4xl font-mono font-bold text-neon-orange">48s</div>
-                    <div className="text-sm text-gray-500">{t("hero.stat_speed")}</div>
-                </GlassContainer>
-             </motion.div>
-
-             <motion.div 
-                animate={{ y: [0, 20, 0] }}
-                transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-10 -left-10 z-20"
-             >
-                <GlassContainer className="p-6 bg-white/80 border-black/5">
-                    <div className="text-4xl font-mono font-bold text-neon-blue">64%</div>
-                    <div className="text-sm text-gray-500">{t("hero.stat_margin")}</div>
-                </GlassContainer>
-             </motion.div>
-             
-             {/* Main Hero Graphic Placeholder (Abstract 3D) */}
-             <div className="w-full h-[500px] rounded-3xl bg-gradient-to-br from-gray-100 to-gray-200 border border-white/50 shadow-2xl flex items-center justify-center overflow-hidden relative">
-                <div className="absolute inset-0 bg-[url('/images/noodle-machine.png')] bg-contain bg-center bg-no-repeat opacity-90" />
-             </div>
           </motion.div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/70"
       >
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center p-1">
-            <div className="w-1 h-2 bg-gray-400 rounded-full" />
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-1">
+          <div className="w-1 h-2 bg-white rounded-full" />
         </div>
       </motion.div>
     </div>

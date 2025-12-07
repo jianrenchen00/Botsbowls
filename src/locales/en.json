@@ -1,9 +1,14 @@
 {
   "hero": {
-    "headline": "48 Seconds. From Flour to Feast.",
-    "subheadline": "The World's First AI-Powered Robotic Kitchen Ecosystem.",
-    "cta_partner": "Become a Partner",
-    "cta_watch": "Watch How It Works"
+    "title_line1": "Gourmet Ramen.",
+    "title_line2": "Autonomous Speed.",
+    "subtitle": "Experience the world's first AI-powered robotic kitchen. Fresh, hot bowls served in 48 seconds.",
+    "cta_primary": "Start AI Consultation",
+    "cta_secondary": "Watch How It Works",
+    "badge": "AI-Powered Kitchen"
+  },
+  "video_gallery": {
+    "title": "Experience the Future"
   },
   "roi": {
     "title": "Investment ROI Calculator",

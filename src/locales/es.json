@@ -1,9 +1,14 @@
 {
     "hero": {
-        "headline": "48 segundos. De la harina al festín.",
-        "subheadline": "El primer ecosistema de cocina robótica impulsado por IA del mundo.",
-        "cta_partner": "Convertirse en socio",
-        "cta_watch": "Ver cómo funciona"
+        "title_line1": "Ramen Gourmet.",
+        "title_line2": "Velocidad Autónoma.",
+        "subtitle": "Experimente el primer ecosistema de cocina robótica impulsado por IA del mundo. Tazones frescos y calientes servidos en 48 segundos.",
+        "cta_primary": "Iniciar Consulta IA",
+        "cta_secondary": "Ver Cómo Funciona",
+        "badge": "Cocina Impulsada por IA"
+    },
+    "video_gallery": {
+        "title": "Experimenta el Futuro"
     },
     "roi": {
         "title": "Calculadora de retorno de inversión",

@@ -2,143 +2,100 @@
 
 import { useRef, useState, useEffect } from "react";
 import { GlassContainer } from "@/components/ui/GlassContainer";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { cn } from "@/lib/utils";
-
-const products = [
-    {
-        id: "noodle_bar",
-        image: "https://images.unsplash.com/photo-1516192518150-0d8fee5425e3?q=80&w=1936&auto=format&fit=crop", // Abstract Tech / Lab
-    },
-    {
-        id: "soup_robot",
-        image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop", // Industrial Robot Arm
-    },
-    {
-        id: "wok_robot",
-        image: "https://images.unsplash.com/photo-1555664424-778a69fdb0c8?q=80&w=2085&auto=format&fit=crop", // Electronics / Heat
-    },
-];
 
 export function ProductShowcase() {
     const { t } = useTranslation();
-    const [activeProduct, setActiveProduct] = useState(products[0].id);
 
-    // Refs for scroll tracking
-    const containerRef = useRef<HTMLDivElement>(null);
-    const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-    // Simple intersection observer to detect which product is in view
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute("data-id");
-                        if (id) setActiveProduct(id);
-                    }
-                });
-            },
-            {
-                root: null,
-                rootMargin: "-40% 0px -40% 0px", // Trigger when element is in the middle 20% of screen
-                threshold: 0.1,
-            }
-        );
-
-        sectionRefs.current.forEach((ref) => {
-            if (ref) observer.observe(ref);
-        });
-
-        return () => {
-            sectionRefs.current.forEach((ref) => {
-                if (ref) observer.unobserve(ref);
-            });
-        };
-    }, []);
+    const products = [
+        {
+            id: "noodle-bar",
+            titleKey: "products.noodle.title",
+            descKey: "products.noodle.desc",
+            specs: ["48s/bowl", "24/7 Ops", "2.5m² Footprint"],
+            image: "/images/noodle-machine.png",
+        },
+        {
+            id: "soup-bot",
+            titleKey: "products.soup.title",
+            descKey: "products.soup.desc",
+            specs: ["±0.5g Precision", "Smart Temp Control", "Auto-Cleaning"],
+            image: "/images/soup-robot.png",
+        },
+        {
+            id: "wok-bot",
+            titleKey: "products.wok.title",
+            descKey: "products.wok.desc",
+            specs: ["Induction Heating", "Toss Motion", "300+ Recipes"],
+            image: "/images/wok-robot.png",
+        },
+    ];
 
     return (
-        <section className="py-20 relative z-10 bg-background" ref={containerRef}>
+        <section id="products" className="py-20 relative z-10 bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-5xl font-bold text-white font-sans mb-4">
-                        {t("products.title")}
+                <div className="text-center mb-20">
+                    <h2 className="text-3xl sm:text-5xl font-bold text-foreground font-sans mb-4">
+                        {t("products.section_title")}
                     </h2>
-                    <div className="h-1 w-20 bg-neon-blue mx-auto rounded-full" />
+                    <div className="h-1 w-20 bg-neon-orange rounded-full mx-auto" />
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
-                    {/* Sticky Left Column - Images */}
-                    <div className="hidden lg:block relative h-[600px]">
-                        <div className="sticky top-32 h-[500px] w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                            {products.map((product) => (
-                                <motion.div
-                                    key={product.id}
-                                    initial={{ opacity: 0 }}
-                                    animate={{
-                                        opacity: activeProduct === product.id ? 1 : 0,
-                                        scale: activeProduct === product.id ? 1 : 1.1,
-                                    }}
-                                    transition={{ duration: 0.7, ease: "easeInOut" }}
-                                    className="absolute inset-0"
-                                >
-                                    <img
-                                        src={product.image}
-                                        alt={product.id}
-                                        className="h-full w-full object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Scrollable Right Column - Content */}
-                    <div className="space-y-24 lg:space-y-48 pb-24">
-                        {products.map((product, index) => (
-                            <div
-                                key={product.id}
-                                data-id={product.id}
-                                ref={(el) => {
-                                    sectionRefs.current[index] = el;
-                                }}
-                                className="min-h-[400px] flex flex-col justify-center"
+                <div className="space-y-32">
+                    {products.map((product, index) => (
+                        <div
+                            key={product.id}
+                            className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
+                                } items-center gap-12`}
+                        >
+                            {/* Image Side */}
+                            <motion.div
+                                initial={{ opacity: 0, x: index % 2 === 1 ? 50 : -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.8 }}
+                                className="flex-1 w-full"
                             >
-                                {/* Mobile Image (Visible only on small screens) */}
-                                <div className="lg:hidden mb-8 rounded-xl overflow-hidden h-64 border border-white/10 relative">
-                                    <img
-                                        src={product.image}
-                                        alt={product.id}
-                                        className="w-full h-full object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                                <div className="relative aspect-square max-w-lg mx-auto">
+                                    <div className="absolute inset-0 bg-neon-orange/10 rounded-full blur-3xl" />
+                                    <GlassContainer className="relative z-10 h-full flex items-center justify-center p-8 bg-white/40 border-black/5">
+                                        <img
+                                            src={product.image}
+                                            alt="Product"
+                                            className="w-full h-full object-contain drop-shadow-2xl"
+                                        />
+                                    </GlassContainer>
                                 </div>
+                            </motion.div>
 
-                                <GlassContainer className="p-8 border-l-4 border-l-neon-blue">
-                                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 font-sans">
-                                        {t(`products.${product.id}.headline`)}
-                                    </h3>
-                                    <p className="text-gray-400 mb-8 text-lg leading-relaxed break-words">
-                                        {t(`products.${product.id}.description`)}
-                                    </p>
-
-                                    <div className="flex flex-wrap gap-3">
-                                        {Object.entries(
-                                            t(`products.${product.id}.specs`, { returnObjects: true }) as Record<string, string>
-                                        ).map(([key, value]) => (
-                                            <span
-                                                key={key}
-                                                className="px-3 py-1 rounded-full bg-neon-blue/10 border border-neon-blue/30 text-neon-blue text-sm font-mono font-medium"
-                                            >
-                                                {value}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </GlassContainer>
-                            </div>
-                        ))}
-                    </div>
+                            {/* Content Side */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
+                                className="flex-1 text-left"
+                            >
+                                <h3 className="text-3xl font-bold text-foreground mb-6">
+                                    {t(product.titleKey)}
+                                </h3>
+                                <div className="flex flex-wrap gap-3 mb-6">
+                                    {product.specs.map((spec, i) => (
+                                        <span
+                                            key={i}
+                                            className="px-3 py-1 rounded-full bg-neon-orange/10 text-neon-orange text-sm font-mono border border-neon-orange/20"
+                                        >
+                                            {spec}
+                                        </span>
+                                    ))}
+                                </div>
+                                <p className="text-lg text-gray-600 leading-relaxed break-words hyphens-auto">
+                                    {t(product.descKey)}
+                                </p>
+                            </motion.div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

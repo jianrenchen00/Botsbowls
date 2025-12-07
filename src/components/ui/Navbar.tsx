@@ -57,31 +57,29 @@ export function Navbar() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${scrolled
-                    ? "bg-black/80 backdrop-blur-xl border-white/10"
+                    ? "bg-white/80 backdrop-blur-xl border-black/5 shadow-sm"
                     : "bg-transparent border-transparent backdrop-blur-none"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
-                    <div className="flex-shrink-0">
-                        <Link
-                            href="/"
-                            className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-pink"
-                        >
+                    <div className="flex-shrink-0 flex items-center gap-2">
+                        <img src="/images/logo.jpg" alt="Bots & Bowls Logo" className="h-10 w-auto rounded-full" />
+                        <span className="text-xl font-bold text-foreground hidden sm:block">
                             Bots & Bowls
-                        </Link>
+                        </span>
                     </div>
                     <div className="hidden md:flex items-center space-x-8">
-                        <a href="#products" onClick={(e) => handleScrollTo(e, 'products')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+                        <a href="#products" onClick={(e) => handleScrollTo(e, 'products')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
                             {t("nav.fleet")}
                         </a>
-                        <a href="#roi" onClick={(e) => handleScrollTo(e, 'roi')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+                        <a href="#roi" onClick={(e) => handleScrollTo(e, 'roi')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
                             {t("nav.profit")}
                         </a>
-                        <a href="#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+                        <a href="#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
                             {t("nav.trust")}
                         </a>
-                        <a href="#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+                        <a href="#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
                             {t("nav.contact")}
                         </a>
                     </div>
@@ -90,7 +88,7 @@ export function Navbar() {
                             <select
                                 onChange={handleChange}
                                 value={currentLocale}
-                                className="bg-black/20 text-white border border-white/10 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-neon-blue"
+                                className="bg-white/50 text-gray-800 border border-gray-200 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-neon-orange"
                             >
                                 <option value="en">English</option>
                                 <option value="zh-TW">繁體中文</option>

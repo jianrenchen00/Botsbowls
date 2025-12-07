@@ -10,7 +10,7 @@ export function GlassContainer({ children, className }: GlassContainerProps) {
     return (
         <div
             className={cn(
-                "glass rounded-2xl p-6 border border-white/10 shadow-lg",
+                "glass rounded-2xl p-6",
                 className
             )}
         >

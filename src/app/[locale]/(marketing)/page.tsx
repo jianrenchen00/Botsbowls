@@ -3,6 +3,7 @@ import { Hero } from '@/components/marketing/Hero';
 import { ROICalculator } from '@/components/business/ROICalculator';
 import { ProductShowcase } from '@/components/marketing/ProductShowcase';
 import { TrustSection } from '@/components/marketing/TrustSection';
+import { VideoGallery } from '@/components/home/VideoGallery';
 import { ContactSection } from '@/components/marketing/ContactSection';
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
+      <VideoGallery />
       <div id="roi">
         <ROICalculator />
       </div>

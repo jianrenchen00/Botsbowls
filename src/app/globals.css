@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0F172A;
-  --color-foreground: #ffffff;
+  --color-background: #FFFFFF;
+  --color-foreground: #1F2937;
   --color-neon-blue: #00F0FF;
   --color-neon-orange: #FF6B00;
 
@@ -10,18 +10,29 @@
   --font-mono: var(--font-roboto-mono);
 }
 
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
 @layer utilities {
+  /* Glassmorphism Utilities (Light Mode) */
   .glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    @apply bg-white/60 backdrop-blur-xl border border-black/5 shadow-lg;
   }
 
   .glass-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    @apply bg-white/80 backdrop-blur-md border border-black/5 shadow-md hover:shadow-xl transition-all duration-300;
   }
 }
 

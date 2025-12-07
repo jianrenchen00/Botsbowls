@@ -1,14 +1,67 @@
 {
     "hero": {
-        "title_line1": "頂級拉麵.",
-        "title_line2": "無人極速.",
-        "subtitle": "體驗全球首個AI驅動的機器人廚房生態系統。48秒內呈上新鮮熱騰騰的美味。",
-        "cta_primary": "開始AI諮詢",
+        "title_line1": "自動化 €6000億",
+        "title_line2": "餐飲服務產業",
+        "subtitle": "利潤蒸發是真實的。我們帶來解決方案。",
+        "cta_primary": "獲取投資簡報",
         "cta_secondary": "觀看運作演示",
-        "badge": "AI驅動廚房"
+        "badge": "投資論點",
+        "email_placeholder": "輸入您的電子郵件"
+    },
+    "problem": {
+        "title": "利潤蒸發危機",
+        "subtitle": "為何傳統餐飲正在衰退",
+        "cost": {
+            "title": "指數級人事成本",
+            "desc": "通膨薪資正在吞噬利潤。"
+        },
+        "shortage": {
+            "title": "勞動力短缺",
+            "desc": "職位空缺率翻倍。招募變得不可能。"
+        },
+        "rent": {
+            "title": "高昂租金",
+            "desc": "房地產成本佔據營收的 15-25%。"
+        }
+    },
+    "solution": {
+        "title": "革命性勞動力結構",
+        "subtitle": "從依賴人力到賦能人力",
+        "benefit1": {
+            "title": "標準化品質",
+            "desc": "大師級的一致性，每一次都完美。"
+        },
+        "benefit2": {
+            "title": "24/7 全天候運作",
+            "desc": "營收從不休眠。零加班成本。"
+        },
+        "benefit3": {
+            "title": "可擴展效率",
+            "desc": "一名操作員輕鬆管理多個單元。"
+        }
+    },
+    "scenarios": {
+        "title": "應用場景",
+        "subtitle": "捕捉生態系統中的價值",
+        "retail": {
+            "title": "零售與辦公",
+            "desc": "將消費鏈延伸至人們工作的地方。"
+        },
+        "university": {
+            "title": "大學校園",
+            "desc": "為飢餓的學生提供深夜熱食。"
+        },
+        "transport": {
+            "title": "交通樞紐",
+            "desc": "為高速旅行提供高速餐飲。"
+        },
+        "healthcare": {
+            "title": "醫療保健",
+            "desc": "為夜班人員提供溫暖營養的關懷。"
+        }
     },
     "video_gallery": {
-        "title": "實地體驗"
+        "title": "智慧餐飲實戰"
     },
     "roi": {
         "title": "投資回報率計算器",

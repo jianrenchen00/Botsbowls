@@ -1,14 +1,67 @@
 {
     "hero": {
-        "title_line1": "Ramen Gourmet.",
-        "title_line2": "Velocidad Autónoma.",
-        "subtitle": "Experimente el primer ecosistema de cocina robótica impulsado por IA del mundo. Tazones frescos y calientes servidos en 48 segundos.",
-        "cta_primary": "Iniciar Consulta IA",
+        "title_line1": "Automatizando la Industria",
+        "title_line2": "de Servicios de Alimentación de €600MM",
+        "subtitle": "La evaporación de beneficios es real. Traemos la solución.",
+        "cta_primary": "Obtener Deck de Inversión",
         "cta_secondary": "Ver Cómo Funciona",
-        "badge": "Cocina Impulsada por IA"
+        "badge": "Tesis de Inversión",
+        "email_placeholder": "Introduce tu email"
+    },
+    "problem": {
+        "title": "La Crisis de Evaporación de Beneficios",
+        "subtitle": "Por qué el Catering Tradicional está Fallando",
+        "cost": {
+            "title": "Costos de Personal Exponenciales",
+            "desc": "Los salarios inflacionarios están devorando los márgenes."
+        },
+        "shortage": {
+            "title": "Escasez de Mano de Obra",
+            "desc": "Las tasas de vacantes se han duplicado. Contratar es imposible."
+        },
+        "rent": {
+            "title": "Alquiler Prohibitivo",
+            "desc": "Los costos inmobiliarios devoran el 15-25% de los ingresos."
+        }
+    },
+    "solution": {
+        "title": "Revolucionando la Estructura Laboral",
+        "subtitle": "De Necesitar Personas a Empoderar Personas",
+        "benefit1": {
+            "title": "Calidad Estandarizada",
+            "desc": "Consistencia de maestro chef, cada vez."
+        },
+        "benefit2": {
+            "title": "Operación 24/7",
+            "desc": "Los ingresos nunca duermen. Cero costos de horas extras."
+        },
+        "benefit3": {
+            "title": "Eficiencia Escalable",
+            "desc": "Un operador gestiona múltiples unidades sin esfuerzo."
+        }
+    },
+    "scenarios": {
+        "title": "Escenarios de Aplicación",
+        "subtitle": "Capturando Valor en todo el Ecosistema",
+        "retail": {
+            "title": "Retail y Oficinas",
+            "desc": "Extendiendo la cadena de consumo a donde la gente trabaja."
+        },
+        "university": {
+            "title": "Universidades",
+            "desc": "Comida caliente nocturna para estudiantes hambrientos."
+        },
+        "transport": {
+            "title": "Transporte",
+            "desc": "Comida de alta velocidad para viajes de alta velocidad."
+        },
+        "healthcare": {
+            "title": "Atención Médica",
+            "desc": "Cuidado cálido y nutritivo para turnos nocturnos."
+        }
     },
     "video_gallery": {
-        "title": "Experimenta el Futuro"
+        "title": "Comedor Inteligente en Acción"
     },
     "roi": {
         "title": "Calculadora de retorno de inversión",

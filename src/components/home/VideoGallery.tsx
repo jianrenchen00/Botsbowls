@@ -22,7 +22,7 @@ export function VideoGallery() {
                         <GlassContainer className="h-full p-2 overflow-hidden">
                             <div className="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden">
                                 <iframe
-                                    src="https://www.youtube.com/embed/M2VS7o-G3-0"
+                                    src="https://www.youtube.com/embed/wk8og91YwRw"
                                     title="Bots & Bowls Main Video"
                                     className="absolute top-0 left-0 w-full h-full"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

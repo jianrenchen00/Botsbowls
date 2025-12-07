@@ -1,14 +1,67 @@
 {
   "hero": {
-    "title_line1": "Gourmet Ramen.",
-    "title_line2": "Autonomous Speed.",
-    "subtitle": "Experience the world's first AI-powered robotic kitchen. Fresh, hot bowls served in 48 seconds.",
-    "cta_primary": "Start AI Consultation",
+    "title_line1": "Automating the €600B",
+    "title_line2": "Food Service Industry",
+    "subtitle": "Profit Evaporation is Real. We Bring the Solution.",
+    "cta_primary": "Get Investment Deck",
     "cta_secondary": "Watch How It Works",
-    "badge": "AI-Powered Kitchen"
+    "badge": "Investment Thesis",
+    "email_placeholder": "Enter your email"
+  },
+  "problem": {
+    "title": "The Profit Evaporation Crisis",
+    "subtitle": "Why Traditional Catering is Failing",
+    "cost": {
+      "title": "Exponential Personnel Costs",
+      "desc": "Inflationary wages are eating margins alive."
+    },
+    "shortage": {
+      "title": "Labor Shortage",
+      "desc": "Vacancy rates have doubled. Staffing is impossible."
+    },
+    "rent": {
+      "title": "Prohibitive Rent",
+      "desc": "Real estate costs devour 15-25% of revenue."
+    }
+  },
+  "solution": {
+    "title": "Revolutionizing Labor Structure",
+    "subtitle": "From Needing People to Empowering People",
+    "benefit1": {
+      "title": "Standardized Quality",
+      "desc": "Master-chef consistency, every single time."
+    },
+    "benefit2": {
+      "title": "24/7 Operation",
+      "desc": "Revenue never sleeps. Zero overtime costs."
+    },
+    "benefit3": {
+      "title": "Scalable Efficiency",
+      "desc": "One operator manages multiple units effortlessly."
+    }
+  },
+  "scenarios": {
+    "title": "Application Scenarios",
+    "subtitle": "Capturing Value Across the Ecosystem",
+    "retail": {
+      "title": "Retail & Office",
+      "desc": "Extending the consumption chain to where people work."
+    },
+    "university": {
+      "title": "Universities",
+      "desc": "Late-night hot food for hungry students."
+    },
+    "transport": {
+      "title": "Transportation",
+      "desc": "High-speed dining for high-speed travel."
+    },
+    "healthcare": {
+      "title": "Healthcare",
+      "desc": "Warm, nutritious care for night shifts."
+    }
   },
   "video_gallery": {
-    "title": "Experience the Future"
+    "title": "Smart Dining in Action"
   },
   "roi": {
     "title": "Investment ROI Calculator",

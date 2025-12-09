@@ -164,9 +164,15 @@
     "copyright": "Copyright © 2025 Can Ramen 2024 SL"
   },
   "nav": {
-    "fleet": "Fleet",
-    "profit": "Profit",
+    "fleet": "The Fleet",
+    "profit": "Profitability",
     "trust": "Trust",
-    "contact": "Contact"
+    "contact": "Contact",
+    "showroom": "Showroom"
+  },
+  "showroom": {
+    "title": "Smart AI Noodle Bar",
+    "subtitle": "Experience the future of dining. See our automated kitchen in action.",
+    "gallery_title": "Showroom Gallery"
   }
 }

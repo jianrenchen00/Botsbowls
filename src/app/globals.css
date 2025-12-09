@@ -2,10 +2,14 @@
 
 @theme {
   --color-background: #FFFFFF;
-  --color-foreground: #1F2937;
-  --color-neon-blue: #00F0FF;
-  --color-neon-orange: #FF6B00;
-
+  /* Brand Colors - Updated to match Brand Identity */
+  --neon-orange: #F26B21;
+  /* Official Brand Orange */
+  --neon-blue: #0057B8;
+  /* Deep Corporate Blue */
+  --neon-purple: #7C3AED;
+  --neon-pink: #DB2777;
+  --neon-green: #10B981;
   --font-sans: var(--font-inter);
   --font-mono: var(--font-roboto-mono);
 }
@@ -16,6 +20,7 @@
   looks the same as it did with Tailwind CSS v3.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -26,6 +31,7 @@
 }
 
 @layer utilities {
+
   /* Glassmorphism Utilities (Light Mode) */
   .glass {
     @apply bg-white/60 backdrop-blur-xl border border-black/5 shadow-lg;

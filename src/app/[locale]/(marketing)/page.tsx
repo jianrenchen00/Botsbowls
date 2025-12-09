@@ -27,7 +27,6 @@ export default function MarketingPage() {
       <div id="contact">
         <ContactSection />
       </div>
-      <Footer />
     </main>
   );
 }

@@ -13,9 +13,7 @@ export function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-8">
                     {/* Brand */}
                     <div className="flex flex-col items-center md:items-start">
-                        <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-pink mb-2">
-                            Bots & Bowls
-                        </span>
+                        <img src="/images/logo.jpg" alt="Bots & Bowls" className="h-10 w-auto rounded-full mb-4" />
                         <p className="text-gray-500 text-sm">
                             {t("footer.copyright")}
                         </p>

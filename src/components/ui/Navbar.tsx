@@ -57,8 +57,8 @@ export function Navbar() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${scrolled
-                    ? "bg-white/80 backdrop-blur-xl border-black/5 shadow-sm"
-                    : "bg-transparent border-transparent backdrop-blur-none"
+                ? "bg-white/80 backdrop-blur-xl border-black/5 shadow-sm"
+                : "bg-transparent border-transparent backdrop-blur-none"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,6 +82,9 @@ export function Navbar() {
                         <a href="#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
                             {t("nav.contact")}
                         </a>
+                        <Link href="/showroom" className="px-4 py-2 rounded-full bg-neon-orange text-white text-sm font-bold hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg">
+                            {t("nav.showroom")}
+                        </Link>
                     </div>
                     <div className="flex items-center space-x-4">
                         <div>

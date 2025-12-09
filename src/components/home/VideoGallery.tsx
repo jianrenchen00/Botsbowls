@@ -17,13 +17,13 @@ export function VideoGallery() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    {/* Main Video (16:9) */}
+                    {/* Main Feature Video (16:9) - Spans 2 columns on large screens */}
                     <div className="lg:col-span-2">
                         <GlassContainer className="h-full p-2 overflow-hidden">
                             <div className="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden">
                                 <iframe
                                     src="https://www.youtube.com/embed/wk8og91YwRw"
-                                    title="Bots & Bowls Main Video"
+                                    title="Bots & Bowls Smart Dining"
                                     className="absolute top-0 left-0 w-full h-full"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
@@ -32,10 +32,24 @@ export function VideoGallery() {
                         </GlassContainer>
                     </div>
 
-                    {/* Vertical Video (Shorts) */}
-                    <div className="lg:col-span-1">
-                        <GlassContainer className="h-full p-2 overflow-hidden flex items-center justify-center bg-black/5">
-                            <div className="relative w-full h-0 pb-[177.77%] rounded-xl overflow-hidden max-w-[350px] mx-auto">
+                    {/* Secondary Videos Column */}
+                    <div className="lg:col-span-1 flex flex-col gap-8">
+                        {/* Debut Video */}
+                        <GlassContainer className="p-2 overflow-hidden">
+                            <div className="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden">
+                                <iframe
+                                    src="https://www.youtube.com/embed/M2VS7o-G3-0"
+                                    title="Bots & Bowls Debut"
+                                    className="absolute top-0 left-0 w-full h-full"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                        </GlassContainer>
+
+                        {/* Shorts (Vertical) */}
+                        <GlassContainer className="flex-1 p-2 overflow-hidden flex items-center justify-center bg-black/5">
+                            <div className="relative w-full h-0 pb-[100%] rounded-xl overflow-hidden">
                                 <iframe
                                     src="https://www.youtube.com/embed/d5rl86In5gc"
                                     title="Bots & Bowls Shorts"

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { GlassContainer } from "@/components/ui/GlassContainer";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
@@ -45,24 +44,26 @@ export function ROICalculator() {
         }, [dailySales, ticketPrice]);
 
     return (
-        <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10 bg-gray-50">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-white mb-4 font-sans">
-                        {t('roi.calculate_returns')} <span className="text-neon-blue">{t('roi.potential_returns')}</span>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4 font-sans">
+                        {t('roi.calculate_returns')} <span className="text-neon-orange">{t('roi.potential_returns')}</span>
                     </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-gray-600 max-w-2xl mx-auto">
                         {t('roi.estimate_earnings')}
                     </p>
                 </div>
 
-                <GlassContainer className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-8 lg:p-12">
+                {/* High Contrast Card */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+
                     {/* Inputs Section */}
-                    <div className="space-y-10">
+                    <div className="p-8 lg:p-12 space-y-10">
                         <div>
                             <div className="flex justify-between items-center mb-4">
-                                <label className="text-white font-medium break-words max-w-[70%]">{t('roi.label_daily_sales')}</label>
-                                <span className="text-neon-blue font-mono font-bold text-xl">
+                                <label className="text-gray-900 font-bold text-lg break-words max-w-[70%]">{t('roi.label_daily_sales')}</label>
+                                <span className="text-neon-blue font-mono font-bold text-2xl">
                                     {dailySales}
                                 </span>
                             </div>
@@ -73,7 +74,7 @@ export function ROICalculator() {
                                 step="10"
                                 value={dailySales}
                                 onChange={(e) => setDailySales(Number(e.target.value))}
-                                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-neon-blue"
+                                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-neon-blue"
                             />
                             <div className="flex justify-between text-xs text-gray-500 mt-2 font-mono">
                                 <span>50</span>
@@ -83,8 +84,8 @@ export function ROICalculator() {
 
                         <div>
                             <div className="flex justify-between items-center mb-4">
-                                <label className="text-white font-medium">{t('roi.label_price')}</label>
-                                <span className="text-neon-orange font-mono font-bold text-xl">
+                                <label className="text-gray-900 font-bold text-lg">{t('roi.label_price')}</label>
+                                <span className="text-neon-orange font-mono font-bold text-2xl">
                                     €{ticketPrice}
                                 </span>
                             </div>
@@ -95,7 +96,7 @@ export function ROICalculator() {
                                 step="0.5"
                                 value={ticketPrice}
                                 onChange={(e) => setTicketPrice(Number(e.target.value))}
-                                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-neon-orange"
+                                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-neon-orange"
                             />
                             <div className="flex justify-between text-xs text-gray-500 mt-2 font-mono">
                                 <span>€10</span>
@@ -103,68 +104,67 @@ export function ROICalculator() {
                             </div>
                         </div>
 
-                        <div className="p-4 rounded-lg bg-white/5 border border-white/10 text-sm text-gray-400 space-y-2">
+                        <div className="p-6 rounded-xl bg-gray-50 border border-gray-100 text-sm text-gray-600 space-y-3">
                             <div className="flex justify-between">
                                 <span>{t('roi.gross_margin')}</span>
-                                <span className="text-white font-mono">70%</span>
+                                <span className="text-gray-900 font-bold font-mono">70%</span>
                             </div>
                             <div className="flex justify-between">
                                 <span>{t('roi.fixed_costs')}</span>
-                                <span className="text-white font-mono">€6,500</span>
+                                <span className="text-gray-900 font-bold font-mono">€6,500</span>
                             </div>
                             <div className="flex justify-between">
                                 <span>{t('roi.total_investment')}</span>
-                                <span className="text-white font-mono">€290,000</span>
+                                <span className="text-gray-900 font-bold font-mono">€290,000</span>
                             </div>
                         </div>
                     </div>
 
-                    {/* Results Section */}
-                    <div className="flex flex-col justify-center space-y-8">
+                    {/* Results Section - High Contrast Brand Orange */}
+                    <div className="bg-[#FF6B00] p-8 lg:p-12 flex flex-col justify-center space-y-8 text-white">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div className="p-6 rounded-xl bg-black/20 border border-white/5">
-                                <p className="text-gray-400 text-sm mb-2">{t('roi.monthly_revenue')}</p>
+                            <div className="p-6 rounded-xl bg-white/10 border border-white/20 backdrop-blur-sm">
+                                <p className="text-white/80 text-sm mb-2 font-medium">{t('roi.monthly_revenue')}</p>
                                 <AnimatedNumber
                                     value={monthlyRevenue}
                                     formatter={formatCurrency}
-                                    className="text-2xl font-mono font-bold text-white"
+                                    className="text-3xl font-mono font-bold text-white"
                                 />
                             </div>
-                            <div className="p-6 rounded-xl bg-black/20 border border-white/5">
-                                <p className="text-gray-400 text-sm mb-2">{t('roi.result_monthly_profit')}</p>
+                            <div className="p-6 rounded-xl bg-white/10 border border-white/20 backdrop-blur-sm">
+                                <p className="text-white/80 text-sm mb-2 font-medium">{t('roi.result_monthly_profit')}</p>
                                 <AnimatedNumber
                                     value={monthlyNetProfit}
                                     formatter={formatCurrency}
-                                    className={`text-2xl font-mono font-bold ${monthlyNetProfit >= 0 ? "text-neon-green" : "text-red-500"
-                                        }`}
+                                    className="text-3xl font-mono font-bold text-white"
                                 />
                             </div>
                         </div>
 
-                        <div className="p-8 rounded-xl bg-gradient-to-br from-neon-blue/10 to-neon-purple/10 border border-neon-blue/20">
-                            <p className="text-gray-300 text-sm mb-2">{t('roi.annual_net_profit')}</p>
+                        <div className="p-8 rounded-xl bg-white text-gray-900 shadow-lg">
+                            <p className="text-gray-500 text-sm mb-2 font-bold uppercase tracking-wider">{t('roi.annual_net_profit')}</p>
                             <AnimatedNumber
                                 value={annualNetProfit}
                                 formatter={formatCurrency}
-                                className={`text-4xl sm:text-5xl font-mono font-bold ${annualNetProfit >= 0 ? "text-neon-blue" : "text-red-500"
+                                className={`text-5xl sm:text-6xl font-mono font-bold ${annualNetProfit >= 0 ? "text-neon-blue" : "text-red-500"
                                     }`}
                             />
                         </div>
 
-                        <div className="flex items-center justify-between p-6 rounded-xl bg-neon-orange/10 border border-neon-orange/20">
-                            <p className="text-white font-medium">{t('roi.result_payback')}</p>
+                        <div className="flex items-center justify-between p-6 rounded-xl bg-black/20 border border-white/10">
+                            <p className="text-white font-bold text-lg">{t('roi.result_payback')}</p>
                             <div className="text-right">
                                 {monthlyNetProfit > 0 ? (
-                                    <span className="text-3xl font-mono font-bold text-neon-orange">
-                                        {paybackPeriod.toFixed(1)} <span className="text-base font-sans font-normal text-gray-300">{t('roi.unit_months')}</span>
+                                    <span className="text-4xl font-mono font-bold text-white">
+                                        {paybackPeriod.toFixed(1)} <span className="text-lg font-sans font-normal text-white/70">{t('roi.unit_months')}</span>
                                     </span>
                                 ) : (
-                                    <span className="text-3xl font-mono font-bold text-gray-500">N/A</span>
+                                    <span className="text-3xl font-mono font-bold text-white/50">N/A</span>
                                 )}
                             </div>
                         </div>
                     </div>
-                </GlassContainer>
+                </div>
             </div>
         </section>
     );

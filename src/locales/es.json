@@ -164,9 +164,15 @@
         "copyright": "Copyright © 2025 Can Ramen 2024 SL"
     },
     "nav": {
-        "fleet": "Flota",
-        "profit": "Beneficio",
+        "fleet": "La Flota",
+        "profit": "Rentabilidad",
         "trust": "Confianza",
-        "contact": "Contacto"
+        "contact": "Contacto",
+        "showroom": "Showroom"
+    },
+    "showroom": {
+        "title": "Bar de Fideos AI Inteligente",
+        "subtitle": "Experimenta el futuro de la comida. Ve nuestra cocina automatizada en acción.",
+        "gallery_title": "Galería del Showroom"
     }
 }

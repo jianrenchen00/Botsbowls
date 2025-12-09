@@ -164,9 +164,15 @@
         "copyright": "版權所有 © 2025 Can Ramen 2024 SL"
     },
     "nav": {
-        "fleet": "艦隊",
-        "profit": "利潤",
+        "fleet": "機器人艦隊",
+        "profit": "獲利能力",
         "trust": "信任",
-        "contact": "聯絡"
+        "contact": "聯繫我們",
+        "showroom": "展示廳"
+    },
+    "showroom": {
+        "title": "智慧 AI 麵條吧",
+        "subtitle": "體驗餐飲的未來。觀看我們的自動化廚房運作。",
+        "gallery_title": "展示廳圖庫"
     }
 }

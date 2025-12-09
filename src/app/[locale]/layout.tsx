@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
 };
 
-const i18nNamespaces = ["hero", "roi", "products", "trust", "contact", "footer", "nav"];
+const i18nNamespaces = ["hero", "roi", "products", "trust", "contact", "footer", "nav", "showroom"];
 
 export default async function RootLayout({
   children,

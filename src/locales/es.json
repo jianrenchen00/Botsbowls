@@ -136,23 +136,37 @@
     "contact": {
         "title": "Triaje Inteligente",
         "hq_title": "Sede Global",
-        "address": "Carrer de la Diputació, 246, 08007 Barcelona, España",
+        "address": "Carrer de la Diputació, 246, 08007 Barcelona, Spain",
         "phone": "+34 93 123 45 67",
         "email": "hello@botsandbowls.com",
         "form": {
-            "role_label": "Soy un...",
-            "role_franchisee": "Franquiciado",
-            "role_investor": "Inversor",
-            "role_media": "Medios",
+            "role_label": "Mi rol es...",
+            "role_end_user": "Usuario final (Individual)",
+            "role_business": "Negocio",
+            "role_supply_chain": "Cadena de Suministro",
+            "role_others": "Otros",
             "region_label": "Región",
-            "region_europe": "Europa",
-            "region_asia": "Asia",
-            "region_americas": "Américas",
+            "region_us": "Estados Unidos",
+            "region_uk": "Reino Unido",
+            "region_germany": "Alemania",
+            "region_france": "Francia",
+            "region_japan": "Japón",
+            "region_singapore": "Singapur",
+            "region_canada": "Canadá",
+            "region_australia": "Australia",
             "region_other": "Otro",
             "name_label": "Nombre",
-            "contact_label": "Detalles de Contacto (Email/Teléfono)",
-            "submit": "Iniciar Consulta IA"
+            "email_label": "Correo Electrónico",
+            "submit": "Iniciar consulta"
         }
+    },
+    "nav": {
+        "fleet": "La Flota",
+        "scenarios": "Escenarios",
+        "solution": "La Solución",
+        "profit": "Rentabilidad",
+        "trust": "Confianza",
+        "contact": "Contacto"
     },
     "footer": {
         "products": "Productos",
@@ -163,16 +177,10 @@
         "terms": "Términos de Servicio",
         "copyright": "Copyright © 2025 Can Ramen 2024 SL"
     },
-    "nav": {
-        "fleet": "La Flota",
-        "profit": "Rentabilidad",
-        "trust": "Confianza",
-        "contact": "Contacto",
-        "showroom": "Showroom"
-    },
     "showroom": {
         "title": "Bar de Fideos AI Inteligente",
         "subtitle": "Experimenta el futuro de la comida. Ve nuestra cocina automatizada en acción.",
         "gallery_title": "Galería del Showroom"
     }
 }
+```

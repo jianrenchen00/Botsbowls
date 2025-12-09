@@ -140,35 +140,33 @@
     "phone": "+34 93 123 45 67",
     "email": "hello@botsandbowls.com",
     "form": {
-      "role_label": "I am a...",
-      "role_franchisee": "Franchisee",
-      "role_investor": "Investor",
-      "role_media": "Media",
+      "role_label": "My role is...",
+      "role_end_user": "End user (Individual)",
+      "role_business": "Business",
+      "role_supply_chain": "Supply Chain",
+      "role_others": "Others",
       "region_label": "Region",
-      "region_europe": "Europe",
-      "region_asia": "Asia",
-      "region_americas": "Americas",
+      "region_us": "United States",
+      "region_uk": "United Kingdom",
+      "region_germany": "Germany",
+      "region_france": "France",
+      "region_japan": "Japan",
+      "region_singapore": "Singapore",
+      "region_canada": "Canada",
+      "region_australia": "Australia",
       "region_other": "Other",
       "name_label": "Name",
-      "contact_label": "Contact Details (Email/Phone)",
-      "submit": "Start AI Consultation"
+      "email_label": "Email",
+      "submit": "Start consultation"
     }
-  },
-  "footer": {
-    "products": "Products",
-    "roi": "ROI Calculator",
-    "about": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "copyright": "Copyright © 2025 Can Ramen 2024 SL"
   },
   "nav": {
     "fleet": "The Fleet",
+    "scenarios": "Scenarios",
+    "solution": "The Solution",
     "profit": "Profitability",
     "trust": "Trust",
-    "contact": "Contact",
-    "showroom": "Showroom"
+    "contact": "Contact"
   },
   "showroom": {
     "title": "Smart AI Noodle Bar",

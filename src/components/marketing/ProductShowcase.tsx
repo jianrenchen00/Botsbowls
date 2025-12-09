@@ -36,7 +36,7 @@ export function ProductShowcase() {
         <section id="products" className="py-20 relative z-10 bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-20">
-                    <h2 className="text-3xl sm:text-5xl font-bold text-foreground font-sans mb-4">
+                    <h2 className="text-3xl sm:text-5xl font-bold text-neon-orange font-sans mb-4">
                         {t("products.section_title")}
                     </h2>
                     <div className="h-1 w-20 bg-neon-orange rounded-full mx-auto" />

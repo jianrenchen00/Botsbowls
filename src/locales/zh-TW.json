@@ -136,39 +136,38 @@
     "contact": {
         "title": "智慧分流",
         "hq_title": "全球總部",
-        "address": "Carrer de la Diputació, 246, 08007 巴塞隆納, 西班牙",
+        "address": "Carrer de la Diputació, 246, 08007 Barcelona, Spain",
         "phone": "+34 93 123 45 67",
         "email": "hello@botsandbowls.com",
         "form": {
-            "role_label": "我是...",
-            "role_franchisee": "加盟商",
-            "role_investor": "投資者",
-            "role_media": "媒體",
+            "role_label": "我的角色是...",
+            "role_end_user": "終端用戶 (個人)",
+            "role_business": "企業",
+            "role_supply_chain": "供應鏈",
+            "role_others": "其他",
             "region_label": "地區",
-            "region_europe": "歐洲",
-            "region_asia": "亞洲",
-            "region_americas": "美洲",
+            "region_us": "美國",
+            "region_uk": "英國",
+            "region_germany": "德國",
+            "region_france": "法國",
+            "region_japan": "日本",
+            "region_singapore": "新加坡",
+            "region_canada": "加拿大",
+            "region_australia": "澳洲",
             "region_other": "其他",
             "name_label": "姓名",
-            "contact_label": "聯絡方式 (Email/電話)",
-            "submit": "開始 AI 諮詢"
+            "email_label": "電子郵件",
+            "submit": "開始諮詢"
         }
-    },
-    "footer": {
-        "products": "產品",
-        "roi": "ROI 計算器",
-        "about": "關於我們",
-        "contact": "聯絡我們",
-        "privacy": "隱私政策",
-        "terms": "服務條款",
-        "copyright": "版權所有 © 2025 Can Ramen 2024 SL"
     },
     "nav": {
         "fleet": "機器人艦隊",
+        "scenarios": "應用場景",
+        "solution": "解決方案",
         "profit": "獲利能力",
         "trust": "信任",
-        "contact": "聯繫我們",
-        "showroom": "展示廳"
+        "showroom": "展示廳",
+        "contact": "聯繫我們"
     },
     "showroom": {
         "title": "智慧 AI 麵條吧",

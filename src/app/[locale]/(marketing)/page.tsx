@@ -16,13 +16,20 @@ export default function MarketingPage() {
     <main className="flex min-h-screen flex-col">
       <Hero />
       <ProblemSection />
-      <SolutionSection />
-      <ProductShowcase />
-      <ScenariosSection />
-      <VideoGallery />
-      <TrustSection />
-      <div id="roi">
+      <div id="fleet">
+        <ProductShowcase />
+      </div>
+      <div id="scenarios">
+        <ScenariosSection />
+      </div>
+      <div id="solution">
+        <SolutionSection />
+      </div>
+      <div id="profit">
         <ROICalculator />
+      </div>
+      <div id="trust">
+        <TrustSection />
       </div>
       <div id="contact">
         <ContactSection />

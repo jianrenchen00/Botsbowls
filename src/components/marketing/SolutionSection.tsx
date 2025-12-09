@@ -20,7 +20,7 @@ export function SolutionSection() {
                         <div className="inline-flex items-center rounded-full border border-neon-blue/30 bg-neon-blue/10 px-3 py-1 text-sm font-medium text-neon-blue mb-6">
                             Bots & Bowls Platform
                         </div>
-                        <h2 className="text-4xl sm:text-5xl font-bold mb-6 font-sans leading-tight">
+                        <h2 className="text-4xl sm:text-5xl font-bold mb-6 font-sans leading-tight text-neon-orange">
                             {t("solution.title")}
                         </h2>
                         <p className="text-xl text-gray-400 mb-10">

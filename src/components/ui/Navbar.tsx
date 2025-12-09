@@ -64,27 +64,32 @@ export function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex-shrink-0 flex items-center gap-2">
-                        <img src="/images/logo.jpg" alt="Bots & Bowls Logo" className="h-10 w-auto rounded-full" />
-                        <span className="text-xl font-bold text-foreground hidden sm:block">
+                        <Link href="/">
+                            <img src="/images/logo.jpg" alt="Bots & Bowls Logo" className="h-10 w-auto rounded-full cursor-pointer" />
+                        </Link>
+                        <Link href="/" className="text-xl font-bold text-foreground hidden sm:block">
                             Bots & Bowls
-                        </span>
+                        </Link>
                     </div>
                     <div className="hidden md:flex items-center space-x-8">
-                        <a href="#products" onClick={(e) => handleScrollTo(e, 'products')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
+                        <a href="#fleet" onClick={(e) => handleScrollTo(e, 'fleet')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
                             {t("nav.fleet")}
                         </a>
-                        <a href="#roi" onClick={(e) => handleScrollTo(e, 'roi')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
+                        <a href="#scenarios" onClick={(e) => handleScrollTo(e, 'scenarios')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
+                            {t("nav.scenarios")}
+                        </a>
+                        <a href="#solution" onClick={(e) => handleScrollTo(e, 'solution')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
+                            {t("nav.solution")}
+                        </a>
+                        <a href="#profit" onClick={(e) => handleScrollTo(e, 'profit')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
                             {t("nav.profit")}
                         </a>
                         <a href="#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
                             {t("nav.trust")}
                         </a>
-                        <a href="#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
+                        <a href="#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="px-4 py-2 rounded-full bg-neon-orange text-white text-sm font-bold hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg">
                             {t("nav.contact")}
                         </a>
-                        <Link href="/showroom" className="px-4 py-2 rounded-full bg-neon-orange text-white text-sm font-bold hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg">
-                            {t("nav.showroom")}
-                        </Link>
                     </div>
                     <div className="flex items-center space-x-4">
                         <div>

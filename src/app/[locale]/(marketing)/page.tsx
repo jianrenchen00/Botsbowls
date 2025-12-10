@@ -17,7 +17,7 @@ export default function MarketingPage() {
     <main className="flex min-h-screen flex-col">
       <Hero />
       <ProblemSection />
-      <AIRoboticSolutions />
+      <ProblemSection />
       <div id="fleet">
         <ProductShowcase />
       </div>
@@ -34,6 +34,7 @@ export default function MarketingPage() {
         <TrustSection />
       </div>
       <VideoShowcase />
+      <AIRoboticSolutions />
       <div id="contact">
         <ContactSection />
       </div>

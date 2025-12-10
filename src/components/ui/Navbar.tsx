@@ -68,7 +68,7 @@ export function Navbar() {
                         <Link href="/">
                             <img src="/images/logo.jpg" alt="Bots & Bowls Logo" className="h-10 w-auto rounded-full cursor-pointer" />
                         </Link>
-                        <Link href="/" className="text-xl font-bold text-foreground hidden sm:block">
+                        <Link href="/" className="text-xl font-bold text-[#F26B21] hidden sm:block">
                             Bots & Bowls
                         </Link>
                     </div>

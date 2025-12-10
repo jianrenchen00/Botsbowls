@@ -28,7 +28,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-bg.png"
+          src="/images/noodlemanxbar.png"
           alt="Gourmet Ramen Bowl"
           className="h-full w-full object-cover opacity-80"
         />

@@ -44,6 +44,29 @@
       "desc": "One operator manages multiple units effortlessly."
     }
   },
+  "ai_solutions": {
+    "title": "AI Robotic Solutions: Revolutionizing Catering Labor Structure",
+    "personnel": {
+      "title": "Personnel Costs (Streamlining)",
+      "desc": "Cut personnel costs by <strong>80-90%</strong>. Traditional restaurants need 5-10 staff; we operate unmanned or with just 1 for maintenance. Immune to wage inflation."
+    },
+    "rent": {
+      "title": "Operational Hurdles (Rent)",
+      "desc": "Minimize space needs. Compact equipment eliminates large kitchens, reducing rent by <strong>15-25%</strong>. Perfect for 'store-within-a-store' formats."
+    },
+    "labor": {
+      "title": "Labor Shortage (Empowerment)",
+      "desc": "Shift from 'needing people' to 'empowering people'. We replace manual labor with high-value technical roles in maintenance and data analysis."
+    },
+    "reputation": {
+      "title": "Digital Reputation (Quality)",
+      "desc": "Absolute Consistency. AI ensures every bowl is identical, eliminating negative reviews. 'Watching robots cook' creates natural viral social media traffic."
+    },
+    "safety": {
+      "title": "Strict Safety (Cleanroom)",
+      "desc": "Data-driven hygiene. Sealed cooking processes create a 'cleanroom' environment, minimizing human contact and contamination risks."
+    }
+  },
   "scenarios": {
     "title": "Application Scenarios",
     "subtitle": "Capturing Value Across the Ecosystem",

@@ -75,8 +75,8 @@ export function TrustSection() {
 
                     {/* Card 3: Partner 1 (Dufengxuan) */}
                     <div className="p-8 bg-gray-50 rounded-2xl border border-gray-100">
-                        <div className="flex items-center gap-4 mb-4">
-                            <img src="/images/dufengxuan.png" alt="Dufengxuan" className="h-12 w-auto object-contain" />
+                        <div className="flex items-center gap-4 mb-4 h-20">
+                            <img src="/images/dufengxuan.png" alt="Dufengxuan" className="h-full w-auto object-contain" />
                         </div>
                         <h3 className="text-xl font-bold text-black mb-2">
                             {t("trust.dufengxuan.title")}
@@ -88,8 +88,8 @@ export function TrustSection() {
 
                     {/* Card 4: Partner 2 (Golden Panda) */}
                     <div className="p-8 bg-gray-50 rounded-2xl border border-gray-100">
-                        <div className="flex items-center gap-4 mb-4">
-                            <img src="/images/pandagold.png" alt="PandaGold" className="h-12 w-auto object-contain" />
+                        <div className="flex items-center gap-4 mb-4 h-20">
+                            <img src="/images/pandagold.png" alt="PandaGold" className="h-full w-auto object-contain" />
                         </div>
                         <h3 className="text-xl font-bold text-black mb-2">
                             {t("trust.pandagold.title")}

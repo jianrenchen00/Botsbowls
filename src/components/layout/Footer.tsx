@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { Twitter, Instagram, Linkedin, Disc } from "lucide-react";
+import { Twitter, Instagram, Linkedin, Disc, Youtube } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
@@ -15,7 +15,7 @@ export function Footer() {
                     <div className="flex flex-col items-center md:items-start">
                         <img src="/images/logo.jpg" alt="Bots & Bowls" className="h-10 w-auto rounded-full mb-4" />
                         <p className="text-gray-500 text-sm">
-                            {t("footer.copyright")}
+                            © {new Date().getFullYear()} Kensington Knowledge Crafts Ltd. Copy Right.
                         </p>
                     </div>
 
@@ -34,17 +34,29 @@ export function Footer() {
 
                     {/* Socials */}
                     <div className="flex gap-4">
-                        <a href="#" className="text-gray-500 hover:text-neon-blue transition-colors">
+                        <a
+                            href="https://x.com/botsbowls52063?s=21&t=fLyb2AtOjb8bwrJ6l_0k-g"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-500 hover:text-neon-blue transition-colors"
+                        >
                             <Twitter className="h-5 w-5" />
                         </a>
-                        <a href="#" className="text-gray-500 hover:text-neon-purple transition-colors">
-                            <Disc className="h-5 w-5" />
+                        <a
+                            href="https://www.youtube.com/@BotsandBowls"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-500 hover:text-red-600 transition-colors"
+                        >
+                            <Youtube className="h-5 w-5" />
                         </a>
-                        <a href="#" className="text-gray-500 hover:text-pink-500 transition-colors">
+                        <a
+                            href="https://www.instagram.com/botbowls2025?igsh=ZGV1ajBiaG92d2Y4&utm_source=qr"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-500 hover:text-pink-500 transition-colors"
+                        >
                             <Instagram className="h-5 w-5" />
-                        </a>
-                        <a href="#" className="text-gray-500 hover:text-blue-500 transition-colors">
-                            <Linkedin className="h-5 w-5" />
                         </a>
                     </div>
                 </div>

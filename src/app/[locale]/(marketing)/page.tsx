@@ -2,6 +2,7 @@
 
 import { Hero } from "@/components/marketing/Hero";
 import { ProblemSection } from "@/components/marketing/ProblemSection";
+import { AIRoboticSolutions } from "@/components/marketing/AIRoboticSolutions";
 import { SolutionSection } from "@/components/marketing/SolutionSection";
 import { ProductShowcase } from "@/components/marketing/ProductShowcase";
 import { ScenariosSection } from "@/components/marketing/ScenariosSection";
@@ -15,6 +16,7 @@ export default function MarketingPage() {
     <main className="flex min-h-screen flex-col">
       <Hero />
       <ProblemSection />
+      <AIRoboticSolutions />
       <div id="fleet">
         <ProductShowcase />
       </div>

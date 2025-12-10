@@ -44,6 +44,29 @@
             "desc": "Un operador gestiona múltiples unidades sin esfuerzo."
         }
     },
+    "ai_solutions": {
+        "title": "Soluciones Robóticas de IA: Revolucionando la Estructura Laboral",
+        "personnel": {
+            "title": "Costos de Personal (Optimización)",
+            "desc": "Reduzca los costos de personal en un <strong>80-90%</strong>. Los restaurantes tradicionales necesitan 5-10 empleados; operamos sin personal o con solo 1 para mantenimiento. Inmune a la inflación salarial."
+        },
+        "rent": {
+            "title": "Obstáculos Operativos (Alquiler)",
+            "desc": "Minimice las necesidades de espacio. El equipo compacto elimina las grandes cocinas, reduciendo el alquiler en un <strong>15-25%</strong>. Perfecto para formatos 'tienda dentro de una tienda'."
+        },
+        "labor": {
+            "title": "Escasez de Mano de Obra (Empoderamiento)",
+            "desc": "Cambie de 'necesitar personas' a 'empoderar personas'. Reemplazamos el trabajo manual con roles técnicos de alto valor en mantenimiento y análisis de datos."
+        },
+        "reputation": {
+            "title": "Reputación Digital (Calidad)",
+            "desc": "Consistencia Absoluta. La IA asegura que cada tazón sea idéntico, eliminando reseñas negativas. 'Ver robots cocinar' crea tráfico viral natural en redes sociales."
+        },
+        "safety": {
+            "title": "Seguridad Estricta (Sala Limpia)",
+            "desc": "Higiene impulsada por datos. Los procesos de cocción sellados crean un ambiente de 'sala limpia', minimizando el contacto humano y los riesgos de contaminación."
+        }
+    },
     "scenarios": {
         "title": "Escenarios de Aplicación",
         "subtitle": "Capturando Valor en Todo el Ecosistema",

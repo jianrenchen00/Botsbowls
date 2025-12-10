@@ -75,13 +75,13 @@ export function ContactSection() {
                                         rel="noopener noreferrer"
                                         className="hover:text-neon-orange transition-colors"
                                     >
-                                        {t("contact.address")}
+                                        Calle Provenza 209, 08008, Barcelona, Spain
                                     </a>
                                 </p>
                                 <p className="flex items-center gap-3 group">
                                     <Phone className="h-4 w-4 text-gray-500 group-hover:text-neon-orange transition-colors" />
-                                    <a href="tel:+34931234567" className="hover:text-neon-orange transition-colors">
-                                        {t("contact.phone")}
+                                    <a href="tel:+34930388052" className="hover:text-neon-orange transition-colors">
+                                        +34930388052
                                     </a>
                                 </p>
                                 <p className="flex items-center gap-3 group">

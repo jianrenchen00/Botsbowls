@@ -17,7 +17,7 @@ export default function MarketingPage() {
     <main className="flex min-h-screen flex-col">
       <Hero />
       <ProblemSection />
-      <ProblemSection />
+
       <div id="fleet">
         <ProductShowcase />
       </div>

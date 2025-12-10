@@ -56,7 +56,7 @@ export function SolutionSection() {
                         <img
                             src="/images/Explain no text.png"
                             alt="AI Kitchen Solution"
-                            className="relative z-10 w-full h-auto rounded-2xl border border-white/10 shadow-2xl bg-black/40 backdrop-blur-sm"
+                            className="relative z-10 w-full h-auto rounded-3xl border border-white/10 shadow-2xl bg-black/40 backdrop-blur-sm"
                         />
                     </div>
                 </div>

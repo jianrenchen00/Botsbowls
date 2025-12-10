@@ -64,9 +64,9 @@ export function AIRoboticSolutions() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                            className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                         >
-                            <div className={`inline-flex p-3 rounded-xl ${item.bg} ${item.color} mb-6`}>
+                            <div className={`inline-flex p-3 rounded-2xl ${item.bg} ${item.color} mb-6`}>
                                 <item.icon size={32} />
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-4">

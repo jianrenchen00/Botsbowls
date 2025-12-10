@@ -50,7 +50,7 @@ export function ContactSection() {
     };
 
     return (
-        <section id="contact" className="py-20 relative z-10 bg-background">
+        <section id="contact" className="py-24 relative z-10 bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Left Column: Global HQ Info */}
@@ -164,7 +164,7 @@ export function ContactSection() {
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-[#F26B21] text-white font-bold py-4 rounded-lg hover:bg-orange-700 hover:shadow-lg transition-all transform hover:scale-[1.02]"
+                                    className="w-full bg-[#F26B21] text-white font-bold py-4 rounded-lg hover:bg-orange-700 hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-95"
                                 >
                                     {t("contact.form.submit")}
                                 </button>

@@ -184,6 +184,9 @@
     "trust": "Trust",
     "contact": "Contact"
   },
+  "video_showcase": {
+    "title": "See It In Action / 實機展示"
+  },
   "showroom": {
     "title": "Smart AI Noodle Bar",
     "subtitle": "Experience the future of dining. See our automated kitchen in action.",

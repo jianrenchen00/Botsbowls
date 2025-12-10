@@ -58,7 +58,7 @@ export function Hero() {
               </span>
             </h1>
 
-            <p className="mt-2 text-xl sm:text-2xl text-gray-200 max-w-2xl mb-10 font-medium drop-shadow-md text-left">
+            <p className="mt-2 text-xl sm:text-2xl text-gray-100 max-w-2xl mb-10 font-medium drop-shadow-md text-left">
               {t("hero.subtitle")}
             </p>
 
@@ -69,12 +69,12 @@ export function Hero() {
                 placeholder={t("hero.email_placeholder")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-6 py-4 rounded-full bg-white/10 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-neon-orange backdrop-blur-sm"
+                className="flex-1 px-6 py-4 rounded-full bg-white/10 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-neon-orange backdrop-blur-sm transition-all"
                 required
               />
               <button
                 type="submit"
-                className="px-8 py-4 rounded-full bg-neon-orange text-white font-bold text-lg hover:bg-orange-600 hover:shadow-[0_0_20px_rgba(255,107,0,0.5)] transition-all whitespace-nowrap"
+                className="px-8 py-4 rounded-full bg-neon-orange text-white font-bold text-lg hover:bg-orange-600 hover:shadow-[0_0_20px_rgba(255,107,0,0.5)] hover:scale-105 transition-all whitespace-nowrap"
               >
                 {t("hero.cta_primary")}
               </button>
@@ -82,10 +82,10 @@ export function Hero() {
 
             <button
               onClick={() => handleScrollTo('video-gallery')}
-              className="text-white/70 hover:text-white flex items-center gap-2 transition-colors text-sm font-medium"
+              className="text-white/80 hover:text-white flex items-center gap-2 transition-colors text-sm font-medium group"
             >
-              <span className="border-b border-white/30 pb-0.5">{t("hero.cta_secondary")}</span>
-              →
+              <span className="border-b border-white/30 pb-0.5 group-hover:border-white transition-colors">{t("hero.cta_secondary")}</span>
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
             </button>
           </motion.div>
         </div>

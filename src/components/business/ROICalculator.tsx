@@ -44,7 +44,7 @@ export function ROICalculator() {
         }, [dailySales, ticketPrice]);
 
     return (
-        <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10 bg-gray-50">
+        <section className="py-24 px-4 sm:px-6 lg:px-8 relative z-10 bg-gray-50">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold text-gray-900 mb-4 font-sans">

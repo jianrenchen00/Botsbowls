@@ -5,11 +5,10 @@ import { ProblemSection } from "@/components/marketing/ProblemSection";
 import { SolutionSection } from "@/components/marketing/SolutionSection";
 import { ProductShowcase } from "@/components/marketing/ProductShowcase";
 import { ScenariosSection } from "@/components/marketing/ScenariosSection";
-import { VideoGallery } from "@/components/home/VideoGallery";
 import { TrustSection } from "@/components/marketing/TrustSection";
 import { ROICalculator } from "@/components/business/ROICalculator";
 import { ContactSection } from "@/components/marketing/ContactSection";
-import { Footer } from "@/components/layout/Footer";
+import { VideoShowcase } from "@/components/marketing/VideoShowcase";
 
 export default function MarketingPage() {
   return (
@@ -31,6 +30,7 @@ export default function MarketingPage() {
       <div id="trust">
         <TrustSection />
       </div>
+      <VideoShowcase />
       <div id="contact">
         <ContactSection />
       </div>

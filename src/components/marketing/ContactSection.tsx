@@ -2,7 +2,7 @@
 
 import { GlassContainer } from "@/components/ui/GlassContainer";
 import { useTranslation } from "react-i18next";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { Globe, Phone, Mail } from "lucide-react";
 import { useState } from "react";
 
 export function ContactSection() {
@@ -64,7 +64,7 @@ export function ContactSection() {
 
                         <div className="p-10 bg-white shadow-xl rounded-3xl border border-gray-100 transition-all duration-300 hover:shadow-2xl">
                             <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                                <MapPin className="text-neon-orange" /> {t("contact.hq_title")}
+                                <Globe className="text-neon-orange" /> {t("contact.hq_title")}
                             </h3>
                             <div className="space-y-4 text-gray-600">
                                 <p className="flex items-start gap-3 group">

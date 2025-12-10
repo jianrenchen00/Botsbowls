@@ -59,10 +59,7 @@ export function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${scrolled
-                ? "bg-white/95 backdrop-blur-xl border-black/5 shadow-sm"
-                : "bg-white border-transparent"
-                }`}
+            className="sticky top-0 left-0 right-0 z-50 border-b border-black/5 transition-all duration-300 backdrop-blur-md bg-white/90 shadow-sm"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
@@ -123,11 +120,11 @@ export function Navbar() {
                             <select
                                 onChange={handleChange}
                                 value={currentLocale}
-                                className="bg-white/50 text-gray-800 border border-gray-200 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-neon-orange"
+                                className="bg-white/50 text-gray-800 border border-gray-200 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-neon-orange w-full max-w-[140px]"
                             >
-                                <option value="en">🇬🇧</option>
-                                <option value="zh-TW">🇹🇼</option>
-                                <option value="es">🇪🇸</option>
+                                <option value="en">🇬🇧 English</option>
+                                <option value="zh-TW">🇹🇼 繁體中文</option>
+                                <option value="es">🇪🇸 Español</option>
                             </select>
                         </div>
                         <button

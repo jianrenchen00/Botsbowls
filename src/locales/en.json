@@ -12,16 +12,20 @@
     "title": "The Profit Evaporation Crisis",
     "subtitle": "Why Traditional Catering is Failing",
     "cost": {
-      "title": "Exponential Personnel Costs",
-      "desc": "Inflationary wages are eating margins alive."
-    },
-    "shortage": {
-      "title": "Labor Shortage",
-      "desc": "Vacancy rates have doubled. Staffing is impossible."
+      "title": "Skyrocketing Labor Costs",
+      "desc": "Inflationary wages and heavy social insurance burdens now consume <strong>40-50% of salaries</strong>, crushing margins."
     },
     "rent": {
-      "title": "Prohibitive Rent",
-      "desc": "Real estate costs devour 15-25% of revenue."
+      "title": "The Rent Trap",
+      "desc": "Prime locations in cities like London, Paris, and Munich demand excessive rent, taking <strong>15-25% of total revenue</strong>."
+    },
+    "shortage": {
+      "title": "Critical Talent Gap",
+      "desc": "Post-pandemic vacancy rates have <strong>doubled (to 5-6%)</strong>. In Q2 2025, France faced <strong>500,000+</strong> and Germany <strong>1,000,000+</strong> unfilled positions."
+    },
+    "regulation": {
+      "title": "Compliance & Reputation Costs",
+      "desc": "Rising costs from strict environmental regulations (e.g., plastics ban) combined with the pressure of constant digital innovation."
     }
   },
   "solution": {

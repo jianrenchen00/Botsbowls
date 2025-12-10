@@ -12,16 +12,20 @@
         "title": "La Crisis de Evaporación de Beneficios",
         "subtitle": "Por qué el Catering Tradicional está Fallando",
         "cost": {
-            "title": "Costos de Personal Exponenciales",
-            "desc": "Los salarios inflacionarios están devorando los márgenes."
-        },
-        "shortage": {
-            "title": "Escasez de Mano de Obra",
-            "desc": "Las tasas de vacantes se han duplicado. Contratar es imposible."
+            "title": "Costos Laborales Disparados",
+            "desc": "Los salarios inflacionarios y las pesadas cargas de seguridad social ahora consumen el <strong>40-50% de los salarios</strong>, aplastando los márgenes."
         },
         "rent": {
-            "title": "Alquiler Prohibitivo",
-            "desc": "Los costos inmobiliarios devoran el 15-25% de los ingresos."
+            "title": "La Trampa del Alquiler",
+            "desc": "Las ubicaciones privilegiadas en ciudades como Londres, París y Múnich exigen alquileres excesivos, tomando el <strong>15-25% de los ingresos totales</strong>."
+        },
+        "shortage": {
+            "title": "Brecha Crítica de Talento",
+            "desc": "Las tasas de vacantes pospandemia se han <strong>duplicado (al 5-6%)</strong>. En el Q2 2025, Francia enfrentó <strong>500,000+</strong> y Alemania <strong>1,000,000+</strong> puestos sin cubrir."
+        },
+        "regulation": {
+            "title": "Costos de Cumplimiento y Reputación",
+            "desc": "Costos crecientes por regulaciones ambientales estrictas (ej. prohibición de plásticos) combinados con la presión de la innovación digital constante."
         }
     },
     "solution": {

@@ -1,7 +1,8 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { TrendingDown, Users, Building2 } from "lucide-react";
+import { Trans } from "react-i18next";
+import { TrendingDown, Users, Building2, Scale } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function ProblemSection() {
@@ -14,14 +15,19 @@ export function ProblemSection() {
             color: "text-red-500",
         },
         {
+            key: "rent",
+            icon: Building2,
+            color: "text-blue-500",
+        },
+        {
             key: "shortage",
             icon: Users,
             color: "text-orange-500",
         },
         {
-            key: "rent",
-            icon: Building2,
-            color: "text-blue-500",
+            key: "regulation",
+            icon: Scale,
+            color: "text-purple-500",
         },
     ];
 
@@ -37,7 +43,7 @@ export function ProblemSection() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     {problems.map((item, index) => (
                         <motion.div
                             key={item.key}
@@ -53,8 +59,11 @@ export function ProblemSection() {
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">
                                 {t(`problem.${item.key}.title`)}
                             </h3>
-                            <p className="text-gray-600 leading-relaxed">
-                                {t(`problem.${item.key}.desc`)}
+                            <p className="text-gray-600 leading-relaxed text-lg">
+                                <Trans
+                                    i18nKey={`problem.${item.key}.desc`}
+                                    components={{ strong: <strong className="font-bold text-black" /> }}
+                                />
                             </p>
                         </motion.div>
                     ))}

@@ -92,15 +92,21 @@ export function Navbar() {
                         </a>
                     </div>
                     <div className="flex items-center space-x-4">
+                        <button
+                            onClick={() => alert("Member Portal coming soon. Supports Web3 & Social Login.")}
+                            className="hidden sm:block px-4 py-2 rounded-full border border-gray-200 text-gray-600 text-sm font-medium hover:border-neon-orange hover:text-neon-orange transition-colors"
+                        >
+                            {t("nav.signin")}
+                        </button>
                         <div>
                             <select
                                 onChange={handleChange}
                                 value={currentLocale}
                                 className="bg-white/50 text-gray-800 border border-gray-200 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-neon-orange"
                             >
-                                <option value="en">English</option>
-                                <option value="zh-TW">繁體中文</option>
-                                <option value="es">Español</option>
+                                <option value="en">🇬🇧 English</option>
+                                <option value="zh-TW">🇹🇼 繁體中文</option>
+                                <option value="es">🇪🇸 Español</option>
                             </select>
                         </div>
                     </div>

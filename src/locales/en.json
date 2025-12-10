@@ -65,6 +65,10 @@
     "safety": {
       "title": "Strict Safety (Cleanroom)",
       "desc": "Data-driven hygiene. Sealed cooking processes create a 'cleanroom' environment, minimizing human contact and contamination risks."
+    },
+    "revenue": {
+      "title": "Innovative Revenue Engine",
+      "desc": "Beyond food sales. We integrate digital advertising and tokenized profit-sharing, turning every machine into a multi-stream revenue asset."
     }
   },
   "scenarios": {
@@ -220,7 +224,11 @@
     "solution": "The Solution",
     "profit": "Profitability",
     "trust": "Trust",
-    "contact": "Contact"
+    "contact": "Contact",
+    "signin": "Sign In"
+  },
+  "cta": {
+    "consult": "Consult Now"
   },
   "video_showcase": {
     "title": "See It In Action / 實機展示"
@@ -229,5 +237,32 @@
     "title": "Smart AI Noodle Bar",
     "subtitle": "Experience the future of dining. See our automated kitchen in action.",
     "gallery_title": "Showroom Gallery"
+  },
+  "footer": {
+    "copyright": "© 2025 Kensington Knowledge Crafts Ltd. Copy Right.",
+    "company": {
+      "title": "Company",
+      "about": "About Us",
+      "story": "Our Story",
+      "careers": "Careers"
+    },
+    "product": {
+      "title": "Product",
+      "fleet": "The Fleet",
+      "bar": "Smart Noodle Bar",
+      "showroom": "Showroom"
+    },
+    "resources": {
+      "title": "Resources",
+      "roi": "ROI Calculator",
+      "thesis": "Investment Thesis",
+      "faq": "FAQ"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookie": "Cookie Policy"
+    }
   }
 }

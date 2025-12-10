@@ -65,6 +65,10 @@
         "safety": {
             "title": "嚴格安全（無塵室）",
             "desc": "數據驅動的衛生。密封的烹飪過程創造了「無塵室」環境，最大限度地減少人為接觸和污染風險。"
+        },
+        "revenue": {
+            "title": "創新的營收引擎",
+            "desc": "超越食品銷售。我們整合了數位廣告和代幣化利潤分享，將每台機器轉變為多重收入流資產。"
         }
     },
     "scenarios": {
@@ -221,7 +225,38 @@
         "profit": "獲利能力",
         "trust": "信任",
         "showroom": "展示廳",
-        "contact": "聯繫我們"
+        "contact": "聯繫我們",
+        "signin": "登入"
+    },
+    "cta": {
+        "consult": "立即諮詢"
+    },
+    "footer": {
+        "copyright": "© 2025 Kensington Knowledge Crafts Ltd. Copy Right.",
+        "company": {
+            "title": "公司",
+            "about": "關於我們",
+            "story": "我們的故事",
+            "careers": "職涯發展"
+        },
+        "product": {
+            "title": "產品",
+            "fleet": "產品艦隊",
+            "bar": "智慧麵條吧",
+            "showroom": "展示中心"
+        },
+        "resources": {
+            "title": "資源",
+            "roi": "投資回報計算器",
+            "thesis": "投資論點",
+            "faq": "常見問題"
+        },
+        "legal": {
+            "title": "法律",
+            "privacy": "隱私政策",
+            "terms": "服務條款",
+            "cookie": "Cookie 政策"
+        }
     },
     "showroom": {
         "title": "智慧 AI 麵條吧",

@@ -65,6 +65,10 @@
         "safety": {
             "title": "Seguridad Estricta (Sala Limpia)",
             "desc": "Higiene impulsada por datos. Los procesos de cocción sellados crean un ambiente de 'sala limpia', minimizando el contacto humano y los riesgos de contaminación."
+        },
+        "revenue": {
+            "title": "Motor de Ingresos Innovador",
+            "desc": "Más allá de la venta de alimentos. Integramos publicidad digital y participación en beneficios tokenizada, convirtiendo cada máquina en un activo de múltiples flujos de ingresos."
         }
     },
     "scenarios": {
@@ -220,16 +224,38 @@
         "solution": "La Solución",
         "profit": "Rentabilidad",
         "trust": "Confianza",
-        "contact": "Contacto"
+        "contact": "Contacto",
+        "signin": "Iniciar sesión"
+    },
+    "cta": {
+        "consult": "Consultar Ahora"
     },
     "footer": {
-        "products": "Productos",
-        "roi": "Calculadora ROI",
-        "about": "Sobre Nosotros",
-        "contact": "Contacto",
-        "privacy": "Política de Privacidad",
-        "terms": "Términos de Servicio",
-        "copyright": "Copyright © 2025 Can Ramen 2024 SL"
+        "copyright": "© 2025 Kensington Knowledge Crafts Ltd. Copy Right.",
+        "company": {
+            "title": "Empresa",
+            "about": "Sobre Nosotros",
+            "story": "Nuestra Historia",
+            "careers": "Carreras"
+        },
+        "product": {
+            "title": "Producto",
+            "fleet": "La Flota",
+            "bar": "Barra de Fideos Inteligente",
+            "showroom": "Sala de Exposición"
+        },
+        "resources": {
+            "title": "Recursos",
+            "roi": "Calculadora de ROI",
+            "thesis": "Tesis de Inversión",
+            "faq": "Preguntas Frecuentes"
+        },
+        "legal": {
+            "title": "Legal",
+            "privacy": "Política de Privacidad",
+            "terms": "Términos de Servicio",
+            "cookie": "Política de Cookies"
+        }
     },
     "showroom": {
         "title": "Bar de Fideos AI Inteligente",

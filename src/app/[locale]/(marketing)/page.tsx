@@ -10,6 +10,7 @@ import { TrustSection } from "@/components/marketing/TrustSection";
 import { ROICalculator } from "@/components/business/ROICalculator";
 import { ContactSection } from "@/components/marketing/ContactSection";
 import { VideoShowcase } from "@/components/marketing/VideoShowcase";
+import { FloatingCTA } from "@/components/ui/FloatingCTA";
 
 export default function MarketingPage() {
   return (
@@ -36,6 +37,7 @@ export default function MarketingPage() {
       <div id="contact">
         <ContactSection />
       </div>
+      <FloatingCTA />
     </main>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useTranslation, Trans } from "react-i18next";
 import { motion } from "framer-motion";
-import { Users, Building2, TrendingUp, Star, ShieldCheck } from "lucide-react";
+import { Users, Building2, TrendingUp, Star, ShieldCheck, Coins } from "lucide-react";
 
 export function AIRoboticSolutions() {
     const { t } = useTranslation();
@@ -37,6 +37,12 @@ export function AIRoboticSolutions() {
             icon: ShieldCheck,
             color: "text-red-500",
             bg: "bg-red-50",
+        },
+        {
+            key: "revenue",
+            icon: Coins,
+            color: "text-orange-500",
+            bg: "bg-orange-50",
         },
     ];
 

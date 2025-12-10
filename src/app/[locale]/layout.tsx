@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     images: ["/images/logo.jpg"],
   },
   icons: {
-    icon: "/images/logo.jpg",
+    icon: "/images/logo.jpg", // Using brand logo as favicon
   },
 };
 

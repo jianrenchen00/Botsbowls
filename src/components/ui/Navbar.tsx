@@ -58,6 +58,7 @@ export function Navbar() {
     };
 
     return (
+        /* Navbar updated for sticky positioning */
         <nav
             className="sticky top-0 left-0 right-0 z-50 border-b border-black/5 transition-all duration-300 backdrop-blur-md bg-white/90 shadow-sm"
         >

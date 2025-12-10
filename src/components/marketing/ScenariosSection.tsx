@@ -12,6 +12,7 @@ export function ScenariosSection() {
         { key: "transport", image: "/images/airport.png" },
         { key: "healthcare", image: "/images/hospital.png" },
         { key: "nightlife", image: "/images/bar.png" },
+        { key: "industrial", image: "/images/outside 2.png" },
     ];
 
     return (

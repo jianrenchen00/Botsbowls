@@ -62,6 +62,10 @@
         "nightlife": {
             "title": "Vida Nocturna y Entretenimiento",
             "desc": "Punto de Dolor Resuelto: Los lugares luchan por ofrecer comida caliente debido a las licencias. Prevenimos la pérdida de clientes que se van cuando tienen hambre ofreciendo comidas sustanciales después de beber."
+        },
+        "industrial": {
+            "title": "Parques Industriales y Bases de Manufactura",
+            "desc": "Punto de Dolor Resuelto: Los comedores de fábrica suelen operar en horarios fijos, dejando al personal del turno de noche solo con fideos instantáneos. Proporcionamos comidas calientes nutritivas e inmediatas para garantizar el bienestar de los trabajadores las 24 horas."
         }
     },
     "video_gallery": {
@@ -70,7 +74,7 @@
     "roi": {
         "title": "Calculadora de ROI de Inversión",
         "label_daily_sales": "Ventas Diarias (Tazones)",
-        "label_price": "Precio Promedio (€)",
+        "label_price": "Precio Promedio del Tazón (€)",
         "result_monthly_profit": "Beneficio Neto Mensual",
         "result_payback": "Período de Recuperación",
         "unit_months": "Meses",
@@ -121,25 +125,28 @@
     "trust": {
         "title": "Impulsado por Gigantes",
         "vision": {
-            "title": "Rompiendo el Triángulo de Hierro",
-            "text": "La comida tradicional obliga a elegir entre Velocidad, Calidad y Costo. Nosotros resolvimos los tres."
+            "title": "El Triángulo Imposible: Resuelto",
+            "text": "La comida tradicional obliga a elegir entre Velocidad, Calidad y Costo. Rompimos las reglas: Obtén Velocidad, Calidad y Eficiencia de Costos a la vez."
+        },
+        "patents": {
+            "title": "300+ Patentes Nacionales",
+            "desc": "Tecnología patentada que protege nuestro ecosistema automatizado."
+        },
+        "scale": {
+            "title": "10,000 Nodos",
+            "desc": "Red global proyectada para 2028."
         },
         "dufengxuan": {
             "title": "Dufengxuan (獨鳳軒)",
-            "tag": "Estándar de Sopas",
-            "text": "Tecnología de elaboración analógica que garantiza caldo de calidad de maestro chef a escala."
+            "desc": "Proveedor de base de sopa de primer nivel que garantiza una calidad constante."
         },
         "pandagold": {
-            "title": "PandaGold (金熊貓)",
-            "tag": "Cadena de Suministro Global",
-            "text": "Ingredientes liofilizados premium entregados globalmente con cumplimiento."
+            "title": "Golden Panda (金熊貓)",
+            "desc": "Líder mundial en cadena de suministro de ingredientes estandarizados."
         },
-        "stats": {
-            "label": "Patentes Nacionales",
-            "value": "300+"
-        },
-        "global": {
-            "text": "Sede en Barcelona. Expansión apuntando a 16,000 nodos para 2028."
+        "contact_card": {
+            "title": "Contáctanos",
+            "desc": "Asóciate con nosotros para definir el futuro."
         }
     },
     "contact": {
@@ -192,4 +199,3 @@
         "gallery_title": "Galería del Showroom"
     }
 }
-```

@@ -54,7 +54,7 @@ export function SolutionSection() {
                     <div className="relative">
                         <div className="absolute inset-0 bg-neon-blue/20 blur-3xl rounded-full" />
                         <img
-                            src="/images/soup-robot.png"
+                            src="/images/explain.png"
                             alt="AI Kitchen Solution"
                             className="relative z-10 w-full h-auto rounded-2xl border border-white/10 shadow-2xl bg-black/40 backdrop-blur-sm"
                         />

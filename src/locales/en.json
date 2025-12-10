@@ -62,6 +62,10 @@
     "nightlife": {
       "title": "Nightlife & Entertainment",
       "desc": "Pain Point Solved: Venues struggle to offer hot food due to licensing. We prevent lost customers who leave when hungry by offering substantial post-drinking meals."
+    },
+    "industrial": {
+      "title": "Industrial Parks & Manufacturing Bases",
+      "desc": "Pain Point Solved: Factory canteens typically operate on fixed schedules, leaving night-shift staff with only instant noodles. We provide immediate, nutritious hot meals to ensure worker welfare around the clock."
     }
   },
   "video_gallery": {
@@ -70,7 +74,7 @@
   "roi": {
     "title": "Investment ROI Calculator",
     "label_daily_sales": "Daily Sales (Bowls)",
-    "label_price": "Avg. Ticket Price (€)",
+    "label_price": "Average Price of Bowl (€)",
     "result_monthly_profit": "Monthly Net Profit",
     "result_payback": "Payback Period",
     "unit_months": "Months",
@@ -121,25 +125,28 @@
   "trust": {
     "title": "Powered by Giants",
     "vision": {
-      "title": "Breaking the Iron Triangle",
-      "text": "Traditional dining forces a trade-off between Speed, Quality, and Cost. We solved all three."
+      "title": "The Impossible Triangle: Solved",
+      "text": "Traditional dining forces a trade-off. We shattered the rules: Get Speed, Quality, and Cost Efficiency all at once."
+    },
+    "patents": {
+      "title": "300+ National Patents",
+      "desc": "Proprietary technology protecting our automated ecosystem."
+    },
+    "scale": {
+      "title": "10,000 Nodes",
+      "desc": "Projected global network by 2028."
     },
     "dufengxuan": {
       "title": "Dufengxuan (獨鳳軒)",
-      "tag": "Soup Standard Setter",
-      "text": "Analog brewing technology ensuring master-chef quality broth at scale."
+      "desc": "Top-tier soup base supplier ensuring consistent quality."
     },
     "pandagold": {
-      "title": "PandaGold (金熊貓)",
-      "tag": "Global Supply Chain",
-      "text": "Premium freeze-dried ingredients delivered globally with compliance."
+      "title": "Golden Panda (金熊貓)",
+      "desc": "Global supply chain leader for standardized ingredients."
     },
-    "stats": {
-      "label": "National Patents",
-      "value": "300+"
-    },
-    "global": {
-      "text": "HQ in Barcelona. Expansion targeting 16,000 nodes by 2028."
+    "contact_card": {
+      "title": "Contact Us",
+      "desc": "Partner with us to define the future."
     }
   },
   "contact": {

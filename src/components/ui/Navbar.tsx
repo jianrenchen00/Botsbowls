@@ -57,8 +57,8 @@ export function Navbar() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${scrolled
-                ? "bg-white/80 backdrop-blur-xl border-black/5 shadow-sm"
-                : "bg-transparent border-transparent backdrop-blur-none"
+                ? "bg-white/95 backdrop-blur-xl border-black/5 shadow-sm"
+                : "bg-white border-transparent"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,22 +72,22 @@ export function Navbar() {
                         </Link>
                     </div>
                     <div className="hidden md:flex items-center space-x-8">
-                        <a href="#fleet" onClick={(e) => handleScrollTo(e, 'fleet')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
+                        <a href="#fleet" onClick={(e) => handleScrollTo(e, 'fleet')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.fleet")}
                         </a>
-                        <a href="#scenarios" onClick={(e) => handleScrollTo(e, 'scenarios')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
+                        <a href="#scenarios" onClick={(e) => handleScrollTo(e, 'scenarios')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.scenarios")}
                         </a>
-                        <a href="#solution" onClick={(e) => handleScrollTo(e, 'solution')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
+                        <a href="#solution" onClick={(e) => handleScrollTo(e, 'solution')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.solution")}
                         </a>
-                        <a href="#profit" onClick={(e) => handleScrollTo(e, 'profit')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
+                        <a href="#profit" onClick={(e) => handleScrollTo(e, 'profit')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.profit")}
                         </a>
-                        <a href="#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-gray-600 hover:text-neon-orange transition-colors text-sm font-medium">
+                        <a href="#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.trust")}
                         </a>
-                        <a href="#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="px-4 py-2 rounded-full bg-neon-orange text-white text-sm font-bold hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg">
+                        <a href="#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="px-4 py-2 rounded-full bg-[#F26B21] text-white text-sm font-bold hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg">
                             {t("nav.contact")}
                         </a>
                     </div>

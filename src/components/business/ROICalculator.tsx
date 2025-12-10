@@ -91,16 +91,16 @@ export function ROICalculator() {
                             </div>
                             <input
                                 type="range"
-                                min="10"
-                                max="20"
+                                min="5"
+                                max="15"
                                 step="0.5"
                                 value={ticketPrice}
                                 onChange={(e) => setTicketPrice(Number(e.target.value))}
                                 className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-neon-orange"
                             />
                             <div className="flex justify-between text-xs text-gray-500 mt-2 font-mono">
-                                <span>€10</span>
-                                <span>€20</span>
+                                <span>€5</span>
+                                <span>€15</span>
                             </div>
                         </div>
 

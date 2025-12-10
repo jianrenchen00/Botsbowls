@@ -81,32 +81,37 @@
     },
     "products": {
         "title": "自動化艦隊",
-        "noodle_bar": {
-            "headline": "旗艦產品：48秒奇蹟",
-            "specs": {
-                "footprint": "3.8m² 佔地",
-                "throughput": "60-75 碗/小時",
-                "operation": "24/7 全天候運作"
-            },
-            "description": "從麵粉到饗宴的全自動化流程。專為機場、大學和醫院設計，具備自清潔循環功能。"
+        "smart_dough": {
+            "title": "智能麵條機",
+            "headline": "60秒從麵粉到麵條",
+            "spec1": "可視化衛生",
+            "spec2": "全自動化",
+            "spec3": "模組化設計",
+            "desc": "重新定義主食生產。支持從義大利麵到日式拉麵，一鍵自動揉麵切麵。"
         },
-        "soup_robot": {
-            "headline": "標準化大師工藝",
-            "specs": {
-                "chef": "0 廚師需求",
-                "energy": "節能 29%",
-                "temp": "恆溫控制"
-            },
-            "description": "以一致的 6-8 小時慢燉邏輯，複製大師級廚師的精準度。"
+        "smart_cooked": {
+            "title": "智能煮麵機",
+            "headline": "AI 自適應烹飪中心",
+            "spec1": "14個故障傳感器",
+            "spec2": "自動清洗",
+            "spec3": "液位監控",
+            "desc": "確保穩定性和安全性。具備 AI 溫控防止溢出和自動殺菌循環。"
         },
-        "wok_robot": {
-            "headline": "'鑊氣' 的藝術",
-            "specs": {
-                "recipes": "100+ 食譜",
-                "seasoning": "自動調味",
-                "heating": "感應加熱"
-            },
-            "description": "透過精確的運動控制和自動翻炒，捕捉熱炒的靈魂。"
+        "smart_wok": {
+            "title": "智能電磁炒菜機器人",
+            "headline": "數位化大廚 '鑊氣'",
+            "spec1": "3.5KW 大功率",
+            "spec2": "雙向攪拌",
+            "spec3": "100+ 食譜",
+            "desc": "複製廚師動作。支持手動/自動模式，精確控制火力，每次都能完美爆炒。"
+        },
+        "smart_soup": {
+            "title": "智能湯鍋",
+            "headline": "標準化高湯熬製",
+            "spec1": "恆溫控制",
+            "spec2": "模擬熬煮",
+            "spec3": "節能省電",
+            "desc": "數位精準遇上傳統慢燉。確保大規模生產時高湯風味濃郁一致。"
         }
     },
     "trust": {

@@ -81,32 +81,37 @@
     },
     "products": {
         "title": "La Flota de Autómatas",
-        "noodle_bar": {
-            "headline": "El Buque Insignia: Milagro de 48 Segundos",
-            "specs": {
-                "footprint": "Huella de 3.8m²",
-                "throughput": "60-75 Tazones/Hora",
-                "operation": "Operación 24/7"
-            },
-            "description": "Totalmente automatizado desde la harina hasta el festín. Construido para aeropuertos, universidades y hospitales con ciclos de autolimpieza."
+        "smart_dough": {
+            "title": "Máquina de Masa Inteligente",
+            "headline": "De Harina a Fideos en 60s",
+            "spec1": "Higiene Visible",
+            "spec2": "Totalmente Automatizado",
+            "spec3": "Diseño Modular",
+            "desc": "Redefine la producción de alimentos básicos. Soporta desde pasta italiana hasta ramen japonés con amasado y corte automatizado de un clic."
         },
-        "soup_robot": {
-            "headline": "Artesanía Maestra Estandarizada",
-            "specs": {
-                "chef": "0 Chef Requerido",
-                "energy": "29% Ahorro de Energía",
-                "temp": "Control de Temp. Constante"
-            },
-            "description": "Replica la precisión del maestro chef con una lógica de cocción lenta consistente de 6-8 horas."
+        "smart_cooked": {
+            "title": "Máquina de Fideos Cocidos Inteligente",
+            "headline": "Centro de Cocina Adaptativo AI",
+            "spec1": "14 Sensores de Fallo",
+            "spec2": "Auto-Limpieza",
+            "spec3": "Monitor de Nivel de Líquido",
+            "desc": "Garantiza estabilidad y seguridad. Cuenta con control de temperatura AI para evitar desbordamientos y ciclos de esterilización automatizados."
         },
-        "wok_robot": {
-            "headline": "El Arte del 'Wok Hei'",
-            "specs": {
-                "recipes": "100+ Recetas",
-                "seasoning": "Auto-Condimento",
-                "heating": "Calentamiento por Inducción"
-            },
-            "description": "Captura el alma del salteado con control de movimiento preciso y lanzamiento automatizado."
+        "smart_wok": {
+            "title": "Robot Wok Electromagnético Inteligente",
+            "headline": "El 'Wok Hei' del Chef Maestro Digitalizado",
+            "spec1": "3.5KW Alta Potencia",
+            "spec2": "Agitación Bidireccional",
+            "spec3": "100+ Recetas",
+            "desc": "Replica los movimientos del chef. Soporta modos manual/automático con control preciso del calor para salteados perfectos cada vez."
+        },
+        "smart_soup": {
+            "title": "Olla de Sopa Inteligente",
+            "headline": "Elaboración de Caldo Estandarizada",
+            "spec1": "Temp Constante",
+            "spec2": "Elaboración Analógica",
+            "spec3": "Ahorro de Energía",
+            "desc": "La precisión digital se encuentra con la cocción lenta tradicional. Garantiza un sabor de caldo rico y consistente a escala."
         }
     },
     "trust": {

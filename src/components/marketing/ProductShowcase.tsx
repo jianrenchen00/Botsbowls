@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
 import { GlassContainer } from "@/components/ui/GlassContainer";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -10,91 +9,81 @@ export function ProductShowcase() {
 
     const products = [
         {
-            id: "noodle-bar",
-            titleKey: "products.noodle.title",
-            descKey: "products.noodle.desc",
-            specs: ["48s/bowl", "24/7 Ops", "2.5m² Footprint"],
-            image: "/images/noodle-machine.png",
+            id: "smart_dough",
+            image: "/images/noodle-machine.png", // Placeholder, ideally specific image
         },
         {
-            id: "soup-bot",
-            titleKey: "products.soup.title",
-            descKey: "products.soup.desc",
-            specs: ["±0.5g Precision", "Smart Temp Control", "Auto-Cleaning"],
-            image: "/images/soup-robot.png",
+            id: "smart_cooked",
+            image: "/images/noodle-machine.png", // Placeholder
         },
         {
-            id: "wok-bot",
-            titleKey: "products.wok.title",
-            descKey: "products.wok.desc",
-            specs: ["Induction Heating", "Toss Motion", "300+ Recipes"],
+            id: "smart_wok",
             image: "/images/wok-robot.png",
+        },
+        {
+            id: "smart_soup",
+            image: "/images/soup-robot.png",
         },
     ];
 
     return (
-        <section id="products" className="py-20 relative z-10 bg-background">
+        <section id="fleet" className="py-20 relative z-10 bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-20">
+                <div className="text-center mb-16">
                     <h2 className="text-3xl sm:text-5xl font-bold text-neon-orange font-sans mb-4">
                         {t("products.section_title")}
                     </h2>
                     <div className="h-1 w-20 bg-neon-orange rounded-full mx-auto" />
                 </div>
 
-                <div className="space-y-32">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {products.map((product, index) => (
-                        <div
+                        <motion.div
                             key={product.id}
-                            className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
-                                } items-center gap-12`}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className="flex flex-col h-full"
                         >
-                            {/* Image Side */}
-                            <motion.div
-                                initial={{ opacity: 0, x: index % 2 === 1 ? 50 : -50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.8 }}
-                                className="flex-1 w-full"
-                            >
-                                <div className="relative aspect-square max-w-lg mx-auto">
-                                    <div className="absolute inset-0 bg-neon-orange/10 rounded-full blur-3xl" />
-                                    <GlassContainer className="relative z-10 h-full flex items-center justify-center p-8 bg-white/40 border-black/5">
-                                        <img
-                                            src={product.image}
-                                            alt="Product"
-                                            className="w-full h-full object-contain drop-shadow-2xl"
-                                        />
-                                    </GlassContainer>
-                                </div>
-                            </motion.div>
+                            {/* Image Top */}
+                            <div className="relative aspect-square mb-6 group">
+                                <div className="absolute inset-0 bg-neon-orange/5 rounded-2xl blur-xl group-hover:bg-neon-orange/10 transition-colors" />
+                                <GlassContainer className="relative z-10 h-full flex items-center justify-center p-6 bg-white border-gray-100 hover:border-neon-orange/30 transition-colors">
+                                    <img
+                                        src={product.image}
+                                        alt={t(`products.${product.id}.title`)}
+                                        className="w-full h-full object-contain drop-shadow-lg transform group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                </GlassContainer>
+                            </div>
 
-                            {/* Content Side */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
-                                className="flex-1 text-left"
-                            >
-                                <h3 className="text-3xl font-bold text-foreground mb-6">
-                                    {t(product.titleKey)}
+                            {/* Content Bottom */}
+                            <div className="flex-1 flex flex-col">
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                                    {t(`products.${product.id}.title`)}
                                 </h3>
-                                <div className="flex flex-wrap gap-3 mb-6">
-                                    {product.specs.map((spec, i) => (
+                                <p className="text-sm font-bold text-neon-orange mb-4 uppercase tracking-wider">
+                                    {t(`products.${product.id}.headline`)}
+                                </p>
+                                
+                                {/* Specs Tags */}
+                                <div className="flex flex-wrap gap-2 mb-4">
+                                    {[1, 2, 3].map((num) => (
                                         <span
-                                            key={i}
-                                            className="px-3 py-1 rounded-full bg-neon-orange/10 text-neon-orange text-sm font-mono border border-neon-orange/20"
+                                            key={num}
+                                            className="px-2 py-1 rounded-md bg-gray-100 text-gray-600 text-xs font-medium border border-gray-200"
                                         >
-                                            {spec}
+                                            {t(`products.${product.id}.spec${num}`)}
                                         </span>
                                     ))}
                                 </div>
-                                <p className="text-lg text-gray-600 leading-relaxed break-words hyphens-auto">
-                                    {t(product.descKey)}
+
+                                <p className="text-sm text-gray-600 leading-relaxed">
+                                    {t(`products.${product.id}.desc`)}
                                 </p>
-                            </motion.div>
-                        </div>
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

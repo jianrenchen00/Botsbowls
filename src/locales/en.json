@@ -81,32 +81,37 @@
   },
   "products": {
     "title": "The Automaton Fleet",
-    "noodle_bar": {
-      "headline": "The Flagship: 48-Second Miracle",
-      "specs": {
-        "footprint": "3.8m² Footprint",
-        "throughput": "60-75 Bowls/Hour",
-        "operation": "24/7 Operation"
-      },
-      "description": "Fully automated from flour to feast. Built for airports, universities, and hospitals with self-cleaning cycles."
+    "smart_dough": {
+      "title": "Smart Dough Machine",
+      "headline": "From Flour to Noodle in 60s",
+      "spec1": "Visible Hygiene",
+      "spec2": "Fully Automated",
+      "spec3": "Modular Design",
+      "desc": "Redefines staple food production. Supports Italian pasta to Japanese ramen with one-click automated kneading and cutting."
     },
-    "soup_robot": {
-      "headline": "Standardized Master Craft",
-      "specs": {
-        "chef": "0 Chef Required",
-        "energy": "29% Energy Saving",
-        "temp": "Constant Temp Control"
-      },
-      "description": "Replicates master chef precision with consistent 6-8 hour slow-cooking logic."
+    "smart_cooked": {
+      "title": "Smart Cooked Noodle Machine",
+      "headline": "AI Adaptive Cooking Hub",
+      "spec1": "14 Fault Sensors",
+      "spec2": "Self-Cleaning",
+      "spec3": "Liquid Level Monitor",
+      "desc": "Ensures stability and safety. Features AI temperature control to prevent overflow and automated sterilization cycles."
     },
-    "wok_robot": {
-      "headline": "The Art of 'Wok Hei'",
-      "specs": {
-        "recipes": "100+ Recipes",
-        "seasoning": "Auto-Seasoning",
-        "heating": "Induction Heating"
-      },
-      "description": "Captures the soul of stir-fry with precise motion control and automated tossing."
+    "smart_wok": {
+      "title": "Smart Electromagnetic Wok Robot",
+      "headline": "Master Chef's 'Wok Hei' Digitized",
+      "spec1": "3.5KW High Power",
+      "spec2": "Dual-Direction Stirring",
+      "spec3": "100+ Recipes",
+      "desc": "Replicates chef movements. Supports manual/auto modes with precise heat control for perfect stir-frys every time."
+    },
+    "smart_soup": {
+      "title": "Smart Soup Cooker",
+      "headline": "Standardized Broth Brewing",
+      "spec1": "Constant Temp",
+      "spec2": "Analog Brewing",
+      "spec3": "Energy Saving",
+      "desc": "Digital precision meets traditional slow-cooking. Ensures consistent, rich broth flavor at scale."
     }
   },
   "trust": {

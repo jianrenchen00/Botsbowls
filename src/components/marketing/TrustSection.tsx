@@ -19,13 +19,36 @@ export function TrustSection() {
                 </div>
 
                 {/* Iron Triangle Text */}
-                <div className="max-w-4xl mx-auto text-center mb-20">
-                    <h3 className="text-2xl font-bold text-black mb-4">
+                <div className="max-w-7xl mx-auto mb-20">
+                    <h3 className="text-3xl font-bold text-black text-center mb-12">
                         {t("trust.vision.title")}
                     </h3>
-                    <p className="text-xl text-gray-900 leading-relaxed">
-                        {t("trust.vision.text")}
-                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {/* Speed */}
+                        <div className="flex flex-col items-center text-center">
+                            <div className="relative w-full aspect-video mb-6 rounded-xl overflow-hidden shadow-md">
+                                <img src="/images/triangle-speed.png" alt="Speed" className="object-cover w-full h-full" />
+                            </div>
+                            <h4 className="text-xl font-bold text-black mb-2">{t("trust.vision.speed.title")}</h4>
+                            <p className="text-gray-600">{t("trust.vision.speed.desc")}</p>
+                        </div>
+                        {/* Quality */}
+                        <div className="flex flex-col items-center text-center">
+                            <div className="relative w-full aspect-video mb-6 rounded-xl overflow-hidden shadow-md">
+                                <img src="/images/triangle-quality.png" alt="Quality" className="object-cover w-full h-full" />
+                            </div>
+                            <h4 className="text-xl font-bold text-black mb-2">{t("trust.vision.quality.title")}</h4>
+                            <p className="text-gray-600">{t("trust.vision.quality.desc")}</p>
+                        </div>
+                        {/* Cost */}
+                        <div className="flex flex-col items-center text-center">
+                            <div className="relative w-full aspect-video mb-6 rounded-xl overflow-hidden shadow-md">
+                                <img src="/images/triangle-cost.png" alt="Cost" className="object-cover w-full h-full" />
+                            </div>
+                            <h4 className="text-xl font-bold text-black mb-2">{t("trust.vision.cost.title")}</h4>
+                            <p className="text-gray-600">{t("trust.vision.cost.desc")}</p>
+                        </div>
+                    </div>
                 </div>
 
                 {/* 5-Card Grid */}

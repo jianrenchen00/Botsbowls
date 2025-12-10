@@ -69,7 +69,14 @@ export function ContactSection() {
                             <div className="space-y-4 text-gray-600">
                                 <p className="flex items-start gap-3">
                                     <span className="mt-1 block h-1.5 w-1.5 rounded-full bg-neon-orange" />
-                                    {t("contact.address")}
+                                    <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Carrer+de+la+Diputació,+246,+08007+Barcelona,+Spain"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:text-neon-orange transition-colors"
+                                    >
+                                        {t("contact.address")}
+                                    </a>
                                 </p>
                                 <p className="flex items-center gap-3">
                                     <Phone className="h-4 w-4 text-gray-500" />

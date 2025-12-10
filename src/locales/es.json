@@ -130,7 +130,18 @@
         "title": "Impulsado por Gigantes",
         "vision": {
             "title": "El Triángulo Imposible: Resuelto",
-            "text": "La comida tradicional obliga a elegir entre Velocidad, Calidad y Costo. Rompimos las reglas: Obtén Velocidad, Calidad y Eficiencia de Costos a la vez."
+            "speed": {
+                "title": "48 Segundos vs. 15 Minutos",
+                "desc": "Las cocinas tradicionales son lentas. Nuestros brazos robóticos nunca se cansan, entregando comidas frescas desde la harina hasta el tazón en menos de un minuto. Salida continua 24/7."
+            },
+            "quality": {
+                "title": "Chef Maestro Digital",
+                "desc": "Los chefs humanos varían; los robots no. Impulsados por Dufengxuan y Golden Panda, garantizamos un sabor 100% estandarizado de nivel Michelin en cada tazón."
+            },
+            "cost": {
+                "title": "64% de Margen Bruto",
+                "desc": "Eliminamos los dos costos más grandes: Chefs y Grandes Bienes Raíces. Operación de alto margen con gastos generales mínimos."
+            }
         },
         "patents": {
             "title": "300+ Patentes Nacionales",

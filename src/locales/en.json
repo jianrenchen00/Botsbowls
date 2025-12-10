@@ -130,7 +130,18 @@
     "title": "Powered by Giants",
     "vision": {
       "title": "The Impossible Triangle: Solved",
-      "text": "Traditional dining forces a trade-off. We shattered the rules: Get Speed, Quality, and Cost Efficiency all at once."
+      "speed": {
+        "title": "48 Seconds vs. 15 Minutes",
+        "desc": "Traditional kitchens are slow. Our robotic arms never tire, delivering fresh meals from flour to bowl in under a minute. 24/7 continuous output."
+      },
+      "quality": {
+        "title": "Digital Master Chef",
+        "desc": "Human chefs vary; Robots don't. Powered by Dufengxuan & Golden Panda, we guarantee 100% standardized, Michelin-tier taste in every single bowl."
+      },
+      "cost": {
+        "title": "64% Gross Margin",
+        "desc": "We eliminated the two biggest costs: Chefs and Large Real Estate. High-margin operation with minimal overhead."
+      }
     },
     "patents": {
       "title": "300+ National Patents",

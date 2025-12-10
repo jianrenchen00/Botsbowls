@@ -67,15 +67,24 @@ export function ROICalculator() {
                                     {dailySales}
                                 </span>
                             </div>
-                            <input
-                                type="range"
-                                min="50"
-                                max="500"
-                                step="10"
-                                value={dailySales}
-                                onChange={(e) => setDailySales(Number(e.target.value))}
-                                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-neon-blue"
-                            />
+                            <div className="relative w-full py-4">
+                                <div
+                                    className="absolute bottom-8 px-2 py-1 rounded bg-neon-blue text-white text-xs font-bold shadow-sm transform -translate-x-1/2 pointer-events-none transition-all duration-75"
+                                    style={{ left: `${((dailySales - 50) / (500 - 50)) * 100}%` }}
+                                >
+                                    {dailySales}
+                                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-neon-blue rotate-45"></div>
+                                </div>
+                                <input
+                                    type="range"
+                                    min="50"
+                                    max="500"
+                                    step="10"
+                                    value={dailySales}
+                                    onChange={(e) => setDailySales(Number(e.target.value))}
+                                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-neon-blue relative z-10"
+                                />
+                            </div>
                             <div className="flex justify-between text-xs text-gray-500 mt-2 font-mono">
                                 <span>50</span>
                                 <span>500</span>
@@ -89,15 +98,24 @@ export function ROICalculator() {
                                     €{ticketPrice}
                                 </span>
                             </div>
-                            <input
-                                type="range"
-                                min="5"
-                                max="15"
-                                step="0.5"
-                                value={ticketPrice}
-                                onChange={(e) => setTicketPrice(Number(e.target.value))}
-                                className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-neon-orange"
-                            />
+                            <div className="relative w-full py-4">
+                                <div
+                                    className="absolute bottom-8 px-2 py-1 rounded bg-neon-orange text-white text-xs font-bold shadow-sm transform -translate-x-1/2 pointer-events-none transition-all duration-75"
+                                    style={{ left: `${((ticketPrice - 5) / (15 - 5)) * 100}%` }}
+                                >
+                                    €{ticketPrice}
+                                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-neon-orange rotate-45"></div>
+                                </div>
+                                <input
+                                    type="range"
+                                    min="5"
+                                    max="15"
+                                    step="0.5"
+                                    value={ticketPrice}
+                                    onChange={(e) => setTicketPrice(Number(e.target.value))}
+                                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-neon-orange relative z-10"
+                                />
+                            </div>
                             <div className="flex justify-between text-xs text-gray-500 mt-2 font-mono">
                                 <span>€5</span>
                                 <span>€15</span>

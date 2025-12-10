@@ -69,11 +69,11 @@ export function ROICalculator() {
                             </div>
                             <div className="relative w-full py-4">
                                 <div
-                                    className="absolute bottom-8 px-2 py-1 rounded bg-neon-blue text-white text-xs font-bold shadow-sm transform -translate-x-1/2 pointer-events-none transition-all duration-75"
+                                    className="absolute bottom-8 px-3 py-1.5 rounded-lg bg-[#F26B21] text-white text-sm font-bold shadow-lg transform -translate-x-1/2 pointer-events-none transition-all duration-75 z-50 min-w-[3rem] text-center flex justify-center items-center"
                                     style={{ left: `${((dailySales - 50) / (500 - 50)) * 100}%` }}
                                 >
                                     {dailySales}
-                                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-neon-blue rotate-45"></div>
+                                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-[#F26B21] rotate-45"></div>
                                 </div>
                                 <input
                                     type="range"
@@ -100,11 +100,11 @@ export function ROICalculator() {
                             </div>
                             <div className="relative w-full py-4">
                                 <div
-                                    className="absolute bottom-8 px-2 py-1 rounded bg-neon-orange text-white text-xs font-bold shadow-sm transform -translate-x-1/2 pointer-events-none transition-all duration-75"
+                                    className="absolute bottom-8 px-3 py-1.5 rounded-lg bg-[#F26B21] text-white text-sm font-bold shadow-lg transform -translate-x-1/2 pointer-events-none transition-all duration-75 z-50 min-w-[3rem] text-center flex justify-center items-center"
                                     style={{ left: `${((ticketPrice - 5) / (15 - 5)) * 100}%` }}
                                 >
                                     €{ticketPrice}
-                                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-neon-orange rotate-45"></div>
+                                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-[#F26B21] rotate-45"></div>
                                 </div>
                                 <input
                                     type="range"

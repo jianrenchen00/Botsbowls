@@ -31,7 +31,7 @@ export function ScenariosSection() {
                     {scenarios.map((item) => (
                         <div
                             key={item.key}
-                            className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col"
+                            className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col"
                         >
                             <div className="h-48 w-full overflow-hidden bg-gray-100 relative">
                                 <img

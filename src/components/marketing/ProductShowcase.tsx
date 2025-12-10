@@ -44,12 +44,12 @@ export function ProductShowcase() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="flex flex-col h-full"
+                            className="flex flex-col h-full p-6 rounded-3xl hover:bg-white/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
                         >
                             {/* Image Top */}
                             <div className="relative aspect-square mb-6 group">
-                                <div className="absolute inset-0 bg-neon-orange/5 rounded-2xl blur-xl group-hover:bg-neon-orange/10 transition-colors" />
-                                <GlassContainer className="relative z-10 h-full flex items-center justify-center p-6 bg-white border-gray-100 hover:border-neon-orange/30 transition-colors">
+                                <div className="absolute inset-0 bg-neon-orange/5 rounded-3xl blur-xl group-hover:bg-neon-orange/10 transition-colors" />
+                                <GlassContainer className="relative z-10 h-full flex items-center justify-center p-6 bg-white border-gray-100 hover:border-neon-orange/30 transition-colors rounded-3xl">
                                     <img
                                         src={product.image}
                                         alt={t(`products.${product.id}.title`)}

@@ -46,10 +46,7 @@ export function Hero() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-start max-w-3xl"
           >
-            <div className="inline-flex items-center rounded-full border border-neon-orange/30 bg-neon-orange/10 px-3 py-1 text-sm font-medium text-neon-orange backdrop-blur-md mb-6">
-              <span className="flex h-2 w-2 rounded-full bg-neon-orange mr-2 animate-pulse"></span>
-              {t("hero.badge")}
-            </div>
+
 
             <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-white mb-6 font-sans drop-shadow-lg text-left">
               {t("hero.title_line1")} <br />
@@ -92,15 +89,7 @@ export function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/50"
-      >
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center p-1">
-          <div className="w-1 h-2 bg-white/50 rounded-full" />
-        </div>
-      </motion.div>
+
     </div>
   );
 }

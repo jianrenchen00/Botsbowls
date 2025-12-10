@@ -68,9 +68,7 @@ export function Navbar() {
                         <Link href="/">
                             <img src="/images/logo.jpg" alt="Bots & Bowls Logo" className="h-10 w-auto rounded-full cursor-pointer" />
                         </Link>
-                        <Link href="/" className="text-xl font-bold !text-[#F26B21] hidden sm:block" style={{ color: '#F26B21' }}>
-                            Bots & Bowls
-                        </Link>
+
                     </div>
 
                     {/* Desktop Menu */}
@@ -96,6 +94,12 @@ export function Navbar() {
                     </div>
 
                     <div className="hidden md:flex items-center space-x-4">
+                        <button
+                            onClick={() => alert("Tokenomics Whitepaper coming soon.")}
+                            className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold"
+                        >
+                            {t("nav.tokenomics")}
+                        </button>
                         <button
                             onClick={() => alert("Member Portal coming soon. Supports Web3 & Social Login.")}
                             className="hidden sm:block px-4 py-2 rounded-full border border-gray-200 text-gray-600 text-sm font-medium hover:border-neon-orange hover:text-neon-orange transition-colors"
@@ -156,6 +160,15 @@ export function Navbar() {
                     <a href="#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
                         {t("nav.trust")}
                     </a>
+                    <button
+                        onClick={() => {
+                            alert("Tokenomics Whitepaper coming soon.");
+                            setIsOpen(false);
+                        }}
+                        className="text-left text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50"
+                    >
+                        {t("nav.tokenomics")}
+                    </button>
                     <button
                         onClick={() => {
                             alert("Member Portal coming soon. Supports Web3 & Social Login.");

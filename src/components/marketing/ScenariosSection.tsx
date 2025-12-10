@@ -1,23 +1,24 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { Building, GraduationCap, Plane, HeartPulse } from "lucide-react";
+import { GlassContainer } from "@/components/ui/GlassContainer";
 
 export function ScenariosSection() {
     const { t } = useTranslation();
 
     const scenarios = [
-        { key: "retail", icon: Building },
-        { key: "university", icon: GraduationCap },
-        { key: "transport", icon: Plane },
-        { key: "healthcare", icon: HeartPulse },
+        { key: "retail", image: "/images/supermarket.png" },
+        { key: "university", image: "/images/library.png" },
+        { key: "transport", image: "/images/airport.png" },
+        { key: "healthcare", image: "/images/hospital.png" },
+        { key: "nightlife", image: "/images/bar.png" },
     ];
 
     return (
         <section className="py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold text-neon-orange mb-4 font-sans">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 font-sans">
                         {t("scenarios.title")}
                     </h2>
                     <p className="text-lg text-gray-600">
@@ -25,21 +26,27 @@ export function ScenariosSection() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
                     {scenarios.map((item) => (
                         <div
                             key={item.key}
-                            className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:border-neon-orange/50 transition-colors group"
+                            className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col"
                         >
-                            <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-neon-orange/10 transition-colors">
-                                <item.icon className="text-gray-600 group-hover:text-neon-orange transition-colors" size={24} />
+                            <div className="h-48 w-full overflow-hidden bg-gray-100 relative">
+                                <img
+                                    src={item.image}
+                                    alt={t(`scenarios.${item.key}.title`)}
+                                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                                />
                             </div>
-                            <h3 className="text-lg font-bold text-gray-900 mb-2">
-                                {t(`scenarios.${item.key}.title`)}
-                            </h3>
-                            <p className="text-sm text-gray-500">
-                                {t(`scenarios.${item.key}.desc`)}
-                            </p>
+                            <div className="p-8 flex-1 flex flex-col">
+                                <h3 className="text-xl font-bold text-black mb-4">
+                                    {t(`scenarios.${item.key}.title`)}
+                                </h3>
+                                <p className="text-gray-800 leading-relaxed text-sm flex-1">
+                                    {t(`scenarios.${item.key}.desc`)}
+                                </p>
+                            </div>
                         </div>
                     ))}
                 </div>

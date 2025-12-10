@@ -45,19 +45,23 @@
     "subtitle": "Capturing Value Across the Ecosystem",
     "retail": {
       "title": "Retail & Office",
-      "desc": "Extending the consumption chain to where people work."
+      "desc": "Pain Point Solved: For retail, we address 'dining needs while shopping,' extending customer stay. For offices, we offer a faster, higher-quality alternative to delivery and convenience store bentos."
     },
     "university": {
       "title": "Universities",
-      "desc": "Late-night hot food for hungry students."
+      "desc": "Pain Point Solved: Campus cafeterias close early. We meet the rigid demand for cost-effective, convenient hot food for students in libraries and dorms at night."
     },
     "transport": {
       "title": "Transportation",
-      "desc": "High-speed dining for high-speed travel."
+      "desc": "Pain Point Solved: Filling the dining gap during late nights and flight delays. A 24/7 fast, premium solution for travelers willing to pay for convenience."
     },
     "healthcare": {
-      "title": "Healthcare",
-      "desc": "Warm, nutritious care for night shifts."
+      "title": "Healthcare & Wellness",
+      "desc": "Pain Point Solved: Healthcare workers face irregular shifts. Our equipment provides warm, nutritious comfort for staff and patient families at night."
+    },
+    "nightlife": {
+      "title": "Nightlife & Entertainment",
+      "desc": "Pain Point Solved: Venues struggle to offer hot food due to licensing. We prevent lost customers who leave when hungry by offering substantial post-drinking meals."
     }
   },
   "video_gallery": {
@@ -80,9 +84,9 @@
     "annual_net_profit": "Annual Net Profit"
   },
   "products": {
-    "title": "The Automaton Fleet",
+    "section_title": "The Product Fleet",
     "smart_dough": {
-      "title": "Smart Dough Machine",
+      "title": "Smart Noodle Bar",
       "headline": "From Flour to Noodle in 60s",
       "spec1": "Visible Hygiene",
       "spec2": "Fully Automated",

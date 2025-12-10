@@ -45,19 +45,23 @@
         "subtitle": "捕捉生態系統中的價值",
         "retail": {
             "title": "零售與辦公",
-            "desc": "將消費鏈延伸至人們工作的地方。"
+            "desc": "解決痛點：對於零售，我們解決'購物時的餐飲需求'，延長顧客停留時間。對於辦公室，我們提供比外送和便利商店便當更快、更高品質的替代方案。"
         },
         "university": {
             "title": "大學校園",
-            "desc": "為飢餓的學生提供深夜熱食。"
+            "desc": "解決痛點：校園食堂關門早。我們滿足學生在圖書館和宿舍夜間對高性價比、便捷熱食的剛性需求。"
         },
         "transport": {
             "title": "交通樞紐",
-            "desc": "為高速旅行提供高速餐飲。"
+            "desc": "解決痛點：填補深夜和航班延誤期間的餐飲空白。為願意為便利付費的旅客提供 24/7 快速、優質的解決方案。"
         },
         "healthcare": {
-            "title": "醫療保健",
-            "desc": "為夜班人員提供溫暖營養的關懷。"
+            "title": "醫療與健康",
+            "desc": "解決痛點：醫護人員面臨不規律的輪班。我們的設備為夜間工作人員和病患家屬提供溫暖、營養的慰藉。"
+        },
+        "nightlife": {
+            "title": "夜生活與娛樂",
+            "desc": "解決痛點：場所因許可證問題難以提供熱食。我們透過提供豐盛的酒後餐點，防止飢餓的顧客流失。"
         }
     },
     "video_gallery": {
@@ -65,7 +69,7 @@
     },
     "roi": {
         "title": "投資回報率計算器",
-        "label_daily_sales": "每日銷量 (碗)",
+        "label_daily_sales": "日銷售量 (碗)",
         "label_price": "平均客單價 (€)",
         "result_monthly_profit": "月淨利潤",
         "result_payback": "回本週期",
@@ -74,15 +78,15 @@
         "potential_returns": "潛在回報",
         "estimate_earnings": "根據我們巴塞隆納試點數據估算您的收益。",
         "gross_margin": "毛利率",
-        "fixed_costs": "每月固定成本",
-        "total_investment": "總投資額",
+        "fixed_costs": "固定月成本",
+        "total_investment": "總投資",
         "monthly_revenue": "月營收",
         "annual_net_profit": "年淨利潤"
     },
     "products": {
-        "title": "自動化艦隊",
+        "section_title": "產品艦隊",
         "smart_dough": {
-            "title": "智能麵條機",
+            "title": "智能麵館",
             "headline": "60秒從麵粉到麵條",
             "spec1": "可視化衛生",
             "spec2": "全自動化",

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: "See how our AI robots prepare fresh meals in 48 seconds. Scalable, High-Margin, Automated.",
     images: [
       {
-        url: "/og-image.jpg", // Placeholder, ensure file exists or is handled
+        url: "/images/AI Beef Noodle Bar.png",
         width: 1200,
         height: 630,
         alt: "Bots & Bowls AI Kitchen",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Bots & Bowls | AI-Powered Robotic Kitchen Ecosystem",
     description: "Revolutionizing the €600B Food Service Industry. 48 seconds from flour to feast.",
-    images: ["/og-image.jpg"],
+    images: ["/images/AI Beef Noodle Bar.png"],
   },
 };
 

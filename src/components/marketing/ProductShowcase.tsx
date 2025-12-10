@@ -10,7 +10,7 @@ export function ProductShowcase() {
     const products = [
         {
             id: "smart_dough",
-            image: "/images/noodle-machine.png", // Placeholder, ideally specific image
+            image: "/images/AI Beef Noodle Bar.png",
         },
         {
             id: "smart_cooked",
@@ -18,7 +18,7 @@ export function ProductShowcase() {
         },
         {
             id: "smart_wok",
-            image: "/images/wok-robot.png",
+            image: "/images/Smart Electromagnetic Wok Robot.png",
         },
         {
             id: "smart_soup",
@@ -30,7 +30,7 @@ export function ProductShowcase() {
         <section id="fleet" className="py-20 relative z-10 bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-5xl font-bold text-neon-orange font-sans mb-4">
+                    <h2 className="text-3xl sm:text-5xl font-bold text-black font-sans mb-4">
                         {t("products.section_title")}
                     </h2>
                     <div className="h-1 w-20 bg-neon-orange rounded-full mx-auto" />
@@ -66,7 +66,7 @@ export function ProductShowcase() {
                                 <p className="text-sm font-bold text-neon-orange mb-4 uppercase tracking-wider">
                                     {t(`products.${product.id}.headline`)}
                                 </p>
-                                
+
                                 {/* Specs Tags */}
                                 <div className="flex flex-wrap gap-2 mb-4">
                                     {[1, 2, 3].map((num) => (

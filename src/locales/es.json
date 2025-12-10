@@ -42,37 +42,41 @@
     },
     "scenarios": {
         "title": "Escenarios de Aplicación",
-        "subtitle": "Capturando Valor en todo el Ecosistema",
+        "subtitle": "Capturando Valor en Todo el Ecosistema",
         "retail": {
-            "title": "Retail y Oficinas",
-            "desc": "Extendiendo la cadena de consumo a donde la gente trabaja."
+            "title": "Comercio y Oficina",
+            "desc": "Punto de Dolor Resuelto: Para el comercio, abordamos las 'necesidades gastronómicas mientras se compra', extendiendo la estancia del cliente. Para oficinas, ofrecemos una alternativa más rápida y de mayor calidad al delivery y bentos de tiendas de conveniencia."
         },
         "university": {
             "title": "Universidades",
-            "desc": "Comida caliente nocturna para estudiantes hambrientos."
+            "desc": "Punto de Dolor Resuelto: Las cafeterías del campus cierran temprano. Satisfacemos la demanda rígida de comida caliente, rentable y conveniente para estudiantes en bibliotecas y dormitorios por la noche."
         },
         "transport": {
             "title": "Transporte",
-            "desc": "Comida de alta velocidad para viajes de alta velocidad."
+            "desc": "Punto de Dolor Resuelto: Llenando el vacío gastronómico durante las noches y retrasos de vuelos. Una solución 24/7 rápida y premium para viajeros dispuestos a pagar por conveniencia."
         },
         "healthcare": {
-            "title": "Atención Médica",
-            "desc": "Cuidado cálido y nutritivo para turnos nocturnos."
+            "title": "Salud y Bienestar",
+            "desc": "Punto de Dolor Resuelto: Los trabajadores de la salud enfrentan turnos irregulares. Nuestro equipo brinda confort cálido y nutritivo para el personal y las familias de los pacientes por la noche."
+        },
+        "nightlife": {
+            "title": "Vida Nocturna y Entretenimiento",
+            "desc": "Punto de Dolor Resuelto: Los lugares luchan por ofrecer comida caliente debido a las licencias. Prevenimos la pérdida de clientes que se van cuando tienen hambre ofreciendo comidas sustanciales después de beber."
         }
     },
     "video_gallery": {
         "title": "Comedor Inteligente en Acción"
     },
     "roi": {
-        "title": "Calculadora de retorno de inversión",
-        "label_daily_sales": "Ventas diarias (Tazones)",
-        "label_price": "Precio medio (€)",
-        "result_monthly_profit": "Beneficio neto mensual",
-        "result_payback": "Periodo de recuperación",
+        "title": "Calculadora de ROI de Inversión",
+        "label_daily_sales": "Ventas Diarias (Tazones)",
+        "label_price": "Precio Promedio (€)",
+        "result_monthly_profit": "Beneficio Neto Mensual",
+        "result_payback": "Período de Recuperación",
         "unit_months": "Meses",
-        "calculate_returns": "Calcule sus",
+        "calculate_returns": "Calcula Tus",
         "potential_returns": "Retornos Potenciales",
-        "estimate_earnings": "Estime sus ganancias basándose en los datos de nuestro piloto en Barcelona.",
+        "estimate_earnings": "Estima tus ganancias basado en nuestros datos piloto de Barcelona.",
         "gross_margin": "Margen Bruto",
         "fixed_costs": "Costos Fijos Mensuales",
         "total_investment": "Inversión Total",
@@ -80,9 +84,9 @@
         "annual_net_profit": "Beneficio Neto Anual"
     },
     "products": {
-        "title": "La Flota de Autómatas",
+        "section_title": "La Flota de Productos",
         "smart_dough": {
-            "title": "Máquina de Masa Inteligente",
+            "title": "Bar de Fideos Inteligente",
             "headline": "De Harina a Fideos en 60s",
             "spec1": "Higiene Visible",
             "spec2": "Totalmente Automatizado",

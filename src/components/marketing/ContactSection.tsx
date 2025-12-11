@@ -75,7 +75,7 @@ export function ContactSection() {
                                         href="https://www.google.com/maps/place/Future+Noodles/@41.392277,2.155469,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a30051540ec7:0xf3b574c87ee40cbb!8m2!3d41.392273!4d2.1580439!16s%2Fg%2F11w2gr6ch2?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwNy4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="hover:text-[#F26B21] transition-colors"
+                                        className="hover:text-[#F26B21] transition-colors underline underline-offset-4 decoration-orange-500/50"
                                     >
                                         Calle Provenza 209, 08008, Barcelona, Spain
                                     </a>

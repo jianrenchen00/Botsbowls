@@ -51,13 +51,13 @@ export function ProductShowcase() {
                             {/* Image Top */}
                             <div className="relative aspect-square mb-6 group">
                                 <div className="absolute inset-0 bg-neon-orange/5 rounded-3xl blur-xl group-hover:bg-neon-orange/10 transition-colors" />
-                                <GlassContainer className="relative z-10 h-full flex items-center justify-center p-6 bg-white border-gray-100 hover:border-neon-orange/30 transition-colors rounded-3xl">
+                                <div className="relative z-10 h-full flex items-center justify-center rounded-3xl overflow-hidden">
                                     <img
                                         src={product.image}
                                         alt={t(`products.${product.id}.title`)}
                                         className="w-full h-full object-contain drop-shadow-lg transform group-hover:scale-105 transition-transform duration-500"
                                     />
-                                </GlassContainer>
+                                </div>
                             </div>
 
                             {/* Content Bottom */}
@@ -81,7 +81,7 @@ export function ProductShowcase() {
                                     ))}
                                 </div>
 
-                                <p className="text-sm text-gray-600 leading-relaxed">
+                                <p className="text-sm text-gray-600 leading-relaxed flex-grow">
                                     {t(`products.${product.id}.desc`)}
                                 </p>
                             </div>

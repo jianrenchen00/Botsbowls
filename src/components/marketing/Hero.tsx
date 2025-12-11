@@ -71,7 +71,7 @@ export function Hero() {
               />
               <button
                 type="submit"
-                className="px-8 py-4 rounded-full bg-neon-orange text-white font-bold text-lg hover:bg-orange-600 hover:shadow-[0_0_20px_rgba(255,107,0,0.5)] hover:scale-105 transition-all whitespace-nowrap"
+                className="px-8 py-4 rounded-full bg-[#F26B21] text-white font-bold text-lg hover:bg-[#d95305] hover:scale-105 transition-all whitespace-nowrap"
               >
                 {t("hero.cta_primary")}
               </button>

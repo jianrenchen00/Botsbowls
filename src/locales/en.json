@@ -120,6 +120,7 @@
   },
   "products": {
     "section_title": "The Product Fleet",
+    "subtitle": "Scalable, automated kitchens designed for every scenario.",
     "smart_dough": {
       "title": "Smart Noodle Bar",
       "headline": "From Flour to Noodle in 60s",
@@ -192,7 +193,7 @@
     }
   },
   "contact": {
-    "title": "Smart Triage",
+    "title": "Contact Us",
     "hq_title": "Global HQ",
     "address": "Carrer de la Diputació, 246, 08007 Barcelona, Spain",
     "phone": "+34 93 123 45 67",
@@ -232,7 +233,8 @@
     "consult": "Consult Now"
   },
   "video_showcase": {
-    "title": "See It In Action / 實機展示"
+    "title": "See It In Action",
+    "subtitle": "Witness the 48-second culinary revolution."
   },
   "showroom": {
     "title": "Smart AI Noodle Bar",

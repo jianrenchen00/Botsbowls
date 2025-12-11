@@ -47,7 +47,7 @@ export function ROICalculator() {
         <section className="py-24 px-4 sm:px-6 lg:px-8 relative z-10 bg-gray-50">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4 font-sans">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-sans">
                         {t('roi.calculate_returns')} <span className="text-neon-orange">{t('roi.potential_returns')}</span>
                     </h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">

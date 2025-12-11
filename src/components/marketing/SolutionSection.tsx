@@ -17,13 +17,10 @@ export function SolutionSection() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <div className="inline-flex items-center rounded-full border border-neon-blue/30 bg-neon-blue/10 px-3 py-1 text-sm font-medium text-neon-blue mb-6">
-                            Bots & Bowls Platform
-                        </div>
-                        <h2 className="text-4xl sm:text-5xl font-bold mb-6 font-sans leading-tight text-neon-orange">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans leading-tight text-neon-orange">
                             {t("solution.title")}
                         </h2>
-                        <p className="text-xl text-gray-400 mb-10">
+                        <p className="text-lg text-gray-400 mb-10">
                             {t("solution.subtitle")}
                         </p>
 

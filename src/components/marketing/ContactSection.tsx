@@ -56,48 +56,60 @@ export function ContactSection() {
                     {/* Left Column: Global HQ Info */}
                     <div className="flex flex-col justify-center space-y-8">
                         <div>
-                            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 font-sans mb-2">
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-sans mb-2">
                                 {t("contact.title")}
                             </h2>
-                            <div className="h-1 w-20 bg-neon-orange rounded-full" />
+                            <div className="h-1 w-20 bg-[#F26B21] rounded-full" />
                         </div>
 
                         <div className="p-10 bg-white shadow-xl rounded-3xl border border-gray-100 transition-all duration-300 hover:shadow-2xl">
                             <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                                <Globe className="text-neon-orange" /> {t("contact.hq_title")}
+                                <Globe className="text-[#F26B21]" /> {t("contact.hq_title")}
                             </h3>
-                            <div className="space-y-4 text-gray-600">
-                                <p className="flex items-start gap-3 group">
-                                    <span className="mt-1 block h-1.5 w-1.5 rounded-full bg-neon-orange group-hover:scale-125 transition-transform" />
+                            <div className="grid gap-4 text-gray-600">
+                                <div className="grid grid-cols-[24px_1fr] gap-4 items-center group">
+                                    <div className="mt-1 flex justify-center">
+                                        <span className="block h-1.5 w-1.5 rounded-full bg-[#F26B21] group-hover:scale-125 transition-transform" />
+                                    </div>
                                     <a
                                         href="https://www.google.com/maps/place/Future+Noodles/@41.392277,2.155469,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a30051540ec7:0xf3b574c87ee40cbb!8m2!3d41.392273!4d2.1580439!16s%2Fg%2F11w2gr6ch2?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwNy4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="hover:text-neon-orange transition-colors"
+                                        className="hover:text-[#F26B21] transition-colors"
                                     >
                                         Calle Provenza 209, 08008, Barcelona, Spain
                                     </a>
-                                </p>
-                                <p className="flex items-center gap-3 group">
-                                    <Phone className="h-4 w-4 text-gray-500 group-hover:text-neon-orange transition-colors" />
-                                    <a href="tel:+34930388052" className="hover:text-neon-orange transition-colors">
+                                </div>
+                                <div className="grid grid-cols-[24px_1fr] gap-4 items-center group">
+                                    <div className="flex justify-center">
+                                        <Phone className="h-5 w-5 text-[#F26B21]" />
+                                    </div>
+                                    <a href="tel:+34930388052" className="hover:text-[#F26B21] transition-colors">
                                         +34930388052
                                     </a>
-                                </p>
-                                <p className="flex items-center gap-3 group">
-                                    <Mail className="h-4 w-4 text-gray-500 group-hover:text-neon-orange transition-colors" />
-                                    <a href="mailto:hello@botsandbowls.com" className="hover:text-neon-orange transition-colors">
+                                </div>
+                                <div className="grid grid-cols-[24px_1fr] gap-4 items-center group">
+                                    <div className="flex justify-center">
+                                        <Mail className="h-5 w-5 text-[#F26B21]" />
+                                    </div>
+                                    <a href="mailto:hello@botsandbowls.com" className="hover:text-[#F26B21] transition-colors">
                                         {t("contact.email")}
                                     </a>
-                                </p>
+                                </div>
                             </div>
 
                             {/* Placeholder Map Graphic */}
-                            <div className="mt-8 h-40 w-full rounded-2xl bg-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden relative group">
+                            {/* Linked Map Graphic */}
+                            <a
+                                href="https://www.google.com/maps/place/Future+Noodles/@41.392277,2.155469,17z/data=!3m1!4b1!4m6!3m5!1s0x12a4a30051540ec7:0xf3b574c87ee40cbb!8m2!3d41.392273!4d2.1580439!16s%2Fg%2F11w2gr6ch2?authuser=0&entry=ttu&g_ep=EgoyMDI1MTIwNy4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-8 h-40 w-full rounded-2xl bg-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden relative group cursor-pointer block hover:opacity-90 transition-opacity"
+                            >
                                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1748&auto=format&fit=crop')] bg-cover bg-center opacity-50 grayscale group-hover:grayscale-0 transition-all duration-500" />
-                                <div className="relative z-10 h-3 w-3 bg-neon-orange rounded-full animate-ping" />
-                                <div className="absolute z-10 h-3 w-3 bg-neon-orange rounded-full" />
-                            </div>
+                                <div className="relative z-10 h-3 w-3 bg-[#F26B21] rounded-full animate-ping" />
+                                <div className="absolute z-10 h-3 w-3 bg-[#F26B21] rounded-full" />
+                            </a>
                         </div>
                     </div>
 

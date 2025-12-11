@@ -99,8 +99,9 @@
             "desc": "Punto de Dolor Resuelto: Los comedores de fábrica suelen operar en horarios fijos, dejando al personal del turno de noche solo con fideos instantáneos. Proporcionamos comidas calientes nutritivas e inmediatas para garantizar el bienestar de los trabajadores las 24 horas."
         }
     },
-    "video_gallery": {
-        "title": "Comedor Inteligente en Acción"
+    "video_showcase": {
+        "title": "See It In Action",
+        "subtitle": "Witness the 48-second culinary revolution."
     },
     "roi": {
         "title": "Calculadora de ROI de Inversión",
@@ -119,7 +120,8 @@
         "annual_net_profit": "Beneficio Neto Anual"
     },
     "products": {
-        "section_title": "La Flota de Productos",
+        "section_title": "The Product Fleet",
+        "subtitle": "Scalable, automated kitchens designed for every scenario.",
         "smart_dough": {
             "title": "Bar de Fideos Inteligente",
             "headline": "De Harina a Fideos en 60s",
@@ -192,7 +194,7 @@
         }
     },
     "contact": {
-        "title": "Triaje Inteligente",
+        "title": "Contact Us",
         "hq_title": "Sede Global",
         "address": "Carrer de la Diputació, 246, 08007 Barcelona, Spain",
         "phone": "+34 93 123 45 67",

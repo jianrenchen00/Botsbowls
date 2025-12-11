@@ -9,10 +9,12 @@ export function VideoShowcase() {
         <section id="video-gallery" className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-black font-sans mb-4">
-                        {t("video_showcase.title", "See It In Action / 實機展示")}
+                    <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+                        {t("video_showcase.title")}
                     </h2>
-                    <div className="h-1 w-20 bg-neon-orange mx-auto rounded-full" />
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        {t("video_showcase.subtitle")}
+                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

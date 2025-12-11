@@ -30,10 +30,12 @@ export function ProductShowcase() {
         <section id="fleet" className="py-24 relative z-10 bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-5xl font-bold text-black font-sans mb-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
                         {t("products.section_title")}
                     </h2>
-                    <div className="h-1 w-20 bg-neon-orange rounded-full mx-auto" />
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        {t("products.subtitle")}
+                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

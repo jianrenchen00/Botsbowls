@@ -99,8 +99,9 @@
             "desc": "解決痛點：工廠食堂通常按固定時間運作，夜班員工只能吃泡麵。我們提供即時、營養的熱食，確保全天候的員工福利。"
         }
     },
-    "video_gallery": {
-        "title": "智慧餐飲實戰"
+    "video_showcase": {
+        "title": "See It In Action",
+        "subtitle": "Witness the 48-second culinary revolution."
     },
     "roi": {
         "title": "投資回報率計算器",
@@ -119,7 +120,8 @@
         "annual_net_profit": "年淨利潤"
     },
     "products": {
-        "section_title": "產品艦隊",
+        "section_title": "The Product Fleet",
+        "subtitle": "Scalable, automated kitchens designed for every scenario.",
         "smart_dough": {
             "title": "智能麵館",
             "headline": "60秒從麵粉到麵條",
@@ -192,7 +194,7 @@
         }
     },
     "contact": {
-        "title": "智慧分流",
+        "title": "Contact Us",
         "hq_title": "全球總部",
         "address": "Carrer de la Diputació, 246, 08007 Barcelona, Spain",
         "phone": "+34 93 123 45 67",

@@ -12,7 +12,7 @@ export function TrustSection() {
         <section id="trust" className="py-24 relative z-10 bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-5xl font-bold text-black font-sans mb-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
                         {t("trust.title")}
                     </h2>
                     <div className="h-1 w-20 bg-black mx-auto rounded-full" />

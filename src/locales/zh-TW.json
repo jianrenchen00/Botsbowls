@@ -100,8 +100,8 @@
         }
     },
     "video_showcase": {
-        "title": "See It In Action",
-        "subtitle": "Witness the 48-second culinary revolution."
+        "title": "實機展示",
+        "subtitle": "親眼見證 48 秒的烹飪革命。"
     },
     "roi": {
         "title": "投資回報率計算器",
@@ -120,8 +120,8 @@
         "annual_net_profit": "年淨利潤"
     },
     "products": {
-        "section_title": "The Product Fleet",
-        "subtitle": "Scalable, automated kitchens designed for every scenario.",
+        "section_title": "產品艦隊",
+        "subtitle": "專為各種場景打造的可擴展自動化廚房。",
         "smart_dough": {
             "title": "智能麵館",
             "headline": "60秒從麵粉到麵條",

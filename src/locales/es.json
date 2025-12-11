@@ -100,8 +100,8 @@
         }
     },
     "video_showcase": {
-        "title": "See It In Action",
-        "subtitle": "Witness the 48-second culinary revolution."
+        "title": "Véalo en Acción",
+        "subtitle": "Sea testigo de la revolución culinaria de 48 segundos."
     },
     "roi": {
         "title": "Calculadora de ROI de Inversión",
@@ -120,8 +120,8 @@
         "annual_net_profit": "Beneficio Neto Anual"
     },
     "products": {
-        "section_title": "The Product Fleet",
-        "subtitle": "Scalable, automated kitchens designed for every scenario.",
+        "section_title": "La Flota de Productos",
+        "subtitle": "Cocinas automatizadas y escalables diseñadas para cada escenario.",
         "smart_dough": {
             "title": "Bar de Fideos Inteligente",
             "headline": "De Harina a Fideos en 60s",

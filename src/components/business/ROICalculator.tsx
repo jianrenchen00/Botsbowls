@@ -58,8 +58,71 @@ export function ROICalculator() {
                 {/* High Contrast Card */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
 
+                    {/* Results Section - High Contrast Brand Orange */}
+                    {/* Positioned first in DOM for Mobile Top visibility, moved to right on Desktop via order-2 */}
+                    <div className="bg-[#FF6B00] p-8 lg:p-12 flex flex-col justify-center space-y-8 text-white lg:order-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div className="p-6 rounded-xl bg-white/10 border border-white/20 backdrop-blur-sm">
+                                <p className="text-white/80 text-sm mb-2 font-medium">{t('roi.monthly_revenue')}</p>
+                                <AnimatedNumber
+                                    value={monthlyRevenue}
+                                    formatter={formatCurrency}
+                                    className="text-3xl font-mono font-bold text-white"
+                                />
+                            </div>
+                            <div className="p-6 rounded-xl bg-white/10 border border-white/20 backdrop-blur-sm">
+                                <p className="text-white/80 text-sm mb-2 font-medium">{t('roi.result_monthly_profit')}</p>
+                                <AnimatedNumber
+                                    value={monthlyNetProfit}
+                                    formatter={formatCurrency}
+                                    className="text-3xl font-mono font-bold text-white"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="p-8 rounded-xl bg-white text-gray-900 shadow-lg">
+                            <p className="text-gray-500 text-sm mb-2 font-bold uppercase tracking-wider">{t('roi.annual_net_profit')}</p>
+                            <AnimatedNumber
+                                value={annualNetProfit}
+                                formatter={formatCurrency}
+                                className={`text-5xl sm:text-6xl font-mono font-bold ${annualNetProfit >= 0 ? "text-neon-blue" : "text-red-500"
+                                    }`}
+                            />
+                        </div>
+
+                        <div className="flex items-center justify-between p-6 rounded-xl bg-black/20 border border-white/10">
+                            <p className="text-white font-bold text-lg">{t('roi.result_payback')}</p>
+                            <div className="text-right">
+                                {monthlyNetProfit > 0 ? (
+                                    <span className="text-4xl font-mono font-bold text-white">
+                                        {paybackPeriod.toFixed(1)} <span className="text-lg font-sans font-normal text-white/70">{t('roi.unit_months')}</span>
+                                    </span>
+                                ) : (
+                                    <span className="text-3xl font-mono font-bold text-white/50">N/A</span>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+
                     {/* Inputs Section */}
-                    <div className="p-8 lg:p-12 space-y-10">
+                    {/* Positioned second in DOM, moved to left on Desktop via order-1 */}
+                    <div className="p-8 lg:p-12 space-y-10 lg:order-1">
+                        {/* Constants Summary - Moved to Top of Inputs */}
+                        <div className="p-6 rounded-xl bg-gray-50 border border-gray-100 text-sm text-gray-600 space-y-3">
+                            <div className="flex justify-between">
+                                <span>{t('roi.gross_margin')}</span>
+                                <span className="text-gray-900 font-bold font-mono">64%</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span>{t('roi.fixed_costs')}</span>
+                                <span className="text-gray-900 font-bold font-mono">€6,500</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span>{t('roi.total_investment')}</span>
+                                <span className="text-gray-900 font-bold font-mono">€290,000</span>
+                            </div>
+                        </div>
+
                         <div>
                             <div className="flex justify-between items-center mb-4">
                                 <label className="text-gray-900 font-bold text-lg break-words max-w-[70%]">{t('roi.label_daily_sales')}</label>
@@ -119,66 +182,6 @@ export function ROICalculator() {
                             <div className="flex justify-between text-xs text-gray-500 mt-2 font-mono">
                                 <span>€5</span>
                                 <span>€15</span>
-                            </div>
-                        </div>
-
-                        <div className="p-6 rounded-xl bg-gray-50 border border-gray-100 text-sm text-gray-600 space-y-3">
-                            <div className="flex justify-between">
-                                <span>{t('roi.gross_margin')}</span>
-                                <span className="text-gray-900 font-bold font-mono">64%</span>
-                            </div>
-                            <div className="flex justify-between">
-                                <span>{t('roi.fixed_costs')}</span>
-                                <span className="text-gray-900 font-bold font-mono">€6,500</span>
-                            </div>
-                            <div className="flex justify-between">
-                                <span>{t('roi.total_investment')}</span>
-                                <span className="text-gray-900 font-bold font-mono">€290,000</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Results Section - High Contrast Brand Orange */}
-                    <div className="bg-[#FF6B00] p-8 lg:p-12 flex flex-col justify-center space-y-8 text-white">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div className="p-6 rounded-xl bg-white/10 border border-white/20 backdrop-blur-sm">
-                                <p className="text-white/80 text-sm mb-2 font-medium">{t('roi.monthly_revenue')}</p>
-                                <AnimatedNumber
-                                    value={monthlyRevenue}
-                                    formatter={formatCurrency}
-                                    className="text-3xl font-mono font-bold text-white"
-                                />
-                            </div>
-                            <div className="p-6 rounded-xl bg-white/10 border border-white/20 backdrop-blur-sm">
-                                <p className="text-white/80 text-sm mb-2 font-medium">{t('roi.result_monthly_profit')}</p>
-                                <AnimatedNumber
-                                    value={monthlyNetProfit}
-                                    formatter={formatCurrency}
-                                    className="text-3xl font-mono font-bold text-white"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="p-8 rounded-xl bg-white text-gray-900 shadow-lg">
-                            <p className="text-gray-500 text-sm mb-2 font-bold uppercase tracking-wider">{t('roi.annual_net_profit')}</p>
-                            <AnimatedNumber
-                                value={annualNetProfit}
-                                formatter={formatCurrency}
-                                className={`text-5xl sm:text-6xl font-mono font-bold ${annualNetProfit >= 0 ? "text-neon-blue" : "text-red-500"
-                                    }`}
-                            />
-                        </div>
-
-                        <div className="flex items-center justify-between p-6 rounded-xl bg-black/20 border border-white/10">
-                            <p className="text-white font-bold text-lg">{t('roi.result_payback')}</p>
-                            <div className="text-right">
-                                {monthlyNetProfit > 0 ? (
-                                    <span className="text-4xl font-mono font-bold text-white">
-                                        {paybackPeriod.toFixed(1)} <span className="text-lg font-sans font-normal text-white/70">{t('roi.unit_months')}</span>
-                                    </span>
-                                ) : (
-                                    <span className="text-3xl font-mono font-bold text-white/50">N/A</span>
-                                )}
                             </div>
                         </div>
                     </div>

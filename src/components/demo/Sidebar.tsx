@@ -1,4 +1,4 @@
-"use strict";
+"use client";
 import { LayoutDashboard, Server, Activity, DollarSign, AlertTriangle } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -37,8 +37,8 @@ export function Sidebar() {
                             key={item.href}
                             href={item.href}
                             className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${isActive
-                                    ? "bg-blue-600/10 text-blue-400 border border-blue-600/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]"
-                                    : "text-slate-400 hover:text-white hover:bg-slate-800/50"
+                                ? "bg-blue-600/10 text-blue-400 border border-blue-600/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]"
+                                : "text-slate-400 hover:text-white hover:bg-slate-800/50"
                                 }`}
                         >
                             <item.icon className={`w-5 h-5 ${isActive ? "text-blue-400" : "text-slate-500 group-hover:text-white"}`} />

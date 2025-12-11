@@ -9,7 +9,7 @@
 **Bots & Bowls** is the world's first AI-powered robotic kitchen ecosystem. This repository contains the source code for the official global landing page, designed to showcase the hardware fleet, demonstrate ROI potential, and attract franchise partners.
 
 - **Status**: Production Ready (Web 2.0)
-- **Version**: 1.0.0
+- **Version**: 1.1.0 (UI/UX Polish)
 - **Localization**: English (en), Traditional Chinese (zh-TW), Spanish (es)
 
 ## 🛠 Tech Stack & Architecture
@@ -18,13 +18,25 @@ This project utilizes a modern, edge-ready stack optimized for performance and S
 
 - **Framework**: [Next.js 16 (App Router)](https://nextjs.org/)
 - **Language**: TypeScript
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) (Alpha/Beta)
-  - *Design System*: Glassmorphism, Neon Accents, "Digital Gastronomy" aesthetic.
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+  - *Design System*: Glassmorphism, Neon Accents (`#F26B21`), "Digital Gastronomy" aesthetic.
+  - *Components*: Sticky Navbar with backdrop blur, Floating CTA, Dynamic ROI Calculator.
 - **Localization**: 
   - `react-i18next` & `i18next` for translation management.
   - `next-i18n-router` for middleware-based locale routing.
   - **Translation Files**: Located in `src/locales/*.json`.
-- **Animation**: [Framer Motion](https://www.framer.com/motion/) for complex UI transitions.
+- **Animation**: [Framer Motion](https://www.framer.com/motion/) for complex UI transitions (Hero, Scroll, Tooltips).
+- **Integrations**:
+  - **Contact Form**: Serverless submission via Google Apps Script (No-CORS mode).
+
+## 🌟 Key Features
+
+1.  **Immersive Hero Section**: Video background (planned) / High-res imagery with Framer Motion entrance animations.
+2.  **Interactive Product Fleet**: Detailed specifications for Smart Noodle Bar, Cooked Noodle Machine, Wok Robot, and Soup Cooker.
+3.  **ROI Calculator**: Real-time profit estimation with dynamic slider tooltips and visual feedback.
+4.  **Global Trust**: Partner showcase (Dufengxuan, Golden Panda) and patent credentials.
+5.  **Smart Contact**: Region-aware contact form with "Smart Triage" routing.
+6.  **Tokenomics**: Placeholder for future Web3 whitepaper integration.
 
 ## 🏁 Getting Started
 
@@ -83,4 +95,4 @@ Global styles and Tailwind v4 configuration are located in `src/app/globals.css`
 
 ---
 
-**Copyright © 2025 Can Ramen 2024 SL. All Rights Reserved.**
+**Copyright © 2025 Kensington Knowledge Crafts Ltd. All Rights Reserved.**

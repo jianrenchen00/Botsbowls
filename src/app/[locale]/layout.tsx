@@ -43,6 +43,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/images/logo.jpg", // Using brand logo as favicon
+    shortcut: "/images/logo.jpg",
+    apple: "/images/logo.jpg",
   },
 };
 

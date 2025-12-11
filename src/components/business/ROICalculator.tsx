@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 // Constants
 const DAYS_PER_MONTH = 30;
-const GROSS_MARGIN = 0.7; // 70%
+const GROSS_MARGIN = 0.64; // 64%
 const FIXED_COSTS = 6500; // €6,500
 const TOTAL_INVESTMENT = 290000; // €290,000
 
@@ -125,7 +125,7 @@ export function ROICalculator() {
                         <div className="p-6 rounded-xl bg-gray-50 border border-gray-100 text-sm text-gray-600 space-y-3">
                             <div className="flex justify-between">
                                 <span>{t('roi.gross_margin')}</span>
-                                <span className="text-gray-900 font-bold font-mono">70%</span>
+                                <span className="text-gray-900 font-bold font-mono">64%</span>
                             </div>
                             <div className="flex justify-between">
                                 <span>{t('roi.fixed_costs')}</span>

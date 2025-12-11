@@ -51,8 +51,8 @@ export function TrustSection() {
                     </div>
                 </div>
 
-                {/* 5-Card Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* 3-Card Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Card 1: Patents */}
                     <div className="p-10 bg-gray-50 rounded-3xl border border-gray-100 flex flex-col justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
                         <div className="text-4xl font-bold text-black mb-2">
@@ -73,31 +73,7 @@ export function TrustSection() {
                         </div>
                     </div>
 
-                    {/* Card 3: Partner 1 (Dufengxuan) */}
-                    <div className="p-10 bg-gray-50 rounded-3xl border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                        <div className="flex items-center justify-center mb-6 h-32">
-                            <img src="/images/dufengxuan.png" alt="Dufengxuan" className="h-full w-auto object-contain" />
-                        </div>
-                        <h3 className="text-xl font-bold text-black mb-2">
-                            {t("trust.dufengxuan.title")}
-                        </h3>
-                        <p className="text-gray-900">
-                            {t("trust.dufengxuan.desc")}
-                        </p>
-                    </div>
 
-                    {/* Card 4: Partner 2 (Golden Panda) */}
-                    <div className="p-10 bg-gray-50 rounded-3xl border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                        <div className="flex items-center justify-center mb-6 h-32">
-                            <img src="/images/pandagold.png" alt="PandaGold" className="h-full w-auto object-contain" />
-                        </div>
-                        <h3 className="text-xl font-bold text-black mb-2">
-                            {t("trust.pandagold.title")}
-                        </h3>
-                        <p className="text-gray-900">
-                            {t("trust.pandagold.desc")}
-                        </p>
-                    </div>
 
                     {/* Card 5: Contact */}
                     <a href="#contact" className="p-10 bg-black rounded-3xl border border-gray-800 flex flex-col justify-center hover:bg-gray-900 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group cursor-pointer">

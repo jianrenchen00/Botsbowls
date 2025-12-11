@@ -1,0 +1,271 @@
+{
+    "hero": {
+        "title_line1": "Automatisation de l'industrie",
+        "title_line2": "de la restauration à 600 Mrd €",
+        "subtitle": "L'évaporation des profits est réelle. Nous apportons la solution.",
+        "cta_primary": "Obtenir le Deck d'Investissement",
+        "cta_secondary": "Voir en Action",
+        "badge": "Thèse d'Investissement",
+        "email_placeholder": "Entrez votre email"
+    },
+    "problem": {
+        "title": "La Crise de l'Évaporation des Profits",
+        "subtitle": "Pourquoi la Restauration Traditionnelle Échoue",
+        "cost": {
+            "title": "Coûts de Main-d'œuvre Montants",
+            "desc": "Les salaires inflationnistes et les lourdes charges sociales consomment désormais <strong>40-50% des salaires</strong>, écrasant les marges."
+        },
+        "rent": {
+            "title": "Le Piège du Loyer",
+            "desc": "Les emplacements de choix dans des villes comme Londres, Paris et Munich exigent des loyers excessifs, prenant <strong>15-25% du revenu total</strong>."
+        },
+        "shortage": {
+            "title": "Pénurie Critique de Talents",
+            "desc": "Les taux de vacance post-pandémie ont <strong>doublé (à 5-6%)</strong>. Au T2 2025, la France faisait face à <strong>500 000+</strong> et l'Allemagne à <strong>1 000 000+</strong> postes non pourvus."
+        },
+        "regulation": {
+            "title": "Coûts de Conformité et Réputation",
+            "desc": "Augmentation des coûts due aux réglementations environnementales strictes (ex. interdiction des plastiques) combinée à la pression de l'innovation numérique constante."
+        }
+    },
+    "solution": {
+        "title": "Révolutionner la Structure du Travail",
+        "subtitle": "De Besoin de Gens à l'Autonomisation des Gens",
+        "benefit1": {
+            "title": "Qualité Standardisée",
+            "desc": "Consistance de chef étoilé, à chaque fois."
+        },
+        "benefit2": {
+            "title": "Opération 24/7",
+            "desc": "Les revenus ne dorment jamais. Zéro coût d'heures supplémentaires."
+        },
+        "benefit3": {
+            "title": "Efficacité Évolutive",
+            "desc": "Un opérateur gère plusieurs unités sans effort."
+        }
+    },
+    "ai_solutions": {
+        "title": "Solutions Robotiques IA : Révolutionner la Structure du Travail en Restauration",
+        "personnel": {
+            "title": "Coûts de Personnel (Optimisation)",
+            "desc": "Réduisez les coûts de personnel de <strong>80-90%</strong>. Les restaurants traditionnels ont besoin de 5-10 employés ; nous opérons sans personnel ou avec juste 1 pour la maintenance. Immunisé contre l'inflation salariale."
+        },
+        "rent": {
+            "title": "Obstacles Opérationnels (Loyer)",
+            "desc": "Minimisez les besoins d'espace. L'équipement compact élimine les grandes cuisines, réduisant le loyer de <strong>15-25%</strong>. Parfait pour les formats 'magasin dans le magasin'."
+        },
+        "labor": {
+            "title": "Pénurie de Main-d'œuvre (Autonomisation)",
+            "desc": "Passez de 'besoin de gens' à 'autonomisation des gens'. Nous remplaçons le travail manuel par des rôles techniques à haute valeur ajoutée dans la maintenance et l'analyse de données."
+        },
+        "reputation": {
+            "title": "Réputation Numérique (Qualité)",
+            "desc": "Consistance Absolue. L'IA assure que chaque bol est identique, éliminant les avis négatifs. 'Regarder les robots cuisiner' crée un trafic viral naturel sur les réseaux sociaux."
+        },
+        "safety": {
+            "title": "Sécurité Stricte (Salle Blanche)",
+            "desc": "Hygiène pilotée par les données. Les processus de cuisson scellés créent un environnement de 'salle blanche', minimisant les contacts humains et les risques de contamination."
+        },
+        "revenue": {
+            "title": "Moteur de Revenus Innovant",
+            "desc": "Au-delà de la vente de nourriture. Nous intégrons la publicité numérique et le partage de profits tokenisé, transformant chaque machine en un actif à flux de revenus multiples."
+        }
+    },
+    "scenarios": {
+        "title": "Scénarios d'Application",
+        "subtitle": "Capturer de la Valeur à Travers l'Écosystème",
+        "retail": {
+            "title": "Commerce et Bureau",
+            "desc": "Problème Résolu : Pour le commerce, nous répondons aux 'besoins de restauration pendant les achats', prolongeant le séjour des clients. Pour les bureaux, nous offrons une alternative plus rapide et de meilleure qualité à la livraison et aux bentos des commerces de proximité."
+        },
+        "university": {
+            "title": "Universités",
+            "desc": "Problème Résolu : Les cafétérias du campus ferment tôt. Nous répondons à la demande rigide de nourriture chaude, économique et pratique pour les étudiants dans les bibliothèques et les dortoirs la nuit."
+        },
+        "transport": {
+            "title": "Transport",
+            "desc": "Problème Résolu : Combler le vide de restauration tard le soir et lors des retards de vol. Une solution 24/7 rapide et premium pour les voyageurs prêts à payer pour la commodité."
+        },
+        "healthcare": {
+            "title": "Santé et Bien-être",
+            "desc": "Problème Résolu : Les travailleurs de la santé font face à des horaires irréguliers. Notre équipement fournit un réconfort chaud et nutritif pour le personnel et les familles des patients la nuit."
+        },
+        "nightlife": {
+            "title": "Vie Nocturne et Divertissement",
+            "desc": "Problème Résolu : Les lieux peinent à offrir de la nourriture chaude en raison des licences. Nous empêchons la perte de clients qui partent lorsqu'ils ont faim en offrant des repas substantiels après avoir bu."
+        },
+        "industrial": {
+            "title": "Parcs Industriels et Bases de Fabrication",
+            "desc": "Problème Résolu : Les cantines d'usine fonctionnent généralement selon des horaires fixes, laissant le personnel de nuit avec seulement des nouilles instantanées. Nous fournissons des repas chauds nutritifs immédiats pour assurer le bien-être des travailleurs 24h/24."
+        }
+    },
+    "video_gallery": {
+        "title": "Restauration Intelligente en Action"
+    },
+    "roi": {
+        "title": "Calculateur de ROI d'Investissement",
+        "label_daily_sales": "Ventes Quotidiennes (Bols)",
+        "label_price": "Prix Moyen du Bol (€)",
+        "result_monthly_profit": "Profit Net Mensuel",
+        "result_payback": "Période de Retour",
+        "unit_months": "Mois",
+        "calculate_returns": "Calculez Vos",
+        "potential_returns": "Retours Potentiels",
+        "estimate_earnings": "Estimez vos gains basés sur nos données pilotes de Barcelone.",
+        "gross_margin": "Marge Brute",
+        "fixed_costs": "Coûts Fixes Mensuels",
+        "total_investment": "Investissement Total",
+        "monthly_revenue": "Revenu Mensuel",
+        "annual_net_profit": "Profit Net Annuel"
+    },
+    "products": {
+        "section_title": "La Flotte de Produits",
+        "subtitle": "Cuisines automatisées et évolutives conçues pour chaque scénario.",
+        "smart_dough": {
+            "title": "Bar à Nouilles Intelligent",
+            "headline": "De la Farine aux Nouilles en 60s",
+            "spec1": "Hygiène Visible",
+            "spec2": "Entièrement Automatisé",
+            "spec3": "Design Modulaire",
+            "desc": "Redéfinit la production d'aliments de base. Prend en charge des pâtes italiennes aux ramens japonais avec pétrissage et découpe automatisés en un clic."
+        },
+        "smart_cooked": {
+            "title": "Machine à Nouilles Cuites Intelligente",
+            "headline": "Hub de Cuisine Adaptatif IA",
+            "spec1": "14 Capteurs de Défaut",
+            "spec2": "Auto-Nettoyage",
+            "spec3": "Moniteur de Niveau de Liquide",
+            "desc": "Assure stabilité et sécurité. Dispose d'un contrôle de température IA pour éviter les débordements et de cycles de stérilisation automatisés."
+        },
+        "smart_wok": {
+            "title": "Robot Wok Électromagnétique Intelligent",
+            "headline": "Le 'Wok Hei' du Chef Maître Numérisé",
+            "spec1": "3.5KW Haute Puissance",
+            "spec2": "Agitation Bidirectionnelle",
+            "spec3": "100+ Recettes",
+            "desc": "Réplique les mouvements du chef. Prend en charge les modes manuel/auto avec un contrôle précis de la chaleur pour des sautés parfaits à chaque fois."
+        },
+        "smart_soup": {
+            "title": "Cuiseur à Soupe Intelligent",
+            "headline": "Brassage de Bouillon Standardisé",
+            "spec1": "Temp Constante",
+            "spec2": "Brassage Analogique",
+            "spec3": "Économie d'Énergie",
+            "desc": "La précision numérique rencontre la cuisson lente traditionnelle. Assure une saveur de bouillon riche et constante à grande échelle."
+        }
+    },
+    "trust": {
+        "title": "Propulsé par des Géants",
+        "vision": {
+            "title": "Le Triangle Impossible : Résolu",
+            "speed": {
+                "title": "48 Secondes vs. 15 Minutes",
+                "desc": "Les cuisines traditionnelles sont lentes. Nos bras robotiques ne se fatiguent jamais, livrant des repas frais de la farine au bol en moins d'une minute. Sortie continue 24/7."
+            },
+            "quality": {
+                "title": "Chef Maître Numérique",
+                "desc": "Les chefs humains varient ; les robots non. Propulsé par Dufengxuan et Golden Panda, nous garantissons un goût 100% standardisé de niveau Michelin dans chaque bol."
+            },
+            "cost": {
+                "title": "64% de Marge Brute",
+                "desc": "Nous avons éliminé les deux plus grands coûts : les Chefs et l'Immobilier. Opération à marge élevée avec des frais généraux minimaux."
+            }
+        },
+        "patents": {
+            "title": "300+ Brevets Nationaux",
+            "desc": "Technologie propriétaire protégeant notre écosystème automatisé."
+        },
+        "scale": {
+            "title": "10 000 Nœuds",
+            "desc": "Réseau mondial projeté pour 2028, traversant l'Europe, l'Asie et l'Amérique."
+        },
+        "dufengxuan": {
+            "title": "Dufengxuan (獨鳳軒)",
+            "desc": "Fournisseur de base de soupe de premier plan assurant une qualité constante."
+        },
+        "pandagold": {
+            "title": "Golden Panda (金熊貓)",
+            "desc": "Leader mondial de la chaîne d'approvisionnement pour des ingrédients standardisés."
+        },
+        "contact_card": {
+            "title": "Contactez-nous",
+            "desc": "Devenez partenaire pour définir l'avenir."
+        }
+    },
+    "contact": {
+        "title": "Contactez-nous",
+        "hq_title": "Siège Mondial",
+        "address": "Carrer de la Diputació, 246, 08007 Barcelone, Espagne",
+        "phone": "+34 93 123 45 67",
+        "email": "hello@botsandbowls.com",
+        "form": {
+            "role_label": "Mon rôle est...",
+            "role_end_user": "Utilisateur final (Individuel)",
+            "role_business": "Entreprise",
+            "role_supply_chain": "Chaîne d'Approvisionnement",
+            "role_others": "Autres",
+            "region_label": "Région",
+            "region_us": "États-Unis",
+            "region_uk": "Royaume-Uni",
+            "region_germany": "Allemagne",
+            "region_france": "France",
+            "region_japan": "Japon",
+            "region_singapore": "Singapour",
+            "region_canada": "Canada",
+            "region_australia": "Australie",
+            "region_other": "Autre",
+            "name_label": "Nom",
+            "email_label": "Email",
+            "submit": "Démarrer la consultation"
+        }
+    },
+    "nav": {
+        "fleet": "La Flotte",
+        "scenarios": "Scénarios",
+        "solution": "La Solution",
+        "profit": "Rentabilité",
+        "trust": "Confiance",
+        "contact": "Contact",
+        "tokenomics": "Tokenomics",
+        "signin": "Se Connecter"
+    },
+    "cta": {
+        "consult": "Consulter Maintenant"
+    },
+    "video_showcase": {
+        "title": "Voir en Action",
+        "subtitle": "Soyez témoin de la révolution culinaire en 48 secondes."
+    },
+    "showroom": {
+        "title": "Smart AI Noodle Bar",
+        "subtitle": "Découvrez l'avenir de la restauration. Voyez notre cuisine automatisée en action.",
+        "gallery_title": "Galerie du Showroom"
+    },
+    "footer": {
+        "copyright": "© 2025 Kensington Knowledge Crafts Ltd. Tous droits réservés.",
+        "company": {
+            "title": "Entreprise",
+            "about": "À propos de nous",
+            "story": "Notre Histoire",
+            "careers": "Carrières"
+        },
+        "product": {
+            "title": "Produit",
+            "fleet": "La Flotte",
+            "bar": "Smart Noodle Bar",
+            "showroom": "Showroom"
+        },
+        "resources": {
+            "title": "Ressources",
+            "roi": "Calculateur de ROI",
+            "thesis": "Thèse d'Investissement",
+            "faq": "FAQ"
+        },
+        "legal": {
+            "title": "Légal",
+            "privacy": "Politique de Confidentialité",
+            "terms": "Conditions de Service",
+            "cookie": "Politique de Cookies"
+        }
+    }
+}

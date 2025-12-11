@@ -115,6 +115,7 @@ export function Navbar() {
                                 <option value="en">🇬🇧 English</option>
                                 <option value="zh-TW">🇹🇼 繁體中文</option>
                                 <option value="es">🇪🇸 Español</option>
+                                <option value="fr">🇫🇷 Français</option>
                             </select>
                         </div>
                     </div>
@@ -130,6 +131,7 @@ export function Navbar() {
                                 <option value="en">🇬🇧 English</option>
                                 <option value="zh-TW">🇹🇼 繁體中文</option>
                                 <option value="es">🇪🇸 Español</option>
+                                <option value="fr">🇫🇷 Français</option>
                             </select>
                         </div>
                         <button

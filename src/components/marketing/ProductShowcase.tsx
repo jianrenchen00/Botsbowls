@@ -10,19 +10,19 @@ export function ProductShowcase() {
     const products = [
         {
             id: "smart_dough",
-            image: "/images/AI Beef Noodle Bar.png",
+            image: "/images/Smart Noodle Bar.png",
         },
         {
             id: "smart_cooked",
-            image: "/images/noodle-machine.png", // Placeholder
+            image: "/images/DOUGH.png",
         },
         {
             id: "smart_wok",
-            image: "/images/Smart Electromagnetic Wok Robot.png",
+            image: "/images/Wok.png",
         },
         {
             id: "smart_soup",
-            image: "/images/soup-robot.png",
+            image: "/images/Soup 1.png",
         },
     ];
 

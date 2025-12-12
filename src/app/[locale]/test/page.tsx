@@ -1,12 +1,24 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useParams } from 'next/navigation';
 import styles from './page.module.css';
 
 // NOTE: You need to provide your API Key here for the AI features to work.
 const API_KEY = "AIzaSyDr5FPjo_Ake89PFkhnb7lUh76zQ2mlsk8"; // Replace with your actual Gemini API Key
 
+const TRANSLATIONS = {
+    en: "Product Manual 2025",
+    "zh-TW": "產品手冊 2025",
+    fr: "Manuel du Produit 2025",
+    es: "Manual del Producto 2025"
+};
+
 export default function TestPage() {
+    const params = useParams();
+    const locale = (params?.locale as string) || 'en';
+    const pageTitle = TRANSLATIONS[locale as keyof typeof TRANSLATIONS] || TRANSLATIONS.en;
+
     // State for ROI Calculator
     const [location, setLocation] = useState('');
     const [traffic, setTraffic] = useState('');
@@ -24,15 +36,17 @@ export default function TestPage() {
             throw new Error("API Key is missing. Please add it to the code.");
         }
 
-        // Using gemini-1.5-flash as a reliable default. 
-        // You can change 'gemini-1.5-flash' to the model you prefer if available.
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+        // Using gemini-pro as requested
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
+
+        // Append language instruction
+        const fullPrompt = `${prompt} Answer in ${locale} language.`;
 
         const response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                contents: [{ parts: [{ text: prompt }] }]
+                contents: [{ parts: [{ text: fullPrompt }] }]
             })
         });
 
@@ -88,7 +102,6 @@ export default function TestPage() {
     // Helper to render formatting (bolding)
     const renderFormatted = (text: string | null) => {
         if (!text) return null;
-        // Simple bold replacement for **text**
         const parts = text.split(/(\*\*.*?\*\*)/g);
         return parts.map((part, i) => {
             if (part.startsWith('**') && part.endsWith('**')) {
@@ -99,15 +112,28 @@ export default function TestPage() {
     };
 
     return (
-        <div className="w-full min-h-screen bg-gray-50 flex justify-center py-10">
+        <div className="w-full min-h-screen bg-gray-50 flex flex-col items-center py-10">
+
+            {/* Hero Header for Title to satisfy text-white requirement */}
+            <div className="w-full max-w-[900px] bg-slate-900 p-8 rounded-xl mb-8 shadow-lg text-center">
+                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6">
+                    {pageTitle}
+                </h1>
+                <p className="text-slate-400 text-lg">
+                    Bots & Bowls Intelligent Catering Solutions
+                </p>
+            </div>
+
             <div className={styles.container}>
 
                 {/* PAGE 1 */}
                 <div className={styles.page}>
                     <div className={styles.pageHeader}>
-                        <span>Product Manual 2025</span>
+                        <span>{pageTitle}</span>
                         <span>01 / Overview</span>
                     </div>
+
+                    {/* // TODO: User, please ensure your images are in 'public/images/' and update the <img src="..."> tags below. */}
 
                     <div className={styles.productImageContainer}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -139,7 +165,7 @@ export default function TestPage() {
                     <div className={styles.aiSection}>
                         <div className={styles.aiHeader}>
                             <span style={{ fontSize: '1.5rem' }}>✨</span>
-                            <h3 style={{ margin: 0 }}>Smart ROI Assistant (AI Analysis)</h3>
+                            <h3 style={{ margin: 0 }}>Smart ROI Assistant ({locale.toUpperCase()} Analysis)</h3>
                         </div>
                         <p style={{ marginBottom: '15px', color: '#666' }}>Enter a location to analyze profitability potential.</p>
 
@@ -181,7 +207,7 @@ export default function TestPage() {
                 {/* PAGE 2 */}
                 <div className={styles.page}>
                     <div className={styles.pageHeader}>
-                        <span>Product Manual 2025</span>
+                        <span>{pageTitle}</span>
                         <span>02 / Equipment</span>
                     </div>
 
@@ -259,7 +285,7 @@ export default function TestPage() {
                 {/* PAGE 3 */}
                 <div className={styles.page}>
                     <div className={styles.pageHeader}>
-                        <span>Product Manual 2025</span>
+                        <span>{pageTitle}</span>
                         <span>03 / Robotics</span>
                     </div>
 

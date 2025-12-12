@@ -129,7 +129,7 @@ export default function TestPage() {
         }
 
         // Using gemini-pro as requested
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
         // Append language instruction
         const fullPrompt = `${prompt} Answer in ${locale} language.`;

@@ -110,11 +110,6 @@ export default function TestPage() {
         }
     }, []);
 
-    // State for ROI Calculator
-    const [location, setLocation] = useState('');
-    const [traffic, setTraffic] = useState('');
-    const [roiResult, setRoiResult] = useState<string | null>(null);
-    const [roiLoading, setRoiLoading] = useState(false);
 
     // State for Mood Matcher
     const [mood, setMood] = useState('');
@@ -164,25 +159,7 @@ export default function TestPage() {
         }
     };
 
-    const handleAnalyzeROI = async () => {
-        if (!location || !traffic) {
-            alert("Please fill in both fields.");
-            return;
-        }
 
-        setRoiLoading(true);
-        setRoiResult("Thinking...");
-
-        try {
-            const prompt = `Business analysis for Bots & Bowls machine (ZNSMJ-VII, 65 bowls/hr) at "${location}" with traffic "${traffic}". Short verdict on profit potential (High/Med/Low) and why. Max 50 words.`;
-            const text = await callGemini(prompt);
-            setRoiResult(text);
-        } catch (error: any) {
-            setRoiResult(`Error: ${error.message}`);
-        } finally {
-            setRoiLoading(false);
-        }
-    };
 
     const handleRecommendNoodle = async () => {
         if (!mood) {
@@ -265,47 +242,7 @@ export default function TestPage() {
                         </tbody>
                     </table>
 
-                    {/* ✨ AI FEATURE 1 */}
-                    <div className={styles.aiSection}>
-                        <div className={styles.aiHeader}>
-                            <span style={{ fontSize: '1.5rem' }}>✨</span>
-                            <h3 style={{ margin: 0 }}>{t.aiRoiHeader} ({locale.toUpperCase()})</h3>
-                        </div>
-                        <p style={{ marginBottom: '15px', color: '#666' }}>Enter a location to analyze profitability potential.</p>
 
-                        <div className={styles.aiInputGroup}>
-                            <input
-                                type="text"
-                                className={styles.aiInput}
-                                placeholder="Location (e.g., Train Station)"
-                                value={location}
-                                onChange={(e) => setLocation(e.target.value)}
-                            />
-                            <input
-                                type="text"
-                                className={styles.aiInput}
-                                placeholder="Daily Foot Traffic (e.g., 5000)"
-                                value={traffic}
-                                onChange={(e) => setTraffic(e.target.value)}
-                            />
-                            <button
-                                className={styles.aiBtn}
-                                onClick={handleAnalyzeROI}
-                                disabled={roiLoading}
-                            >
-                                {roiLoading ? (
-                                    <span className={styles.loadingSpinner}></span>
-                                ) : (
-                                    <span className="btn-text">{t.btnAnalyze}</span>
-                                )}
-                            </button>
-                        </div>
-                        {roiResult && (
-                            <div className={styles.aiResult}>
-                                {renderFormatted(roiResult)}
-                            </div>
-                        )}
-                    </div>
                 </div>
 
                 {/* PAGE 2 */}

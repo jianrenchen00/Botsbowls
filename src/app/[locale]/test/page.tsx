@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import styles from './page.module.css';
 
@@ -8,16 +8,67 @@ import styles from './page.module.css';
 const API_KEY = ""; // TODO: Paste your key starting with 'AIza...' here
 
 const TRANSLATIONS = {
-    en: "Product Manual 2025",
-    "zh-TW": "產品手冊 2025",
-    fr: "Manuel du Produit 2025",
-    es: "Manual del Producto 2025"
+    en: {
+        title: "Product Manual 2025",
+        overview: "01 / Overview",
+        equipment: "02 / Equipment",
+        robotics: "03 / Robotics",
+        specs: "Specifications",
+        aiRoiHeader: "Smart ROI Assistant",
+        aiMoodHeader: "Noodle Mood Matcher",
+        aiPrompt: "Ask about this product...",
+        btnAnalyze: "Analyze",
+        btnSuggest: "Suggest"
+    },
+    "zh-TW": {
+        title: "產品手冊 2025",
+        overview: "01 / 產品概覽",
+        equipment: "02 / 設備介紹",
+        robotics: "03 / 機器人技術",
+        specs: "產品規格",
+        aiRoiHeader: "智慧 ROI 分析助手",
+        aiMoodHeader: "麵食心情搭配",
+        aiPrompt: "請問關於此產品...",
+        btnAnalyze: "分析",
+        btnSuggest: "建議"
+    },
+    fr: {
+        title: "Manuel du Produit 2025",
+        overview: "01 / Aperçu",
+        equipment: "02 / Équipement",
+        robotics: "03 / Robotique",
+        specs: "Caractéristiques",
+        aiRoiHeader: "Assistant ROI Intelligent",
+        aiMoodHeader: "Suggérer des Nouilles",
+        aiPrompt: "Demandez sur ce produit...",
+        btnAnalyze: "Analyser",
+        btnSuggest: "Suggérer"
+    },
+    es: {
+        title: "Manual del Producto 2025",
+        overview: "01 / Resumen",
+        equipment: "02 / Equipo",
+        robotics: "03 / Robótica",
+        specs: "Especificaciones",
+        aiRoiHeader: "Asistente ROI Inteligente",
+        aiMoodHeader: "Combinador de Fideos",
+        aiPrompt: "Pregunte sobre este producto...",
+        btnAnalyze: "Analizar",
+        btnSuggest: "Sugerir"
+    }
 };
 
 export default function TestPage() {
     const params = useParams();
     const locale = (params?.locale as string) || 'en';
-    const pageTitle = TRANSLATIONS[locale as keyof typeof TRANSLATIONS] || TRANSLATIONS.en;
+    const t = TRANSLATIONS[locale as keyof typeof TRANSLATIONS] || TRANSLATIONS.en;
+
+    // Check for API Key on mount
+    useEffect(() => {
+        if (!API_KEY) {
+            console.error("API KEY MISSING: Please add your Gemini API Key to src/app/[locale]/test/page.tsx");
+        }
+    }, []);
 
     // State for ROI Calculator
     const [location, setLocation] = useState('');
@@ -33,6 +84,7 @@ export default function TestPage() {
     // Helper to call Gemini API via REST to avoid dependencies
     const callGemini = async (prompt: string) => {
         if (!API_KEY) {
+            alert("API KEY MISSING. Check console for details.");
             throw new Error("API Key is missing. Please add it to the code.");
         }
 
@@ -117,7 +169,7 @@ export default function TestPage() {
             {/* Hero Header for Title to satisfy text-white requirement */}
             <div className="w-full max-w-[900px] bg-slate-900 p-8 rounded-xl mb-8 shadow-lg text-center">
                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6">
-                    {pageTitle}
+                    {t.title}
                 </h1>
                 <p className="text-slate-400 text-lg">
                     Bots & Bowls Intelligent Catering Solutions
@@ -129,16 +181,15 @@ export default function TestPage() {
                 {/* PAGE 1 */}
                 <div className={styles.page}>
                     <div className={styles.pageHeader}>
-                        <span>{pageTitle}</span>
-                        <span>01 / Overview</span>
+                        <span>{t.title}</span>
+                        <span>{t.overview}</span>
                     </div>
 
                     {/* // TODO: User, please ensure your images are in 'public/images/' and update the <img src="..."> tags below. */}
 
                     <div className={styles.productImageContainer}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="/images/page1-main-kiosk.jpg" alt="Bots & Bowls Storefront" className={`${styles.productImage} w-full h-auto rounded-lg shadow-lg`} />
+                        <img src="/images/page1-main-kiosk.jpg" alt="Bots & Bowls Storefront" className={`${styles.productImage} w-full h-auto object-contain rounded-lg shadow-lg`} />
                     </div>
 
                     <h1 className="text-3xl font-bold text-orange-700 mb-2">Bots & Bowls: Smart Noodle Vending Bar</h1>
@@ -150,7 +201,7 @@ export default function TestPage() {
                         <p>Relying on intelligent noodle machines and a supporting IoT Big Data SaaS platform, this solution standardizes staple food catering. It requires no chefs and no kitchen, enabling 24-hour unmanned operation. It achieves the fastest production time of 48 seconds from raw flour to a bowl of beef noodles.</p>
                     </div>
 
-                    <h2>Main Technical Specifications</h2>
+                    <h2>{t.specs}</h2>
                     <table>
                         <tbody>
                             <tr><th>Product Model</th><td>ZNSMJ-VII</td></tr>
@@ -166,7 +217,7 @@ export default function TestPage() {
                     <div className={styles.aiSection}>
                         <div className={styles.aiHeader}>
                             <span style={{ fontSize: '1.5rem' }}>✨</span>
-                            <h3 style={{ margin: 0 }}>Smart ROI Assistant ({locale.toUpperCase()} Analysis)</h3>
+                            <h3 style={{ margin: 0 }}>{t.aiRoiHeader} ({locale.toUpperCase()})</h3>
                         </div>
                         <p style={{ marginBottom: '15px', color: '#666' }}>Enter a location to analyze profitability potential.</p>
 
@@ -193,7 +244,7 @@ export default function TestPage() {
                                 {roiLoading ? (
                                     <span className={styles.loadingSpinner}></span>
                                 ) : (
-                                    <span className="btn-text">Analyze</span>
+                                    <span className="btn-text">{t.btnAnalyze}</span>
                                 )}
                             </button>
                         </div>
@@ -208,17 +259,17 @@ export default function TestPage() {
                 {/* PAGE 2 */}
                 <div className={styles.page}>
                     <div className={styles.pageHeader}>
-                        <span>{pageTitle}</span>
-                        <span>02 / Equipment</span>
+                        <span>{t.title}</span>
+                        <span>{t.equipment}</span>
                     </div>
 
                     <div className={styles.grid2}>
                         {/* Product 1 */}
                         <div>
-                            <div className={styles.productImageContainer} style={{ height: '220px' }}>
+                            {/* Removed inline height style */}
+                            <div className={styles.productImageContainer}>
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="/images/page2-machine.jpg" alt="Smart Noodle Machine" className={`${styles.productImage} w-full h-auto rounded-lg shadow-lg`} />
+                                <img src="/images/page2-machine.jpg" alt="Smart Noodle Machine" className={`${styles.productImage} w-full h-auto object-contain rounded-lg shadow-lg`} />
                             </div>
 
                             <h1 className="text-2xl font-bold mb-2">Smart Integrated Noodle Machine</h1>
@@ -231,13 +282,13 @@ export default function TestPage() {
                             <div className={styles.aiSection} style={{ marginTop: '20px', padding: '15px', background: '#fffde7', borderColor: '#ffe082' }}>
                                 <div className={styles.aiHeader} style={{ marginBottom: '10px' }}>
                                     <span style={{ fontSize: '1.2rem' }}>🍜</span>
-                                    <h4 style={{ margin: 0, color: '#f57f17' }}>Noodle Mood Matcher</h4>
+                                    <h4 style={{ margin: 0, color: '#f57f17' }}>{t.aiMoodHeader}</h4>
                                 </div>
                                 <div className={styles.aiInputGroup}>
                                     <input
                                         type="text"
                                         className={styles.aiInput}
-                                        placeholder="How do you feel? (e.g., Tired)"
+                                        placeholder={t.aiPrompt} // Using translated placeholder
                                         value={mood}
                                         onChange={(e) => setMood(e.target.value)}
                                     />
@@ -250,7 +301,7 @@ export default function TestPage() {
                                         {moodLoading ? (
                                             <span className={styles.loadingSpinner} style={{ borderTopColor: '#333' }}></span>
                                         ) : (
-                                            <span className="btn-text">Suggest</span>
+                                            <span className="btn-text">{t.btnSuggest}</span>
                                         )}
                                     </button>
                                 </div>
@@ -264,10 +315,10 @@ export default function TestPage() {
 
                         {/* Product 2 */}
                         <div>
-                            <div className={styles.productImageContainer} style={{ height: '220px' }}>
+                            {/* Removed inline height style */}
+                            <div className={styles.productImageContainer}>
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="/images/page2-drink.jpg" alt="Beverage Machine" className={`${styles.productImage} w-full h-auto rounded-lg shadow-lg`} />
+                                <img src="/images/page2-drink.jpg" alt="Beverage Machine" className={`${styles.productImage} w-full h-auto object-contain rounded-lg shadow-lg`} />
                             </div>
 
                             <h1 className="text-2xl font-bold mb-2">Multi-Grain Beverage Machine</h1>
@@ -288,14 +339,13 @@ export default function TestPage() {
                 {/* PAGE 3 */}
                 <div className={styles.page}>
                     <div className={styles.pageHeader}>
-                        <span>{pageTitle}</span>
-                        <span>03 / Robotics</span>
+                        <span>{t.title}</span>
+                        <span>{t.robotics}</span>
                     </div>
 
                     <div className={styles.productImageContainer}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="/images/page3-robot.jpg" alt="Robotic Arm Machine" className={`${styles.productImage} w-full h-auto rounded-lg shadow-lg`} />
+                        <img src="/images/page3-robot.jpg" alt="Robotic Arm Machine" className={`${styles.productImage} w-full h-auto object-contain rounded-lg shadow-lg`} />
                     </div>
 
                     <h1 className="text-3xl font-bold mb-2">Robotic Noodle Shop</h1>

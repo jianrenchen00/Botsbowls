@@ -2,6 +2,7 @@
 
 import { GlassContainer } from "@/components/ui/GlassContainer";
 import { motion } from "framer-motion";
+import Link from 'next/link';
 import { useTranslation } from "react-i18next";
 
 export function ProductShowcase() {
@@ -36,6 +37,13 @@ export function ProductShowcase() {
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                         {t("products.subtitle")}
                     </p>
+                    <div className="mt-8 flex justify-center">
+                        <Link href="/products">
+                            <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                                Product Specification
+                            </button>
+                        </Link>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">

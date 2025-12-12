@@ -123,32 +123,54 @@ export default function TestPage() {
 
     // Helper to call Gemini API via REST to avoid dependencies
     const callGemini = async (prompt: string) => {
+        // Debug log for user (safe)
+        console.log("Using API Key:", API_KEY ? "Present" : "Missing");
+
         if (!API_KEY) {
             alert("API KEY MISSING. Check console for details.");
             throw new Error("API Key is missing. Please add it to the code.");
         }
 
-        // Using gemini-pro as requested
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-001:generateContent?key=${API_KEY}`;
+        // List of models to try in order of preference
+        const models = ["gemini-1.5-flash", "gemini-1.5-pro", "gemini-pro", "gemini-1.0-pro"];
+        let lastError = null;
 
         // Append language instruction
         const fullPrompt = `${prompt} Answer in ${locale} language.`;
 
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                contents: [{ parts: [{ text: fullPrompt }] }]
-            })
-        });
+        for (const model of models) {
+            try {
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`;
 
-        if (!response.ok) {
-            const errData = await response.json();
-            throw new Error(errData.error?.message || "API Error");
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: fullPrompt }] }]
+                    })
+                });
+
+                if (!response.ok) {
+                    const errData = await response.json();
+                    console.warn(`Model ${model} failed:`, errData);
+                    throw new Error(errData.error?.message || `Error with ${model}`);
+                }
+
+                const data = await response.json();
+                const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    return text; // Success!
+                }
+            } catch (error: any) {
+                lastError = error;
+                console.warn(`Attempt with ${model} failed. Trying next...`);
+                continue; // Try next model
+            }
         }
 
-        const data = await response.json();
-        return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
+        // If we get here, all models failed
+        throw new Error(lastError?.message || "All models failed to respond.");
     };
 
     const handleAnalyzeROI = async () => {

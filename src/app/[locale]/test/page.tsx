@@ -129,10 +129,10 @@ export default function TestPage() {
         }
 
         // 修改這裡：加上 "-001" 版本號
-        const model = "gemini-1.5-flash"; // 這樣寫最穩
+        const model = "gemini-1.5-flash-001"; // 改成這個，支援 v1beta/v1
 
-        // 確保網址是 v1beta
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`;
+        // 確保網址是 v1（從 v1beta 改為 v1，更穩定）
+        const url = `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${API_KEY}`;
 
         const fullPrompt = `${prompt} Answer in ${locale} language. Keep it short.`;
 

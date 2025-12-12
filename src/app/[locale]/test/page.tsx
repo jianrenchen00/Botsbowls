@@ -111,10 +111,7 @@ export default function TestPage() {
     }, []);
 
 
-    // State for Mood Matcher
-    const [mood, setMood] = useState('');
-    const [moodResult, setMoodResult] = useState<string | null>(null);
-    const [moodLoading, setMoodLoading] = useState(false);
+
 
     // Helper to call Gemini API via REST to avoid dependencies
     const callGemini = async (prompt: string) => {
@@ -161,25 +158,7 @@ export default function TestPage() {
 
 
 
-    const handleRecommendNoodle = async () => {
-        if (!mood) {
-            alert("Please enter a mood.");
-            return;
-        }
 
-        setMoodLoading(true);
-        setMoodResult("Cooking up an idea...");
-
-        try {
-            const prompt = `Recommend a noodle dish (Beef, Spicy, Tomato, etc.) for someone feeling "${mood}". Short, fun reason. Add emoji.`;
-            const text = await callGemini(prompt);
-            setMoodResult(text);
-        } catch (error: any) {
-            setMoodResult(`Error: ${error.message}`);
-        } finally {
-            setMoodLoading(false);
-        }
-    };
 
     // Helper to render formatting (bolding)
     const renderFormatted = (text: string | null) => {
@@ -267,39 +246,7 @@ export default function TestPage() {
                             <h3>Core Functions</h3>
                             <p>Performs a complete sequence: kneading, sheeting, cutting, boiling, adding soup, and dispensing. Approx 60 seconds per bowl.</p>
 
-                            {/* ✨ AI FEATURE 2 */}
-                            <div className={styles.aiSection} style={{ marginTop: '20px', padding: '15px', background: '#fffde7', borderColor: '#ffe082' }}>
-                                <div className={styles.aiHeader} style={{ marginBottom: '10px' }}>
-                                    <span style={{ fontSize: '1.2rem' }}>🍜</span>
-                                    <h4 style={{ margin: 0, color: '#f57f17' }}>{t.aiMoodHeader}</h4>
-                                </div>
-                                <div className={styles.aiInputGroup}>
-                                    <input
-                                        type="text"
-                                        className={styles.aiInput}
-                                        placeholder={t.aiPrompt} // Using translated placeholder
-                                        value={mood}
-                                        onChange={(e) => setMood(e.target.value)}
-                                    />
-                                    <button
-                                        className={styles.aiBtn}
-                                        style={{ backgroundColor: '#fbc02d', color: '#333' }}
-                                        onClick={handleRecommendNoodle}
-                                        disabled={moodLoading}
-                                    >
-                                        {moodLoading ? (
-                                            <span className={styles.loadingSpinner} style={{ borderTopColor: '#333' }}></span>
-                                        ) : (
-                                            <span className="btn-text">{t.btnSuggest}</span>
-                                        )}
-                                    </button>
-                                </div>
-                                {moodResult && (
-                                    <div className={styles.aiResult} style={{ background: 'white', display: 'block' }}>
-                                        {renderFormatted(moodResult)}
-                                    </div>
-                                )}
-                            </div>
+
                         </div>
 
                         {/* Product 2 */}

@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import styles from './page.module.css';
 
 // NOTE: You need to provide your API Key here for the AI features to work.
-const API_KEY = "AIzaSyDr5FPjo_Ake89PFkhnb7lUh76zQ2mlsk8"; // Replace with your actual Gemini API Key
+const API_KEY = ""; // TODO: Paste your key starting with 'AIza...' here
 
 const TRANSLATIONS = {
     en: "Product Manual 2025",
@@ -137,7 +137,8 @@ export default function TestPage() {
 
                     <div className={styles.productImageContainer}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://placehold.co/800x400/e65100/ffffff?text=Replace+with:+page1-main-kiosk.jpg" alt="Bots & Bowls Storefront" className={styles.productImage} />
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src="/images/page1-main-kiosk.jpg" alt="Bots & Bowls Storefront" className={`${styles.productImage} w-full h-auto rounded-lg shadow-lg`} />
                     </div>
 
                     <h1 className="text-3xl font-bold text-orange-700 mb-2">Bots & Bowls: Smart Noodle Vending Bar</h1>
@@ -216,7 +217,8 @@ export default function TestPage() {
                         <div>
                             <div className={styles.productImageContainer} style={{ height: '220px' }}>
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="https://placehold.co/600x400/2196f3/ffffff?text=Replace+with:+page2-machine.jpg" alt="Smart Noodle Machine" className={styles.productImage} />
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img src="/images/page2-machine.jpg" alt="Smart Noodle Machine" className={`${styles.productImage} w-full h-auto rounded-lg shadow-lg`} />
                             </div>
 
                             <h1 className="text-2xl font-bold mb-2">Smart Integrated Noodle Machine</h1>
@@ -264,7 +266,8 @@ export default function TestPage() {
                         <div>
                             <div className={styles.productImageContainer} style={{ height: '220px' }}>
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="https://placehold.co/600x400/8bc34a/ffffff?text=Replace+with:+page2-drink.jpg" alt="Beverage Machine" className={styles.productImage} />
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img src="/images/page2-drink.jpg" alt="Beverage Machine" className={`${styles.productImage} w-full h-auto rounded-lg shadow-lg`} />
                             </div>
 
                             <h1 className="text-2xl font-bold mb-2">Multi-Grain Beverage Machine</h1>
@@ -291,7 +294,8 @@ export default function TestPage() {
 
                     <div className={styles.productImageContainer}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://placehold.co/800x400/607d8b/ffffff?text=Replace+with:+page3-robot.jpg" alt="Robotic Arm Machine" className={styles.productImage} />
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src="/images/page3-robot.jpg" alt="Robotic Arm Machine" className={`${styles.productImage} w-full h-auto rounded-lg shadow-lg`} />
                     </div>
 
                     <h1 className="text-3xl font-bold mb-2">Robotic Noodle Shop</h1>

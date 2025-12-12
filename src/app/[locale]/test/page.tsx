@@ -123,54 +123,45 @@ export default function TestPage() {
 
     // Helper to call Gemini API via REST to avoid dependencies
     const callGemini = async (prompt: string) => {
-        // Debug log for user (safe)
-        console.log("Using API Key:", API_KEY ? "Present" : "Missing");
-
-        if (!API_KEY) {
-            alert("API KEY MISSING. Check console for details.");
-            throw new Error("API Key is missing. Please add it to the code.");
+        if (!API_KEY || API_KEY.includes("TODO")) {
+            alert("API Key is missing or invalid.");
+            throw new Error("API Key is missing.");
         }
 
-        // List of models to try in order of preference
-        const models = ["gemini-1.5-flash", "gemini-1.5-pro", "gemini-pro", "gemini-1.0-pro"];
-        let lastError = null;
+        // 修改這裡：加上 "-001" 版本號
+        const model = "gemini-1.5-flash-001";
 
-        // Append language instruction
-        const fullPrompt = `${prompt} Answer in ${locale} language.`;
+        // 確保網址是 v1beta
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`;
 
-        for (const model of models) {
-            try {
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`;
+        const fullPrompt = `${prompt} Answer in ${locale} language. Keep it short.`;
 
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: fullPrompt }] }]
-                    })
-                });
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: fullPrompt }] }]
+                })
+            });
 
-                if (!response.ok) {
-                    const errData = await response.json();
-                    console.warn(`Model ${model} failed:`, errData);
-                    throw new Error(errData.error?.message || `Error with ${model}`);
-                }
+            const data = await response.json();
 
-                const data = await response.json();
-                const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-
-                if (text) {
-                    return text; // Success!
-                }
-            } catch (error: any) {
-                lastError = error;
-                console.warn(`Attempt with ${model} failed. Trying next...`);
-                continue; // Try next model
+            if (!response.ok) {
+                console.error("Gemini API Error Details:", data);
+                // 這裡會把錯誤印得更清楚
+                throw new Error(data.error?.message || `API Error: ${response.status}`);
             }
-        }
 
-        // If we get here, all models failed
-        throw new Error(lastError?.message || "All models failed to respond.");
+            const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (text) return text;
+
+            throw new Error("No content generated.");
+
+        } catch (error: any) {
+            console.error("Call Gemini Failed:", error);
+            throw new Error(error.message || "Failed to fetch response");
+        }
     };
 
     const handleAnalyzeROI = async () => {

@@ -219,7 +219,7 @@ export default function TestPage() {
 
                     <div className={styles.productImageContainer}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="/images/page1-main-kiosk.jpg" alt="Bots & Bowls Storefront" className={`${styles.productImage} w-full h-auto object-contain rounded-lg shadow-lg`} />
+                        <img src="/images/page1-main-kiosk.jpg" alt="Bots & Bowls Storefront" className={`${styles.productImage} w-full max-w-full h-auto object-contain block rounded-lg shadow-lg`} />
                     </div>
 
                     <h1 className="text-3xl font-bold text-orange-700 mb-2">Bots & Bowls: Smart Noodle Vending Bar</h1>
@@ -258,7 +258,7 @@ export default function TestPage() {
                             {/* Removed inline height style */}
                             <div className={styles.productImageContainer}>
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="/images/page2-machine.jpg" alt="Smart Noodle Machine" className={`${styles.productImage} w-full h-auto object-contain rounded-lg shadow-lg`} />
+                                <img src="/images/page2-machine.jpg" alt="Smart Noodle Machine" className={`${styles.productImage} w-full max-w-full h-auto object-contain block rounded-lg shadow-lg`} />
                             </div>
 
                             <h1 className="text-2xl font-bold mb-2">Smart Integrated Noodle Machine</h1>
@@ -307,7 +307,7 @@ export default function TestPage() {
                             {/* Removed inline height style */}
                             <div className={styles.productImageContainer}>
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="/images/page2-drink.jpg" alt="Beverage Machine" className={`${styles.productImage} w-full h-auto object-contain rounded-lg shadow-lg`} />
+                                <img src="/images/page2-drink.jpg" alt="Beverage Machine" className={`${styles.productImage} w-full max-w-full h-auto object-contain block rounded-lg shadow-lg`} />
                             </div>
 
                             <h1 className="text-2xl font-bold mb-2">Multi-Grain Beverage Machine</h1>
@@ -334,7 +334,7 @@ export default function TestPage() {
 
                     <div className={styles.productImageContainer}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="/images/page3-robot.jpg" alt="Robotic Arm Machine" className={`${styles.productImage} w-full h-auto object-contain rounded-lg shadow-lg`} />
+                        <img src="/images/page3-robot.jpg" alt="Robotic Arm Machine" className={`${styles.productImage} w-full max-w-full h-auto object-contain block rounded-lg shadow-lg`} />
                     </div>
 
                     <h1 className="text-3xl font-bold mb-2">Robotic Noodle Shop</h1>

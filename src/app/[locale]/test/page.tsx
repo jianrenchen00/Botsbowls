@@ -1,13 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'next/navigation';
-import Link from 'next/link'; // 用於首頁按鈕 (如果需要)
 import styles from './page.module.css';
-
-// NOTE: You need to provide your API Key here for the AI features to work.
-// 建議之後將此 Key 移至環境變數 .env.local
-const API_KEY = "AIzaSyB4cpXNAIik1GGG1fvFEuuAlwalb28cSWU"; // TODO: Restore your working API Key here
 
 // 定義產品資料結構以確保型別安全
 type ProductSpec = { label: string; value: string };
@@ -26,20 +21,20 @@ type TranslationData = {
     navTitle: string;
     products: ProductData[];
     // UI 文字
+    descriptionTitle: string;
+    specsTitle: string;
     btnAnalyze: string;
     btnSuggest: string;
-    aiRoiHeader: string; // 雖然移除了，保留定義以免報錯
-    aiPrompt: string;
 };
 
 const TRANSLATIONS: Record<string, TranslationData> = {
     en: {
         pageTitle: "Product Manual 2025",
         navTitle: "Bots & Bowls Product Fleet",
+        descriptionTitle: "Description",
+        specsTitle: "Technical Specifications",
         btnAnalyze: "Analyze",
         btnSuggest: "Suggest",
-        aiRoiHeader: "ROI Assistant",
-        aiPrompt: "Ask about this product...",
         products: [
             {
                 id: "vending-bar",
@@ -138,10 +133,10 @@ const TRANSLATIONS: Record<string, TranslationData> = {
     "zh-TW": {
         pageTitle: "產品手冊 2025",
         navTitle: "Bots & Bowls 產品艦隊",
+        descriptionTitle: "產品介紹",
+        specsTitle: "技術規格",
         btnAnalyze: "分析",
         btnSuggest: "建議",
-        aiRoiHeader: "ROI 分析",
-        aiPrompt: "請問關於此產品...",
         products: [
             {
                 id: "vending-bar",
@@ -240,10 +235,10 @@ const TRANSLATIONS: Record<string, TranslationData> = {
     fr: {
         pageTitle: "Manuel du Produit 2025",
         navTitle: "Flotte de Produits Bots & Bowls",
+        descriptionTitle: "Description",
+        specsTitle: "Technical Specifications",
         btnAnalyze: "Analyser",
         btnSuggest: "Suggérer",
-        aiRoiHeader: "Assistant ROI",
-        aiPrompt: "Demandez sur ce produit...",
         products: [
             {
                 id: "vending-bar",
@@ -254,18 +249,16 @@ const TRANSLATIONS: Record<string, TranslationData> = {
                 features: ["Technologie d'ébullition multizones.", "Surveillance intelligente SaaS.", "Processus entièrement visible et hygiénique."],
                 specs: [{ label: "Modèle", value: "ZNSMJ-VII" }, { label: "Capacité", value: "65-70 Bol/H" }, { label: "Dimensions", value: "4055 × 2460 × 2620 mm" }]
             },
-            // ... (其他語言暫時使用簡化版以節省空間，重點在於中英切換) ...
-            // 為防止報錯，建議 fr 和 es 暫時複製 en 的內容，或者在實際專案中補全
         ] as any
     },
     es: {
         pageTitle: "Manual del Producto 2025",
         navTitle: "Flota de Productos Bots & Bowls",
+        descriptionTitle: "Description",
+        specsTitle: "Technical Specifications",
         btnAnalyze: "Analizar",
         btnSuggest: "Sugerir",
-        aiRoiHeader: "Asistente ROI",
-        aiPrompt: "Pregunte sobre este producto...",
-        products: [] as any // 佔位符
+        products: [] as any
     }
 };
 
@@ -278,60 +271,6 @@ export default function TestPage() {
     const params = useParams();
     const locale = (params?.locale as string) || 'en';
     const t = TRANSLATIONS[locale as keyof typeof TRANSLATIONS] || TRANSLATIONS.en;
-
-    // State for Mood Matcher (保留你第二頁的 AI 功能)
-    const [mood, setMood] = useState('');
-    const [moodResult, setMoodResult] = useState<string | null>(null);
-    const [moodLoading, setMoodLoading] = useState(false);
-
-    // Helper to call Gemini API
-    const callGemini = async (prompt: string) => {
-        if (!API_KEY || API_KEY.includes("TODO")) {
-            alert("API Key is missing.");
-            throw new Error("API Key is missing.");
-        }
-        const model = "gemini-1.5-flash";
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`;
-        const fullPrompt = `${prompt} Answer in ${locale} language. Keep it short.`;
-
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ contents: [{ parts: [{ text: fullPrompt }] }] })
-            });
-            const data = await response.json();
-            if (!response.ok) throw new Error(data.error?.message);
-            const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-            if (text) return text;
-            throw new Error("No content generated.");
-        } catch (error: any) {
-            console.error(error);
-            throw error;
-        }
-    };
-
-    const handleRecommendNoodle = async () => {
-        if (!mood) return;
-        setMoodLoading(true);
-        setMoodResult("Thinking...");
-        try {
-            const prompt = `Recommend a noodle dish for mood "${mood}". Fun reason + emoji.`;
-            const text = await callGemini(prompt);
-            setMoodResult(text);
-        } catch (error: any) {
-            setMoodResult("Error.");
-        } finally {
-            setMoodLoading(false);
-        }
-    };
-
-    const renderFormatted = (text: string | null) => {
-        if (!text) return null;
-        return text.split(/(\*\*.*?\*\*)/g).map((part, i) =>
-            part.startsWith('**') ? <strong key={i}>{part.slice(2, -2)}</strong> : part
-        );
-    };
 
     return (
         <div className="w-full min-h-screen bg-gray-50 flex flex-col items-center py-10">
@@ -352,13 +291,13 @@ export default function TestPage() {
                             <span>0{index + 1} / {product.title.split(' ')[0]}</span>
                         </div>
 
-                        {/* 產品圖片 (已修復手機版破版問題) */}
+                        {/* 產品圖片 */}
                         <div className={`${styles.productImageContainer} mb-6`}>
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src={product.image}
                                 alt={product.title}
-                                className={`${styles.productImage} w-full max-w-full h-auto object-contain block rounded-lg shadow-lg`}
+                                className={`${styles.productImage} ${product.id === 'beverage-machine' ? 'w-1/2 mx-auto' : 'w-full'} max-w-full h-auto object-contain block rounded-lg shadow-lg`}
                             />
                         </div>
 
@@ -366,7 +305,7 @@ export default function TestPage() {
                         <div className={styles.subtitle}>{product.subtitle}</div>
 
                         <div className={styles.highlightBox}>
-                            <h3 className="font-bold mb-2">Description</h3>
+                            <h3 className="font-bold mb-2">{t.descriptionTitle}</h3>
                             <p className="mb-4 text-sm md:text-base leading-relaxed">{product.description}</p>
 
                             {product.features && (
@@ -378,7 +317,7 @@ export default function TestPage() {
                             )}
                         </div>
 
-                        <h2 className="mt-6 mb-4 text-xl font-bold border-b pb-2">Technical Specifications</h2>
+                        <h2 className="mt-6 mb-4 text-xl font-bold border-b pb-2">{t.specsTitle}</h2>
                         <div className="overflow-x-auto">
                             <table className="w-full text-left text-sm md:text-base">
                                 <tbody>
@@ -391,38 +330,6 @@ export default function TestPage() {
                                 </tbody>
                             </table>
                         </div>
-
-                        {/* 僅在第二個產品 (Integrated Machine) 下方顯示 AI Mood Matcher */}
-                        {product.id === 'integrated-machine' && (
-                            <div className={styles.aiSection} style={{ marginTop: '40px', padding: '20px', background: '#fffde7', borderColor: '#ffe082', borderRadius: '12px', border: '1px solid' }}>
-                                <div className="flex items-center gap-2 mb-4">
-                                    <span style={{ fontSize: '1.5rem' }}>🍜</span>
-                                    <h4 style={{ margin: 0, color: '#f57f17', fontWeight: 'bold' }}>Noodle Mood Matcher</h4>
-                                </div>
-                                <div className={styles.aiInputGroup}>
-                                    <input
-                                        type="text"
-                                        className={styles.aiInput}
-                                        placeholder={t.aiPrompt}
-                                        value={mood}
-                                        onChange={(e) => setMood(e.target.value)}
-                                    />
-                                    <button
-                                        className={styles.aiBtn}
-                                        style={{ backgroundColor: '#fbc02d', color: '#333' }}
-                                        onClick={handleRecommendNoodle}
-                                        disabled={moodLoading}
-                                    >
-                                        {moodLoading ? 'Thinking...' : t.btnSuggest}
-                                    </button>
-                                </div>
-                                {moodResult && (
-                                    <div className="mt-4 p-4 bg-white rounded-lg shadow-sm text-gray-800">
-                                        {renderFormatted(moodResult)}
-                                    </div>
-                                )}
-                            </div>
-                        )}
                     </div>
                 ))}
             </div>

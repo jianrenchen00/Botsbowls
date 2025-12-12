@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import styles from './page.module.css';
 
 // NOTE: You need to provide your API Key here for the AI features to work.
-const API_KEY = ""; // TODO: Paste your key starting with 'AIza...' here
+const API_KEY = "AIzaSyBYBtuU3OiQNjf4s_pyFX9NiVqOStkObDo"; // TODO: Paste your key starting with 'AIza...' here
 
 const TRANSLATIONS = {
     en: {
@@ -13,48 +13,88 @@ const TRANSLATIONS = {
         overview: "01 / Overview",
         equipment: "02 / Equipment",
         robotics: "03 / Robotics",
-        specs: "Specifications",
         aiRoiHeader: "Smart ROI Assistant",
         aiMoodHeader: "Noodle Mood Matcher",
         aiPrompt: "Ask about this product...",
         btnAnalyze: "Analyze",
-        btnSuggest: "Suggest"
+        btnSuggest: "Suggest",
+        overviewTitle: "Product Overview",
+        overviewText: "The Smart Noodle Vending Bar is a comprehensive solution for Chinese staple foods, integrating multiple advantages. It features high technological content, a high degree of intelligence, and offers convenient deployment. Relying on intelligent noodle machines and a supporting IoT Big Data SaaS platform, this solution standardizes staple food catering. It requires no chefs and no kitchen, enabling 24-hour unmanned operation. It achieves the fastest production time of 48 seconds from raw flour to a bowl of beef noodles.",
+        specsTitle: "Specifications",
+        specsList: [
+            { label: "Product Model", value: "ZNSMJ-VII" },
+            { label: "Preheating Time", value: "15 min" },
+            { label: "Serving Capacity", value: "65-70 Bowls/Hour" },
+            { label: "Flour Capacity", value: "22 ± 0.5 kg" },
+            { label: "Dimensions", value: "4055 × 2460 × 2620 mm" },
+            { label: "Capacity Features", value: "Topping boxes: 75 servings. Supports 3 soup flavors, 3 topping types, 2 sauces, and 6 garnishes." }
+        ]
     },
     "zh-TW": {
         title: "產品手冊 2025",
         overview: "01 / 產品概覽",
         equipment: "02 / 設備介紹",
         robotics: "03 / 機器人技術",
-        specs: "產品規格",
         aiRoiHeader: "智慧 ROI 分析助手",
         aiMoodHeader: "麵食心情搭配",
         aiPrompt: "請問關於此產品...",
         btnAnalyze: "分析",
-        btnSuggest: "建議"
+        btnSuggest: "建議",
+        overviewTitle: "產品概述",
+        overviewText: "智能煮麵販賣機是中式主食的綜合解決方案，集多種優勢於一身。具有高科技含量、高度智能化，且部署方便。依託智能麵機及配套的 IoT 大數據 SaaS 平台，實現主食餐飲標準化。無須廚師、無須廚房，實現 24 小時無人化運營。從麵粉到一碗牛肉麵，最快僅需 48 秒。",
+        specsTitle: "產品規格",
+        specsList: [
+            { label: "產品型號", value: "ZNSMJ-VII" },
+            { label: "預熱時間", value: "15 分鐘" },
+            { label: "出餐能力", value: "65-70 碗/小時" },
+            { label: "麵粉容量", value: "22 ± 0.5 kg" },
+            { label: "設備尺寸", value: "4055 × 2460 × 2620 mm" },
+            { label: "容量特徵", value: "澆頭盒：75 份。支持 3 種湯底、3 種澆頭、2 種醬料和 6 種配菜。" }
+        ]
     },
     fr: {
         title: "Manuel du Produit 2025",
         overview: "01 / Aperçu",
         equipment: "02 / Équipement",
         robotics: "03 / Robotique",
-        specs: "Caractéristiques",
         aiRoiHeader: "Assistant ROI Intelligent",
         aiMoodHeader: "Suggérer des Nouilles",
         aiPrompt: "Demandez sur ce produit...",
         btnAnalyze: "Analyser",
-        btnSuggest: "Suggérer"
+        btnSuggest: "Suggérer",
+        overviewTitle: "Aperçu du Produit",
+        overviewText: "Le Smart Noodle Vending Bar est une solution complète pour les aliments de base chinois. Il se caractérise par un contenu technologique élevé et une grande intelligence. S'appuyant sur des machines à nouilles intelligentes et une plateforme IoT Big Data SaaS, cette solution standardise la restauration. Elle ne nécessite ni chef ni cuisine, permettant un fonctionnement sans personnel 24h/24. Il atteint le temps de production le plus rapide de 48 secondes, de la farine crue à un bol de nouilles au bœuf.",
+        specsTitle: "Spécifications",
+        specsList: [
+            { label: "Modèle", value: "ZNSMJ-VII" },
+            { label: "Préchauffage", value: "15 min" },
+            { label: "Capacité", value: "65-70 Bols/Heure" },
+            { label: "Capacité Farine", value: "22 ± 0.5 kg" },
+            { label: "Dimensions", value: "4055 × 2460 × 2620 mm" },
+            { label: "Caractéristiques", value: "Garnitures : 75 portions. Supporte 3 soupes, 3 garnitures, 2 sauces." }
+        ]
     },
     es: {
         title: "Manual del Producto 2025",
         overview: "01 / Resumen",
         equipment: "02 / Equipo",
         robotics: "03 / Robótica",
-        specs: "Especificaciones",
         aiRoiHeader: "Asistente ROI Inteligente",
         aiMoodHeader: "Combinador de Fideos",
         aiPrompt: "Pregunte sobre este producto...",
         btnAnalyze: "Analizar",
-        btnSuggest: "Sugerir"
+        btnSuggest: "Sugerir",
+        overviewTitle: "Descripción del Producto",
+        overviewText: "La Barra Expendedora de Fideos Inteligente es una solución integral. Se caracteriza por un alto contenido tecnológico y gran inteligencia. Apoyándose en máquinas de fideos inteligentes y una plataforma IoT Big Data SaaS, esta solución estandariza la restauración. No requiere chefs ni cocina, permitiendo una operación no tripulada las 24 horas. Logra el tiempo de producción más rápido de 48 segundos.",
+        specsTitle: "Especificaciones",
+        specsList: [
+            { label: "Modelo", value: "ZNSMJ-VII" },
+            { label: "Precalentamiento", value: "15 min" },
+            { label: "Capacidad", value: "65-70 Tazones/Hora" },
+            { label: "Capacidad Harina", value: "22 ± 0.5 kg" },
+            { label: "Dimensiones", value: "4055 × 2460 × 2620 mm" },
+            { label: "Características", value: "Coberturas: 75 porciones. Soporta 3 sopas, 3 coberturas, 2 salsas." }
+        ]
     }
 };
 
@@ -196,20 +236,19 @@ export default function TestPage() {
                     <div className={styles.subtitle}>From Flour to Noodles in 48 Seconds – The Perfect Balance of Convenience and Taste</div>
 
                     <div className={styles.highlightBox}>
-                        <h3 className="font-bold mb-2">Product Overview</h3>
-                        <p className="mb-2">The Smart Noodle Vending Bar is a comprehensive solution for Chinese staple foods, integrating multiple advantages. It features high technological content, a high degree of intelligence, and offers convenient deployment.</p>
-                        <p>Relying on intelligent noodle machines and a supporting IoT Big Data SaaS platform, this solution standardizes staple food catering. It requires no chefs and no kitchen, enabling 24-hour unmanned operation. It achieves the fastest production time of 48 seconds from raw flour to a bowl of beef noodles.</p>
+                        <h3 className="font-bold mb-2">{t.overviewTitle}</h3>
+                        <p className="mb-2">{t.overviewText}</p>
                     </div>
 
-                    <h2>{t.specs}</h2>
+                    <h2>{t.specsTitle}</h2>
                     <table>
                         <tbody>
-                            <tr><th>Product Model</th><td>ZNSMJ-VII</td></tr>
-                            <tr><th>Preheating Time</th><td>15 min</td></tr>
-                            <tr><th>Serving Capacity</th><td>65-70 Bowls/Hour</td></tr>
-                            <tr><th>Flour Capacity</th><td>22 ± 0.5 kg</td></tr>
-                            <tr><th>Dimensions</th><td>4055 × 2460 × 2620 mm</td></tr>
-                            <tr><th>Capacity Features</th><td>Topping boxes: 75 servings. Supports 3 soup flavors, 3 topping types, 2 sauces, and 6 garnishes.</td></tr>
+                            {t.specsList.map((spec, index) => (
+                                <tr key={index}>
+                                    <th>{spec.label}</th>
+                                    <td>{spec.value}</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
 

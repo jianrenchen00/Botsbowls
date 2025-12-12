@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import styles from './page.module.css';
 
 // NOTE: You need to provide your API Key here for the AI features to work.
-const API_KEY = "AIzaSyBYBtuU3OiQNjf4s_pyFX9NiVqOStkObDo"; // TODO: Paste your key starting with 'AIza...' here
+const API_KEY = "AIzaSyB4cpXNAIik1GGG1fvFEuuAlwalb28cSWU"; // TODO: Paste your key starting with 'AIza...' here
 
 const TRANSLATIONS = {
     en: {
@@ -129,7 +129,7 @@ export default function TestPage() {
         }
 
         // 修改這裡：加上 "-001" 版本號
-        const model = "gemini-1.5-flash-001";
+        const model = "gemini-1.5-flash"; // 這樣寫最穩
 
         // 確保網址是 v1beta
         const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`;

@@ -5,8 +5,58 @@ import { motion } from "framer-motion";
 import Link from 'next/link';
 import { useTranslation } from "react-i18next";
 
+
+const HOME_TRANSLATIONS = {
+    en: {
+        btnSpec: "Product Specification",
+        videos: {
+            integrated: "Smart Integrated Noodle Machine",
+            beverage: "Multi Grain Beverage Machine",
+            robot: "Robotic Noodle Shop",
+            bar: "Smart Noodle Bar",
+            theme: "Bots & Bowls Official Theme",
+            barcelona: "Future Noodle Restaurant (Barcelona)"
+        }
+    },
+    "zh-TW": {
+        btnSpec: "產品規格",
+        videos: {
+            integrated: "智能粉麵一體機",
+            beverage: "五穀雜糧飲品機",
+            robot: "機器人麵館",
+            bar: "智能自動售賣麵吧",
+            theme: "Bots & Bowls 官方主題曲",
+            barcelona: "未來麵館 (巴塞隆納店)"
+        }
+    },
+    fr: {
+        btnSpec: "Spécifications du Produit",
+        videos: {
+            integrated: "Machine à Nouilles Intégrée",
+            beverage: "Machine à Boissons Multi-Grains",
+            robot: "Robot Noodle Shop",
+            bar: "Bar à Nouilles Intelligent",
+            theme: "Thème Officiel Bots & Bowls",
+            barcelona: "Futur Restaurant de Nouilles (Barcelone)"
+        }
+    },
+    es: {
+        btnSpec: "Especificaciones del Producto",
+        videos: {
+            integrated: "Máquina Integral de Fideos",
+            beverage: "Máquina de Bebidas Multigrano",
+            robot: "Tienda de Fideos Robótica",
+            bar: "Barra de Fideos Inteligente",
+            theme: "Tema Oficial Bots & Bowls",
+            barcelona: "Restaurante de Fideos del Futuro (Barcelona)"
+        }
+    }
+};
+
 export function ProductShowcase() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const locale = i18n.language;
+    const homeT = HOME_TRANSLATIONS[locale as keyof typeof HOME_TRANSLATIONS] || HOME_TRANSLATIONS.en;
 
     const products = [
         {
@@ -40,7 +90,7 @@ export function ProductShowcase() {
                     <div className="mt-8 flex justify-center">
                         <Link href="/products">
                             <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-                                Product Specification
+                                {homeT.btnSpec}
                             </button>
                         </Link>
                     </div>

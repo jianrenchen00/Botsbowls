@@ -49,9 +49,9 @@ export function Navbar() {
     };
 
     const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-        e.preventDefault();
         const element = document.getElementById(id);
         if (element) {
+            e.preventDefault();
             element.scrollIntoView({ behavior: "smooth" });
             setIsOpen(false); // Close mobile menu on click
         }
@@ -73,22 +73,22 @@ export function Navbar() {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center space-x-8">
-                        <a href="#fleet" onClick={(e) => handleScrollTo(e, 'fleet')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
+                        <a href="/#fleet" onClick={(e) => handleScrollTo(e, 'fleet')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.fleet")}
                         </a>
-                        <a href="#scenarios" onClick={(e) => handleScrollTo(e, 'scenarios')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
+                        <a href="/#scenarios" onClick={(e) => handleScrollTo(e, 'scenarios')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.scenarios")}
                         </a>
-                        <a href="#solution" onClick={(e) => handleScrollTo(e, 'solution')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
+                        <a href="/#solution" onClick={(e) => handleScrollTo(e, 'solution')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.solution")}
                         </a>
-                        <a href="#profit" onClick={(e) => handleScrollTo(e, 'profit')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
+                        <a href="/#profitability" onClick={(e) => handleScrollTo(e, 'profitability')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.profit")}
                         </a>
-                        <a href="#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
+                        <a href="/#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.trust")}
                         </a>
-                        <a href="#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="px-4 py-2 rounded-full bg-[#F26B21] text-white text-sm font-bold hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg">
+                        <a href="/#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="px-4 py-2 rounded-full bg-[#F26B21] text-white text-sm font-bold hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg">
                             {t("nav.contact")}
                         </a>
                     </div>
@@ -147,19 +147,19 @@ export function Navbar() {
             {/* Mobile Menu Dropdown */}
             {isOpen && (
                 <div className="md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0 top-16 py-4 px-4 flex flex-col space-y-4">
-                    <a href="#fleet" onClick={(e) => handleScrollTo(e, 'fleet')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
+                    <a href="/#fleet" onClick={(e) => handleScrollTo(e, 'fleet')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
                         {t("nav.fleet")}
                     </a>
-                    <a href="#scenarios" onClick={(e) => handleScrollTo(e, 'scenarios')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
+                    <a href="/#scenarios" onClick={(e) => handleScrollTo(e, 'scenarios')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
                         {t("nav.scenarios")}
                     </a>
-                    <a href="#solution" onClick={(e) => handleScrollTo(e, 'solution')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
+                    <a href="/#solution" onClick={(e) => handleScrollTo(e, 'solution')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
                         {t("nav.solution")}
                     </a>
-                    <a href="#profit" onClick={(e) => handleScrollTo(e, 'profit')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
+                    <a href="/#profitability" onClick={(e) => handleScrollTo(e, 'profitability')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
                         {t("nav.profit")}
                     </a>
-                    <a href="#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
+                    <a href="/#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
                         {t("nav.trust")}
                     </a>
                     <button
@@ -180,7 +180,7 @@ export function Navbar() {
                     >
                         {t("nav.signin")}
                     </button>
-                    <a href="#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="bg-[#F26B21] text-white text-center font-bold text-lg py-3 rounded-xl shadow-md">
+                    <a href="/#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="bg-[#F26B21] text-white text-center font-bold text-lg py-3 rounded-xl shadow-md">
                         {t("nav.contact")}
                     </a>
                 </div>

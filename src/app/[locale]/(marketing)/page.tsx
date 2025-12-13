@@ -27,7 +27,7 @@ export default function MarketingPage() {
       <div id="solution">
         <SolutionSection />
       </div>
-      <div id="profit">
+      <div id="profitability">
         <ROICalculator />
       </div>
       <div id="trust">

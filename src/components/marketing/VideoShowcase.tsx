@@ -17,46 +17,62 @@ export function VideoShowcase() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* Video 1: Landscape */}
-                    <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                        <iframe
-                            width="100%"
-                            height="100%"
-                            src="https://www.youtube.com/embed/M2VS7o-G3-0"
-                            title="Video 1"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                    </div>
-
-                    {/* Video 2: Landscape */}
-                    <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                        <iframe
-                            width="100%"
-                            height="100%"
-                            src="https://www.youtube.com/embed/wk8og91YwRw"
-                            title="Video 2"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                    </div>
-
-                    {/* Video 3: Vertical Shorts */}
-                    <div className="w-full rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-black flex justify-center items-center">
-                        <div className="aspect-[9/16] h-full w-full max-w-[300px] md:max-w-full">
+                {/* 2x2 Video Grid - Responsive Layout */}
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl mx-auto px-4">
+                    {/* 1. Smart Integrated Noodle Machine */}
+                    <div className="flex flex-col gap-2">
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
                             <iframe
-                                width="100%"
-                                height="100%"
-                                src="https://www.youtube.com/embed/d5rl86In5gc"
-                                title="Video 3"
-                                frameBorder="0"
+                                src="https://www.youtube.com/embed/9H4O3il-E54"
+                                title="Smart Integrated Noodle Machine"
+                                className="absolute top-0 left-0 w-full h-full"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
-                            ></iframe>
+                            />
                         </div>
+                        <h3 className="text-md md:text-lg font-bold text-slate-800 text-center mt-2">Smart Integrated Noodle Machine</h3>
+                    </div>
+
+                    {/* 2. Multi Grain Beverage Machine */}
+                    <div className="flex flex-col gap-2">
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
+                            <iframe
+                                src="https://www.youtube.com/embed/zwJIiKpp5rc"
+                                title="Multi Grain Beverage Machine"
+                                className="absolute top-0 left-0 w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </div>
+                        <h3 className="text-md md:text-lg font-bold text-slate-800 text-center mt-2">Multi Grain Beverage Machine</h3>
+                    </div>
+
+                    {/* 3. Robotic Noodle Shop */}
+                    <div className="flex flex-col gap-2">
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
+                            <iframe
+                                src="https://www.youtube.com/embed/gw1hNUwSGBg"
+                                title="Robotic Noodle Shop"
+                                className="absolute top-0 left-0 w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </div>
+                        <h3 className="text-md md:text-lg font-bold text-slate-800 text-center mt-2">Robotic Noodle Shop</h3>
+                    </div>
+
+                    {/* 4. Smart Noodle Bar */}
+                    <div className="flex flex-col gap-2">
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
+                            <iframe
+                                src="https://www.youtube.com/embed/I1vN4Cy3EvM"
+                                title="Smart Noodle Bar"
+                                className="absolute top-0 left-0 w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </div>
+                        <h3 className="text-md md:text-lg font-bold text-slate-800 text-center mt-2">Smart Noodle Bar</h3>
                     </div>
                 </div>
             </div>

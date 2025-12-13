@@ -17,11 +17,12 @@ export function VideoShowcase() {
                     </p>
                 </div>
 
-                {/* 2x2 Video Grid - Responsive Layout */}
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl mx-auto px-4">
+                {/* 6-Video Grid - Responsive Layout */}
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl mx-auto px-4">
+
                     {/* 1. Smart Integrated Noodle Machine */}
                     <div className="flex flex-col gap-2">
-                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black group">
                             <iframe
                                 src="https://www.youtube.com/embed/9H4O3il-E54"
                                 title="Smart Integrated Noodle Machine"
@@ -30,12 +31,12 @@ export function VideoShowcase() {
                                 allowFullScreen
                             />
                         </div>
-                        <h3 className="text-md md:text-lg font-bold text-slate-800 text-center mt-2">Smart Integrated Noodle Machine</h3>
+                        <h3 className="text-md font-bold text-slate-800 text-center mt-2">Smart Integrated Noodle Machine</h3>
                     </div>
 
                     {/* 2. Multi Grain Beverage Machine */}
                     <div className="flex flex-col gap-2">
-                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black group">
                             <iframe
                                 src="https://www.youtube.com/embed/zwJIiKpp5rc"
                                 title="Multi Grain Beverage Machine"
@@ -44,12 +45,12 @@ export function VideoShowcase() {
                                 allowFullScreen
                             />
                         </div>
-                        <h3 className="text-md md:text-lg font-bold text-slate-800 text-center mt-2">Multi Grain Beverage Machine</h3>
+                        <h3 className="text-md font-bold text-slate-800 text-center mt-2">Multi Grain Beverage Machine</h3>
                     </div>
 
                     {/* 3. Robotic Noodle Shop */}
                     <div className="flex flex-col gap-2">
-                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black group">
                             <iframe
                                 src="https://www.youtube.com/embed/gw1hNUwSGBg"
                                 title="Robotic Noodle Shop"
@@ -58,12 +59,12 @@ export function VideoShowcase() {
                                 allowFullScreen
                             />
                         </div>
-                        <h3 className="text-md md:text-lg font-bold text-slate-800 text-center mt-2">Robotic Noodle Shop</h3>
+                        <h3 className="text-md font-bold text-slate-800 text-center mt-2">Robotic Noodle Shop</h3>
                     </div>
 
                     {/* 4. Smart Noodle Bar */}
                     <div className="flex flex-col gap-2">
-                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black group">
                             <iframe
                                 src="https://www.youtube.com/embed/I1vN4Cy3EvM"
                                 title="Smart Noodle Bar"
@@ -72,8 +73,37 @@ export function VideoShowcase() {
                                 allowFullScreen
                             />
                         </div>
-                        <h3 className="text-md md:text-lg font-bold text-slate-800 text-center mt-2">Smart Noodle Bar</h3>
+                        <h3 className="text-md font-bold text-slate-800 text-center mt-2">Smart Noodle Bar</h3>
                     </div>
+
+                    {/* 5. Bots & Bowls Official Theme */}
+                    <div className="flex flex-col gap-2">
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black group">
+                            <iframe
+                                src="https://www.youtube.com/embed/M2VS7o-G3-0"
+                                title="Bots & Bowls Official Theme"
+                                className="absolute top-0 left-0 w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </div>
+                        <h3 className="text-md font-bold text-slate-800 text-center mt-2">Bots & Bowls Official Theme</h3>
+                    </div>
+
+                    {/* 6. Future Noodle Restaurant (Barcelona) - Shorts */}
+                    <div className="flex flex-col gap-2">
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black group">
+                            <iframe
+                                src="https://www.youtube.com/embed/d5rl86In5gc"
+                                title="Future Noodle Restaurant (Barcelona)"
+                                className="absolute top-0 left-0 w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </div>
+                        <h3 className="text-md font-bold text-slate-800 text-center mt-2">Future Noodle Restaurant (Barcelona)</h3>
+                    </div>
+
                 </div>
             </div>
         </section>

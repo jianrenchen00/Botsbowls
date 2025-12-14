@@ -8,6 +8,7 @@ export const DEMO_TRANSLATIONS = {
             food_safety: "Food Safety",
             financials: "Financials",
             owner: "Franchise Owner",
+            system_controls: "System Controls",
         },
         metrics: {
             total_revenue: "Total Revenue",
@@ -48,6 +49,7 @@ export const DEMO_TRANSLATIONS = {
             food_safety: "食品安全",
             financials: "財務報表",
             owner: "加盟業主",
+            system_controls: "系統控制",
         },
         metrics: {
             total_revenue: "總營收",
@@ -88,6 +90,7 @@ export const DEMO_TRANSLATIONS = {
             food_safety: "Sécurité Alimentaire",
             financials: "Finances",
             owner: "Propriétaire",
+            system_controls: "Contrôles Système",
         },
         metrics: {
             total_revenue: "Revenu Total",
@@ -128,6 +131,7 @@ export const DEMO_TRANSLATIONS = {
             food_safety: "Seguridad Alimentaria",
             financials: "Finanzas",
             owner: "Propietario",
+            system_controls: "Controles del Sistema",
         },
         metrics: {
             total_revenue: "Ingresos Totales",

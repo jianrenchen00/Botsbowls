@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState, use } from 'react';
-import { TrendingUp, Users, ShoppingBag, AlertTriangle, CheckCircle2, Zap, Wrench, AlertOctagon, Construction } from 'lucide-react';
+import { TrendingUp, Users, ShoppingBag, AlertTriangle, CheckCircle2, Construction, AlertOctagon } from 'lucide-react';
 import { useSimulation } from '@/hooks/useSimulation';
 import { RevenueChart } from '@/components/dashboard/RevenueChart';
 import { DEMO_TRANSLATIONS, DemoTranslationKey } from './translations';
 import { Sidebar } from '@/components/demo/Sidebar';
 import { Header } from '@/components/demo/Header';
+import { ControlPanel } from '@/components/demo/ControlPanel';
 
 export default function DemoPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = use(params);
@@ -56,7 +57,7 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
                 <main className="flex-1 overflow-auto bg-[#0F172A]">
                     {currentView === 'overview' ? (
                         <div className="p-6 max-w-7xl mx-auto space-y-6">
-                            {/* Top Row: Metrics */}
+                            {/* Top Row: Metrics & Control Panel */}
                             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
                                 <MetricCard
                                     title={t.metrics.total_revenue}
@@ -82,10 +83,18 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
                                     icon={<ShoppingBag size={20} className="text-orange-400" />}
                                     alertState={isCritical}
                                 />
+                                <ControlPanel
+                                    t={t}
+                                    isRushActive={isRushActive}
+                                    triggerLunchRush={triggerLunchRush}
+                                    systemStatus={systemStatus}
+                                    triggerFault={triggerFault}
+                                    resolveFault={resolveFault}
+                                />
                             </div>
 
                             {/* Main Content Grid */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 xl:h-[500px]">
+                            <div className="grid grid-cols-1 md:col-span-2 xl:grid-cols-4 gap-6 xl:h-[500px]">
                                 {/* Revenue Chart - Takes up 3 columns on Desktop, 2 on Tablet (full row) */}
                                 <div className="md:col-span-2 xl:col-span-3 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col min-h-[400px] xl:min-h-0">
                                     <h3 className="text-lg font-semibold text-slate-200 mb-6 flex items-center gap-2">

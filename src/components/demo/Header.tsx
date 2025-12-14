@@ -64,7 +64,7 @@ export function Header({
                     />
 
                     {/* Drawer */}
-                    <div className="fixed inset-y-0 right-0 w-3/4 max-w-sm bg-slate-900/95 backdrop-blur-md border-l border-slate-700 shadow-2xl p-6 flex flex-col animate-in slide-in-from-right duration-300">
+                    <div className="fixed inset-y-0 right-0 w-3/4 max-w-sm bg-slate-950 border-l border-slate-700 shadow-2xl p-6 flex flex-col animate-in slide-in-from-right duration-300">
                         {/* Drawer Header */}
                         <div className="flex items-center justify-between mb-8 pb-6 border-b border-slate-800">
                             <div>

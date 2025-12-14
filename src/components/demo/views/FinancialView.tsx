@@ -47,7 +47,7 @@ export function FinancialView({ t }: FinancialViewProps) {
                 <div>
                     <h2 className="text-2xl font-bold text-white flex items-center gap-3">
                         <DollarSign className="text-emerald-400" />
-                        {t.nav.financials || "Financial Analytics"}
+                        {t.financials.title}
                     </h2>
                     <p className="text-slate-400 mt-1">ROI projections & automated P&L reporting</p>
                 </div>
@@ -62,7 +62,7 @@ export function FinancialView({ t }: FinancialViewProps) {
                 <div className="space-y-6">
                     <div className="bg-[#1E293B] border border-slate-700 rounded-xl p-6">
                         <div className="flex items-center justify-between mb-4">
-                            <h3 className="text-sm font-medium text-slate-400">Projected Monthly Revenue</h3>
+                            <h3 className="text-sm font-medium text-slate-400">{t.financials.revenue}</h3>
                             <Calendar size={16} className="text-slate-500" />
                         </div>
                         <div className="flex items-baseline gap-2">
@@ -73,8 +73,8 @@ export function FinancialView({ t }: FinancialViewProps) {
                         </div>
                         <div className="mt-4 pt-4 border-t border-slate-700">
                             <div className="flex justify-between text-sm mb-1">
-                                <span className="text-slate-400">Est. Payback Period</span>
-                                <span className="text-white font-mono">8.5 Months</span>
+                                <span className="text-slate-400">{t.financials.payback}</span>
+                                <span className="text-white font-mono">8.5 {t.financials.months}</span>
                             </div>
                             <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
                                 <div className="h-full bg-emerald-500 w-[65%]"></div>
@@ -85,14 +85,14 @@ export function FinancialView({ t }: FinancialViewProps) {
                     <div className="bg-[#1E293B] border border-slate-700 rounded-xl p-6">
                         <h3 className="text-lg font-semibold text-slate-200 mb-4 flex items-center gap-2">
                             <PieChart size={18} className="text-purple-400" />
-                            Product Mix
+                            {t.financials.productMix}
                         </h3>
                         <div className="space-y-4">
                             {PRODUCT_DATA.map((product) => (
                                 <div key={product.name}>
                                     <div className="flex justify-between text-sm mb-1">
                                         <span className="text-slate-300">{product.name}</span>
-                                        <span className="text-slate-500">{product.sales} sold</span>
+                                        <span className="text-slate-500">{product.sales} {t.financials.sold}</span>
                                     </div>
                                     <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden flex">
                                         <div
@@ -111,7 +111,7 @@ export function FinancialView({ t }: FinancialViewProps) {
                     <div className="flex items-center justify-between mb-6">
                         <h3 className="text-lg font-semibold text-slate-200 flex items-center gap-2">
                             <BarChart3 size={20} className="text-blue-400" />
-                            Peak Traffic Heatmap
+                            {t.financials.heatmapTitle}
                         </h3>
                         <div className="flex items-center gap-2 text-xs">
                             <span className="flex items-center gap-1"><span className="w-2 h-2 bg-blue-500/10 rounded"></span> Low</span>

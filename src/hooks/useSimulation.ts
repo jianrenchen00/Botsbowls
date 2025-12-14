@@ -11,6 +11,11 @@ export interface SimulationState {
     systemStatus: 'normal' | 'critical';
     soupLevel: number;
     noodleStock: number;
+    freezerTemp: number;
+    cookerTemp: number;
+    motorLoad: number;
+    powerUsage: number;
+    motorHistory: number[];
 }
 
 export interface DashboardEvent {
@@ -34,6 +39,11 @@ const INITIAL_STATE: SimulationState = {
     systemStatus: 'normal',
     soupLevel: 100,
     noodleStock: 100,
+    freezerTemp: -18.0,
+    cookerTemp: 95.0,
+    motorLoad: 45,
+    powerUsage: 2.4,
+    motorHistory: Array(30).fill(45),
 };
 
 const SAMPLE_EVENTS = [
@@ -135,6 +145,29 @@ export function useSimulation() {
                 let newSoupLevel = prev.soupLevel - (Math.random() * 0.1 + 0.05) * multiplier;
                 let newNoodleStock = prev.noodleStock - (Math.floor(Math.random() * 2) + 1) * multiplier * 0.1;
 
+                // Sensor Logic (Telemetry)
+                // Freezer: Target -18.0, fluctuate slightly
+                const freezerNoise = (Math.random() - 0.5) * 0.4;
+                let newFreezerTemp = -18.0 + freezerNoise;
+
+                // Cooker: Target 95.0, fluctuate
+                const cookerNoise = (Math.random() - 0.5) * 1.0;
+                let newCookerTemp = 95.0 + cookerNoise;
+
+                // Motor Load: Spikes on activity, decays otherwise
+                let newMotorLoad = prev.motorLoad;
+                if (Math.random() > 0.7) {
+                    newMotorLoad = Math.min(95, prev.motorLoad + Math.random() * 30); // Spike
+                } else {
+                    newMotorLoad = Math.max(25, prev.motorLoad - 5); // Decay
+                }
+
+                // Power Usage: correlated with motor load + base load
+                const newPowerUsage = 1.2 + (newMotorLoad / 100) * 2.5; // Base 1.2kW + up to 2.5kW variable
+
+                // Motor History
+                const newMotorHistory = [...prev.motorHistory, newMotorLoad].slice(-30);
+
                 // Auto-Restock Logic
                 let inventoryEvents: DashboardEvent[] = [];
 
@@ -178,7 +211,12 @@ export function useSimulation() {
                     revenueHistory: newHistory,
                     soupLevel: Math.max(0, newSoupLevel),
                     noodleStock: Math.max(0, newNoodleStock),
-                    recentEvents: inventoryEvents.length > 0 ? combinedEvents : prev.recentEvents
+                    recentEvents: inventoryEvents.length > 0 ? combinedEvents : prev.recentEvents,
+                    freezerTemp: newFreezerTemp,
+                    cookerTemp: newCookerTemp,
+                    motorLoad: newMotorLoad,
+                    powerUsage: newPowerUsage,
+                    motorHistory: newMotorHistory
                 };
             });
         }, 1000); // Increased tick rate to 1 second for smoother animation

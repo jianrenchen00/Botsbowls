@@ -9,6 +9,7 @@ import { Sidebar } from '@/components/demo/Sidebar';
 import { Header } from '@/components/demo/Header';
 import { ControlPanel } from '@/components/demo/ControlPanel';
 import { InventoryView } from '@/components/demo/views/InventoryView';
+import { TelemetryView } from '@/components/demo/views/TelemetryView';
 
 export default function DemoPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = use(params);
@@ -29,7 +30,12 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
         triggerFault,
         resolveFault,
         soupLevel, // Add soupLevel
-        noodleStock // Add noodleStock
+        noodleStock, // Add noodleStock
+        freezerTemp,
+        cookerTemp,
+        motorLoad,
+        powerUsage,
+        motorHistory
     } = useSimulation();
 
     // Format revenue as currency
@@ -135,6 +141,15 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
                             t={t}
                             soupLevel={soupLevel}
                             noodleStock={noodleStock}
+                        />
+                    ) : currentView === 'telemetry' ? (
+                        <TelemetryView
+                            t={t}
+                            freezerTemp={freezerTemp}
+                            cookerTemp={cookerTemp}
+                            motorLoad={motorLoad}
+                            powerUsage={powerUsage}
+                            motorHistory={motorHistory}
                         />
                     ) : (
                         <div className="flex flex-col items-center justify-center h-full text-slate-400">

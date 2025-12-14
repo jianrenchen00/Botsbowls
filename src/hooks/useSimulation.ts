@@ -6,6 +6,8 @@ export interface SimulationState {
     totalActiveFleet: number;
     totalOrders: number;
     recentEvents: DashboardEvent[];
+    revenueHistory: { time: string; value: number }[];
+    isRushActive: boolean;
 }
 
 export interface DashboardEvent {
@@ -15,11 +17,17 @@ export interface DashboardEvent {
     time: string;
 }
 
-const INITIAL_STATE = {
+const INITIAL_STATE: SimulationState = {
     revenue: 12450.00,
     activeBots: 124,
     totalActiveFleet: 128,
     totalOrders: 842,
+    recentEvents: [],
+    revenueHistory: Array.from({ length: 20 }, (_, i) => ({
+        time: `${10 + Math.floor(i / 2)}:${i % 2 === 0 ? '00' : '30'}`,
+        value: 12000 + (Math.random() * 500)
+    })),
+    isRushActive: false,
 };
 
 const SAMPLE_EVENTS = [
@@ -45,27 +53,56 @@ export function useSimulation() {
         ]
     });
 
-    // Use refs to access latest state inside intervals without re-triggering effects
-    const stateRef = useRef(state);
-    stateRef.current = state;
+    const rushTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    // Function to trigger lunch rush
+    const triggerLunchRush = () => {
+        if (state.isRushActive) return;
+
+        setState(prev => ({ ...prev, isRushActive: true }));
+
+        // Reset after 10 seconds
+        if (rushTimeoutRef.current) clearTimeout(rushTimeoutRef.current);
+        rushTimeoutRef.current = setTimeout(() => {
+            setState(prev => ({ ...prev, isRushActive: false }));
+        }, 10000);
+    };
 
     useEffect(() => {
-        // Main Ticker: Updates Revenue & Orders every 3 seconds
+        // Main Ticker: Updates Revenue & Orders
         const mainTicker = setInterval(() => {
-            const revenueIncrease = Math.random() * (45 - 12) + 12; // Random increment between $12 and $45
+            setState(prev => {
+                const isRush = prev.isRushActive;
+                // Base increment: $12-$45. Lunch rush multiplier: 3x-5x
+                const baseIncrement = Math.random() * (45 - 12) + 12;
+                const multiplier = isRush ? (Math.random() * (5 - 3) + 3) : 1;
+                const revenueIncrease = baseIncrement * multiplier;
+                const newRevenue = prev.revenue + revenueIncrease;
 
-            setState(prev => ({
-                ...prev,
-                revenue: prev.revenue + revenueIncrease,
-                totalOrders: prev.totalOrders + 1,
-            }));
-        }, 3000);
+                // Update history
+                const now = new Date();
+                const timeString = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+
+                const newHistoryPoint = {
+                    time: timeString,
+                    value: newRevenue
+                };
+
+                const newHistory = [...prev.revenueHistory, newHistoryPoint].slice(-20); // Keep last 20 points
+
+                return {
+                    ...prev,
+                    revenue: newRevenue,
+                    totalOrders: prev.totalOrders + (isRush ? Math.floor(Math.random() * 5) + 1 : 1),
+                    revenueHistory: newHistory
+                };
+            });
+        }, 3000); // Update every 3 seconds
 
         // Fluctuation Ticker: Updates Active Bots every 5 seconds (rarely changes)
         const botTicker = setInterval(() => {
-            // 20% chance to change bot count
             if (Math.random() > 0.8) {
-                const newActiveBots = Math.floor(Math.random() * (128 - 122 + 1) + 122); // Random between 122 and 128
+                const newActiveBots = Math.floor(Math.random() * (128 - 122 + 1) + 122);
                 setState(prev => ({
                     ...prev,
                     activeBots: newActiveBots
@@ -85,7 +122,7 @@ export function useSimulation() {
 
             setState(prev => ({
                 ...prev,
-                recentEvents: [newEvent, ...prev.recentEvents].slice(0, 10) // Keep last 10
+                recentEvents: [newEvent, ...prev.recentEvents].slice(0, 10)
             }));
         }, 10000);
 
@@ -93,8 +130,9 @@ export function useSimulation() {
             clearInterval(mainTicker);
             clearInterval(botTicker);
             clearInterval(eventTicker);
+            if (rushTimeoutRef.current) clearTimeout(rushTimeoutRef.current);
         };
     }, []);
 
-    return state;
+    return { ...state, triggerLunchRush };
 }

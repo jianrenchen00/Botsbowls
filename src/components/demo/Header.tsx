@@ -55,15 +55,15 @@ export function Header({
 
             {/* Mobile Menu Overlay */}
             {isMobileMenuOpen && (
-                <div className="fixed inset-0 z-50 md:hidden flex">
+                <div className="fixed inset-0 z-[100] md:hidden flex">
                     {/* Backdrop */}
                     <div
-                        className="fixed inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+                        className="fixed inset-0 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
                         onClick={() => setIsMobileMenuOpen(false)}
                     />
 
                     {/* Drawer */}
-                    <div className="relative w-72 bg-[#0F172A] border-r border-slate-800 shadow-2xl animate-in slide-in-from-left duration-200 flex flex-col h-full">
+                    <div className="relative w-72 bg-slate-900 border-r border-slate-700 shadow-2xl animate-in slide-in-from-left duration-200 flex flex-col h-full z-[101]">
                         <div className="h-16 flex items-center justify-end px-4 border-b border-slate-800">
                             <button
                                 onClick={() => setIsMobileMenuOpen(false)}

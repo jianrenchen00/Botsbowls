@@ -113,8 +113,13 @@ export default function DemoPage({ params }: Props) {
                                     icon={<ShoppingBag size={20} className="text-orange-400" />}
                                     alertState={isCritical}
                                 />
-                                triggerFault={triggerFault}
-                                resolveFault={resolveFault}
+                                <ControlPanel
+                                    t={t}
+                                    isRushActive={isRushActive}
+                                    triggerLunchRush={triggerLunchRush}
+                                    systemStatus={systemStatus}
+                                    triggerFault={triggerFault}
+                                    resolveFault={resolveFault}
                                 />
                                 <PaymentHealthCard t={t} />
                             </div >

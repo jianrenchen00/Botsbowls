@@ -7,9 +7,11 @@ interface SidebarProps {
     currentView: string;
     setCurrentView: (view: string) => void;
     t: any; // Translation object
+    className?: string;
+    onNavigate?: () => void;
 }
 
-export function Sidebar({ currentView, setCurrentView, t }: SidebarProps) {
+export function Sidebar({ currentView, setCurrentView, t, className = "", onNavigate }: SidebarProps) {
     const navItems = [
         { id: 'overview', label: t.nav.overview, icon: <LayoutDashboard size={20} /> },
         { id: 'telemetry', label: t.nav.telemetry, icon: <Activity size={20} /> },
@@ -18,9 +20,14 @@ export function Sidebar({ currentView, setCurrentView, t }: SidebarProps) {
         { id: 'financials', label: t.nav.financials, icon: <DollarSign size={20} /> },
     ];
 
+    const handleNavClick = (id: string) => {
+        setCurrentView(id);
+        if (onNavigate) onNavigate();
+    };
+
     return (
-        <aside className="w-64 bg-[#0F172A] border-r border-slate-800 flex-col hidden md:flex">
-            <div className="h-16 flex items-center px-6 border-b border-slate-800">
+        <aside className={`w-64 bg-[#0F172A] border-r border-slate-800 flex-col ${className || 'hidden md:flex'}`}>
+            <div className="h-16 flex items-center px-6 border-b border-slate-800 flex-shrink-0">
                 <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                     Bots & Bowls
                 </span>
@@ -29,14 +36,14 @@ export function Sidebar({ currentView, setCurrentView, t }: SidebarProps) {
                 </span>
             </div>
 
-            <nav className="flex-1 p-4 space-y-2">
+            <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
                 {navItems.map((item) => (
                     <button
                         key={item.id}
-                        onClick={() => setCurrentView(item.id)}
+                        onClick={() => handleNavClick(item.id)}
                         className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${currentView === item.id
-                                ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20'
-                                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                            ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20'
+                            : 'text-slate-400 hover:text-white hover:bg-slate-800'
                             }`}
                     >
                         {item.icon}
@@ -45,7 +52,7 @@ export function Sidebar({ currentView, setCurrentView, t }: SidebarProps) {
                 ))}
             </nav>
 
-            <div className="p-4 border-t border-slate-800">
+            <div className="p-4 border-t border-slate-800 flex-shrink-0">
                 <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold border border-blue-500/30">
                         JD

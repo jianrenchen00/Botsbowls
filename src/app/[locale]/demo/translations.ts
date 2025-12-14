@@ -152,7 +152,15 @@ export const DEMO_TRANSLATIONS = {
             channel_kiosk: "Kiosk",
             channel_app: "BB App",
             channel_web: "Web Order",
-            channel_3rd: "3rd Party"
+            channel_3rd: "3rd Party",
+            col_action: "Action",
+            btn_compensate: "Compensate",
+            tip_balance: "Transfer from {store} ({dist})",
+            comp_title: "Choose Compensation",
+            comp_refund: "Full Refund",
+            comp_coupon: "Send 50% Off Coupon",
+            comp_drink: "Gift Free Drink",
+            comp_success: "Compensation sent to customer!"
         }
     },
     'zh-TW': {
@@ -313,7 +321,15 @@ export const DEMO_TRANSLATIONS = {
             channel_kiosk: "現場機器",
             channel_app: "BB App",
             channel_web: "網頁下單",
-            channel_3rd: "第三方平台"
+            channel_3rd: "第三方平台",
+            col_action: "操作",
+            btn_compensate: "安撫",
+            tip_balance: "調貨建議：從 {store} ({dist}) 調撥",
+            comp_title: "選擇補償方式",
+            comp_refund: "全額退款",
+            comp_coupon: "發送 5 折券",
+            comp_drink: "贈送飲料",
+            comp_success: "已發送補償通知給客戶！"
         },
         construction: {
             title: "模組開發中",

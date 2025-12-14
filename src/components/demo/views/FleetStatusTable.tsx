@@ -56,6 +56,13 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
         return <span className="text-slate-500">-</span>;
     };
 
+    const handleCompensate = (unitId: string) => {
+        const choice = window.prompt(`${t.fleetTable.comp_title}:\n1. ${t.fleetTable.comp_refund}\n2. ${t.fleetTable.comp_coupon}\n3. ${t.fleetTable.comp_drink}`);
+        if (choice) {
+            alert(t.fleetTable.comp_success);
+        }
+    };
+
     return (
         <div className="bg-[#1E293B] border border-slate-700 rounded-xl overflow-hidden mb-6">
             <div className="p-6 border-b border-slate-700 flex justify-between items-center">
@@ -71,10 +78,11 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
                             <th className="px-6 py-3 font-medium">{t.fleetTable.col_type}</th>
                             <th className="px-6 py-3 font-medium text-right">{t.fleetTable.col_revenue}</th>
                             <th className="px-6 py-3 font-medium">{t.fleetTable.col_status}</th>
-                            <th className="px-6 py-3 font-medium min-w-[140px]">{t.fleetTable.col_restock}</th>
+                            <th className="px-6 py-3 font-medium min-w-[200px]">{t.fleetTable.col_restock}</th>
                             <th className="px-6 py-3 font-medium text-right">{t.fleetTable.col_aov}</th>
                             <th className="px-6 py-3 font-medium">{t.fleetTable.col_addon}</th>
                             <th className="px-6 py-3 font-medium text-center min-w-[120px]">{t.fleetTable.col_channel}</th>
+                            <th className="px-6 py-3 font-medium text-center">{t.fleetTable.col_action}</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-700/50">
@@ -98,12 +106,21 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
                                 </td>
                                 <td className="px-6 py-3 text-slate-300">
                                     {unit.portions < 20 && unit.status !== 'status_maintenance' ? (
-                                        <div className="flex items-center gap-2 text-red-400 font-medium flex-wrap">
-                                            <AlertTriangle size={14} className="shrink-0" />
-                                            <span>
-                                                {unit.portions} {t.fleetTable.unit_bowls}
-                                                <span className="block text-[10px] opacity-80 whitespace-nowrap">{t.fleetTable.warn_restock}</span>
-                                            </span>
+                                        <div className="flex flex-col items-start gap-1 text-red-400 font-medium">
+                                            <div className="flex items-center gap-2">
+                                                <AlertTriangle size={14} className="shrink-0" />
+                                                <span>
+                                                    {unit.portions} {t.fleetTable.unit_bowls}
+                                                    <span className="block text-[10px] opacity-80 whitespace-nowrap">{t.fleetTable.warn_restock}</span>
+                                                </span>
+                                            </div>
+                                            {unit.location === 'loc_louvre' && (
+                                                <div className="mt-1 text-[10px] text-blue-400 bg-blue-400/10 px-2 py-1 rounded border border-blue-400/20 w-full whitespace-normal leading-tight">
+                                                    {t.fleetTable.tip_balance
+                                                        .replace('{store}', t.fleetTable.loc_arc)
+                                                        .replace('{dist}', '1.2km')}
+                                                </div>
+                                            )}
                                         </div>
                                     ) : unit.status === 'status_maintenance' ? (
                                         <span className="text-slate-600">--</span>
@@ -123,6 +140,14 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
                                     <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs font-medium text-slate-300">
                                         {t.fleetTable[`channel_${unit.channel}`] || unit.channel}
                                     </div>
+                                </td>
+                                <td className="px-6 py-3 text-center">
+                                    <button
+                                        onClick={() => handleCompensate(unit.id)}
+                                        className="px-3 py-1 rounded-md border border-orange-500/50 text-orange-400 text-xs hover:bg-orange-500/10 transition-colors whitespace-nowrap"
+                                    >
+                                        {t.fleetTable.btn_compensate}
+                                    </button>
                                 </td>
                             </tr>
                         ))}

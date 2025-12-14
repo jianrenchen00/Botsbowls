@@ -46,14 +46,14 @@ export function TelemetryView({
                     </div>
                     <h3 className="text-lg font-semibold text-slate-200 mb-6 flex items-center gap-2">
                         <Thermometer size={20} className="text-orange-400" />
-                        {t.telemetry.thermal}
+                        {t.telemetry.thermal_control}
                     </h3>
 
                     <div className="space-y-6">
                         {/* Freezer */}
                         <div className="bg-[#0F172A] p-4 rounded-lg border border-slate-800">
                             <div className="flex justify-between items-center mb-2">
-                                <span className="text-sm text-slate-400">{t.telemetry.temp_freezer}</span>
+                                <span className="text-sm text-slate-400">{t.telemetry.freezer_temp}</span>
                                 <span className="text-xs font-mono text-blue-400">{t.telemetry.target}: -18.0°C</span>
                             </div>
                             <div className="flex items-end gap-2">
@@ -73,7 +73,7 @@ export function TelemetryView({
                         {/* Cooker */}
                         <div className="bg-[#0F172A] p-4 rounded-lg border border-slate-800">
                             <div className="flex justify-between items-center mb-2">
-                                <span className="text-sm text-slate-400">{t.telemetry.temp_cooker}</span>
+                                <span className="text-sm text-slate-400">{t.telemetry.cooker_temp}</span>
                                 <span className="text-xs font-mono text-orange-400">{t.telemetry.target}: 95.0°C</span>
                             </div>
                             <div className="flex items-end gap-2">
@@ -96,7 +96,7 @@ export function TelemetryView({
                 <div className="bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col">
                     <h3 className="text-lg font-semibold text-slate-200 mb-6 flex items-center gap-2">
                         <Cpu size={20} className="text-purple-400" />
-                        {t.telemetry.actuator}
+                        {t.telemetry.actuator_load}
                     </h3>
 
                     <div className="flex-1 min-h-[180px] w-full bg-[#0F172A] rounded-lg border border-slate-800 p-4 relative">
@@ -146,7 +146,7 @@ export function TelemetryView({
                     </div>
                     <h3 className="text-lg font-semibold text-slate-200 mb-6 flex items-center gap-2">
                         <Zap size={20} className="text-yellow-400" />
-                        {t.telemetry.power}
+                        {t.telemetry.power_metrics}
                     </h3>
 
                     <div className="flex flex-col items-center justify-center py-8">

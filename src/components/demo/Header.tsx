@@ -28,7 +28,7 @@ export function Header({
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <header className="h-16 bg-[#0F172A]/80 backdrop-blur-md border-b border-slate-800 flex items-center justify-between px-6 sticky top-0 z-10 transition-all">
+        <header className="h-16 bg-slate-950 border-b border-slate-800 flex items-center justify-between px-6 sticky top-0 z-10 transition-all">
             <div className="flex items-center gap-4">
                 <button
                     onClick={() => setIsMobileMenuOpen(true)}
@@ -64,7 +64,7 @@ export function Header({
                     />
 
                     {/* Drawer */}
-                    <div className="fixed inset-y-0 right-0 w-3/4 max-w-sm bg-[#0f172a] border-l border-slate-700 shadow-2xl p-6 flex flex-col animate-in slide-in-from-right duration-300">
+                    <div className="fixed inset-y-0 right-0 w-3/4 max-w-sm bg-slate-950 border-l border-slate-700 shadow-2xl p-6 flex flex-col animate-in slide-in-from-right duration-300">
                         {/* Drawer Header */}
                         <div className="flex items-center justify-between mb-8 pb-6 border-b border-slate-800">
                             <div>

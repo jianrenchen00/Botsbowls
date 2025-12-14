@@ -22,7 +22,7 @@ export function InventoryView({ t, soupLevel, noodleStock }: InventoryViewProps)
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
                     <h3 className="text-lg font-medium text-slate-300 mb-6 flex items-center gap-2 z-10">
                         <Droplets size={20} className="text-amber-400" />
-                        {t.inventory.soup_level}
+                        {t.inventory.soup_tank_level}
                     </h3>
 
                     {/* Tank Visualizer */}
@@ -52,7 +52,7 @@ export function InventoryView({ t, soupLevel, noodleStock }: InventoryViewProps)
                 <div className="md:col-span-1 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col">
                     <h3 className="text-lg font-medium text-slate-300 mb-6 flex items-center gap-2">
                         <Package size={20} className="text-purple-400" />
-                        {t.inventory.noodle_stock}
+                        {t.inventory.noodle_hopper}
                     </h3>
 
                     <div className="flex-1 flex flex-col justify-center space-y-4">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Package, Droplets, Clock, TrendingDown } from 'lucide-react';
+import { Package, Droplets, Clock, TrendingDown, TrendingUp, AlertTriangle, Truck } from 'lucide-react';
 
 interface InventoryViewProps {
     t: any;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, Users, ShoppingBag, AlertTriangle, CheckCircle2, AlertOctagon } from 'lucide-react';
+import { TrendingUp, Users, ShoppingBag, AlertTriangle, CheckCircle2, AlertOctagon, Globe, Award, ShieldCheck } from 'lucide-react';
 import { RevenueChart } from '@/components/dashboard/RevenueChart';
 import { ControlPanel } from '@/components/demo/ControlPanel';
 import { FleetStatusTable } from '@/components/demo/views/FleetStatusTable';
@@ -38,6 +38,54 @@ export function OverviewView({
 }: OverviewViewProps) {
     return (
         <div className="p-6 pt-32 max-w-7xl mx-auto space-y-6">
+            {/* User Profile Bar */}
+            <div className="bg-slate-900/40 border border-slate-800 backdrop-blur-sm rounded-xl px-6 py-4 flex flex-wrap gap-6 items-center justify-between animate-in fade-in slide-in-from-top-4 duration-700">
+                <div className="flex items-center gap-3">
+                    <div className="p-2 bg-blue-500/10 rounded-full text-blue-400 border border-blue-500/20">
+                        <Users size={18} />
+                    </div>
+                    <div>
+                        <div className="text-xs text-slate-500 uppercase tracking-widest">{t.profile.account}</div>
+                        <div className="text-slate-200 font-bold">ParisChen</div>
+                    </div>
+                </div>
+
+                <div className="h-8 w-px bg-slate-800 hidden md:block"></div>
+
+                <div className="flex items-center gap-3">
+                    <div className="p-2 bg-purple-500/10 rounded-full text-purple-400 border border-purple-500/20">
+                        <Globe size={18} />
+                    </div>
+                    <div>
+                        <div className="text-xs text-slate-500 uppercase tracking-widest">{t.profile.region}</div>
+                        <div className="text-slate-200 font-medium">{t.profile.val_region}</div>
+                    </div>
+                </div>
+
+                <div className="h-8 w-px bg-slate-800 hidden md:block"></div>
+
+                <div className="flex items-center gap-3">
+                    <div className="p-2 bg-amber-500/10 rounded-full text-amber-400 border border-amber-500/20">
+                        <Award size={18} />
+                    </div>
+                    <div>
+                        <div className="text-xs text-slate-500 uppercase tracking-widest">{t.profile.score}</div>
+                        <div className="text-emerald-400 font-bold">98.5 <span className="text-xs font-normal text-slate-500">/ 100</span></div>
+                    </div>
+                </div>
+
+                <div className="h-8 w-px bg-slate-800 hidden md:block"></div>
+
+                <div className="flex items-center gap-3">
+                    <div className="p-2 bg-emerald-500/10 rounded-full text-emerald-400 border border-emerald-500/20">
+                        <ShieldCheck size={18} />
+                    </div>
+                    <div>
+                        <div className="text-xs text-slate-500 uppercase tracking-widest">{t.profile.status}</div>
+                        <div className="text-slate-200 font-medium">{t.profile.val_secure}</div>
+                    </div>
+                </div>
+            </div>
             {/* Top Row: Metrics & Control Panel */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
                 <MetricCard

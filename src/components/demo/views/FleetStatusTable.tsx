@@ -85,7 +85,7 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
                             <th className="px-6 py-3 font-medium text-right">{t.fleetTable.col_aov}</th>
                             <th className="px-6 py-3 font-medium">{t.fleetTable.col_addon}</th>
                             <th className="px-6 py-3 font-medium text-center min-w-[120px]">{t.fleetTable.col_channel}</th>
-                            <th className="px-6 py-3 font-medium text-center min-w-[220px]">{t.fleetTable.col_action}</th>
+                            <th className="px-6 py-3 font-medium text-left min-w-[400px]">{t.fleetTable.col_action}</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-700/50">
@@ -145,21 +145,26 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
                                     </div>
                                 </td>
                                 <td className="px-6 py-3">
-                                    <div className="flex items-center gap-2 justify-center">
-                                        <button onClick={() => handleIconAction(unit.id, 'restock')} title={t.fleetTable.tip_restock} className="p-1.5 rounded-md hover:bg-blue-500/10 text-slate-400 hover:text-blue-400 transition-colors">
-                                            <Package size={16} />
+                                    <div className="flex flex-wrap gap-2 justify-start min-w-[380px]">
+                                        <button onClick={() => handleIconAction(unit.id, 'restock')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-blue-500/30 bg-blue-500/10 text-blue-300 hover:bg-blue-500/20 transition-colors text-xs font-medium">
+                                            <Package size={14} />
+                                            {t.fleetTable.tip_restock}
                                         </button>
-                                        <button onClick={() => handleIconAction(unit.id, 'tech')} title={t.fleetTable.tip_tech} className="p-1.5 rounded-md hover:bg-orange-500/10 text-slate-400 hover:text-orange-400 transition-colors">
-                                            <Wrench size={16} />
+                                        <button onClick={() => handleIconAction(unit.id, 'tech')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-orange-500/30 bg-orange-500/10 text-orange-300 hover:bg-orange-500/20 transition-colors text-xs font-medium">
+                                            <Wrench size={14} />
+                                            {t.fleetTable.tip_tech}
                                         </button>
-                                        <button onClick={() => handleIconAction(unit.id, 'staff')} title={t.fleetTable.tip_staff} className="p-1.5 rounded-md hover:bg-purple-500/10 text-slate-400 hover:text-purple-400 transition-colors">
-                                            <User size={16} />
+                                        <button onClick={() => handleIconAction(unit.id, 'staff')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-purple-500/30 bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 transition-colors text-xs font-medium">
+                                            <User size={14} />
+                                            {t.fleetTable.tip_staff}
                                         </button>
-                                        <button onClick={() => handleIconAction(unit.id, 'reboot')} title={t.fleetTable.tip_reboot} className="p-1.5 rounded-md hover:bg-slate-500/10 text-slate-400 hover:text-slate-200 transition-colors">
-                                            <RefreshCw size={16} />
+                                        <button onClick={() => handleIconAction(unit.id, 'reboot')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-600 bg-slate-700/50 text-slate-300 hover:bg-slate-700 transition-colors text-xs font-medium">
+                                            <RefreshCw size={14} />
+                                            {t.fleetTable.tip_reboot}
                                         </button>
-                                        <button onClick={() => handleIconAction(unit.id, 'complaint')} title={t.fleetTable.tip_complaint} className="p-1.5 rounded-md hover:bg-red-500/10 text-slate-400 hover:text-red-400 transition-colors">
-                                            <MessageCircle size={16} />
+                                        <button onClick={() => handleIconAction(unit.id, 'complaint')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-red-500/30 bg-red-500/10 text-red-300 hover:bg-red-500/20 transition-colors text-xs font-medium">
+                                            <MessageCircle size={14} />
+                                            {t.fleetTable.tip_complaint}
                                         </button>
                                     </div>
                                 </td>

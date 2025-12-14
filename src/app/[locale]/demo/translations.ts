@@ -137,6 +137,14 @@ export const DEMO_TRANSLATIONS = {
             supply_truck: "Truck A ({min} min away)",
             supply_status: "Truck A: {min} mins to Louvre"
         },
+        profile: {
+            account: "Commander",
+            region: "Region",
+            score: "Ops Score",
+            status: "System Link",
+            val_region: "BB Paris Prime Agent",
+            val_secure: "Encrypted"
+        },
         construction: {
             title: "Module Under Construction",
             desc: "This feature module is currently being built and will be released in the next version."
@@ -352,6 +360,14 @@ export const DEMO_TRANSLATIONS = {
             forecast_legend_demand: "預測消耗",
             supply_truck: "補貨車 A (距離 {min} 分鐘)",
             supply_status: "補貨車 A：距離羅浮宮店還有 {min} 分鐘"
+        },
+        profile: {
+            account: "指揮官",
+            region: "管轄區域",
+            score: "營運評分",
+            status: "系統連線",
+            val_region: "BB 巴黎總代理",
+            val_secure: "加密連線 (Secure)"
         },
         fleetTable: {
             title: "各機器營運狀況",

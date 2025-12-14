@@ -46,7 +46,13 @@ export const DEMO_TRANSLATIONS = {
             productMix: "Product Sales Mix",
             highMargin: "High Margin Items",
             lowMargin: "Standard Items",
-            sold: "sold"
+            sold: "sold",
+            profitMargin: "Profit Margin",
+            operationalCost: "Operational Cost",
+            low: "Low",
+            high: "High",
+            disclaimer: "*Based on aggregated fleet data. Darker blocks indicate higher order velocity.",
+            weekdays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
         },
         controls: {
             title: "System Control Panel",
@@ -66,7 +72,9 @@ export const DEMO_TRANSLATIONS = {
             telemetry: "遙測數據",
             inventory: "庫存管理",
             food_safety: "食品安全",
-            financials: "財務分析"
+            financials: "財務分析",
+            owner: "加盟業主",
+            system_controls: "系統控制",
         },
         metrics: {
             total_revenue: "總營收",
@@ -104,7 +112,13 @@ export const DEMO_TRANSLATIONS = {
             productMix: "產品銷售組合",
             highMargin: "高毛利商品",
             lowMargin: "標準商品",
-            sold: "已售出"
+            sold: "已售出",
+            profitMargin: "利潤率",
+            operationalCost: "營運成本",
+            low: "低",
+            high: "高",
+            disclaimer: "*基於綜合機隊數據。深色區塊表示較高的訂單速度。",
+            weekdays: ["週一", "週二", "週三", "週四", "週五", "週六", "週日"]
         },
         controls: {
             title: "系統控制面板",
@@ -124,7 +138,9 @@ export const DEMO_TRANSLATIONS = {
             telemetry: "Télémétrie",
             inventory: "Inventaire",
             food_safety: "Sécurité Alimentaire",
-            financials: "Finances"
+            financials: "Finances",
+            owner: "Propriétaire",
+            system_controls: "Contrôles Système",
         },
         metrics: {
             total_revenue: "Revenu Total",
@@ -162,7 +178,13 @@ export const DEMO_TRANSLATIONS = {
             productMix: "Mix des Ventes",
             highMargin: "Articles à Marge Élevée",
             lowMargin: "Articles Standard",
-            sold: "vendus"
+            sold: "vendus",
+            profitMargin: "Marge Bénéficiaire",
+            operationalCost: "Coût Opérationnel",
+            low: "Bas",
+            high: "Haut",
+            disclaimer: "*Basé sur les données agrégées de la flotte. Les blocs sombres indiquent une vélocité élevée.",
+            weekdays: ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"]
         },
         controls: {
             title: "Panneau de Contrôle",
@@ -182,7 +204,9 @@ export const DEMO_TRANSLATIONS = {
             telemetry: "Telemetría",
             inventory: "Inventario",
             food_safety: "Seguridad Alimentaria",
-            financials: "Finanzas"
+            financials: "Finanzas",
+            owner: "Propietario",
+            system_controls: "Controles del Sistema",
         },
         metrics: {
             total_revenue: "Ingresos Totales",
@@ -220,7 +244,13 @@ export const DEMO_TRANSLATIONS = {
             productMix: "Mezcla de Ventas",
             highMargin: "Artículos de Alto Margen",
             lowMargin: "Artículos Estándar",
-            sold: "vendidos"
+            sold: "vendidos",
+            profitMargin: "Margen de Beneficio",
+            operationalCost: "Costo Operativo",
+            low: "Bajo",
+            high: "Alto",
+            disclaimer: "*Basado en datos agregados. Los bloques oscuros indican mayor velocidad.",
+            weekdays: ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]
         },
         controls: {
             title: "Panel de Control",

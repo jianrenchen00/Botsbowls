@@ -64,6 +64,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body
         className={`${inter.variable} ${robotoMono.variable} antialiased bg-background text-foreground`}
+        suppressHydrationWarning
       >
         <TranslationsProvider
           locale={locale}

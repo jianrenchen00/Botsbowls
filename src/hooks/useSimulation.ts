@@ -32,9 +32,10 @@ const INITIAL_STATE: SimulationState = {
     totalActiveFleet: 128,
     totalOrders: 842,
     recentEvents: [],
+    // Static initial history to prevent hydration mismatch
     revenueHistory: Array.from({ length: 20 }, (_, i) => ({
-        time: `${10 + Math.floor(i / 2)}:${i % 2 === 0 ? '00' : '30'}`,
-        value: 12000 + (i * 50) // Static linear growth for initial state
+        time: "00:00",
+        value: 12000
     })),
     isRushActive: false,
     systemStatus: 'normal',
@@ -45,11 +46,7 @@ const INITIAL_STATE: SimulationState = {
     motorLoad: 45,
     powerUsage: 2.4,
     motorHistory: Array(30).fill(45),
-    cleaningLog: [
-        { id: '1', time: '11:45:00', action: 'High-Temp Nozzle Flush', status: 'Verified' as const },
-        { id: '2', time: '11:15:00', action: 'UV-C Sterilization Cycle', status: 'Verified' as const },
-        { id: '3', time: '10:45:00', action: 'Filter Integrity Check', status: 'Verified' as const },
-    ]
+    cleaningLog: [] // Start empty, populate on client
 };
 
 const SAMPLE_EVENTS = [
@@ -64,18 +61,45 @@ const SAMPLE_EVENTS = [
 ];
 
 export function useSimulation() {
-    const [state, setState] = useState<SimulationState>({
-        ...INITIAL_STATE,
-        recentEvents: [
-            { id: '1', type: 'warning', message: "Bot #04 Osaka: Low noodle inventory (15%)", time: "2m ago" },
-            { id: '2', type: 'success', message: "Bot #12 London: Automated cleaning cycle complete", time: "12m ago" },
-            { id: '3', type: 'info', message: "Bot #07 NYC: Daily diagnostics passed", time: "45m ago" },
-            { id: '4', type: 'warning', message: "Bot #22 Tokyo: Sauce dispenser validation needed", time: "1h ago" },
-            { id: '5', type: 'success', message: "System: Firmware update v2.4.0 deployed", time: "2h ago" },
-        ]
-    });
+    const [state, setState] = useState<SimulationState>(INITIAL_STATE);
+    const [isMounted, setIsMounted] = useState(false);
 
     const rushTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    // Initialize random data ONLY on client
+    useEffect(() => {
+        setIsMounted(true);
+
+        // Generate initial random history
+        const initialHistory = Array.from({ length: 20 }, (_, i) => ({
+            time: `${10 + Math.floor(i / 2)}:${i % 2 === 0 ? '00' : '30'}`,
+            value: 12000 + (Math.random() * 500)
+        }));
+
+        // Generate initial cleaning log
+        const initialCleaningLog = [
+            { id: '1', time: '11:45:00', action: 'High-Temp Nozzle Flush', status: 'Verified' as const },
+            { id: '2', time: '11:15:00', action: 'UV-C Sterilization Cycle', status: 'Verified' as const },
+            { id: '3', time: '10:45:00', action: 'Filter Integrity Check', status: 'Verified' as const },
+        ];
+
+        // Generate initial events
+        const initialEvents = [
+            { id: '1', type: 'warning' as const, message: "Bot #04 Osaka: Low noodle inventory (15%)", time: "2m ago" },
+            { id: '2', type: 'success' as const, message: "Bot #12 London: Automated cleaning cycle complete", time: "12m ago" },
+            { id: '3', type: 'info' as const, message: "Bot #07 NYC: Daily diagnostics passed", time: "45m ago" },
+            { id: '4', type: 'warning' as const, message: "Bot #22 Tokyo: Sauce dispenser validation needed", time: "1h ago" },
+            { id: '5', type: 'success' as const, message: "System: Firmware update v2.4.0 deployed", time: "2h ago" },
+        ];
+
+        setState(prev => ({
+            ...prev,
+            revenueHistory: initialHistory,
+            cleaningLog: initialCleaningLog,
+            recentEvents: initialEvents
+        }));
+
+    }, []);
 
     // Function to trigger lunch rush
     const triggerLunchRush = () => {
@@ -129,6 +153,8 @@ export function useSimulation() {
     };
 
     useEffect(() => {
+        if (!isMounted) return;
+
         // Main Ticker: Updates Revenue & Orders
         const mainTicker = setInterval(() => {
             setState(prev => {

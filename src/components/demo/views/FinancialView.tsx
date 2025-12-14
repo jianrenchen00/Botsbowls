@@ -17,7 +17,7 @@ const PRODUCT_DATA = [
 export function FinancialView({ t }: FinancialViewProps) {
     // Generate Heatmap Data (7 Days x 12 Blocks)
     // We'll mock this with CSS grids for visual simplicity and performance
-    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const days = t.financials.weekdays || ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     const hours = ['10am', '12pm', '2pm', '4pm', '6pm', '8pm', '10pm'];
 
     const getIntensity = (dayIndex: number, hourIndex: number) => {
@@ -114,8 +114,8 @@ export function FinancialView({ t }: FinancialViewProps) {
                             {t.financials.heatmapTitle}
                         </h3>
                         <div className="flex items-center gap-2 text-xs">
-                            <span className="flex items-center gap-1"><span className="w-2 h-2 bg-blue-500/10 rounded"></span> Low</span>
-                            <span className="flex items-center gap-1"><span className="w-2 h-2 bg-blue-400 rounded"></span> High</span>
+                            <span className="flex items-center gap-1"><span className="w-2 h-2 bg-blue-500/10 rounded"></span> {t.financials.low}</span>
+                            <span className="flex items-center gap-1"><span className="w-2 h-2 bg-blue-400 rounded"></span> {t.financials.high}</span>
                         </div>
                     </div>
 
@@ -131,7 +131,7 @@ export function FinancialView({ t }: FinancialViewProps) {
 
                             {/* Rows */}
                             <div className="space-y-2">
-                                {days.map((day, dayIndex) => (
+                                {days.map((day: string, dayIndex: number) => (
                                     <div key={day} className="grid grid-cols-[80px_repeat(7,1fr)] gap-2 items-center">
                                         <div className="text-xs text-slate-400 font-medium">{day}</div>
                                         {hours.map((_, hourIndex) => {
@@ -150,7 +150,7 @@ export function FinancialView({ t }: FinancialViewProps) {
                         </div>
                     </div>
                     <p className="mt-4 text-xs text-slate-500 text-center">
-                        *Based on aggregated fleet data. Darker blocks indicate higher order velocity.
+                        {t.financials.disclaimer}
                     </p>
                 </div>
             </div>

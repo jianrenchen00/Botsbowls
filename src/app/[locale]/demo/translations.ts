@@ -168,7 +168,7 @@ export const DEMO_TRANSLATIONS = {
             tooltip_heaters: "切換加熱元件 (區域 A/B)",
             tooltip_lock: "啟動安全鎖",
             tooltip_reset: "系統硬重置 (需要授權)"
-        },,
+        },
         construction: {
             title: "模組開發中",
             desc: "此功能模組正在構建中，將在下一版本釋出。"

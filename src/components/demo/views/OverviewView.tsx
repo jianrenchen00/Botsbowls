@@ -39,50 +39,62 @@ export function OverviewView({
     return (
         <div className="p-6 pt-32 max-w-7xl mx-auto space-y-6">
             {/* User Profile Bar */}
-            <div className="bg-slate-900/40 border border-slate-800 backdrop-blur-sm rounded-xl px-6 py-4 flex flex-wrap gap-6 items-center justify-between animate-in fade-in slide-in-from-top-4 duration-700">
-                <div className="flex items-center gap-3">
-                    <div className="p-2 bg-blue-500/10 rounded-full text-blue-400 border border-blue-500/20">
-                        <Users size={18} />
+            <div className="bg-slate-900/60 border-y border-slate-700 backdrop-blur-md -mx-6 px-6 py-4 mb-6 flex flex-col md:flex-row gap-6 md:items-center justify-between animate-in fade-in slide-in-from-top-4 duration-700">
+                {/* User Info */}
+                <div className="flex items-center gap-4">
+                    <div className="p-2.5 bg-blue-500/10 rounded-full text-blue-400 border border-blue-500/20 ring-1 ring-blue-500/10">
+                        <div className="relative">
+                            <Users size={20} />
+                            <span className="absolute -bottom-1 -right-1 flex h-2.5 w-2.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                            </span>
+                        </div>
                     </div>
                     <div>
-                        <div className="text-xs text-slate-500 uppercase tracking-widest">{t.profile.account}</div>
-                        <div className="text-slate-200 font-bold">ParisChen</div>
+                        <div className="flex items-center gap-2">
+                            <span className="text-white font-bold text-lg tracking-tight">ParisChen</span>
+                            <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/20">PRO</span>
+                        </div>
+                        <div className="text-xs text-slate-400 font-medium">{t.profile.rank}</div>
                     </div>
                 </div>
 
-                <div className="h-8 w-px bg-slate-800 hidden md:block"></div>
+                <div className="h-10 w-px bg-slate-700 hidden md:block"></div>
 
-                <div className="flex items-center gap-3">
-                    <div className="p-2 bg-purple-500/10 rounded-full text-purple-400 border border-purple-500/20">
-                        <Globe size={18} />
+                {/* Score Hero */}
+                <div className="flex items-center gap-4">
+                    <div className="p-2 bg-gradient-to-br from-amber-500/20 to-orange-500/5 rounded-lg border border-amber-500/20">
+                        <Award size={24} className="text-amber-400" />
                     </div>
                     <div>
-                        <div className="text-xs text-slate-500 uppercase tracking-widest">{t.profile.region}</div>
-                        <div className="text-slate-200 font-medium">{t.profile.val_region}</div>
+                        <div className="flex items-baseline gap-2">
+                            <span className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">98.5</span>
+                            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t.profile.score_label}</span>
+                        </div>
+                        <div className="text-xs text-emerald-400 font-medium flex items-center gap-1">
+                            <TrendingUp size={12} />
+                            {t.profile.beaten}
+                        </div>
                     </div>
                 </div>
 
-                <div className="h-8 w-px bg-slate-800 hidden md:block"></div>
+                <div className="h-10 w-px bg-slate-700 hidden md:block"></div>
 
-                <div className="flex items-center gap-3">
-                    <div className="p-2 bg-amber-500/10 rounded-full text-amber-400 border border-amber-500/20">
-                        <Award size={18} />
+                {/* System Status */}
+                <div className="flex items-center gap-4">
+                    <div className="relative flex items-center justify-center w-10 h-10">
+                        <div className="absolute inset-0 bg-emerald-500/20 rounded-full animate-ping opacity-20"></div>
+                        <div className="relative p-2 bg-emerald-500/10 rounded-full border border-emerald-500/20 text-emerald-400">
+                            <ShieldCheck size={20} />
+                        </div>
                     </div>
                     <div>
-                        <div className="text-xs text-slate-500 uppercase tracking-widest">{t.profile.score}</div>
-                        <div className="text-emerald-400 font-bold">98.5 <span className="text-xs font-normal text-slate-500">/ 100</span></div>
-                    </div>
-                </div>
-
-                <div className="h-8 w-px bg-slate-800 hidden md:block"></div>
-
-                <div className="flex items-center gap-3">
-                    <div className="p-2 bg-emerald-500/10 rounded-full text-emerald-400 border border-emerald-500/20">
-                        <ShieldCheck size={18} />
-                    </div>
-                    <div>
-                        <div className="text-xs text-slate-500 uppercase tracking-widest">{t.profile.status}</div>
-                        <div className="text-slate-200 font-medium">{t.profile.val_secure}</div>
+                        <div className="text-slate-200 font-bold">{t.profile.sys_optimal}</div>
+                        <div className="text-xs text-slate-500 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            All Systems Normal
+                        </div>
                     </div>
                 </div>
             </div>

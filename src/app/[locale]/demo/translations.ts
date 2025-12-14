@@ -139,11 +139,10 @@ export const DEMO_TRANSLATIONS = {
         },
         profile: {
             account: "Commander",
-            region: "Region",
-            score: "Ops Score",
-            status: "System Link",
-            val_region: "BB Paris Prime Agent",
-            val_secure: "Encrypted"
+            rank: "BB Paris Prime Agent",
+            score_label: "Ops Score",
+            beaten: "Top 5% Performance",
+            sys_optimal: "System Optimal"
         },
         construction: {
             title: "Module Under Construction",
@@ -363,11 +362,10 @@ export const DEMO_TRANSLATIONS = {
         },
         profile: {
             account: "指揮官",
-            region: "管轄區域",
-            score: "營運評分",
-            status: "系統連線",
-            val_region: "BB 巴黎總代理",
-            val_secure: "加密連線 (Secure)"
+            rank: "BB 巴黎總代",
+            score_label: "營運評分",
+            beaten: "擊敗了 95% 的代理商",
+            sys_optimal: "系統全綠"
         },
         fleetTable: {
             title: "各機器營運狀況",

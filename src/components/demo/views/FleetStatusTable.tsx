@@ -146,24 +146,24 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
                                 </td>
                                 <td className="px-6 py-3">
                                     <div className="flex flex-wrap gap-2 justify-start min-w-[380px]">
-                                        <button onClick={() => handleIconAction(unit.id, 'restock')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-blue-500/30 bg-blue-500/10 text-blue-300 hover:bg-blue-500/20 transition-colors text-xs font-medium">
-                                            <Package size={14} />
+                                        <button onClick={() => handleIconAction(unit.id, 'restock')} className="flex items-center gap-2 px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600/50 text-slate-300 transition-colors text-xs font-medium group">
+                                            <Package size={14} className="text-blue-400 group-hover:text-blue-300" />
                                             {t.fleetTable.tip_restock}
                                         </button>
-                                        <button onClick={() => handleIconAction(unit.id, 'tech')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-orange-500/30 bg-orange-500/10 text-orange-300 hover:bg-orange-500/20 transition-colors text-xs font-medium">
-                                            <Wrench size={14} />
+                                        <button onClick={() => handleIconAction(unit.id, 'tech')} className="flex items-center gap-2 px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600/50 text-slate-300 transition-colors text-xs font-medium group">
+                                            <Wrench size={14} className="text-orange-400 group-hover:text-orange-300" />
                                             {t.fleetTable.tip_tech}
                                         </button>
-                                        <button onClick={() => handleIconAction(unit.id, 'staff')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-purple-500/30 bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 transition-colors text-xs font-medium">
-                                            <User size={14} />
+                                        <button onClick={() => handleIconAction(unit.id, 'staff')} className="flex items-center gap-2 px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600/50 text-slate-300 transition-colors text-xs font-medium group">
+                                            <User size={14} className="text-purple-400 group-hover:text-purple-300" />
                                             {t.fleetTable.tip_staff}
                                         </button>
-                                        <button onClick={() => handleIconAction(unit.id, 'reboot')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-600 bg-slate-700/50 text-slate-300 hover:bg-slate-700 transition-colors text-xs font-medium">
-                                            <RefreshCw size={14} />
+                                        <button onClick={() => handleIconAction(unit.id, 'reboot')} className="flex items-center gap-2 px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600/50 text-slate-300 transition-colors text-xs font-medium group">
+                                            <RefreshCw size={14} className="text-slate-400 group-hover:text-slate-300" />
                                             {t.fleetTable.tip_reboot}
                                         </button>
-                                        <button onClick={() => handleIconAction(unit.id, 'complaint')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-red-500/30 bg-red-500/10 text-red-300 hover:bg-red-500/20 transition-colors text-xs font-medium">
-                                            <MessageCircle size={14} />
+                                        <button onClick={() => handleIconAction(unit.id, 'complaint')} className="flex items-center gap-2 px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600/50 text-slate-300 transition-colors text-xs font-medium group">
+                                            <MessageCircle size={14} className="text-red-400 group-hover:text-red-300" />
                                             {t.fleetTable.tip_complaint}
                                         </button>
                                     </div>

@@ -9,6 +9,8 @@ export interface SimulationState {
     revenueHistory: { time: string; value: number }[];
     isRushActive: boolean;
     systemStatus: 'normal' | 'critical';
+    soupLevel: number;
+    noodleStock: number;
 }
 
 export interface DashboardEvent {
@@ -30,6 +32,8 @@ const INITIAL_STATE: SimulationState = {
     })),
     isRushActive: false,
     systemStatus: 'normal',
+    soupLevel: 100,
+    noodleStock: 100,
 };
 
 const SAMPLE_EVENTS = [
@@ -127,6 +131,33 @@ export function useSimulation() {
                 const revenueIncrease = baseIncrement * multiplier;
                 const newRevenue = prev.revenue + revenueIncrease;
 
+                // Inventory Logic
+                let newSoupLevel = prev.soupLevel - (Math.random() * 0.1 + 0.05) * multiplier;
+                let newNoodleStock = prev.noodleStock - (Math.floor(Math.random() * 2) + 1) * multiplier * 0.1;
+
+                // Auto-Restock Logic
+                let inventoryEvents: DashboardEvent[] = [];
+
+                if (newSoupLevel < 15) {
+                    newSoupLevel = 100;
+                    inventoryEvents.push({
+                        id: Date.now().toString() + '-soup',
+                        type: 'info',
+                        message: "System: Auto-Refill initiated for Soup Tank A",
+                        time: "Just now"
+                    });
+                }
+
+                if (newNoodleStock < 10) {
+                    newNoodleStock = 100;
+                    inventoryEvents.push({
+                        id: Date.now().toString() + '-noodle',
+                        type: 'info',
+                        message: "System: Noodle Hopper restocked by Bot #01",
+                        time: "Just now"
+                    });
+                }
+
                 // Update history
                 const now = new Date();
                 const timeString = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
@@ -138,14 +169,19 @@ export function useSimulation() {
 
                 const newHistory = [...prev.revenueHistory, newHistoryPoint].slice(-20); // Keep last 20 points
 
+                const combinedEvents = [...inventoryEvents, ...prev.recentEvents].slice(0, 10);
+
                 return {
                     ...prev,
                     revenue: newRevenue,
                     totalOrders: prev.totalOrders + (isRush ? Math.floor(Math.random() * 5) + 1 : 1),
-                    revenueHistory: newHistory
+                    revenueHistory: newHistory,
+                    soupLevel: Math.max(0, newSoupLevel),
+                    noodleStock: Math.max(0, newNoodleStock),
+                    recentEvents: inventoryEvents.length > 0 ? combinedEvents : prev.recentEvents
                 };
             });
-        }, 3000); // Update every 3 seconds
+        }, 1000); // Increased tick rate to 1 second for smoother animation
 
         // Fluctuation Ticker: Updates Active Bots every 5 seconds (rarely changes)
         // Only run fluctuations if system is normal to avoid conflict with fault logic

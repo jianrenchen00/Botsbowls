@@ -8,6 +8,7 @@ import { DEMO_TRANSLATIONS, DemoTranslationKey } from './translations';
 import { Sidebar } from '@/components/demo/Sidebar';
 import { Header } from '@/components/demo/Header';
 import { ControlPanel } from '@/components/demo/ControlPanel';
+import { InventoryView } from '@/components/demo/views/InventoryView';
 
 export default function DemoPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = use(params);
@@ -26,7 +27,9 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
         isRushActive,
         systemStatus,
         triggerFault,
-        resolveFault
+        resolveFault,
+        soupLevel, // Add soupLevel
+        noodleStock // Add noodleStock
     } = useSimulation();
 
     // Format revenue as currency
@@ -72,7 +75,7 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
                                     title={t.metrics.active_fleet}
                                     value={`${activeBots} / ${totalActiveFleet} ${t.metrics.online}`}
                                     subValue={isCritical ? t.metrics.unit_offline : `97% ${t.metrics.uptime}`}
-                                    icon={<Users size={20} className={isCritical ? "text-red-500" : "text-green-400"} />}
+                                    icon={< Users size={20} className={isCritical ? "text-red-500" : "text-green-400"} />}
                                     indicator={isCritical ? 'red' : (activeBots > 125 ? 'green' : 'yellow')}
                                     alertState={isCritical}
                                 />
@@ -91,12 +94,12 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
                                     triggerFault={triggerFault}
                                     resolveFault={resolveFault}
                                 />
-                            </div>
+                            </div >
 
                             {/* Main Content Grid */}
-                            <div className="grid grid-cols-1 md:col-span-2 xl:grid-cols-4 gap-6 xl:h-[500px]">
+                            < div className="grid grid-cols-1 md:col-span-2 xl:grid-cols-4 gap-6 xl:h-[500px]" >
                                 {/* Revenue Chart - Takes up 3 columns on Desktop, 2 on Tablet (full row) */}
-                                <div className="md:col-span-2 xl:col-span-3 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col min-h-[400px] xl:min-h-0">
+                                < div className="md:col-span-2 xl:col-span-3 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col min-h-[400px] xl:min-h-0" >
                                     <h3 className="text-lg font-semibold text-slate-200 mb-6 flex items-center gap-2">
                                         {t.status.hourly_sales}
                                         {isRushActive && !isCritical && <span className="text-xs px-2 py-0.5 bg-orange-500/20 text-orange-400 rounded-full">LIVE</span>}
@@ -105,10 +108,10 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
                                     <div className={`flex-1 w-full h-full bg-[#0F172A]/50 rounded-lg border ${isCritical ? 'border-red-500/30' : 'border-slate-700/50'} relative overflow-hidden transition-colors duration-500`}>
                                         <RevenueChart data={revenueHistory} />
                                     </div>
-                                </div>
+                                </div >
 
                                 {/* Live Alert Feed - Takes up 1 column on Desktop, 2 on Tablet (full row) */}
-                                <div className="md:col-span-2 xl:col-span-1 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col min-h-[400px] xl:min-h-0">
+                                < div className="md:col-span-2 xl:col-span-1 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col min-h-[400px] xl:min-h-0" >
                                     <div className="flex items-center justify-between mb-6">
                                         <h3 className="text-lg font-semibold text-slate-200">{t.status.live_alerts}</h3>
                                         <span className="text-xs px-2 py-1 bg-slate-800 rounded text-slate-400">{t.status.real_time}</span>
@@ -124,9 +127,15 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
                                             />
                                         ))}
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                </div >
+                            </div >
+                        </div >
+                    ) : currentView === 'inventory' ? ( // 2. Check currentView === 'inventory'
+                        <InventoryView // 3. Render InventoryView
+                            t={t}
+                            soupLevel={soupLevel}
+                            noodleStock={noodleStock}
+                        />
                     ) : (
                         <div className="flex flex-col items-center justify-center h-full text-slate-400">
                             <Construction size={64} className="mb-6 opacity-30" />
@@ -134,8 +143,8 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
                             <p>{t.construction.desc}</p>
                         </div>
                     )}
-                </main>
-            </div>
+                </main >
+            </div >
         </>
     );
 }

@@ -1,3 +1,4 @@
+```
 "use client";
 
 import React, { useState, use } from 'react';
@@ -10,6 +11,7 @@ import { Header } from '@/components/demo/Header';
 import { ControlPanel } from '@/components/demo/ControlPanel';
 import { InventoryView } from '@/components/demo/views/InventoryView';
 import { TelemetryView } from '@/components/demo/views/TelemetryView';
+import { FoodSafetyView } from '@/components/demo/views/FoodSafetyView';
 
 export default function DemoPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = use(params);
@@ -35,7 +37,8 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
         cookerTemp,
         motorLoad,
         powerUsage,
-        motorHistory
+        motorHistory,
+        cleaningLog
     } = useSimulation();
 
     // Format revenue as currency
@@ -79,12 +82,12 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
                                 />
                                 <MetricCard
                                     title={t.metrics.active_fleet}
-                                    value={`${activeBots} / ${totalActiveFleet} ${t.metrics.online}`}
-                                    subValue={isCritical ? t.metrics.unit_offline : `97% ${t.metrics.uptime}`}
-                                    icon={< Users size={20} className={isCritical ? "text-red-500" : "text-green-400"} />}
-                                    indicator={isCritical ? 'red' : (activeBots > 125 ? 'green' : 'yellow')}
-                                    alertState={isCritical}
-                                />
+                                    value={`${ activeBots } / ${totalActiveFleet} ${t.metrics.online}`}
+subValue = { isCritical? t.metrics.unit_offline : `97% ${t.metrics.uptime}`}
+icon = {< Users size = { 20} className = { isCritical? "text-red-500": "text-green-400" } />}
+indicator = { isCritical? 'red': (activeBots > 125 ? 'green' : 'yellow') }
+alertState = { isCritical }
+    />
                                 <MetricCard
                                     title={t.metrics.total_orders}
                                     value={totalOrders.toLocaleString()}
@@ -102,10 +105,10 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
                                 />
                             </div >
 
-                            {/* Main Content Grid */}
-                            < div className="grid grid-cols-1 md:col-span-2 xl:grid-cols-4 gap-6 xl:h-[500px]" >
-                                {/* Revenue Chart - Takes up 3 columns on Desktop, 2 on Tablet (full row) */}
-                                < div className="md:col-span-2 xl:col-span-3 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col min-h-[400px] xl:min-h-0" >
+    {/* Main Content Grid */ }
+    < div className = "grid grid-cols-1 md:col-span-2 xl:grid-cols-4 gap-6 xl:h-[500px]" >
+        {/* Revenue Chart - Takes up 3 columns on Desktop, 2 on Tablet (full row) */ }
+        < div className = "md:col-span-2 xl:col-span-3 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col min-h-[400px] xl:min-h-0" >
                                     <h3 className="text-lg font-semibold text-slate-200 mb-6 flex items-center gap-2">
                                         {t.status.hourly_sales}
                                         {isRushActive && !isCritical && <span className="text-xs px-2 py-0.5 bg-orange-500/20 text-orange-400 rounded-full">LIVE</span>}
@@ -116,8 +119,8 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
                                     </div>
                                 </div >
 
-                                {/* Live Alert Feed - Takes up 1 column on Desktop, 2 on Tablet (full row) */}
-                                < div className="md:col-span-2 xl:col-span-1 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col min-h-[400px] xl:min-h-0" >
+    {/* Live Alert Feed - Takes up 1 column on Desktop, 2 on Tablet (full row) */ }
+    < div className = "md:col-span-2 xl:col-span-1 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col min-h-[400px] xl:min-h-0" >
                                     <div className="flex items-center justify-between mb-6">
                                         <h3 className="text-lg font-semibold text-slate-200">{t.status.live_alerts}</h3>
                                         <span className="text-xs px-2 py-1 bg-slate-800 rounded text-slate-400">{t.status.real_time}</span>
@@ -137,27 +140,32 @@ export default function DemoPage({ params }: { params: Promise<{ locale: string 
                             </div >
                         </div >
                     ) : currentView === 'inventory' ? ( // 2. Check currentView === 'inventory'
-                        <InventoryView // 3. Render InventoryView
-                            t={t}
-                            soupLevel={soupLevel}
-                            noodleStock={noodleStock}
-                        />
-                    ) : currentView === 'telemetry' ? (
-                        <TelemetryView
-                            t={t}
-                            freezerTemp={freezerTemp}
-                            cookerTemp={cookerTemp}
-                            motorLoad={motorLoad}
-                            powerUsage={powerUsage}
-                            motorHistory={motorHistory}
-                        />
-                    ) : (
-                        <div className="flex flex-col items-center justify-center h-full text-slate-400">
-                            <Construction size={64} className="mb-6 opacity-30" />
-                            <h2 className="text-2xl font-bold text-slate-200 mb-2">{t.construction.title}</h2>
-                            <p>{t.construction.desc}</p>
-                        </div>
-                    )}
+    <InventoryView // 3. Render InventoryView
+        t={t}
+        soupLevel={soupLevel}
+        noodleStock={noodleStock}
+    />
+) : currentView === 'telemetry' ? (
+    <TelemetryView
+        t={t}
+        freezerTemp={freezerTemp}
+        cookerTemp={cookerTemp}
+        motorLoad={motorLoad}
+        powerUsage={powerUsage}
+        motorHistory={motorHistory}
+    />
+) : currentView === 'food_safety' ? (
+    <FoodSafetyView
+        t={t}
+        cleaningLog={cleaningLog}
+    />
+) : (
+    <div className="flex flex-col items-center justify-center h-full text-slate-400">
+        <Construction size={64} className="mb-6 opacity-30" />
+        <h2 className="text-2xl font-bold text-slate-200 mb-2">{t.construction.title}</h2>
+        <p>{t.construction.desc}</p>
+    </div>
+)}
                 </main >
             </div >
         </>

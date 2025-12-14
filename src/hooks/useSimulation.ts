@@ -16,6 +16,7 @@ export interface SimulationState {
     motorLoad: number;
     powerUsage: number;
     motorHistory: number[];
+    cleaningLog: { id: string, time: string, action: string, status: 'Verified' | 'Pending' }[];
 }
 
 export interface DashboardEvent {
@@ -44,6 +45,11 @@ const INITIAL_STATE: SimulationState = {
     motorLoad: 45,
     powerUsage: 2.4,
     motorHistory: Array(30).fill(45),
+    cleaningLog: [
+        { id: '1', time: '11:45:00', action: 'High-Temp Nozzle Flush', status: 'Verified' as const },
+        { id: '2', time: '11:15:00', action: 'UV-C Sterilization Cycle', status: 'Verified' as const },
+        { id: '3', time: '10:45:00', action: 'Filter Integrity Check', status: 'Verified' as const },
+    ]
 };
 
 const SAMPLE_EVENTS = [
@@ -168,6 +174,27 @@ export function useSimulation() {
                 // Motor History
                 const newMotorHistory = [...prev.motorHistory, newMotorLoad].slice(-30);
 
+                // Cleaning Log Logic (Food Safety)
+                let newCleaningLog = prev.cleaningLog;
+                if (Math.random() > 0.95) { // 5% chance per tick (approx every 20s)
+                    const actions = [
+                        "High-Temp Nozzle Flush (95°C)",
+                        "UV-C Sterilization Cycle",
+                        "Filter Integrity Check",
+                        "Surface Sanitization Spray"
+                    ];
+                    const randomAction = actions[Math.floor(Math.random() * actions.length)];
+                    const now = new Date();
+                    const timeString = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+
+                    newCleaningLog = [{
+                        id: Date.now().toString(),
+                        time: timeString,
+                        action: randomAction,
+                        status: 'Verified'
+                    }, ...prev.cleaningLog].slice(0, 50);
+                }
+
                 // Auto-Restock Logic
                 let inventoryEvents: DashboardEvent[] = [];
 
@@ -216,7 +243,8 @@ export function useSimulation() {
                     cookerTemp: newCookerTemp,
                     motorLoad: newMotorLoad,
                     powerUsage: newPowerUsage,
-                    motorHistory: newMotorHistory
+                    motorHistory: newMotorHistory,
+                    cleaningLog: newCleaningLog
                 };
             });
         }, 1000); // Increased tick rate to 1 second for smoother animation

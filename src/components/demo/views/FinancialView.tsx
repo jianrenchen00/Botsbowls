@@ -1,5 +1,5 @@
 import React from 'react';
-import { DollarSign, TrendingUp, PieChart, Calendar, ArrowUpRight, BarChart3 } from 'lucide-react';
+import { DollarSign, TrendingUp, PieChart, Calendar, ArrowUpRight, BarChart3, Clock, Target, Zap } from 'lucide-react';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Cell } from 'recharts';
 
 interface FinancialViewProps {
@@ -139,52 +139,78 @@ export function FinancialView({ t }: FinancialViewProps) {
                     </div>
                 </div>
 
-                {/* 2. Sales Heatmap (Span 2) */}
-                <div className="lg:col-span-2 bg-[#1E293B] border border-slate-700 rounded-xl p-6">
-                    <div className="flex items-center justify-between mb-6">
-                        <h3 className="text-lg font-semibold text-slate-200 flex items-center gap-2">
-                            <BarChart3 size={20} className="text-blue-400" />
-                            {t.financials.heatmapTitle}
-                        </h3>
-                        <div className="flex items-center gap-2 text-xs">
-                            <span className="flex items-center gap-1"><span className="w-2 h-2 bg-blue-500/10 rounded"></span> {t.financials.low}</span>
-                            <span className="flex items-center gap-1"><span className="w-2 h-2 bg-blue-400 rounded"></span> {t.financials.high}</span>
+                {/* 2. Analysis Column (Span 2) */}
+                <div className="lg:col-span-2 space-y-6">
+                    {/* Golden Hour Insight */}
+                    <div className="bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-amber-500/30 rounded-xl p-6 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-4 opacity-5">
+                            <Zap size={120} className="text-amber-400" />
                         </div>
-                    </div>
-
-                    <div className="overflow-x-auto">
-                        <div className="min-w-[500px]">
-                            {/* Header Row */}
-                            <div className="grid grid-cols-[80px_repeat(7,1fr)] gap-2 mb-2">
-                                <div></div> {/* Empty corner */}
-                                {hours.map(hour => (
-                                    <div key={hour} className="text-center text-xs text-slate-500 font-mono">{hour}</div>
-                                ))}
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+                            <div>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <Clock size={18} className="text-amber-400" />
+                                    <h3 className="text-amber-200 font-medium">{t.financials.golden_title}</h3>
+                                    <span className="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-xs rounded-full border border-amber-500/30">
+                                        {t.financials.golden_label}
+                                    </span>
+                                </div>
+                                <div className="text-4xl font-bold text-white mb-1 tracking-tight">00:00 - 02:00</div>
+                                <p className="text-slate-400 text-sm max-w-md">{t.financials.golden_desc}</p>
                             </div>
-
-                            {/* Rows */}
-                            <div className="space-y-2">
-                                {days.map((day: string, dayIndex: number) => (
-                                    <div key={day} className="grid grid-cols-[80px_repeat(7,1fr)] gap-2 items-center">
-                                        <div className="text-xs text-slate-400 font-medium">{day}</div>
-                                        {hours.map((_, hourIndex) => {
-                                            const intensity = getIntensity(dayIndex, hourIndex);
-                                            return (
-                                                <div
-                                                    key={hourIndex}
-                                                    className={`h-8 rounded-md transition-all hover:scale-105 cursor-default ${intensityColors[intensity as 1 | 2 | 3 | 4]}`}
-                                                    title={`Traffic: Level ${intensity}`}
-                                                ></div>
-                                            );
-                                        })}
-                                    </div>
-                                ))}
+                            <div className="bg-amber-950/40 border border-amber-500/20 p-3 rounded-lg max-w-xs backdrop-blur-sm">
+                                <p className="text-xs text-amber-200 font-medium">{t.financials.insight_tip}</p>
                             </div>
                         </div>
                     </div>
-                    <p className="mt-4 text-xs text-slate-500 text-center">
-                        {t.financials.disclaimer}
-                    </p>
+
+                    {/* Sales Heatmap */}
+                    <div className="bg-[#1E293B] border border-slate-700 rounded-xl p-6">
+                        <div className="flex items-center justify-between mb-6">
+                            <h3 className="text-lg font-semibold text-slate-200 flex items-center gap-2">
+                                <BarChart3 size={20} className="text-blue-400" />
+                                {t.financials.heatmapTitle}
+                            </h3>
+                            <div className="flex items-center gap-2 text-xs">
+                                <span className="flex items-center gap-1"><span className="w-2 h-2 bg-blue-500/10 rounded"></span> {t.financials.low}</span>
+                                <span className="flex items-center gap-1"><span className="w-2 h-2 bg-blue-400 rounded"></span> {t.financials.high}</span>
+                            </div>
+                        </div>
+
+                        <div className="overflow-x-auto">
+                            <div className="min-w-[500px]">
+                                {/* Header Row */}
+                                <div className="grid grid-cols-[80px_repeat(7,1fr)] gap-2 mb-2">
+                                    <div></div> {/* Empty corner */}
+                                    {hours.map(hour => (
+                                        <div key={hour} className="text-center text-xs text-slate-500 font-mono">{hour}</div>
+                                    ))}
+                                </div>
+
+                                {/* Rows */}
+                                <div className="space-y-2">
+                                    {days.map((day: string, dayIndex: number) => (
+                                        <div key={day} className="grid grid-cols-[80px_repeat(7,1fr)] gap-2 items-center">
+                                            <div className="text-xs text-slate-400 font-medium">{day}</div>
+                                            {hours.map((_, hourIndex) => {
+                                                const intensity = getIntensity(dayIndex, hourIndex);
+                                                return (
+                                                    <div
+                                                        key={hourIndex}
+                                                        className={`h-8 rounded-md transition-all hover:scale-105 cursor-default ${intensityColors[intensity as 1 | 2 | 3 | 4]}`}
+                                                        title={`Traffic: Level ${intensity}`}
+                                                    ></div>
+                                                );
+                                            })}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        <p className="mt-4 text-xs text-slate-500 text-center">
+                            {t.financials.disclaimer}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

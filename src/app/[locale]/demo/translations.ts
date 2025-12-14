@@ -57,7 +57,15 @@ export const DEMO_TRANSLATIONS = {
             cost_cogs: "COGS",
             cost_labor: "Maint. & Labor",
             cost_rent: "Rent",
-            cost_profit: "Net Profit"
+            cost_profit: "Net Profit",
+            roi_title: "ROI Progress",
+            roi_invested: "Total Investment",
+            roi_recovered: "Recovered Capital",
+            roi_months_left: "Est. Break Even",
+            golden_title: "Hourly Profitability",
+            golden_label: "Golden Hour (High Margin)",
+            golden_desc: "00:00 - 02:00 Low competition, higher pricing power.",
+            insight_tip: "💡 Tip: Ensure full stock for midnight rush."
         },
         food_safety: {
             title: "Food Safety & HACCP",
@@ -231,7 +239,15 @@ export const DEMO_TRANSLATIONS = {
             cost_cogs: "食材成本 (COGS)",
             cost_labor: "維護與人力",
             cost_rent: "場地租金",
-            cost_profit: "淨利"
+            cost_profit: "淨利",
+            roi_title: "投資回收進度",
+            roi_invested: "總設備投資",
+            roi_recovered: "已回收資金",
+            roi_months_left: "預計回本剩餘",
+            golden_title: "時段獲利熱點",
+            golden_label: "黃金時段 (高毛利)",
+            golden_desc: "午夜 00:00 - 02:00 競爭少，溢價空間大。",
+            insight_tip: "💡 建議：確保午夜時段庫存充足"
         },
         food_safety: {
             title: "食品安全與 HACCP",

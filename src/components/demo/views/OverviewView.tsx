@@ -24,7 +24,7 @@ interface OverviewViewProps {
 export function OverviewView({
     t,
     formattedRevenue,
-    activeBots,
+    activeBots, // Ignoring this prop now
     totalActiveFleet,
     totalOrders,
     isRushActive,
@@ -36,8 +36,28 @@ export function OverviewView({
     revenueHistory,
     recentEvents
 }: OverviewViewProps) {
+
+    // Centralized Fleet Data for Consistency
+    const FLEET_DATA = [
+        { id: "ZNS-001", location: "loc_louvre", type: "type_znsmj", revenue: 1480, status: "status_busy", portions: 8, aov: 15.50, addon: "addon_coke", channel: "app" },
+        { id: "ZNS-002", location: "loc_arc", type: "type_znsmj", revenue: 1250, status: "status_online", portions: 45, aov: 13.20, addon: "addon_egg", channel: "kiosk" },
+        { id: "ZNS-003", location: "loc_concorde", type: "type_znsmj", revenue: 980, status: "status_online", portions: 62, aov: 12.80, addon: "addon_tea", channel: "web" },
+        { id: "ZNS-004", location: "loc_bastille", type: "type_znsmj", revenue: 1120, status: "status_online", portions: 33, aov: 13.50, addon: "addon_tofu", channel: "3rd" },
+        { id: "ZNS-005", location: "loc_montmartre", type: "type_znsmj", revenue: 0, status: "status_maintenance", portions: 0, aov: 0, addon: "--", channel: "--" },
+        { id: "INT-101", location: "loc_tower", type: "type_integrated", revenue: 2100, status: "status_busy", portions: 15, aov: 16.20, addon: "addon_egg", channel: "kiosk" },
+        { id: "INT-102", location: "loc_champs", type: "type_integrated", revenue: 1850, status: "status_online", portions: 55, aov: 14.50, addon: "addon_coke", channel: "app" },
+        { id: "INT-103", location: "loc_defense", type: "type_integrated", revenue: 1600, status: "status_online", portions: 42, aov: 15.00, addon: "addon_tea", channel: "kiosk" },
+        { id: "INT-104", location: "loc_opera", type: "type_integrated", revenue: 1720, status: "status_online", portions: 28, aov: 13.90, addon: "addon_tofu", channel: "3rd" },
+        { id: "DRK-201", location: "loc_marais", type: "type_drink", revenue: 450, status: "status_online", portions: 120, aov: 4.50, addon: "--", channel: "kiosk" },
+        { id: "DRK-202", location: "loc_latin", type: "type_drink", revenue: 520, status: "status_online", portions: 85, aov: 5.20, addon: "--", channel: "web" },
+        { id: "ROB-301", location: "loc_cdg1", type: "type_robot", revenue: 3200, status: "status_busy", portions: 42, aov: 18.50, addon: "addon_egg", channel: "kiosk" },
+        { id: "ROB-302", location: "loc_cdg2", type: "type_robot", revenue: 2950, status: "status_online", portions: 150, aov: 17.90, addon: "addon_tofu", channel: "app" },
+    ];
+
+    const calculatedActiveBots = FLEET_DATA.filter(u => u.status !== 'status_maintenance').length;
+
     return (
-        <div className="p-6 pt-32 max-w-7xl mx-auto space-y-6">
+        <div className="p-6 pt-24 max-w-7xl mx-auto space-y-6">
             {/* User Profile Bar */}
             <div className="bg-slate-900/60 border-y border-slate-700 backdrop-blur-md -mx-6 px-6 py-4 mb-6 flex flex-col md:flex-row gap-6 md:items-center justify-between animate-in fade-in slide-in-from-top-4 duration-700">
                 {/* User Info */}
@@ -111,10 +131,10 @@ export function OverviewView({
                 />
                 <MetricCard
                     title={t.metrics.active_fleet}
-                    value={`${activeBots} / ${totalActiveFleet} ${t.metrics.online}`}
+                    value={`${calculatedActiveBots} / 13 ${t.metrics.online}`}
                     subValue={isCritical ? t.metrics.unit_offline : `97% ${t.metrics.uptime}`}
                     icon={< Users size={20} className={isCritical ? "text-red-500" : "text-green-400"} />}
-                    indicator={isCritical ? 'red' : (activeBots > 125 ? 'green' : 'yellow')}
+                    indicator={isCritical ? 'red' : (calculatedActiveBots < 13 ? 'yellow' : 'green')}
                     alertState={isCritical}
                 />
                 <MetricCard
@@ -136,7 +156,7 @@ export function OverviewView({
             </div>
 
             {/* Fleet Status Table */}
-            <FleetStatusTable t={t} />
+            <FleetStatusTable t={t} data={FLEET_DATA} />
 
             {/* Main Content Grid */}
             <div className="grid grid-cols-1 md:col-span-2 xl:grid-cols-4 gap-6 xl:h-[500px]">

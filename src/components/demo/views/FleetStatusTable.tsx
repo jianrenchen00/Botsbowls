@@ -3,45 +3,12 @@ import { BadgeCheck, Smartphone, Truck, Users, AlertTriangle, Circle, Package, W
 
 interface FleetStatusTableProps {
     t: any;
+    data?: any[];
 }
 
-export function FleetStatusTable({ t }: FleetStatusTableProps) {
-    // 13 Specific Units Data Mock
-    // Locations: 
-    // ZNSMJ-VII (5): 凱旋門店, 羅浮宮店, 協和廣場, 巴士底獄, 蒙馬特
-    // Integrated (4): 鐵塔店, 香榭大道, 拉德芳斯, 歌劇院
-    // Drink (2): 瑪黑區, 拉丁區
-    // Robot (2): 戴高樂機場 T1, 戴高樂機場 T2
-
-    // We use keys for translation lookups where possible, but location names might be static or mapped. 
-    // For this demo, we'll keep location names essentially static or bilingual-friendly if needed, 
-    // but the request implies specific names. We'll use the Chinese names as primary ID or English equivalents if preferred.
-    // Let's use English/Pinyin/Original for ID to look technical, and Location names as requested.
-
-    const fleetData = [
-        // ZNSMJ-VII (5)
-        // Louvre: Low stock, High AOV
-        { id: "ZNS-001", location: "loc_louvre", type: "type_znsmj", revenue: 1480, status: "status_busy", portions: 8, aov: 15.50, addon: "addon_coke", channel: "app" },
-        { id: "ZNS-002", location: "loc_arc", type: "type_znsmj", revenue: 1250, status: "status_online", portions: 45, aov: 13.20, addon: "addon_egg", channel: "kiosk" },
-        { id: "ZNS-003", location: "loc_concorde", type: "type_znsmj", revenue: 980, status: "status_online", portions: 62, aov: 12.80, addon: "addon_tea", channel: "web" },
-        { id: "ZNS-004", location: "loc_bastille", type: "type_znsmj", revenue: 1120, status: "status_online", portions: 33, aov: 13.50, addon: "addon_tofu", channel: "3rd" },
-        { id: "ZNS-005", location: "loc_montmartre", type: "type_znsmj", revenue: 1350, status: "status_busy", portions: 12, aov: 14.80, addon: "addon_egg", channel: "app" },
-
-        // Integrated (4)
-        // Tower: Safe stock, High AOV
-        { id: "INT-101", location: "loc_tower", type: "type_integrated", revenue: 2100, status: "status_busy", portions: 15, aov: 16.20, addon: "addon_egg", channel: "kiosk" },
-        { id: "INT-102", location: "loc_champs", type: "type_integrated", revenue: 1850, status: "status_online", portions: 55, aov: 14.50, addon: "addon_coke", channel: "app" },
-        { id: "INT-103", location: "loc_defense", type: "type_integrated", revenue: 1600, status: "status_maintenance", portions: 0, aov: 0, addon: "addon_tea", channel: "--" },
-        { id: "INT-104", location: "loc_opera", type: "type_integrated", revenue: 1720, status: "status_online", portions: 28, aov: 13.90, addon: "addon_tofu", channel: "3rd" },
-
-        // Drink (2)
-        { id: "DRK-201", location: "loc_marais", type: "type_drink", revenue: 450, status: "status_online", portions: 120, aov: 4.50, addon: "--", channel: "kiosk" },
-        { id: "DRK-202", location: "loc_latin", type: "type_drink", revenue: 520, status: "status_online", portions: 85, aov: 5.20, addon: "--", channel: "web" },
-
-        // Robot (2)
-        { id: "ROB-301", location: "loc_cdg1", type: "type_robot", revenue: 3200, status: "status_busy", portions: 42, aov: 18.50, addon: "addon_egg", channel: "kiosk" },
-        { id: "ROB-302", location: "loc_cdg2", type: "type_robot", revenue: 2950, status: "status_online", portions: 150, aov: 17.90, addon: "addon_tofu", channel: "app" },
-    ];
+export function FleetStatusTable({ t, data }: FleetStatusTableProps) {
+    // Usage of passed data with fallback
+    const fleetData = data || [];
 
     const getStatusColor = (statusKey: string) => {
         if (statusKey === 'status_busy') return 'text-yellow-400 bg-yellow-400/10 border-yellow-400/20';

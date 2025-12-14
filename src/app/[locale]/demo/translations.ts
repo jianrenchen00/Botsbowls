@@ -130,7 +130,12 @@ export const DEMO_TRANSLATIONS = {
             supply_title: "Supply Chain Tracker",
             waste_reason_expired: "Expired",
             waste_reason_fault: "Machine Fault",
-            supply_truck: "Truck A ({min} min away)"
+            waste_reason_human: "Human Error",
+            alert_restock_today: "⚠️ Restock Recommended Today",
+            forecast_legend_stock: "Current Stock",
+            forecast_legend_demand: "Predicted Demand",
+            supply_truck: "Truck A ({min} min away)",
+            supply_status: "Truck A: {min} mins to Louvre"
         },
         construction: {
             title: "Module Under Construction",
@@ -341,7 +346,12 @@ export const DEMO_TRANSLATIONS = {
             supply_title: "供應鏈物流追蹤",
             waste_reason_expired: "食材過期",
             waste_reason_fault: "機器故障",
-            supply_truck: "補貨車 A (距離 {min} 分鐘)"
+            waste_reason_human: "人員失誤",
+            alert_restock_today: "⚠️ 建議今日叫貨",
+            forecast_legend_stock: "目前庫存",
+            forecast_legend_demand: "預測消耗",
+            supply_truck: "補貨車 A (距離 {min} 分鐘)",
+            supply_status: "補貨車 A：距離羅浮宮店還有 {min} 分鐘"
         },
         fleetTable: {
             title: "各機器營運狀況",

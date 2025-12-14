@@ -48,62 +48,104 @@ export function InventoryView({ t, soupLevel, noodleStock }: InventoryViewProps)
                     <p className="text-xs text-slate-500 z-10">{t.inventory.refill_threshold}</p>
                 </div>
 
-                {/* Noodle Hopper Card */}
+                {/* AI Forecast */}
                 <div className="md:col-span-1 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col">
                     <h3 className="text-lg font-medium text-slate-300 mb-6 flex items-center gap-2">
-                        <Package size={20} className="text-purple-400" />
-                        {t.inventory.noodle_hopper}
+                        <TrendingUp size={20} className="text-cyan-400" />
+                        {t.inventory.forecast_title}
                     </h3>
-
-                    <div className="flex-1 flex flex-col justify-center space-y-4">
-                        <div className="flex justify-between text-sm text-slate-400">
-                            <span>{t.inventory.current_stock}</span>
-                            <span>{noodleStock.toFixed(0)} packs</span>
-                        </div>
-                        <div className="w-full bg-slate-800 rounded-full h-4 overflow-hidden">
-                            <div
-                                className={`h-full rounded-full transition-all duration-1000 ${noodleStock < 20 ? 'bg-red-500' : 'bg-purple-500'}`}
-                                style={{ width: `${noodleStock}%` }}
-                            ></div>
+                    <div className="flex-1 relative h-32 w-full border-b border-l border-slate-700 mb-4 p-2">
+                        {/* Legend */}
+                        <div className="absolute top-0 right-0 flex flex-col items-end text-[10px] gap-1">
+                            <div className="flex items-center gap-1"><div className="w-2 h-0.5 bg-blue-400"></div> {t.inventory.forecast_legend_stock}</div>
+                            <div className="flex items-center gap-1"><div className="w-2 h-0.5 bg-red-400 border-b border-dotted"></div> {t.inventory.forecast_legend_demand}</div>
                         </div>
 
-                        <div className="mt-8 p-4 bg-slate-800/50 rounded-lg border border-slate-700/50">
-                            <div className="flex items-start gap-3">
-                                <Clock size={16} className="text-slate-400 mt-1" />
-                                <div>
-                                    <div className="text-sm font-medium text-slate-300">{t.inventory.est_runout}</div>
-                                    <div className="text-2xl font-bold text-white">~4.2 hrs</div>
-                                    <div className="text-xs text-slate-500">Based on current order velocity</div>
-                                </div>
+                        {/* Lines Mock (SVG for easier drawing) */}
+                        <svg className="w-full h-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            {/* Stock Line (Blue) - Dropping */}
+                            <path d="M0,20 C30,30 60,70 100,90" fill="none" stroke="#60A5FA" strokeWidth="2" />
+                            {/* Demand Line (Red Dotted) - Rising */}
+                            <path d="M0,80 C30,70 60,30 100,10" fill="none" stroke="#F87171" strokeWidth="2" strokeDasharray="4,4" />
+                            {/* Intersection Dot */}
+                            <circle cx="50" cy="50" r="3" fill="#EF4444" className="animate-pulse" />
+                        </svg>
+
+                        {/* Alert Label */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[150%] bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-full whitespace-nowrap shadow-lg">
+                            {t.inventory.alert_restock_today}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Waste Analysis */}
+                <div className="md:col-span-1 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col">
+                    <h3 className="text-lg font-medium text-slate-300 mb-6 flex items-center gap-2">
+                        <AlertTriangle size={20} className="text-red-400" />
+                        {t.inventory.waste_title}
+                    </h3>
+                    <div className="space-y-4">
+                        {/* Expired */}
+                        <div>
+                            <div className="flex justify-between items-center text-sm mb-1">
+                                <span className="text-slate-400">{t.inventory.waste_reason_expired}</span>
+                                <span className="text-white font-mono">50%</span>
+                            </div>
+                            <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                                <div className="h-full bg-red-500 w-[50%]"></div>
+                            </div>
+                        </div>
+                        {/* Fault */}
+                        <div>
+                            <div className="flex justify-between items-center text-sm mb-1">
+                                <span className="text-slate-400">{t.inventory.waste_reason_fault}</span>
+                                <span className="text-white font-mono">30%</span>
+                            </div>
+                            <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                                <div className="h-full bg-orange-500 w-[30%]"></div>
+                            </div>
+                        </div>
+                        {/* Human Error */}
+                        <div>
+                            <div className="flex justify-between items-center text-sm mb-1">
+                                <span className="text-slate-400">{t.inventory.waste_reason_human}</span>
+                                <span className="text-white font-mono">20%</span>
+                            </div>
+                            <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                                <div className="h-full bg-slate-500 w-[20%]"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Consumption Rate */}
+                {/* Supply Chain */}
                 <div className="md:col-span-1 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col">
                     <h3 className="text-lg font-medium text-slate-300 mb-6 flex items-center gap-2">
-                        <TrendingDown size={20} className="text-green-400" />
-                        {t.inventory.consumption}
+                        <Truck size={20} className="text-emerald-400" />
+                        {t.inventory.supply_title}
                     </h3>
-
-                    <div className="space-y-6">
-                        <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
-                            <span className="text-slate-400 text-sm">{t.inventory.soup_consumption}</span>
-                            <span className="text-slate-200 font-mono">12.5 L/hr</span>
+                    <div className="relative pt-6 px-4 pb-4 bg-slate-800/30 rounded-lg border border-slate-700/50 flex-1 flex flex-col justify-center">
+                        <div className="absolute top-0 left-6 -translate-y-1/2 bg-[#1E293B] px-2 text-xs text-emerald-400 border border-emerald-500/30 rounded-full">
+                            On Route
                         </div>
-                        <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
-                            <span className="text-slate-400 text-sm">{t.inventory.noodle_consumption}</span>
-                            <span className="text-slate-200 font-mono">45 pks/hr</span>
+                        <div className="flex items-center justify-between mb-2">
+                            <span className="text-sm text-slate-300 font-medium">
+                                {t.inventory.supply_status.replace('{min}', '15')}
+                            </span>
                         </div>
-                        <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg">
-                            <span className="text-slate-400 text-sm">{t.inventory.waste_factor}</span>
-                            <span className="text-green-400 font-mono">0.2% (Low)</span>
+                        <div className="w-full h-3 bg-slate-700 rounded-full relative mb-2">
+                            <div className="absolute top-0 left-0 h-full bg-emerald-500 rounded-full w-[75%]"></div>
+                            {/* Truck Icon on Bar */}
+                            <div className="absolute top-1/2 left-[75%] -translate-y-1/2 -translate-x-1/2 bg-slate-900 p-1 rounded-full border border-emerald-500 text-emerald-400">
+                                <Truck size={12} fill="currentColor" />
+                            </div>
+                        </div>
+                        <div className="flex justify-between text-[10px] text-slate-500 uppercase tracking-wider">
+                            <span>Depot</span>
+                            <span>Store</span>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    );
+            );
 }

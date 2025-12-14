@@ -1,28 +1,48 @@
+"use client";
+
 import React from 'react';
 import { TrendingUp, Users, ShoppingBag, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { useSimulation } from '@/hooks/useSimulation';
 
 export default function DemoPage() {
+    const { revenue, activeBots, totalActiveFleet, totalOrders, recentEvents } = useSimulation();
+
+    // Format revenue as currency
+    const formattedRevenue = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    }).format(revenue);
+
     return (
         <div className="p-6 max-w-7xl mx-auto space-y-6">
+            <div className="flex items-center gap-3 mb-2">
+                <h2 className="text-2xl font-bold text-white">Command Center</h2>
+                <div className="relative flex items-center justify-center w-3 h-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </div>
+                <span className="text-xs font-mono text-green-400 uppercase tracking-widest">Live System</span>
+            </div>
+
             {/* Top Row: Metrics */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <MetricCard
                     title="Total Revenue"
-                    value="$12,450.00"
+                    value={formattedRevenue}
                     trend="+12.5%"
                     trendUp={true}
                     icon={<TrendingUp size={20} className="text-blue-400" />}
                 />
                 <MetricCard
                     title="Active Fleet"
-                    value="124 / 128 Online"
+                    value={`${activeBots} / ${totalActiveFleet} Online`}
                     subValue="97% Uptime"
                     icon={<Users size={20} className="text-green-400" />}
-                    indicator="green"
+                    indicator={activeBots > 125 ? 'green' : 'yellow'}
                 />
                 <MetricCard
                     title="Total Orders"
-                    value="842"
+                    value={totalOrders.toLocaleString()}
                     subValue="Today"
                     icon={<ShoppingBag size={20} className="text-orange-400" />}
                 />
@@ -51,32 +71,15 @@ export default function DemoPage() {
                         <span className="text-xs px-2 py-1 bg-slate-800 rounded text-slate-400">Real-time</span>
                     </div>
 
-                    <div className="space-y-4 overflow-y-auto pr-2 custom-scrollbar">
-                        <AlertItem
-                            type="warning"
-                            message="Bot #04 Osaka: Low noodle inventory (15%)"
-                            time="2m ago"
-                        />
-                        <AlertItem
-                            type="success"
-                            message="Bot #12 London: Automated cleaning cycle complete"
-                            time="12m ago"
-                        />
-                        <AlertItem
-                            type="info"
-                            message="Bot #07 NYC: Daily diagnostics passed"
-                            time="45m ago"
-                        />
-                        <AlertItem
-                            type="warning"
-                            message="Bot #22 Tokyo: Sauce dispenser validation needed"
-                            time="1h ago"
-                        />
-                        <AlertItem
-                            type="success"
-                            message="System: Firmware update v2.4.0 deployed"
-                            time="2h ago"
-                        />
+                    <div className="space-y-4 overflow-y-auto pr-2 custom-scrollbar fade-in-list">
+                        {recentEvents.map((event) => (
+                            <AlertItem
+                                key={event.id}
+                                type={event.type}
+                                message={event.message}
+                                time={event.time}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

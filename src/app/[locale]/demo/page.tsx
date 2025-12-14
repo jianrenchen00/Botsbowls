@@ -57,9 +57,11 @@ export default function DemoPage({ params }: Props) {
     } = useSimulation();
 
     // Format revenue as currency
-    const formattedRevenue = new Intl.NumberFormat(locale === 'zh-TW' ? 'zh-TW' : 'en-US', {
+    const formattedRevenue = new Intl.NumberFormat(locale === 'en' ? 'en-US' : 'zh-TW', {
         style: 'currency',
         currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
     }).format(revenue);
 
     const isCritical = systemStatus === 'critical';

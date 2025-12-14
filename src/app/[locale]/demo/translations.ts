@@ -52,7 +52,12 @@ export const DEMO_TRANSLATIONS = {
             low: "Low",
             high: "High",
             disclaimer: "*Based on aggregated fleet data. Darker blocks indicate higher order velocity.",
-            weekdays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+            weekdays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            cost_title: "Cost Structure Breakdown",
+            cost_cogs: "COGS",
+            cost_labor: "Maint. & Labor",
+            cost_rent: "Rent",
+            cost_profit: "Net Profit"
         },
         food_safety: {
             title: "Food Safety & HACCP",
@@ -69,7 +74,11 @@ export const DEMO_TRANSLATIONS = {
             status: {
                 verified: "Verified",
                 pending: "Pending"
-            }
+            },
+            reg_title: "Regulatory Alerts",
+            reg_inspection: "Est. Health Inspection: Dec 20 - Dec 25",
+            reg_tip_1: "Ensure freezer logs are signed",
+            reg_tip_2: "Check nozzle cleaning records"
         },
         controls: {
             title: "System Control Panel",
@@ -160,7 +169,9 @@ export const DEMO_TRANSLATIONS = {
             comp_refund: "Full Refund",
             comp_coupon: "Send 50% Off Coupon",
             comp_drink: "Gift Free Drink",
-            comp_success: "Compensation sent to customer!"
+            comp_success: "Compensation sent to customer!",
+            action_refund: "Refund",
+            action_coupon: "Send Coupon"
         }
     },
     'zh-TW': {
@@ -215,7 +226,12 @@ export const DEMO_TRANSLATIONS = {
             low: "低",
             high: "高",
             disclaimer: "*基於綜合機隊數據。深色區塊表示較高的訂單速度。",
-            weekdays: ["週一", "週二", "週三", "週四", "週五", "週六", "週日"]
+            weekdays: ["週一", "週二", "週三", "週四", "週五", "週六", "週日"],
+            cost_title: "成本結構分析",
+            cost_cogs: "食材成本 (COGS)",
+            cost_labor: "維護與人力",
+            cost_rent: "場地租金",
+            cost_profit: "淨利"
         },
         food_safety: {
             title: "食品安全與 HACCP",
@@ -232,7 +248,11 @@ export const DEMO_TRANSLATIONS = {
             status: {
                 verified: "已驗證",
                 pending: "待處理"
-            }
+            },
+            reg_title: "法規與稽核提醒",
+            reg_inspection: "預計衛生局稽核：12月20日 - 12月25日",
+            reg_tip_1: "請確認冷凍櫃溫度日誌已簽署",
+            reg_tip_2: "檢查噴嘴清潔紀錄"
         },
         controls: {
             title: "系統控制面板",
@@ -323,13 +343,15 @@ export const DEMO_TRANSLATIONS = {
             channel_web: "網頁下單",
             channel_3rd: "第三方平台",
             col_action: "操作",
-            btn_compensate: "安撫",
-            tip_balance: "調貨建議：從 {store} ({dist}) 調撥",
+            btn_compensate: "安撫客戶",
+            tip_balance: "💡 建議調撥：從 {store}",
             comp_title: "選擇補償方式",
             comp_refund: "全額退款",
             comp_coupon: "發送 5 折券",
             comp_drink: "贈送飲料",
-            comp_success: "已發送補償通知給客戶！"
+            comp_success: "已發送補償通知給客戶！",
+            action_refund: "退款",
+            action_coupon: "發送優惠券"
         },
         construction: {
             title: "模組開發中",

@@ -57,7 +57,7 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
     };
 
     const handleCompensate = (unitId: string) => {
-        const choice = window.prompt(`${t.fleetTable.comp_title}:\n1. ${t.fleetTable.comp_refund}\n2. ${t.fleetTable.comp_coupon}\n3. ${t.fleetTable.comp_drink}`);
+        const choice = window.prompt(`${t.fleetTable.comp_title}:\n1. ${t.fleetTable.action_refund}\n2. ${t.fleetTable.action_coupon}`);
         if (choice) {
             alert(t.fleetTable.comp_success);
         }

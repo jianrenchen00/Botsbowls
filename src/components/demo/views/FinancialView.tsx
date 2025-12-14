@@ -104,6 +104,39 @@ export function FinancialView({ t }: FinancialViewProps) {
                             ))}
                         </div>
                     </div>
+
+                    {/* Cost Structure Card */}
+                    <div className="bg-[#1E293B] border border-slate-700 rounded-xl p-6">
+                        <h3 className="text-lg font-semibold text-slate-200 mb-4">{t.financials.cost_title}</h3>
+
+                        {/* Stacked Bar */}
+                        <div className="h-4 w-full rounded-full overflow-hidden flex mb-4 shadow-inner bg-slate-800">
+                            <div className="h-full bg-red-400 w-[30%]"></div>
+                            <div className="h-full bg-orange-400 w-[15%]"></div>
+                            <div className="h-full bg-amber-400 w-[10%]"></div>
+                            <div className="h-full bg-emerald-500 w-[45%]"></div>
+                        </div>
+
+                        {/* Legend */}
+                        <div className="space-y-2 text-sm">
+                            <div className="flex justify-between">
+                                <div className="flex items-center gap-2 text-slate-300"><div className="w-2 h-2 rounded-full bg-red-400"></div> {t.financials.cost_cogs}</div>
+                                <span className="font-mono text-slate-400">30%</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <div className="flex items-center gap-2 text-slate-300"><div className="w-2 h-2 rounded-full bg-orange-400"></div> {t.financials.cost_rent}</div>
+                                <span className="font-mono text-slate-400">15%</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <div className="flex items-center gap-2 text-slate-300"><div className="w-2 h-2 rounded-full bg-amber-400"></div> {t.financials.cost_labor}</div>
+                                <span className="font-mono text-slate-400">10%</span>
+                            </div>
+                            <div className="flex justify-between border-t border-slate-700 pt-2 mt-2">
+                                <div className="flex items-center gap-2 text-white font-medium"><div className="w-2 h-2 rounded-full bg-emerald-500"></div> {t.financials.cost_profit}</div>
+                                <span className="font-mono text-emerald-400 font-bold">45%</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* 2. Sales Heatmap (Span 2) */}

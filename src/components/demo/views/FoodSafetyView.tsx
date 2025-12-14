@@ -1,6 +1,6 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine, Legend } from 'recharts';
-import { ShieldCheck, FileCheck, ThermometerSnowflake, Download, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, FileCheck, ThermometerSnowflake, Download, CheckCircle2, AlertTriangle } from 'lucide-react';
 
 interface FoodSafetyViewProps {
     t: any;
@@ -112,7 +112,38 @@ export function FoodSafetyView({ t, cleaningLog }: FoodSafetyViewProps) {
                 </div>
             </div>
 
-            {/* 3. Certificate Banner */}
+            {/* 3. Regulatory Alerts & Compliance */}
+            <div className="bg-[#1E293B] border border-amber-900/50 rounded-xl p-6">
+                <h3 className="text-lg font-semibold text-amber-100 mb-4 flex items-center gap-2">
+                    <AlertTriangle size={20} className="text-amber-400" />
+                    {t.food_safety.reg_title}
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="bg-amber-950/30 border border-amber-500/20 rounded-lg p-4 flex items-start gap-3">
+                        <AlertTriangle size={18} className="text-amber-400 mt-1 shrink-0" />
+                        <div>
+                            <p className="font-medium text-amber-200">{t.food_safety.reg_inspection}</p>
+                            <p className="text-sm text-amber-400/70 mt-1">Audit Code: #8821-X</p>
+                        </div>
+                    </div>
+                    <div className="space-y-3">
+                        <div className="flex items-center gap-3 text-slate-300 group cursor-pointer">
+                            <div className="w-5 h-5 rounded border border-slate-600 flex items-center justify-center group-hover:border-emerald-500 transition-colors">
+                                <div className="hidden group-hover:block w-3 h-3 bg-emerald-500 rounded-sm"></div>
+                            </div>
+                            <span className="group-hover:text-emerald-400 transition-colors">{t.food_safety.reg_tip_1}</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-slate-300 group cursor-pointer">
+                            <div className="w-5 h-5 rounded border border-slate-600 flex items-center justify-center group-hover:border-emerald-500 transition-colors">
+                                <div className="hidden group-hover:block w-3 h-3 bg-emerald-500 rounded-sm"></div>
+                            </div>
+                            <span className="group-hover:text-emerald-400 transition-colors">{t.food_safety.reg_tip_2}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* 4. Certificate Banner */}
             <div className="bg-gradient-to-r from-emerald-900/40 to-slate-900 border border-emerald-500/20 rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
                     <div className="bg-emerald-500/20 p-3 rounded-full border border-emerald-500/30">

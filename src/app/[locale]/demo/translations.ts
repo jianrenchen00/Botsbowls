@@ -95,6 +95,7 @@ export const DEMO_TRANSLATIONS = {
             status_healthy: "HEALTHY",
             daily_cost: "DAILY COST",
             efficiency: "EFFICIENCY",
+            telemetry_subtitle: "Real-time hardware monitoring & digital twin verification",
         },
         inventory: {
             soup_tank_level: "Soup Tank A Level",
@@ -111,6 +112,47 @@ export const DEMO_TRANSLATIONS = {
         construction: {
             title: "Module Under Construction",
             desc: "This feature module is currently being built and will be released in the next version."
+        },
+        fleetTable: {
+            title: "Fleet Operations Status",
+            col_id: "ID / Location",
+            col_type: "Unit Type",
+            col_revenue: "Today's Rev",
+            col_status: "Status",
+            col_restock: "Stock / Est.",
+            col_aov: "AOV",
+            col_addon: "Top Add-on",
+            col_channel: "Top Channel",
+            type_znsmj: "Noodle Bar (ZNSMJ-VII)",
+            type_integrated: "Integrated Noodle Machine",
+            type_drink: "Drink Station",
+            type_robot: "Robot Restaurant",
+            status_online: "Online",
+            status_busy: "Busy",
+            status_maintenance: "Maintenance",
+            warn_restock: "Restock Now",
+            unit_bowls: "bowls",
+            addon_egg: "Onsen Egg",
+            addon_coke: "Coke",
+            addon_tea: "Oolong Tea",
+            addon_tofu: "Fried Tofu",
+            loc_arc: "Arc de Triomphe",
+            loc_louvre: "Louvre Museum",
+            loc_concorde: "Place de la Concorde",
+            loc_bastille: "Bastille",
+            loc_montmartre: "Montmartre",
+            loc_tower: "Eiffel Tower",
+            loc_champs: "Champs-Élysées",
+            loc_defense: "La Défense",
+            loc_opera: "Opera Garnier",
+            loc_marais: "Le Marais",
+            loc_latin: "Latin Quarter",
+            loc_cdg1: "CDG Airport T1",
+            loc_cdg2: "CDG Airport T2",
+            channel_kiosk: "Kiosk",
+            channel_app: "BB App",
+            channel_web: "Web Order",
+            channel_3rd: "3rd Party"
         }
     },
     'zh-TW': {
@@ -218,6 +260,7 @@ export const DEMO_TRANSLATIONS = {
             status_healthy: "健康",
             daily_cost: "每日成本",
             efficiency: "效率",
+            telemetry_subtitle: "實時硬體監控與數位孿生驗證",
         },
         inventory: {
             soup_tank_level: "湯桶 A 液位",
@@ -267,9 +310,10 @@ export const DEMO_TRANSLATIONS = {
             loc_latin: "拉丁區",
             loc_cdg1: "戴高樂機場 T1",
             loc_cdg2: "戴高樂機場 T2",
-            channel_kiosk: "現場點餐",
-            channel_app: "手機下單",
-            channel_delivery: "外賣平台"
+            channel_kiosk: "現場機器",
+            channel_app: "BB App",
+            channel_web: "網頁下單",
+            channel_3rd: "第三方平台"
         },
         construction: {
             title: "模組開發中",
@@ -381,6 +425,7 @@ export const DEMO_TRANSLATIONS = {
             status_healthy: "SAIN",
             daily_cost: "COÛT QUOTIDIEN",
             efficiency: "EFFICACITÉ",
+            telemetry_subtitle: "Surveillance matérielle en temps réel & vérification jumeau numérique",
         },
         inventory: {
             soup_tank_level: "Niveau Réservoir Soupe A",
@@ -431,8 +476,9 @@ export const DEMO_TRANSLATIONS = {
             loc_cdg1: "Aéroport CDG T1",
             loc_cdg2: "Aéroport CDG T2",
             channel_kiosk: "Borne",
-            channel_app: "App Mobile",
-            channel_delivery: "Livraison"
+            channel_app: "App BB",
+            channel_web: "Web",
+            channel_3rd: "Tiers"
         },
         construction: {
             title: "Module en Construction",
@@ -544,6 +590,7 @@ export const DEMO_TRANSLATIONS = {
             status_healthy: "SALUDABLE",
             daily_cost: "COSTO DIARIO",
             efficiency: "EFICIENCIA",
+            telemetry_subtitle: "Monitoreo de hardware en tiempo real y verificación de gemelo digital",
         },
         inventory: {
             soup_tank_level: "Nivel Tanque Sopa A",
@@ -594,8 +641,9 @@ export const DEMO_TRANSLATIONS = {
             loc_cdg1: "Aeropuerto CDG T1",
             loc_cdg2: "Aeropuerto CDG T2",
             channel_kiosk: "Quiosco",
-            channel_app: "App Móvil",
-            channel_delivery: "Entrega"
+            channel_app: "App BB",
+            channel_web: "Web",
+            channel_3rd: "Terceros"
         },
         construction: {
             title: "Módulo en Construcción",

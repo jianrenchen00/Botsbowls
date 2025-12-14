@@ -23,8 +23,8 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
         // Louvre: Low stock, High AOV
         { id: "ZNS-001", location: "loc_louvre", type: "type_znsmj", revenue: 1480, status: "status_busy", portions: 8, aov: 15.50, addon: "addon_coke", channel: "app" },
         { id: "ZNS-002", location: "loc_arc", type: "type_znsmj", revenue: 1250, status: "status_online", portions: 45, aov: 13.20, addon: "addon_egg", channel: "kiosk" },
-        { id: "ZNS-003", location: "loc_concorde", type: "type_znsmj", revenue: 980, status: "status_online", portions: 62, aov: 12.80, addon: "addon_tea", channel: "kiosk" },
-        { id: "ZNS-004", location: "loc_bastille", type: "type_znsmj", revenue: 1120, status: "status_online", portions: 33, aov: 13.50, addon: "addon_tofu", channel: "delivery" },
+        { id: "ZNS-003", location: "loc_concorde", type: "type_znsmj", revenue: 980, status: "status_online", portions: 62, aov: 12.80, addon: "addon_tea", channel: "web" },
+        { id: "ZNS-004", location: "loc_bastille", type: "type_znsmj", revenue: 1120, status: "status_online", portions: 33, aov: 13.50, addon: "addon_tofu", channel: "3rd" },
         { id: "ZNS-005", location: "loc_montmartre", type: "type_znsmj", revenue: 1350, status: "status_busy", portions: 12, aov: 14.80, addon: "addon_egg", channel: "app" },
 
         // Integrated (4)
@@ -32,11 +32,11 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
         { id: "INT-101", location: "loc_tower", type: "type_integrated", revenue: 2100, status: "status_busy", portions: 15, aov: 16.20, addon: "addon_egg", channel: "kiosk" },
         { id: "INT-102", location: "loc_champs", type: "type_integrated", revenue: 1850, status: "status_online", portions: 55, aov: 14.50, addon: "addon_coke", channel: "app" },
         { id: "INT-103", location: "loc_defense", type: "type_integrated", revenue: 1600, status: "status_maintenance", portions: 0, aov: 0, addon: "addon_tea", channel: "--" },
-        { id: "INT-104", location: "loc_opera", type: "type_integrated", revenue: 1720, status: "status_online", portions: 28, aov: 13.90, addon: "addon_tofu", channel: "delivery" },
+        { id: "INT-104", location: "loc_opera", type: "type_integrated", revenue: 1720, status: "status_online", portions: 28, aov: 13.90, addon: "addon_tofu", channel: "3rd" },
 
         // Drink (2)
         { id: "DRK-201", location: "loc_marais", type: "type_drink", revenue: 450, status: "status_online", portions: 120, aov: 4.50, addon: "--", channel: "kiosk" },
-        { id: "DRK-202", location: "loc_latin", type: "type_drink", revenue: 520, status: "status_online", portions: 85, aov: 5.20, addon: "--", channel: "app" },
+        { id: "DRK-202", location: "loc_latin", type: "type_drink", revenue: 520, status: "status_online", portions: 85, aov: 5.20, addon: "--", channel: "web" },
 
         // Robot (2)
         { id: "ROB-301", location: "loc_cdg1", type: "type_robot", revenue: 3200, status: "status_busy", portions: 42, aov: 18.50, addon: "addon_egg", channel: "kiosk" },
@@ -71,10 +71,10 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
                             <th className="px-6 py-3 font-medium">{t.fleetTable.col_type}</th>
                             <th className="px-6 py-3 font-medium text-right">{t.fleetTable.col_revenue}</th>
                             <th className="px-6 py-3 font-medium">{t.fleetTable.col_status}</th>
-                            <th className="px-6 py-3 font-medium">{t.fleetTable.col_restock}</th>
+                            <th className="px-6 py-3 font-medium min-w-[140px]">{t.fleetTable.col_restock}</th>
                             <th className="px-6 py-3 font-medium text-right">{t.fleetTable.col_aov}</th>
                             <th className="px-6 py-3 font-medium">{t.fleetTable.col_addon}</th>
-                            <th className="px-6 py-3 font-medium text-center">{t.fleetTable.col_channel}</th>
+                            <th className="px-6 py-3 font-medium text-center min-w-[120px]">{t.fleetTable.col_channel}</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-700/50">
@@ -98,11 +98,11 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
                                 </td>
                                 <td className="px-6 py-3 text-slate-300">
                                     {unit.portions < 20 && unit.status !== 'status_maintenance' ? (
-                                        <div className="flex items-center gap-2 text-red-400 font-medium">
-                                            <AlertTriangle size={14} />
+                                        <div className="flex items-center gap-2 text-red-400 font-medium flex-wrap">
+                                            <AlertTriangle size={14} className="shrink-0" />
                                             <span>
                                                 {unit.portions} {t.fleetTable.unit_bowls}
-                                                <span className="block text-[10px] opacity-80">{t.fleetTable.warn_restock}</span>
+                                                <span className="block text-[10px] opacity-80 whitespace-nowrap">{t.fleetTable.warn_restock}</span>
                                             </span>
                                         </div>
                                     ) : unit.status === 'status_maintenance' ? (
@@ -120,8 +120,8 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
                                     {unit.addon !== '--' ? t.fleetTable[unit.addon] || unit.addon : '--'}
                                 </td>
                                 <td className="px-6 py-3 text-center">
-                                    <div className="flex justify-center" title={t.fleetTable[`channel_${unit.channel}`] || unit.channel}>
-                                        {getChannelIcon(unit.channel)}
+                                    <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs font-medium text-slate-300">
+                                        {t.fleetTable[`channel_${unit.channel}`] || unit.channel}
                                     </div>
                                 </td>
                             </tr>

@@ -30,7 +30,7 @@ export function TelemetryView({
                         <Activity className="text-blue-500" />
                         {t.nav.telemetry || "System Telemetry"}
                     </h2>
-                    <p className="text-slate-400 mt-1">Real-time hardware monitoring & digital twin verification</p>
+                    <p className="text-slate-400 mt-1">{t.telemetry.telemetry_subtitle}</p>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1 bg-green-500/10 border border-green-500/20 rounded-full">
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>

@@ -27,15 +27,15 @@ export interface DashboardEvent {
 }
 
 const INITIAL_STATE: SimulationState = {
-    revenue: 12450.00,
-    activeBots: 124,
-    totalActiveFleet: 128,
-    totalOrders: 842,
+    revenue: 30125.00,
+    activeBots: 13,
+    totalActiveFleet: 13,
+    totalOrders: 2450,
     recentEvents: [],
-    // Static initial history to prevent hydration mismatch
+    // Static initial history
     revenueHistory: Array.from({ length: 20 }, (_, i) => ({
         time: "00:00",
-        value: 12000
+        value: 30000
     })),
     isRushActive: false,
     systemStatus: 'normal',
@@ -46,18 +46,18 @@ const INITIAL_STATE: SimulationState = {
     motorLoad: 45,
     powerUsage: 2.4,
     motorHistory: Array(30).fill(45),
-    cleaningLog: [] // Start empty, populate on client
+    cleaningLog: []
 };
 
 const SAMPLE_EVENTS = [
-    { message: "Bot #04 Osaka: Restock needed", type: 'warning' as const },
-    { message: "Bot #12 London: Cleaning complete", type: 'success' as const },
-    { message: "Order #843: Spicy Beef Ramen prepared in Tokyo", type: 'info' as const },
-    { message: "Bot #88 NYC: Maintenance required", type: 'warning' as const },
-    { message: "Order #844: Miso Soup served in Paris", type: 'info' as const },
+    { message: "Bot #03 (Full-Auto): Restock needed", type: 'warning' as const },
+    { message: "Bot #08 (Vending): Cleaning complete", type: 'success' as const },
+    { message: "Order #2451: Spicy Beef Ramen prepared", type: 'info' as const },
+    { message: "Bot #12 (Kiosk): Paper refill required", type: 'warning' as const },
+    { message: "Order #2452: Miso Soup served", type: 'info' as const },
     { message: "System: Hourly backup completed", type: 'success' as const },
-    { message: "Bot #09 Berlin: Sauce refilled", type: 'success' as const },
-    { message: "Order #845: Tonkotsu Ramen preparing in Osaka", type: 'info' as const },
+    { message: "Bot #05 (Semi): Sauce refilled", type: 'success' as const },
+    { message: "Order #2453: Tonkotsu Ramen preparing", type: 'info' as const },
 ];
 
 export function useSimulation() {
@@ -69,11 +69,12 @@ export function useSimulation() {
     // Initialize random data ONLY on client
     useEffect(() => {
         setIsMounted(true);
+        console.log("Fleet Mix: 3 Full-Auto, 3 Semi-Auto, 4 Vending, 3 Kiosks");
 
         // Generate initial random history
         const initialHistory = Array.from({ length: 20 }, (_, i) => ({
             time: `${10 + Math.floor(i / 2)}:${i % 2 === 0 ? '00' : '30'}`,
-            value: 12000 + (Math.random() * 500)
+            value: 30000 + (Math.random() * 500)
         }));
 
         // Generate initial cleaning log
@@ -85,10 +86,10 @@ export function useSimulation() {
 
         // Generate initial events
         const initialEvents = [
-            { id: '1', type: 'warning' as const, message: "Bot #04 Osaka: Low noodle inventory (15%)", time: "2m ago" },
-            { id: '2', type: 'success' as const, message: "Bot #12 London: Automated cleaning cycle complete", time: "12m ago" },
-            { id: '3', type: 'info' as const, message: "Bot #07 NYC: Daily diagnostics passed", time: "45m ago" },
-            { id: '4', type: 'warning' as const, message: "Bot #22 Tokyo: Sauce dispenser validation needed", time: "1h ago" },
+            { id: '1', type: 'warning' as const, message: "Bot #03 (Full-Auto): Low noodle inventory (15%)", time: "2m ago" },
+            { id: '2', type: 'success' as const, message: "Bot #08 (Vending): Automated cleaning cycle complete", time: "12m ago" },
+            { id: '3', type: 'info' as const, message: "Bot #11 (Kiosk): Daily diagnostics passed", time: "45m ago" },
+            { id: '4', type: 'warning' as const, message: "Bot #04 (Semi): Sauce dispenser validation needed", time: "1h ago" },
             { id: '5', type: 'success' as const, message: "System: Firmware update v2.4.0 deployed", time: "2h ago" },
         ];
 
@@ -128,7 +129,7 @@ export function useSimulation() {
         setState(prev => ({
             ...prev,
             systemStatus: 'critical',
-            activeBots: prev.activeBots - 1,
+            activeBots: prev.activeBots > 0 ? prev.activeBots - 1 : 0,
             recentEvents: [newEvent, ...prev.recentEvents].slice(0, 10)
         }));
     };
@@ -147,7 +148,7 @@ export function useSimulation() {
         setState(prev => ({
             ...prev,
             systemStatus: 'normal',
-            activeBots: prev.activeBots + 1,
+            activeBots: 13, // Restore to full fleet
             recentEvents: [newEvent, ...prev.recentEvents].slice(0, 10)
         }));
     };
@@ -156,53 +157,51 @@ export function useSimulation() {
         if (!isMounted) return;
 
         // Main Ticker: Updates Revenue & Orders
+        // Slowed down to 3.5 seconds
         const mainTicker = setInterval(() => {
             setState(prev => {
                 const isRush = prev.isRushActive;
                 const isCritical = prev.systemStatus === 'critical';
 
-                // Base increment: $12-$45. Lunch rush multiplier: 3x-5x
-                let baseIncrement = Math.random() * (45 - 12) + 12;
+                // Realistic increment: $9 - $15 per tick
+                let baseIncrement = Math.random() * (15 - 9) + 9;
 
                 // Impact of critical status: 20% reduction in revenue efficiency
                 if (isCritical) {
                     baseIncrement = baseIncrement * 0.8;
                 }
 
-                const multiplier = isRush ? (Math.random() * (5 - 3) + 3) : 1;
+                const multiplier = isRush ? (Math.random() * (2.5 - 1.5) + 1.5) : 1;
                 const revenueIncrease = baseIncrement * multiplier;
                 const newRevenue = prev.revenue + revenueIncrease;
 
-                // Inventory Logic
-                let newSoupLevel = prev.soupLevel - (Math.random() * 0.1 + 0.05) * multiplier;
-                let newNoodleStock = prev.noodleStock - (Math.floor(Math.random() * 2) + 1) * multiplier * 0.1;
+                // Inventory Logic (slower drain)
+                let newSoupLevel = prev.soupLevel - (Math.random() * 0.05 + 0.02) * multiplier;
+                let newNoodleStock = prev.noodleStock - (Math.floor(Math.random() * 1.5)) * 0.1;
 
                 // Sensor Logic (Telemetry)
-                // Freezer: Target -18.0, fluctuate slightly
                 const freezerNoise = (Math.random() - 0.5) * 0.4;
                 let newFreezerTemp = -18.0 + freezerNoise;
 
-                // Cooker: Target 95.0, fluctuate
                 const cookerNoise = (Math.random() - 0.5) * 1.0;
                 let newCookerTemp = 95.0 + cookerNoise;
 
-                // Motor Load: Spikes on activity, decays otherwise
+                // Motor Load
                 let newMotorLoad = prev.motorLoad;
-                if (Math.random() > 0.7) {
-                    newMotorLoad = Math.min(95, prev.motorLoad + Math.random() * 30); // Spike
+                if (Math.random() > 0.8) {
+                    newMotorLoad = Math.min(95, prev.motorLoad + Math.random() * 10);
                 } else {
-                    newMotorLoad = Math.max(25, prev.motorLoad - 5); // Decay
+                    newMotorLoad = Math.max(25, prev.motorLoad - 2);
                 }
 
-                // Power Usage: correlated with motor load + base load
-                const newPowerUsage = 1.2 + (newMotorLoad / 100) * 2.5; // Base 1.2kW + up to 2.5kW variable
+                // Power Usage
+                const newPowerUsage = 1.2 + (newMotorLoad / 100) * 1.5;
 
-                // Motor History
                 const newMotorHistory = [...prev.motorHistory, newMotorLoad].slice(-30);
 
-                // Cleaning Log Logic (Food Safety)
+                // Cleaning Log Logic
                 let newCleaningLog = prev.cleaningLog;
-                if (Math.random() > 0.95) { // 5% chance per tick (approx every 20s)
+                if (Math.random() > 0.98) { // Rare
                     const actions = [
                         "High-Temp Nozzle Flush (95°C)",
                         "UV-C Sterilization Cycle",
@@ -223,7 +222,6 @@ export function useSimulation() {
 
                 // Auto-Restock Logic
                 let inventoryEvents: DashboardEvent[] = [];
-
                 if (newSoupLevel < 15) {
                     newSoupLevel = 100;
                     inventoryEvents.push({
@@ -233,13 +231,12 @@ export function useSimulation() {
                         time: "Just now"
                     });
                 }
-
                 if (newNoodleStock < 10) {
                     newNoodleStock = 100;
                     inventoryEvents.push({
                         id: Date.now().toString() + '-noodle',
                         type: 'info',
-                        message: "System: Noodle Hopper restocked by Bot #01",
+                        message: "System: Noodle Hopper restocked",
                         time: "Just now"
                     });
                 }
@@ -248,19 +245,21 @@ export function useSimulation() {
                 const now = new Date();
                 const timeString = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
 
+                // Add revenue to history only occasionally to avoid cluttering graph too fast? 
+                // Creating a smooth graph requires points. We'll keep it but maybe it pushes too fast previously.
+                // With 3.5s interval, it's fine.
                 const newHistoryPoint = {
                     time: timeString,
                     value: newRevenue
                 };
-
-                const newHistory = [...prev.revenueHistory, newHistoryPoint].slice(-20); // Keep last 20 points
+                const newHistory = [...prev.revenueHistory, newHistoryPoint].slice(-20);
 
                 const combinedEvents = [...inventoryEvents, ...prev.recentEvents].slice(0, 10);
 
                 return {
                     ...prev,
                     revenue: newRevenue,
-                    totalOrders: prev.totalOrders + (isRush ? Math.floor(Math.random() * 5) + 1 : 1),
+                    totalOrders: prev.totalOrders + (isRush ? Math.floor(Math.random() * 2) + 1 : (Math.random() > 0.5 ? 1 : 0)),
                     revenueHistory: newHistory,
                     soupLevel: Math.max(0, newSoupLevel),
                     noodleStock: Math.max(0, newNoodleStock),
@@ -273,44 +272,10 @@ export function useSimulation() {
                     cleaningLog: newCleaningLog
                 };
             });
-        }, 1000); // Increased tick rate to 1 second for smoother animation
-
-        // Fluctuation Ticker: Updates Active Bots every 5 seconds (rarely changes)
-        // Only run fluctuations if system is normal to avoid conflict with fault logic
-        const botTicker = setInterval(() => {
-            if (Math.random() > 0.8) {
-                setState(prev => {
-                    if (prev.systemStatus === 'critical') return prev; // Don't fluctuate while broken
-
-                    const newActiveBots = Math.floor(Math.random() * (128 - 122 + 1) + 122);
-                    return {
-                        ...prev,
-                        activeBots: newActiveBots
-                    };
-                });
-            }
-        }, 5000);
-
-        // Event Ticker: Adds new event logs every ~10 seconds
-        const eventTicker = setInterval(() => {
-            const randomEvent = SAMPLE_EVENTS[Math.floor(Math.random() * SAMPLE_EVENTS.length)];
-            const newEvent: DashboardEvent = {
-                id: Date.now().toString(),
-                type: randomEvent.type,
-                message: randomEvent.message,
-                time: "Just now"
-            };
-
-            setState(prev => ({
-                ...prev,
-                recentEvents: [newEvent, ...prev.recentEvents].slice(0, 10)
-            }));
-        }, 10000);
+        }, 3500); // 3.5 seconds per tick
 
         return () => {
             clearInterval(mainTicker);
-            clearInterval(botTicker);
-            clearInterval(eventTicker);
             if (rushTimeoutRef.current) clearTimeout(rushTimeoutRef.current);
         };
     }, []);

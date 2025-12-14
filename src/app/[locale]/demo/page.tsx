@@ -13,9 +13,25 @@ import { TelemetryView } from '@/components/demo/views/TelemetryView';
 import { FoodSafetyView } from '@/components/demo/views/FoodSafetyView';
 import { FinancialView } from '@/components/demo/views/FinancialView';
 
-export default function DemoPage({ params }: { params: Promise<{ locale: string }> }) {
-    const { locale } = use(params);
-    const t = DEMO_TRANSLATIONS[locale as DemoTranslationKey] || DEMO_TRANSLATIONS['en'];
+type Props = { params: Promise<{ locale: string }> };
+
+export default function DemoPage({ params }: Props) {
+    // 1. Unwrap Promise
+    const resolvedParams = use(params);
+    const locale = resolvedParams.locale || 'en';
+
+    // 2. Safe Translation Lookup
+    // Fallback to English if the specific locale is missing keys
+    const tRaw = DEMO_TRANSLATIONS[locale as keyof typeof DEMO_TRANSLATIONS] || DEMO_TRANSLATIONS.en;
+
+    // 3. Deep Merge / Safety Patch
+    // This ensures t.construction ALWAYS exists, even if missing in zh-TW
+    const t = {
+        ...DEMO_TRANSLATIONS.en, // Start with English as base (guarantees all keys exist)
+        ...tRaw,                 // Override with localized strings
+        construction: tRaw.construction || DEMO_TRANSLATIONS.en.construction, // Double safety
+        financials: tRaw.financials || DEMO_TRANSLATIONS.en.financials
+    };
 
     const [currentView, setCurrentView] = useState('overview');
 

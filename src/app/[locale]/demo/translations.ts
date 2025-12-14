@@ -54,6 +54,23 @@ export const DEMO_TRANSLATIONS = {
             disclaimer: "*Based on aggregated fleet data. Darker blocks indicate higher order velocity.",
             weekdays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
         },
+        food_safety: {
+            title: "Food Safety & HACCP",
+            subtitle: "Automated hygiene compliance & audit logging",
+            compliant: "HACCP COMPLIANT",
+            ccp: "24h Critical Control Points (CCP)",
+            export_pdf: "Export PDF Report",
+            freezer_target: "Freezer A (-18°C Target)",
+            cooker_target: "Cooker Unit (95°C Target)",
+            audit_trail: "Cleaning Audit Trail",
+            iso_title: "ISO 22000 & HACCP Compliance Certified",
+            iso_desc: "This system continuously monitors compliance with international food safety standards.",
+            view_cert: "View Certificate",
+            status: {
+                verified: "Verified",
+                pending: "Pending"
+            }
+        },
         controls: {
             title: "System Control Panel",
             instructions: "Use these controls to simulate various operating conditions.",
@@ -64,6 +81,10 @@ export const DEMO_TRANSLATIONS = {
             tooltip_heaters: "Toggle Heating Elements (zone A/B)",
             tooltip_lock: "Engage Safety Locks",
             tooltip_reset: "System Hard Reset (Requires Auth)"
+        },
+        construction: {
+            title: "Module Under Construction",
+            desc: "This feature module is currently being built and will be released in the next version."
         }
     },
     'zh-TW': {
@@ -106,19 +127,36 @@ export const DEMO_TRANSLATIONS = {
             title: "財務分析",
             heatmapTitle: "每週銷售熱力圖",
             metricsTitle: "投資回報預測",
-            revenue: "預估月營收",
+            revenue: "本月累積營收",
             payback: "預估回本週期",
             months: "個月",
             productMix: "產品銷售組合",
             highMargin: "高毛利商品",
             lowMargin: "標準商品",
             sold: "已售出",
-            profitMargin: "利潤率",
+            profitMargin: "淨利率",
             operationalCost: "營運成本",
             low: "低",
             high: "高",
             disclaimer: "*基於綜合機隊數據。深色區塊表示較高的訂單速度。",
             weekdays: ["週一", "週二", "週三", "週四", "週五", "週六", "週日"]
+        },
+        food_safety: {
+            title: "食品安全與 HACCP",
+            subtitle: "自動化衛生合規與審計日誌",
+            compliant: "HACCP 合規",
+            ccp: "24小時關鍵控制點 (CCP)",
+            export_pdf: "匯出 PDF 報告",
+            freezer_target: "冷凍櫃 A (-18°C 目標)",
+            cooker_target: "烹飪單元 (95°C 目標)",
+            audit_trail: "清潔審計追蹤",
+            iso_title: "ISO 22000 & HACCP 合規認證",
+            iso_desc: "本系統持續監控國際食品安全標準的合規性。",
+            view_cert: "查看證書",
+            status: {
+                verified: "已驗證",
+                pending: "待處理"
+            }
         },
         controls: {
             title: "系統控制面板",
@@ -130,6 +168,10 @@ export const DEMO_TRANSLATIONS = {
             tooltip_heaters: "切換加熱元件 (區域 A/B)",
             tooltip_lock: "啟動安全鎖",
             tooltip_reset: "系統硬重置 (需要授權)"
+        },,
+        construction: {
+            title: "模組開發中",
+            desc: "此功能模組正在構建中，將在下一版本釋出。"
         }
     },
     fr: {
@@ -186,6 +228,23 @@ export const DEMO_TRANSLATIONS = {
             disclaimer: "*Basé sur les données agrégées de la flotte. Les blocs sombres indiquent une vélocité élevée.",
             weekdays: ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"]
         },
+        food_safety: {
+            title: "Sécurité Alimentaire & HACCP",
+            subtitle: "Conformité d'hygiène automatisée & journal d'audit",
+            compliant: "CONFORME HACCP",
+            ccp: "Points Critiques de Contrôle 24h",
+            export_pdf: "Exporter Rapport PDF",
+            freezer_target: "Congélateur A (Cible -18°C)",
+            cooker_target: "Unité de Cuisson (Cible 95°C)",
+            audit_trail: "Piste d'Audit de Nettoyage",
+            iso_title: "Certifié ISO 22000 & HACCP",
+            iso_desc: "Ce système surveille en permanence la conformité aux normes internationales.",
+            view_cert: "Voir Certificat",
+            status: {
+                verified: "Vérifié",
+                pending: "En attente"
+            }
+        },
         controls: {
             title: "Panneau de Contrôle",
             instructions: "Utilisez ces contrôles pour simuler diverses conditions.",
@@ -196,6 +255,10 @@ export const DEMO_TRANSLATIONS = {
             tooltip_heaters: "Basculer Éléments Chauffants",
             tooltip_lock: "Verrouillage Sécurité",
             tooltip_reset: "Réinitialisation Système"
+        },
+        construction: {
+            title: "Module en Construction",
+            desc: "Ce module est en cours de développement et sera disponible dans la prochaine version."
         }
     },
     es: {
@@ -252,6 +315,23 @@ export const DEMO_TRANSLATIONS = {
             disclaimer: "*Basado en datos agregados. Los bloques oscuros indican mayor velocidad.",
             weekdays: ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]
         },
+        food_safety: {
+            title: "Seguridad Alimentaria y HACCP",
+            subtitle: "Cumplimiento de higiene automatizado y registro de auditoría",
+            compliant: "CUMPLIMIENTO HACCP",
+            ccp: "Puntos Críticos de Control 24h",
+            export_pdf: "Exportar Informe PDF",
+            freezer_target: "Congelador A (Objetivo -18°C)",
+            cooker_target: "Unidad de Cocción (Objetivo 95°C)",
+            audit_trail: "Rastro de Auditoría",
+            iso_title: "Certificado ISO 22000 y HACCP",
+            iso_desc: "Este sistema monitorea continuamente el cumplimiento de las normas internacionales.",
+            view_cert: "Ver Certificado",
+            status: {
+                verified: "Verificado",
+                pending: "Pendiente"
+            }
+        },
         controls: {
             title: "Panel de Control",
             instructions: "Use estos controles para simular condiciones operativas.",
@@ -262,6 +342,10 @@ export const DEMO_TRANSLATIONS = {
             tooltip_heaters: "Alternar Calentadores",
             tooltip_lock: "Bloqueo de Seguridad",
             tooltip_reset: "Reinicio del Sistema"
+        },
+        construction: {
+            title: "Módulo en Construcción",
+            desc: "Este módulo está en construcción y se lanzará en la próxima versión."
         }
     }
 };

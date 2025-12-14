@@ -49,7 +49,7 @@ export function FinancialView({ t }: FinancialViewProps) {
                         <DollarSign className="text-emerald-400" />
                         {t.financials.title}
                     </h2>
-                    <p className="text-slate-400 mt-1">ROI projections & automated P&L reporting</p>
+                    <p className="text-slate-400 mt-1">{t.financials.metricsTitle}</p>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
                     <TrendingUp size={14} className="text-emerald-400" />
@@ -66,7 +66,7 @@ export function FinancialView({ t }: FinancialViewProps) {
                             <Calendar size={16} className="text-slate-500" />
                         </div>
                         <div className="flex items-baseline gap-2">
-                            <span className="text-3xl font-bold text-white">$38,450</span>
+                            <span className="text-3xl font-bold text-white">€ 30,125.00</span>
                             <span className="text-xs font-medium text-emerald-400 flex items-center">
                                 <ArrowUpRight size={12} /> 8.2%
                             </span>

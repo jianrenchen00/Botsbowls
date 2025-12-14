@@ -8,11 +8,12 @@ export interface SimulationState {
     recentEvents: DashboardEvent[];
     revenueHistory: { time: string; value: number }[];
     isRushActive: boolean;
+    systemStatus: 'normal' | 'critical';
 }
 
 export interface DashboardEvent {
     id: string;
-    type: 'warning' | 'success' | 'info';
+    type: 'warning' | 'success' | 'info' | 'critical';
     message: string;
     time: string;
 }
@@ -28,6 +29,7 @@ const INITIAL_STATE: SimulationState = {
         value: 12000 + (Math.random() * 500)
     })),
     isRushActive: false,
+    systemStatus: 'normal',
 };
 
 const SAMPLE_EVENTS = [
@@ -68,13 +70,59 @@ export function useSimulation() {
         }, 10000);
     };
 
+    // Function to trigger critical fault
+    const triggerFault = () => {
+        if (state.systemStatus === 'critical') return;
+
+        const newEvent: DashboardEvent = {
+            id: Date.now().toString(),
+            type: 'critical',
+            message: "CRITICAL: Bot #04 Motor Overheat detected. Auto-shutdown initiated.",
+            time: "Just now"
+        };
+
+        setState(prev => ({
+            ...prev,
+            systemStatus: 'critical',
+            activeBots: prev.activeBots - 1,
+            recentEvents: [newEvent, ...prev.recentEvents].slice(0, 10)
+        }));
+    };
+
+    // Function to resolve fault
+    const resolveFault = () => {
+        if (state.systemStatus === 'normal') return;
+
+        const newEvent: DashboardEvent = {
+            id: Date.now().toString(),
+            type: 'success',
+            message: "SYSTEM: Maintenance Ticket #992 resolved. Bot #04 back online.",
+            time: "Just now"
+        };
+
+        setState(prev => ({
+            ...prev,
+            systemStatus: 'normal',
+            activeBots: prev.activeBots + 1,
+            recentEvents: [newEvent, ...prev.recentEvents].slice(0, 10)
+        }));
+    };
+
     useEffect(() => {
         // Main Ticker: Updates Revenue & Orders
         const mainTicker = setInterval(() => {
             setState(prev => {
                 const isRush = prev.isRushActive;
+                const isCritical = prev.systemStatus === 'critical';
+
                 // Base increment: $12-$45. Lunch rush multiplier: 3x-5x
-                const baseIncrement = Math.random() * (45 - 12) + 12;
+                let baseIncrement = Math.random() * (45 - 12) + 12;
+
+                // Impact of critical status: 20% reduction in revenue efficiency
+                if (isCritical) {
+                    baseIncrement = baseIncrement * 0.8;
+                }
+
                 const multiplier = isRush ? (Math.random() * (5 - 3) + 3) : 1;
                 const revenueIncrease = baseIncrement * multiplier;
                 const newRevenue = prev.revenue + revenueIncrease;
@@ -100,13 +148,18 @@ export function useSimulation() {
         }, 3000); // Update every 3 seconds
 
         // Fluctuation Ticker: Updates Active Bots every 5 seconds (rarely changes)
+        // Only run fluctuations if system is normal to avoid conflict with fault logic
         const botTicker = setInterval(() => {
             if (Math.random() > 0.8) {
-                const newActiveBots = Math.floor(Math.random() * (128 - 122 + 1) + 122);
-                setState(prev => ({
-                    ...prev,
-                    activeBots: newActiveBots
-                }));
+                setState(prev => {
+                    if (prev.systemStatus === 'critical') return prev; // Don't fluctuate while broken
+
+                    const newActiveBots = Math.floor(Math.random() * (128 - 122 + 1) + 122);
+                    return {
+                        ...prev,
+                        activeBots: newActiveBots
+                    };
+                });
             }
         }, 5000);
 
@@ -134,5 +187,5 @@ export function useSimulation() {
         };
     }, []);
 
-    return { ...state, triggerLunchRush };
+    return { ...state, triggerLunchRush, triggerFault, resolveFault };
 }

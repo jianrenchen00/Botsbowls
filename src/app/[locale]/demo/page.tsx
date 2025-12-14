@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { TrendingUp, Users, ShoppingBag, AlertTriangle, CheckCircle2, Zap } from 'lucide-react';
+import { TrendingUp, Users, ShoppingBag, AlertTriangle, CheckCircle2, Zap, Wrench, AlertOctagon } from 'lucide-react';
 import { useSimulation } from '@/hooks/useSimulation';
 import { RevenueChart } from '@/components/dashboard/RevenueChart';
 
@@ -14,7 +14,10 @@ export default function DemoPage() {
         recentEvents,
         revenueHistory,
         triggerLunchRush,
-        isRushActive
+        isRushActive,
+        systemStatus,
+        triggerFault,
+        resolveFault
     } = useSimulation();
 
     // Format revenue as currency
@@ -23,33 +26,53 @@ export default function DemoPage() {
         currency: 'USD',
     }).format(revenue);
 
+    const isCritical = systemStatus === 'critical';
+
     return (
         <div className="p-6 max-w-7xl mx-auto space-y-6">
             <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-3">
                     <h2 className="text-2xl font-bold text-white">Command Center</h2>
                     <div className="relative flex items-center justify-center w-3 h-3">
-                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${isRushActive ? 'bg-orange-500' : 'bg-green-400'} opacity-75`}></span>
-                        <span className={`relative inline-flex rounded-full h-2 w-2 ${isRushActive ? 'bg-orange-500' : 'bg-green-500'}`}></span>
+                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${isCritical ? 'bg-red-500' : isRushActive ? 'bg-orange-500' : 'bg-green-400'} opacity-75`}></span>
+                        <span className={`relative inline-flex rounded-full h-2 w-2 ${isCritical ? 'bg-red-500' : isRushActive ? 'bg-orange-500' : 'bg-green-500'}`}></span>
                     </div>
-                    <span className={`text-xs font-mono uppercase tracking-widest ${isRushActive ? 'text-orange-500 font-bold animate-pulse' : 'text-green-400'}`}>
-                        {isRushActive ? '🔥 PEAK TRAFFIC DETECTED' : 'Live System'}
+                    <span className={`text-xs font-mono uppercase tracking-widest ${isCritical ? 'text-red-500 font-bold animate-pulse' : isRushActive ? 'text-orange-500 font-bold animate-pulse' : 'text-green-400'}`}>
+                        {isCritical ? 'CRITICAL SYSTEM FAILURE' : isRushActive ? '🔥 PEAK TRAFFIC DETECTED' : 'Live System'}
                     </span>
                 </div>
 
-                <button
-                    onClick={triggerLunchRush}
-                    disabled={isRushActive}
-                    className={`
-                        flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all
-                        ${isRushActive
-                            ? 'bg-orange-500/20 text-orange-400 border border-orange-500/50 cursor-not-allowed'
-                            : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20'}
-                    `}
-                >
-                    <Zap size={16} className={isRushActive ? 'animate-pulse' : ''} />
-                    {isRushActive ? 'Lunch Rush Active!' : 'Simulate Lunch Rush'}
-                </button>
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={isCritical ? resolveFault : triggerFault}
+                        disabled={isRushActive && !isCritical}
+                        className={`
+                            flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all
+                            ${isCritical
+                                ? 'bg-green-600 hover:bg-green-500 text-white shadow-lg shadow-green-500/20'
+                                : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700'}
+                        `}
+                    >
+                        {isCritical ? <Wrench size={16} /> : <AlertOctagon size={16} className="text-red-400" />}
+                        {isCritical ? 'Repair System' : 'Simulate Fault'}
+                    </button>
+
+                    <button
+                        onClick={triggerLunchRush}
+                        disabled={isRushActive || isCritical}
+                        className={`
+                            flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all
+                            ${isRushActive
+                                ? 'bg-orange-500/20 text-orange-400 border border-orange-500/50 cursor-not-allowed'
+                                : isCritical
+                                    ? 'bg-slate-800 text-slate-500 cursor-not-allowed'
+                                    : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20'}
+                        `}
+                    >
+                        <Zap size={16} className={isRushActive ? 'animate-pulse' : ''} />
+                        {isRushActive ? 'Lunch Rush Active!' : 'Simulate Lunch Rush'}
+                    </button>
+                </div>
             </div>
 
             {/* Top Row: Metrics */}
@@ -57,23 +80,26 @@ export default function DemoPage() {
                 <MetricCard
                     title="Total Revenue"
                     value={formattedRevenue}
-                    trend={isRushActive ? "++34.2%" : "+12.5%"}
-                    trendUp={true}
+                    trend={isCritical ? "-20.0% Efficiency" : isRushActive ? "++34.2%" : "+12.5%"}
+                    trendUp={!isCritical}
                     icon={<TrendingUp size={20} className="text-blue-400" />}
-                    highlight={isRushActive}
+                    highlight={isRushActive && !isCritical}
+                    alertState={isCritical}
                 />
                 <MetricCard
                     title="Active Fleet"
                     value={`${activeBots} / ${totalActiveFleet} Online`}
-                    subValue="97% Uptime"
-                    icon={<Users size={20} className="text-green-400" />}
-                    indicator={activeBots > 125 ? 'green' : 'yellow'}
+                    subValue={isCritical ? "1 UNIT OFFLINE" : "97% Uptime"}
+                    icon={<Users size={20} className={isCritical ? "text-red-500" : "text-green-400"} />}
+                    indicator={isCritical ? 'red' : (activeBots > 125 ? 'green' : 'yellow')}
+                    alertState={isCritical}
                 />
                 <MetricCard
                     title="Total Orders"
                     value={totalOrders.toLocaleString()}
                     subValue={isRushActive ? "High Volume" : "Today"}
                     icon={<ShoppingBag size={20} className="text-orange-400" />}
+                    alertState={isCritical}
                 />
             </div>
 
@@ -83,9 +109,10 @@ export default function DemoPage() {
                 <div className="lg:col-span-2 bg-[#1E293B] border border-slate-700 rounded-xl p-6 flex flex-col">
                     <h3 className="text-lg font-semibold text-slate-200 mb-6 flex items-center gap-2">
                         Hourly Sales Performance
-                        {isRushActive && <span className="text-xs px-2 py-0.5 bg-orange-500/20 text-orange-400 rounded-full">LIVE</span>}
+                        {isRushActive && !isCritical && <span className="text-xs px-2 py-0.5 bg-orange-500/20 text-orange-400 rounded-full">LIVE</span>}
+                        {isCritical && <span className="text-xs px-2 py-0.5 bg-red-500/20 text-red-400 rounded-full animate-pulse">SYSTEM ALERT</span>}
                     </h3>
-                    <div className="flex-1 w-full h-full bg-[#0F172A]/50 rounded-lg border border-slate-700/50 relative overflow-hidden">
+                    <div className={`flex-1 w-full h-full bg-[#0F172A]/50 rounded-lg border ${isCritical ? 'border-red-500/30' : 'border-slate-700/50'} relative overflow-hidden transition-colors duration-500`}>
                         <RevenueChart data={revenueHistory} />
                     </div>
                 </div>
@@ -113,11 +140,11 @@ export default function DemoPage() {
     );
 }
 
-function MetricCard({ title, value, subValue, trend, trendUp, icon, indicator, highlight }: any) {
+function MetricCard({ title, value, subValue, trend, trendUp, icon, indicator, highlight, alertState }: any) {
     return (
         <div className={`
             bg-[#1E293B] border rounded-xl p-6 transition-all duration-300
-            ${highlight ? 'border-orange-500/50 shadow-lg shadow-orange-500/10' : 'border-slate-700 hover:border-slate-600'}
+            ${alertState ? 'border-red-500 shadow-lg shadow-red-500/20' : highlight ? 'border-orange-500/50 shadow-lg shadow-orange-500/10' : 'border-slate-700 hover:border-slate-600'}
         `}>
             <div className="flex items-center justify-between mb-4">
                 <span className="text-slate-400 text-sm font-medium">{title}</span>
@@ -126,11 +153,17 @@ function MetricCard({ title, value, subValue, trend, trendUp, icon, indicator, h
                 </div>
             </div>
             <div className="flex items-baseline gap-2">
-                <h3 className={`text-3xl font-bold tracking-tight ${highlight ? 'text-orange-50' : 'text-white'}`}>
+                <h3 className={`text-3xl font-bold tracking-tight ${alertState ? 'text-red-400' : highlight ? 'text-orange-50' : 'text-white'}`}>
                     {value}
                 </h3>
                 {indicator === 'green' && (
                     <span className="flex h-3 w-3 rounded-full bg-green-500 shadow-lg shadow-green-500/50"></span>
+                )}
+                {indicator === 'red' && (
+                    <span className="flex h-3 w-3 rounded-full bg-red-500 shadow-lg shadow-red-500/50 animate-pulse"></span>
+                )}
+                {indicator === 'yellow' && (
+                    <span className="flex h-3 w-3 rounded-full bg-yellow-500 shadow-lg shadow-yellow-500/50"></span>
                 )}
             </div>
             {(subValue || trend) && (
@@ -140,18 +173,19 @@ function MetricCard({ title, value, subValue, trend, trendUp, icon, indicator, h
                             {trend}
                         </span>
                     )}
-                    {subValue && <span className="text-slate-500">{subValue}</span>}
+                    {subValue && <span className={`${alertState ? 'text-red-400/80' : 'text-slate-500'}`}>{subValue}</span>}
                 </div>
             )}
         </div>
     );
 }
 
-function AlertItem({ type, message, time }: { type: 'warning' | 'success' | 'info', message: string, time: string }) {
+function AlertItem({ type, message, time }: { type: 'warning' | 'success' | 'info' | 'critical', message: string, time: string }) {
     const styles = {
         warning: { icon: AlertTriangle, color: 'text-amber-400', bg: 'bg-amber-400/10', border: 'border-amber-400/20' },
         success: { icon: CheckCircle2, color: 'text-green-400', bg: 'bg-green-400/10', border: 'border-green-400/20' },
         info: { icon: Users, color: 'text-blue-400', bg: 'bg-blue-400/10', border: 'border-blue-400/20' },
+        critical: { icon: AlertOctagon, color: 'text-red-500', bg: 'bg-red-500/10', border: 'border-red-500/30' },
     };
     const style = styles[type] || styles.info;
     const Icon = style.icon;
@@ -160,7 +194,7 @@ function AlertItem({ type, message, time }: { type: 'warning' | 'success' | 'inf
         <div className={`p-3 rounded-lg border ${style.bg} ${style.border} flex items-start gap-3`}>
             <Icon size={16} className={`mt-0.5 ${style.color}`} />
             <div className="flex-1">
-                <p className="text-sm text-slate-300 leading-tight">{message}</p>
+                <p className={`text-sm leading-tight ${type === 'critical' ? 'text-red-200 font-medium' : 'text-slate-300'}`}>{message}</p>
                 <span className="text-xs text-slate-500 mt-1 block">{time}</span>
             </div>
         </div>

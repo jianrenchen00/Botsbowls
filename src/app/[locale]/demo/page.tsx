@@ -175,6 +175,8 @@ export default function DemoPage({ params }: Props) {
                             t={t}
                             cleaningLog={cleaningLog}
                         />
+                    ) : currentView === 'financials' ? (
+                        <FinancialView t={t} />
                     ) : (
                         <div className="flex flex-col items-center justify-center h-full text-slate-400">
                             <Construction size={64} className="mb-6 opacity-30" />

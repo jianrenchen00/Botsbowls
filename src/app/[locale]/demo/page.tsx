@@ -12,6 +12,7 @@ import { InventoryView } from '@/components/demo/views/InventoryView';
 import { TelemetryView } from '@/components/demo/views/TelemetryView';
 import { FoodSafetyView } from '@/components/demo/views/FoodSafetyView';
 import { FinancialView } from '@/components/demo/views/FinancialView';
+import { FleetStatusTable } from '@/components/demo/views/FleetStatusTable';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -120,6 +121,9 @@ export default function DemoPage({ params }: Props) {
                                     resolveFault={resolveFault}
                                 />
                             </div >
+
+                            {/* Fleet Status Table */}
+                            <FleetStatusTable t={t} />
 
                             {/* Main Content Grid */}
                             < div className="grid grid-cols-1 md:col-span-2 xl:grid-cols-4 gap-6 xl:h-[500px]" >

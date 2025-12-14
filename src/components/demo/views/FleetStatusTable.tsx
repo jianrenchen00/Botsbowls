@@ -56,10 +56,15 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
         return <span className="text-slate-500">-</span>;
     };
 
-    const handleCompensate = (unitId: string) => {
-        const choice = window.prompt(`${t.fleetTable.comp_title}:\n1. ${t.fleetTable.action_refund}\n2. ${t.fleetTable.action_coupon}`);
-        if (choice) {
-            alert(t.fleetTable.comp_success);
+    const handleAction = (unitId: string) => {
+        const promptMsg = `${t.fleetTable.col_action}:\n1. ${t.fleetTable.act_restock}\n2. ${t.fleetTable.act_tech}\n3. ${t.fleetTable.act_reboot}\n4. ${t.fleetTable.btn_compensate}`;
+        const choice = window.prompt(promptMsg);
+
+        switch (choice?.trim()) {
+            case '1': alert(t.fleetTable.msg_restock); break;
+            case '2': alert(t.fleetTable.msg_tech); break;
+            case '3': alert(t.fleetTable.msg_reboot); break;
+            case '4': alert(t.fleetTable.comp_success); break;
         }
     };
 
@@ -143,10 +148,10 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
                                 </td>
                                 <td className="px-6 py-3 text-center">
                                     <button
-                                        onClick={() => handleCompensate(unit.id)}
-                                        className="px-3 py-1 rounded-md border border-orange-500/50 text-orange-400 text-xs hover:bg-orange-500/10 transition-colors whitespace-nowrap"
+                                        onClick={() => handleAction(unit.id)}
+                                        className="px-3 py-1.5 rounded-md border border-indigo-500/50 text-indigo-300 bg-indigo-500/10 text-xs hover:bg-indigo-500/20 transition-colors whitespace-nowrap flex items-center gap-1 mx-auto"
                                     >
-                                        {t.fleetTable.btn_compensate}
+                                        ⚡ {t.fleetTable.col_action}
                                     </button>
                                 </td>
                             </tr>

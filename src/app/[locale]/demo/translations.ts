@@ -170,7 +170,7 @@ export const DEMO_TRANSLATIONS = {
             channel_app: "BB App",
             channel_web: "Web Order",
             channel_3rd: "3rd Party",
-            col_action: "Action",
+            col_action: "Quick Actions",
             btn_compensate: "Compensate",
             tip_balance: "Transfer from {store} ({dist})",
             comp_title: "Choose Compensation",
@@ -179,7 +179,15 @@ export const DEMO_TRANSLATIONS = {
             comp_drink: "Gift Free Drink",
             comp_success: "Compensation sent to customer!",
             action_refund: "Refund",
-            action_coupon: "Send Coupon"
+            action_coupon: "Send Coupon",
+            act_restock: "Order Stock",
+            act_tech: "Call Tech",
+            act_staff: "Dispatch Staff",
+            act_reboot: "Remote Reboot",
+            act_complaint: "Handle Complaint",
+            msg_restock: "Restock request sent!",
+            msg_tech: "Tech dispatched (ETA 2h)",
+            msg_reboot: "Rebooting system..."
         }
     },
     'zh-TW': {
@@ -358,7 +366,7 @@ export const DEMO_TRANSLATIONS = {
             channel_app: "BB App",
             channel_web: "網頁下單",
             channel_3rd: "第三方平台",
-            col_action: "操作",
+            col_action: "快速決策",
             btn_compensate: "安撫客戶",
             tip_balance: "💡 建議調撥：從 {store}",
             comp_title: "選擇補償方式",
@@ -367,7 +375,15 @@ export const DEMO_TRANSLATIONS = {
             comp_drink: "贈送飲料",
             comp_success: "已發送補償通知給客戶！",
             action_refund: "退款",
-            action_coupon: "發送優惠券"
+            action_coupon: "發送優惠券",
+            act_restock: "一鍵叫貨",
+            act_tech: "呼叫工程師",
+            act_staff: "呼叫最近員工",
+            act_reboot: "遠端重啟",
+            act_complaint: "客訴處理",
+            msg_restock: "已向中央廚房發送補貨請求！",
+            msg_tech: "維修工單已建立 (預計 2小時抵達)",
+            msg_reboot: "正在重啟系統..."
         },
         construction: {
             title: "模組開發中",

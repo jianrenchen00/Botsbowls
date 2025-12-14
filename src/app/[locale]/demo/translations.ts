@@ -124,7 +124,13 @@ export const DEMO_TRANSLATIONS = {
             soup_consumption: "Soup Consumption",
             noodle_consumption: "Noodle Consumption",
             waste_factor: "Waste Factor",
-            refill_threshold: "Refill threshold: 15%"
+            refill_threshold: "Refill threshold: 15%",
+            forecast_title: "AI Replenishment Forecast",
+            waste_title: "Waste & Loss Analysis",
+            supply_title: "Supply Chain Tracker",
+            waste_reason_expired: "Expired",
+            waste_reason_fault: "Machine Fault",
+            supply_truck: "Truck A ({min} min away)"
         },
         construction: {
             title: "Module Under Construction",
@@ -187,7 +193,12 @@ export const DEMO_TRANSLATIONS = {
             act_complaint: "Handle Complaint",
             msg_restock: "Restock request sent!",
             msg_tech: "Tech dispatched (ETA 2h)",
-            msg_reboot: "Rebooting system..."
+            msg_reboot: "Rebooting system...",
+            tip_restock: "Restock",
+            tip_tech: "Call Tech",
+            tip_staff: "Dispatch Staff",
+            tip_reboot: "Remote Reboot",
+            tip_complaint: "Handle Complaint"
         }
     },
     'zh-TW': {
@@ -324,7 +335,13 @@ export const DEMO_TRANSLATIONS = {
             soup_consumption: "湯頭消耗",
             noodle_consumption: "麵條消耗",
             waste_factor: "耗損率",
-            refill_threshold: "補貨閾值：15%"
+            refill_threshold: "補貨閾值：15%",
+            forecast_title: "AI 智能補貨預測",
+            waste_title: "損耗與廢棄分析",
+            supply_title: "供應鏈物流追蹤",
+            waste_reason_expired: "食材過期",
+            waste_reason_fault: "機器故障",
+            supply_truck: "補貨車 A (距離 {min} 分鐘)"
         },
         fleetTable: {
             title: "各機器營運狀況",
@@ -383,7 +400,12 @@ export const DEMO_TRANSLATIONS = {
             act_complaint: "客訴處理",
             msg_restock: "已向中央廚房發送補貨請求！",
             msg_tech: "維修工單已建立 (預計 2小時抵達)",
-            msg_reboot: "正在重啟系統..."
+            msg_reboot: "正在重啟系統...",
+            tip_restock: "一鍵叫貨",
+            tip_tech: "呼叫維修",
+            tip_staff: "派遣人員",
+            tip_reboot: "遠端重啟",
+            tip_complaint: "客訴處理"
         },
         construction: {
             title: "模組開發中",

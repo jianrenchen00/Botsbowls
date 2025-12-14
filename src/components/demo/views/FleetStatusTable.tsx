@@ -1,5 +1,5 @@
 import React from 'react';
-import { BadgeCheck, Smartphone, Truck, Users, AlertTriangle, Circle } from 'lucide-react';
+import { BadgeCheck, Smartphone, Truck, Users, AlertTriangle, Circle, Package, Wrench, MessageCircle, RefreshCw, User } from 'lucide-react';
 
 interface FleetStatusTableProps {
     t: any;
@@ -56,15 +56,13 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
         return <span className="text-slate-500">-</span>;
     };
 
-    const handleAction = (unitId: string) => {
-        const promptMsg = `${t.fleetTable.col_action}:\n1. ${t.fleetTable.act_restock}\n2. ${t.fleetTable.act_tech}\n3. ${t.fleetTable.act_reboot}\n4. ${t.fleetTable.btn_compensate}`;
-        const choice = window.prompt(promptMsg);
-
-        switch (choice?.trim()) {
-            case '1': alert(t.fleetTable.msg_restock); break;
-            case '2': alert(t.fleetTable.msg_tech); break;
-            case '3': alert(t.fleetTable.msg_reboot); break;
-            case '4': alert(t.fleetTable.comp_success); break;
+    const handleIconAction = (unitId: string, type: 'restock' | 'tech' | 'staff' | 'reboot' | 'complaint') => {
+        switch (type) {
+            case 'restock': alert(t.fleetTable.msg_restock); break;
+            case 'tech': alert(t.fleetTable.msg_tech); break;
+            case 'staff': alert(t.fleetTable.act_staff + " - Dispatched"); break;
+            case 'reboot': alert(t.fleetTable.msg_reboot); break;
+            case 'complaint': alert(t.fleetTable.comp_success); break;
         }
     };
 
@@ -87,7 +85,7 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
                             <th className="px-6 py-3 font-medium text-right">{t.fleetTable.col_aov}</th>
                             <th className="px-6 py-3 font-medium">{t.fleetTable.col_addon}</th>
                             <th className="px-6 py-3 font-medium text-center min-w-[120px]">{t.fleetTable.col_channel}</th>
-                            <th className="px-6 py-3 font-medium text-center">{t.fleetTable.col_action}</th>
+                            <th className="px-6 py-3 font-medium text-center min-w-[220px]">{t.fleetTable.col_action}</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-700/50">
@@ -146,13 +144,24 @@ export function FleetStatusTable({ t }: FleetStatusTableProps) {
                                         {t.fleetTable[`channel_${unit.channel}`] || unit.channel}
                                     </div>
                                 </td>
-                                <td className="px-6 py-3 text-center">
-                                    <button
-                                        onClick={() => handleAction(unit.id)}
-                                        className="px-3 py-1.5 rounded-md border border-indigo-500/50 text-indigo-300 bg-indigo-500/10 text-xs hover:bg-indigo-500/20 transition-colors whitespace-nowrap flex items-center gap-1 mx-auto"
-                                    >
-                                        ⚡ {t.fleetTable.col_action}
-                                    </button>
+                                <td className="px-6 py-3">
+                                    <div className="flex items-center gap-2 justify-center">
+                                        <button onClick={() => handleIconAction(unit.id, 'restock')} title={t.fleetTable.tip_restock} className="p-1.5 rounded-md hover:bg-blue-500/10 text-slate-400 hover:text-blue-400 transition-colors">
+                                            <Package size={16} />
+                                        </button>
+                                        <button onClick={() => handleIconAction(unit.id, 'tech')} title={t.fleetTable.tip_tech} className="p-1.5 rounded-md hover:bg-orange-500/10 text-slate-400 hover:text-orange-400 transition-colors">
+                                            <Wrench size={16} />
+                                        </button>
+                                        <button onClick={() => handleIconAction(unit.id, 'staff')} title={t.fleetTable.tip_staff} className="p-1.5 rounded-md hover:bg-purple-500/10 text-slate-400 hover:text-purple-400 transition-colors">
+                                            <User size={16} />
+                                        </button>
+                                        <button onClick={() => handleIconAction(unit.id, 'reboot')} title={t.fleetTable.tip_reboot} className="p-1.5 rounded-md hover:bg-slate-500/10 text-slate-400 hover:text-slate-200 transition-colors">
+                                            <RefreshCw size={16} />
+                                        </button>
+                                        <button onClick={() => handleIconAction(unit.id, 'complaint')} title={t.fleetTable.tip_complaint} className="p-1.5 rounded-md hover:bg-red-500/10 text-slate-400 hover:text-red-400 transition-colors">
+                                            <MessageCircle size={16} />
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}

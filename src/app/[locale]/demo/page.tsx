@@ -13,6 +13,7 @@ import { TelemetryView } from '@/components/demo/views/TelemetryView';
 import { FoodSafetyView } from '@/components/demo/views/FoodSafetyView';
 import { FinancialView } from '@/components/demo/views/FinancialView';
 import { FleetStatusTable } from '@/components/demo/views/FleetStatusTable';
+import { PaymentHealthCard } from '@/components/demo/views/PaymentHealthCard';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -87,7 +88,7 @@ export default function DemoPage({ params }: Props) {
                     {currentView === 'overview' ? (
                         <div className="p-6 max-w-7xl mx-auto space-y-6">
                             {/* Top Row: Metrics & Control Panel */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
                                 <MetricCard
                                     title={t.metrics.total_revenue}
                                     value={formattedRevenue}
@@ -112,14 +113,10 @@ export default function DemoPage({ params }: Props) {
                                     icon={<ShoppingBag size={20} className="text-orange-400" />}
                                     alertState={isCritical}
                                 />
-                                <ControlPanel
-                                    t={t}
-                                    isRushActive={isRushActive}
-                                    triggerLunchRush={triggerLunchRush}
-                                    systemStatus={systemStatus}
-                                    triggerFault={triggerFault}
-                                    resolveFault={resolveFault}
+                                triggerFault={triggerFault}
+                                resolveFault={resolveFault}
                                 />
+                                <PaymentHealthCard t={t} />
                             </div >
 
                             {/* Fleet Status Table */}

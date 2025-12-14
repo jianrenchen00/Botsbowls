@@ -34,7 +34,7 @@ const INITIAL_STATE: SimulationState = {
     recentEvents: [],
     revenueHistory: Array.from({ length: 20 }, (_, i) => ({
         time: `${10 + Math.floor(i / 2)}:${i % 2 === 0 ? '00' : '30'}`,
-        value: 12000 + (Math.random() * 500)
+        value: 12000 + (i * 50) // Static linear growth for initial state
     })),
     isRushActive: false,
     systemStatus: 'normal',

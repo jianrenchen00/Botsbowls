@@ -147,5 +147,6 @@ export function InventoryView({ t, soupLevel, noodleStock }: InventoryViewProps)
                     </div>
                 </div>
             </div>
-            );
+        </div>
+    );
 }

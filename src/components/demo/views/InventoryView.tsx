@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Package, Droplets, Clock, TrendingDown, TrendingUp, AlertTriangle, Truck, PieChart, Activity, Server } from 'lucide-react';
 import { MACHINES } from '../machineData';
 
@@ -9,6 +9,9 @@ interface InventoryViewProps {
 }
 
 export function InventoryView({ t, soupLevel: globalSoup, noodleStock: globalNoodle }: InventoryViewProps) {
+    const [isMounted, setIsMounted] = useState(false);
+    useEffect(() => { setIsMounted(true); }, []);
+
     const [selectedId, setSelectedId] = useState(MACHINES[0].id);
     const selectedMachine = MACHINES.find(m => m.id === selectedId) || MACHINES[0];
 
@@ -36,6 +39,8 @@ export function InventoryView({ t, soupLevel: globalSoup, noodleStock: globalNoo
             isLow,
         };
     }, [selectedId]);
+
+    if (!isMounted) return <div className="p-10 flex items-center justify-center text-slate-500 font-mono">Loading Inventory...</div>;
 
     return (
         <div className="flex flex-col lg:flex-row gap-6 p-6 pt-20 lg:pt-24 max-w-7xl mx-auto h-[calc(100vh-80px)]">

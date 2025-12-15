@@ -198,7 +198,7 @@ export const DEMO_TRANSLATIONS = {
             comp_success: "Compensation sent to customer!",
             action_refund: "Refund",
             action_coupon: "Send Coupon",
-            act_restock: "Order Stock",
+            act_restock: "Restock",
             act_tech: "Call Tech",
             act_staff: "Dispatch Staff",
             act_reboot: "Remote Reboot",

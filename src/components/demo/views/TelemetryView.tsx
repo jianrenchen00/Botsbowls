@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { AreaChart, Area, ResponsiveContainer, YAxis } from 'recharts';
 import { Thermometer, Zap, Activity, Cpu, Gauge, Server } from 'lucide-react';
 import { MACHINES } from '../machineData';
@@ -21,7 +21,13 @@ export function TelemetryView({
     powerUsage: globalPower,
     motorHistory: globalHistory
 }: TelemetryViewProps) {
+    const [isMounted, setIsMounted] = useState(false);
     const [selectedId, setSelectedId] = useState(MACHINES[0].id);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     const selectedMachine = MACHINES.find(m => m.id === selectedId) || MACHINES[0];
 
     // Dynamic Data Simulation based on Machine ID
@@ -46,6 +52,8 @@ export function TelemetryView({
             }))
         };
     }, [selectedId]);
+
+    if (!isMounted) return <div className="p-10 flex items-center justify-center text-slate-500 font-mono">Loading Telemetry...</div>;
 
     return (
         <div className="flex flex-col lg:flex-row gap-6 p-6 pt-20 lg:pt-24 max-w-7xl mx-auto h-[calc(100vh-80px)]">

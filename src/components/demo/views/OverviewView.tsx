@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { TrendingUp, Users, ShoppingBag, AlertTriangle, CheckCircle2, AlertOctagon, Globe, Award, ShieldCheck } from 'lucide-react';
 import { RevenueChart } from '@/components/dashboard/RevenueChart';
 import { ControlPanel } from '@/components/demo/ControlPanel';
@@ -38,6 +38,12 @@ export function OverviewView({
     revenueHistory,
     recentEvents
 }: OverviewViewProps) {
+    const [isMounted, setIsMounted] = useState(false);
+
+    // UseEffect to trigger client-side render
+    React.useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     // Centralized Fleet Data for Consistency
     const FLEET_DATA = [
@@ -56,7 +62,9 @@ export function OverviewView({
         { id: "ROB-302", location: "loc_cdg2", type: "type_robot", revenue: 2950, status: "status_online", portions: 150, aov: 17.90, addon: "addon_tofu", channel: "app" },
     ];
 
-    const calculatedActiveBots = FLEET_DATA.filter(u => u.status !== 'status_maintenance').length;
+    if (!isMounted) return <div className="min-h-screen bg-[#0F172A] pt-24 flex items-center justify-center text-slate-500 font-mono tracking-widest">INITIALIZING FLEET LINKS...</div>;
+
+    const calculatedActiveBots = FLEET_DATA.filter(f => f.status !== 'status_maintenance').length;
 
     return (
         <div className="px-6 pb-6 pt-0 max-w-7xl mx-auto space-y-6">

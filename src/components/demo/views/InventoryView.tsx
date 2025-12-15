@@ -43,7 +43,7 @@ export function InventoryView({ t, soupLevel: globalSoup, noodleStock: globalNoo
     if (!isMounted) return <div className="p-10 flex items-center justify-center text-slate-500 font-mono">Loading Inventory...</div>;
 
     return (
-        <div className="flex flex-col lg:flex-row gap-6 p-6 pt-20 lg:pt-24 max-w-7xl mx-auto h-[calc(100vh-80px)]">
+        <div className="flex flex-col lg:flex-row gap-4 p-4 pt-20 lg:pt-20 max-w-7xl mx-auto h-[calc(100vh-80px)]">
             {/* Sidebar */}
             <div className="w-full lg:w-72 shrink-0 bg-slate-900/50 border border-slate-700/50 rounded-xl overflow-hidden flex flex-col shadow-xl backdrop-blur-sm h-64 lg:h-auto">
                 <div className="p-4 bg-slate-800/80 border-b border-slate-700 font-bold text-slate-200 flex items-center gap-2">

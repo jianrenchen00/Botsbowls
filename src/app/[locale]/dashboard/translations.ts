@@ -154,7 +154,6 @@ export const translations = {
             col_restock: "Stock",
             col_aov: "AOV",
             col_addon: "Top Add-on",
-            col_action: "Actions",
             col_channel: "Channel",
 
             act_restock: "Restock",

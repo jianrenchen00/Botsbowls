@@ -100,12 +100,12 @@ export function Navbar() {
                         >
                             {t("nav.tokenomics")}
                         </button>
-                        <button
-                            onClick={() => alert("Member Portal coming soon. Supports Web3 & Social Login.")}
-                            className="hidden sm:block px-4 py-2 rounded-full border border-gray-200 text-gray-600 text-sm font-medium hover:border-neon-orange hover:text-neon-orange transition-colors"
+                        <Link
+                            href={`/${currentLocale}/dashboard`}
+                            className="hidden sm:block px-5 py-2 rounded-full bg-[#F26B21] hover:bg-orange-600 text-white text-sm font-bold transition-colors shadow-md hover:shadow-lg"
                         >
-                            {t("nav.signin")}
-                        </button>
+                            {currentLocale === 'zh-TW' ? '登入 (儀表板)' : 'Login (Dashboard)'}
+                        </Link>
                         <div>
                             <select
                                 onChange={handleChange}
@@ -171,15 +171,13 @@ export function Navbar() {
                     >
                         {t("nav.tokenomics")}
                     </button>
-                    <button
-                        onClick={() => {
-                            alert("Member Portal coming soon. Supports Web3 & Social Login.");
-                            setIsOpen(false);
-                        }}
-                        className="text-left text-gray-600 font-medium text-lg py-2 border-b border-gray-50"
+                    <Link
+                        href={`/${currentLocale}/dashboard`}
+                        onClick={() => setIsOpen(false)}
+                        className="text-left text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50"
                     >
-                        {t("nav.signin")}
-                    </button>
+                        {currentLocale === 'zh-TW' ? '登入 (儀表板)' : 'Login (Dashboard)'}
+                    </Link>
                     <a href="/#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="bg-[#F26B21] text-white text-center font-bold text-lg py-3 rounded-xl shadow-md">
                         {t("nav.contact")}
                     </a>

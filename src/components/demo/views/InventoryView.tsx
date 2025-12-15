@@ -38,7 +38,7 @@ export function InventoryView({ t, soupLevel: globalSoup, noodleStock: globalNoo
     }, [selectedId]);
 
     return (
-        <div className="flex flex-col lg:flex-row gap-6 p-6 pt-24 max-w-7xl mx-auto h-[calc(100vh-80px)]">
+        <div className="flex flex-col lg:flex-row gap-6 p-6 pt-20 lg:pt-24 max-w-7xl mx-auto h-[calc(100vh-80px)]">
             {/* Sidebar */}
             <div className="w-full lg:w-72 shrink-0 bg-slate-900/50 border border-slate-700/50 rounded-xl overflow-hidden flex flex-col shadow-xl backdrop-blur-sm h-64 lg:h-auto">
                 <div className="p-4 bg-slate-800/80 border-b border-slate-700 font-bold text-slate-200 flex items-center gap-2">
@@ -51,8 +51,8 @@ export function InventoryView({ t, soupLevel: globalSoup, noodleStock: globalNoo
                             key={m.id}
                             onClick={() => setSelectedId(m.id)}
                             className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all border ${selectedId === m.id
-                                    ? 'bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-900/20'
-                                    : 'text-slate-400 hover:bg-slate-800 border-transparent hover:border-slate-700'
+                                ? 'bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-900/20'
+                                : 'text-slate-400 hover:bg-slate-800 border-transparent hover:border-slate-700'
                                 }`}
                         >
                             <div className="font-medium truncate">{m.name}</div>

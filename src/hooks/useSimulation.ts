@@ -216,7 +216,7 @@ export function useSimulation() {
                         id: Date.now().toString(),
                         time: timeString,
                         action: randomAction,
-                        status: 'Verified'
+                        status: 'Verified' as 'Verified' | 'Pending'
                     }, ...prev.cleaningLog].slice(0, 50);
                 }
 

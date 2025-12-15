@@ -62,7 +62,9 @@ export function OverviewView({
         { id: "ROB-302", location: "loc_cdg2", type: "type_robot", revenue: 2950, status: "status_online", portions: 150, aov: 17.90, addon: "addon_tofu", channel: "app" },
     ];
 
-    if (!isMounted) return <div className="min-h-screen bg-[#0F172A] pt-24 flex items-center justify-center text-slate-500 font-mono tracking-widest">INITIALIZING FLEET LINKS...</div>;
+    if (!isMounted) {
+        return <div className="min-h-screen bg-slate-950 flex items-center justify-center text-slate-500">Loading Dashboard...</div>;
+    }
 
     const calculatedActiveBots = FLEET_DATA.filter(f => f.status !== 'status_maintenance').length;
 

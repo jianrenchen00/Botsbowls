@@ -1,11 +1,13 @@
 import React from 'react';
 import { Zap, Wrench, AlertOctagon } from 'lucide-react';
 
+type SystemStatus = 'normal' | 'critical' | 'rush';
+
 interface ControlPanelProps {
     t: any;
     isRushActive: boolean;
     triggerLunchRush: () => void;
-    systemStatus: 'normal' | 'critical';
+    systemStatus: SystemStatus;
     triggerFault: () => void;
     resolveFault: () => void;
 }

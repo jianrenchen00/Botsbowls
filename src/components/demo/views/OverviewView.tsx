@@ -5,6 +5,8 @@ import { ControlPanel } from '@/components/demo/ControlPanel';
 import { FleetStatusTable } from '@/components/demo/views/FleetStatusTable';
 import { PaymentHealthCard } from '@/components/demo/views/PaymentHealthCard';
 
+export type SystemStatus = 'normal' | 'critical' | 'rush';
+
 interface OverviewViewProps {
     t: any;
     formattedRevenue: string;
@@ -13,7 +15,7 @@ interface OverviewViewProps {
     totalOrders: number;
     isRushActive: boolean;
     isCritical: boolean;
-    systemStatus: 'normal' | 'rush' | 'critical';
+    systemStatus: SystemStatus;
     triggerLunchRush: () => void;
     triggerFault: () => void;
     resolveFault: () => void;

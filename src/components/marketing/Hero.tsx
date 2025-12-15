@@ -79,9 +79,9 @@ export function Hero() {
 
             <button
               onClick={() => handleScrollTo('video-gallery')}
-              className="text-white/80 hover:text-white flex items-center gap-2 transition-colors text-sm font-medium group"
+              className="px-8 py-4 rounded-full bg-[#F26B21] text-white font-bold text-lg hover:bg-[#d95305] hover:scale-105 transition-all whitespace-nowrap shadow-lg flex items-center gap-2 group"
             >
-              <span className="border-b border-white/30 pb-0.5 group-hover:border-white transition-colors">{t("hero.cta_secondary")}</span>
+              <span>{t("hero.cta_secondary")}</span>
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </button>
           </motion.div>

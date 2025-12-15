@@ -165,6 +165,9 @@ export function Navbar() {
                     <a href="/#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
                         {t("nav.trust")}
                     </a>
+                    <a href="https://botsbowls.com/products" className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
+                        {t("nav.product_specs")}
+                    </a>
                     <button
                         onClick={() => {
                             alert("Tokenomics Whitepaper coming soon.");

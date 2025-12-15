@@ -1,5 +1,4 @@
-```
-export const DEMO_TRANSLATIONS = {
+export const translations = {
     en: {
         title: "Fleet Command Center",
         subtitle: "Real-time monitoring of automated vending network",
@@ -723,4 +722,4 @@ export const DEMO_TRANSLATIONS = {
     }
 };
 
-export type DemoTranslationKey = keyof typeof DEMO_TRANSLATIONS;
+export type TranslationKey = keyof typeof translations;

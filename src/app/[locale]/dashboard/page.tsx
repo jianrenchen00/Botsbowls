@@ -3,7 +3,7 @@
 import React, { useState, use } from 'react';
 import { Construction } from 'lucide-react';
 import { useSimulation } from '@/hooks/useSimulation';
-import { DEMO_TRANSLATIONS } from './translations';
+import { translations as DEMO_TRANSLATIONS } from './translations';
 import { Sidebar } from '@/components/demo/Sidebar';
 import { Header } from '@/components/demo/Header';
 import { OverviewView } from '@/components/demo/views/OverviewView';

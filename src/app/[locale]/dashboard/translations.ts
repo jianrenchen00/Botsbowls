@@ -138,12 +138,12 @@ export const DEMO_TRANSLATIONS = {
             supply_status: "Truck A: {min} mins to Louvre"
         },
         profile: {
-            account: "Commander",
-            rank: "BB Paris Prime Agent",
-            score_label: "Ops Score",
-            beaten: "Top 5% Performance",
-            sys_status: "System Status",
-            sys_optimal: "System Optimal"
+            profile_account: "Commander",
+            profile_rank: "BB Paris Prime Agent",
+            profile_score_label: "Ops Score",
+            profile_beaten: "Top 5% Performance",
+            profile_sys_status: "System Status",
+            profile_sys_optimal: "System Optimal"
         },
         construction: {
             title: "Module Under Construction",

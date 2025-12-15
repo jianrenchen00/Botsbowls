@@ -100,11 +100,11 @@ export function OverviewView({
                     <div>
                         <div className="flex items-baseline gap-2">
                             <span className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">98.5</span>
-                            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t.profile.score_label}</span>
+                            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t.profile.profile_score_label}</span>
                         </div>
                         <div className="text-xs text-emerald-400 font-medium flex items-center gap-1">
                             <TrendingUp size={12} />
-                            {t.profile.beaten}
+                            {t.profile.profile_beaten}
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@ export function OverviewView({
                         </div>
                     </div>
                     <div>
-                        <div className="text-slate-200 font-bold">{t.profile.sys_optimal}</div>
+                        <div className="text-slate-200 font-bold">{t.profile.profile_sys_optimal}</div>
                         <div className="text-xs text-slate-500 flex items-center gap-1.5">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                             All Systems Normal

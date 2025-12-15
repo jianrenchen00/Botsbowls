@@ -88,6 +88,9 @@ export function Navbar() {
                         <a href="/#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.trust")}
                         </a>
+                        <a href="https://botsbowls.com/products" className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition text-sm font-bold shadow-md hover:shadow-lg">
+                            {t("nav.product_specs")}
+                        </a>
                         <a href="/#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="px-4 py-2 rounded-full bg-[#F26B21] text-white text-sm font-bold hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg">
                             {t("nav.contact")}
                         </a>

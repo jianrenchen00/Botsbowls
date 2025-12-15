@@ -7,9 +7,8 @@ export const translations = {
             telemetry: "Telemetry",
             inventory: "Inventory",
             food_safety: "Food Safety",
-            financials: "Finance",
-            owner: "Franchise Owner",
-            system_controls: "System Control",
+            finance: "Finance",
+            machines: "Machines",
         },
         metrics: {
             total_revenue: "Total Revenue",
@@ -215,9 +214,8 @@ export const translations = {
             telemetry: "遙測數據",
             inventory: "庫存管理",
             food_safety: "食品安全",
-            financials: "財務分析",
-            owner: "加盟業主",
-            system_controls: "系統控制",
+            finance: "財務分析",
+            machines: "機器設備",
         },
         metrics: {
             total_revenue: "總營收",
@@ -357,11 +355,12 @@ export const translations = {
             supply_status: "補貨車 A：距離羅浮宮店還有 {min} 分鐘"
         },
         profile: {
-            account: "指揮官",
-            rank: "BB 巴黎總代",
-            score_label: "營運評分",
-            beaten: "擊敗了 95% 的代理商",
-            sys_optimal: "系統全綠"
+            profile_account: "指揮官",
+            profile_rank: "BB 巴黎特務",
+            profile_score_label: "營運評分",
+            profile_beaten: "擊敗了 95% 的代理商",
+            profile_sys_status: "系統狀態",
+            profile_sys_optimal: "系統全綠",
         },
         fleetTable: {
             title: "各機器營運狀況",
@@ -441,8 +440,7 @@ export const translations = {
             inventory: "Inventaire",
             food_safety: "Sécurité",
             finance: "Finance",
-            owner: "Propriétaire",
-            system_controls: "Contrôles Système",
+            machines: "Machines",
         },
         metrics: {
             revenue: "Revenu Total",
@@ -677,8 +675,7 @@ export const translations = {
             inventory: "Inventario",
             food_safety: "Seguridad",
             finance: "Finanzas",
-            owner: "Propietario",
-            system_controls: "Controles del Sistema",
+            machines: "Máquinas",
         },
         metrics: {
             revenue: "Ingresos Totales",

@@ -17,7 +17,7 @@ export function Sidebar({ currentView, setCurrentView, t, className = "", onNavi
         { id: 'telemetry', label: t.nav.telemetry, icon: <Activity size={20} /> },
         { id: 'inventory', label: t.nav.inventory, icon: <Box size={20} /> },
         { id: 'food_safety', label: t.nav.food_safety, icon: <ShieldCheck size={20} /> },
-        { id: 'financials', label: t.nav.financials, icon: <DollarSign size={20} /> },
+        { id: 'financials', label: t.nav.finance, icon: <DollarSign size={20} /> },
     ];
 
     const handleNavClick = (id: string) => {

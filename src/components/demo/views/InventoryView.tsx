@@ -48,7 +48,7 @@ export function InventoryView({ t, soupLevel: globalSoup, noodleStock: globalNoo
             <div className="w-full lg:w-72 shrink-0 bg-slate-900/50 border border-slate-700/50 rounded-xl overflow-hidden flex flex-col shadow-xl backdrop-blur-sm h-64 lg:h-auto">
                 <div className="p-4 bg-slate-800/80 border-b border-slate-700 font-bold text-slate-200 flex items-center gap-2">
                     <Server size={18} className="text-blue-400" />
-                    <span>Machines</span>
+                    <span>{t.nav.machines}</span>
                 </div>
                 <div className="overflow-y-auto flex-1 p-2 space-y-1 custom-scrollbar">
                     {MACHINES.map(m => (

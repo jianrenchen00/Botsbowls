@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Package, Droplets, Clock, TrendingDown, TrendingUp, AlertTriangle, Truck, PieChart, Activity, Server } from 'lucide-react';
 import { MACHINES } from '../machineData';
 
@@ -8,9 +8,34 @@ interface InventoryViewProps {
     noodleStock: number;
 }
 
-export function InventoryView({ t, soupLevel, noodleStock }: InventoryViewProps) {
+export function InventoryView({ t, soupLevel: globalSoup, noodleStock: globalNoodle }: InventoryViewProps) {
     const [selectedId, setSelectedId] = useState(MACHINES[0].id);
     const selectedMachine = MACHINES.find(m => m.id === selectedId) || MACHINES[0];
+
+    // Dynamic Inventory Data
+    const inventoryData = useMemo(() => {
+        const seed = selectedId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        const seededRandom = (offset: number) => {
+            const x = Math.sin(seed + offset) * 10000;
+            return x - Math.floor(x);
+        };
+
+        const soup = 15 + Math.floor(seededRandom(1) * 85); // 15-100%
+        const isLow = soup < 25;
+
+        return {
+            soupLevel: soup,
+            noodleStock: 10 + Math.floor(seededRandom(2) * 40),
+            waste: {
+                expired: 30 + Math.floor(seededRandom(3) * 30),
+                fault: 10 + Math.floor(seededRandom(4) * 20),
+                human: 10 + Math.floor(seededRandom(5) * 20),
+            },
+            supplyStatus: seededRandom(6) > 0.5 ? 'On Route' : 'Processing',
+            supplyMin: 10 + Math.floor(seededRandom(7) * 30),
+            isLow,
+        };
+    }, [selectedId]);
 
     return (
         <div className="flex flex-col lg:flex-row gap-6 p-6 pt-24 max-w-7xl mx-auto h-[calc(100vh-80px)]">
@@ -51,12 +76,14 @@ export function InventoryView({ t, soupLevel, noodleStock }: InventoryViewProps)
                             </span>
                         </div>
                     </div>
-                    <div className="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full">
+                    <div className={`flex items-center gap-2 px-3 py-1.5 border rounded-full ${inventoryData.isLow ? 'bg-red-500/10 border-red-500/20' : 'bg-green-500/10 border-green-500/20'}`}>
                         <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${inventoryData.isLow ? 'bg-red-400' : 'bg-green-400'}`}></span>
+                            <span className={`relative inline-flex rounded-full h-2 w-2 ${inventoryData.isLow ? 'bg-red-500' : 'bg-green-500'}`}></span>
                         </span>
-                        <span className="text-xs font-medium text-green-400">Inventory Live</span>
+                        <span className={`text-xs font-medium ${inventoryData.isLow ? 'text-red-400' : 'text-green-400'}`}>
+                            {inventoryData.isLow ? 'Low Stock Alert' : 'Inventory Live'}
+                        </span>
                     </div>
                 </div>
 
@@ -73,11 +100,11 @@ export function InventoryView({ t, soupLevel, noodleStock }: InventoryViewProps)
                         <div className="w-24 h-64 bg-slate-800 rounded-full border-4 border-slate-700 relative overflow-hidden z-10">
                             {/* Liquid */}
                             <div
-                                className="absolute bottom-0 left-0 w-full bg-amber-500/80 transition-all duration-1000 ease-in-out"
-                                style={{ height: `${soupLevel}%` }}
+                                className={`absolute bottom-0 left-0 w-full transition-all duration-1000 ease-in-out ${inventoryData.soupLevel < 25 ? 'bg-red-500/80' : 'bg-amber-500/80'}`}
+                                style={{ height: `${inventoryData.soupLevel}%` }}
                             >
                                 {/* Wave Effect */}
-                                <div className="absolute top-0 left-0 w-[200%] h-4 bg-amber-400/50 animate-wave -translate-y-1/2"></div>
+                                <div className={`absolute top-0 left-0 w-[200%] h-4 animate-wave -translate-y-1/2 ${inventoryData.soupLevel < 25 ? 'bg-red-400/50' : 'bg-amber-400/50'}`}></div>
                             </div>
 
                             {/* Measurement Lines */}
@@ -86,8 +113,8 @@ export function InventoryView({ t, soupLevel, noodleStock }: InventoryViewProps)
                             <div className="absolute top-[75%] left-0 w-full h-[1px] bg-slate-600/50"></div>
                         </div>
 
-                        <div className="mt-4 text-3xl font-bold text-slate-200 z-10">
-                            {soupLevel.toFixed(1)}%
+                        <div className={`mt-4 text-3xl font-bold z-10 ${inventoryData.soupLevel < 25 ? 'text-red-400 animate-pulse' : 'text-slate-200'}`}>
+                            {inventoryData.soupLevel.toFixed(1)}%
                         </div>
                         <p className="text-xs text-slate-500 z-10">{t.inventory.refill_threshold}</p>
                     </div>
@@ -116,9 +143,11 @@ export function InventoryView({ t, soupLevel, noodleStock }: InventoryViewProps)
                             </svg>
 
                             {/* Alert Label */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[150%] bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-full whitespace-nowrap shadow-lg">
-                                {t.inventory.alert_restock_today}
-                            </div>
+                            {inventoryData.isLow && (
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[150%] bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-full whitespace-nowrap shadow-lg">
+                                    {t.inventory.alert_restock_today}
+                                </div>
+                            )}
                         </div>
                     </div>
 
@@ -133,30 +162,30 @@ export function InventoryView({ t, soupLevel, noodleStock }: InventoryViewProps)
                             <div>
                                 <div className="flex justify-between items-center text-sm mb-1">
                                     <span className="text-slate-400">{t.inventory.waste_reason_expired}</span>
-                                    <span className="text-white font-mono">50%</span>
+                                    <span className="text-white font-mono">{inventoryData.waste.expired}%</span>
                                 </div>
                                 <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
-                                    <div className="h-full bg-red-500 w-[50%]"></div>
+                                    <div className="h-full bg-red-500" style={{ width: `${inventoryData.waste.expired}%` }}></div>
                                 </div>
                             </div>
                             {/* Fault */}
                             <div>
                                 <div className="flex justify-between items-center text-sm mb-1">
                                     <span className="text-slate-400">{t.inventory.waste_reason_fault}</span>
-                                    <span className="text-white font-mono">30%</span>
+                                    <span className="text-white font-mono">{inventoryData.waste.fault}%</span>
                                 </div>
                                 <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
-                                    <div className="h-full bg-orange-500 w-[30%]"></div>
+                                    <div className="h-full bg-orange-500" style={{ width: `${inventoryData.waste.fault}%` }}></div>
                                 </div>
                             </div>
                             {/* Human Error */}
                             <div>
                                 <div className="flex justify-between items-center text-sm mb-1">
                                     <span className="text-slate-400">{t.inventory.waste_reason_human}</span>
-                                    <span className="text-white font-mono">20%</span>
+                                    <span className="text-white font-mono">{inventoryData.waste.human}%</span>
                                 </div>
                                 <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
-                                    <div className="h-full bg-slate-500 w-[20%]"></div>
+                                    <div className="h-full bg-slate-500" style={{ width: `${inventoryData.waste.human}%` }}></div>
                                 </div>
                             </div>
                         </div>
@@ -170,11 +199,11 @@ export function InventoryView({ t, soupLevel, noodleStock }: InventoryViewProps)
                         </h3>
                         <div className="relative pt-6 px-4 pb-4 bg-slate-800/30 rounded-lg border border-slate-700/50 flex-1 flex flex-col justify-center">
                             <div className="absolute top-0 left-6 -translate-y-1/2 bg-[#1E293B] px-2 text-xs text-emerald-400 border border-emerald-500/30 rounded-full">
-                                On Route
+                                {inventoryData.supplyStatus}
                             </div>
                             <div className="flex items-center justify-between mb-2">
                                 <span className="text-sm text-slate-300 font-medium">
-                                    {t.inventory.supply_status.replace('{min}', '15')}
+                                    {t.inventory.supply_status.replace('{min}', inventoryData.supplyMin)}
                                 </span>
                             </div>
                             <div className="w-full h-3 bg-slate-700 rounded-full relative mb-2">

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { AreaChart, Area, ResponsiveContainer, YAxis } from 'recharts';
 import { Thermometer, Zap, Activity, Cpu, Gauge, Server } from 'lucide-react';
 import { MACHINES } from '../machineData';
 
 interface TelemetryViewProps {
     t: any;
-    freezerTemp: number;
+    freezerTemp: number; // Keeping props interface to avoid parent errors
     cookerTemp: number;
     motorLoad: number;
     powerUsage: number;
@@ -14,17 +14,38 @@ interface TelemetryViewProps {
 
 export function TelemetryView({
     t,
-    freezerTemp,
-    cookerTemp,
-    motorLoad,
-    powerUsage,
-    motorHistory
+    // shadowing props with local simulation
+    freezerTemp: globalFreezer,
+    cookerTemp: globalCooker,
+    motorLoad: globalMotor,
+    powerUsage: globalPower,
+    motorHistory: globalHistory
 }: TelemetryViewProps) {
     const [selectedId, setSelectedId] = useState(MACHINES[0].id);
     const selectedMachine = MACHINES.find(m => m.id === selectedId) || MACHINES[0];
 
-    // Generate data for Recharts
-    const motorData = motorHistory.map((val, i) => ({ index: i, value: val }));
+    // Dynamic Data Simulation based on Machine ID
+    const machineData = useMemo(() => {
+        // Simple seeded random to keep data consistent for the same machine but different between machines
+        const seed = selectedId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        const seededRandom = (offset: number) => {
+            const x = Math.sin(seed + offset) * 10000;
+            return x - Math.floor(x);
+        };
+
+        const baseLoad = 30 + (seededRandom(1) * 40);
+
+        return {
+            freezerTemp: -20 + (seededRandom(2) * 5), // -20 to -15
+            cookerTemp: 94 + (seededRandom(3) * 4),   // 94 to 98
+            motorLoad: baseLoad,
+            powerUsage: 1.5 + (seededRandom(4) * 2.5), // 1.5 to 4.0 kW
+            motorHistory: Array.from({ length: 25 }).map((_, i) => ({
+                index: i,
+                value: Math.max(0, Math.min(100, baseLoad + (Math.random() * 20 - 10))) // Fluctuate around base
+            }))
+        };
+    }, [selectedId]);
 
     return (
         <div className="flex flex-col lg:flex-row gap-6 p-6 pt-24 max-w-7xl mx-auto h-[calc(100vh-80px)]">
@@ -93,15 +114,15 @@ export function TelemetryView({
                                     <span className="text-xs font-mono text-blue-400">{t.telemetry.target}: -18.0°C</span>
                                 </div>
                                 <div className="flex items-end gap-2">
-                                    <span className={`text-3xl font-mono font-bold ${freezerTemp > -15 ? 'text-red-500' : 'text-blue-500'}`}>
-                                        {freezerTemp.toFixed(1)}°C
+                                    <span className={`text-3xl font-mono font-bold ${machineData.freezerTemp > -15 ? 'text-red-500' : 'text-blue-500'}`}>
+                                        {machineData.freezerTemp.toFixed(1)}°C
                                     </span>
                                 </div>
                                 {/* Visual Bar */}
                                 <div className="w-full h-1.5 bg-slate-800 rounded-full mt-3 overflow-hidden">
                                     <div
                                         className="h-full bg-blue-500 transition-all duration-500"
-                                        style={{ width: `${Math.min(100, Math.max(0, (freezerTemp + 30) * 4))}%` }}
+                                        style={{ width: `${Math.min(100, Math.max(0, (machineData.freezerTemp + 30) * 4))}%` }}
                                     ></div>
                                 </div>
                             </div>
@@ -113,15 +134,15 @@ export function TelemetryView({
                                     <span className="text-xs font-mono text-orange-400">{t.telemetry.target}: 95.0°C</span>
                                 </div>
                                 <div className="flex items-end gap-2">
-                                    <span className={`text-3xl font-mono font-bold ${cookerTemp > 98 ? 'text-red-500' : 'text-orange-500'}`}>
-                                        {cookerTemp.toFixed(1)}°C
+                                    <span className={`text-3xl font-mono font-bold ${machineData.cookerTemp > 98 ? 'text-red-500' : 'text-orange-500'}`}>
+                                        {machineData.cookerTemp.toFixed(1)}°C
                                     </span>
                                 </div>
                                 {/* Visual Bar */}
                                 <div className="w-full h-1.5 bg-slate-800 rounded-full mt-3 overflow-hidden">
                                     <div
                                         className="h-full bg-orange-500 transition-all duration-500"
-                                        style={{ width: `${Math.min(100, Math.max(0, (cookerTemp - 20) * 1.2))}%` }}
+                                        style={{ width: `${Math.min(100, Math.max(0, (machineData.cookerTemp - 20) * 1.2))}%` }}
                                     ></div>
                                 </div>
                             </div>
@@ -137,7 +158,7 @@ export function TelemetryView({
 
                         <div className="flex-1 min-h-[180px] w-full bg-[#0F172A] rounded-lg border border-slate-800 p-4 relative">
                             <ResponsiveContainer width="100%" height="100%">
-                                <AreaChart data={motorData}>
+                                <AreaChart data={machineData.motorHistory}>
                                     <defs>
                                         <linearGradient id="colorMotor" x1="0" y1="0" x2="0" y2="1">
                                             <stop offset="5%" stopColor="#A855F7" stopOpacity={0.3} />
@@ -158,7 +179,7 @@ export function TelemetryView({
                             </ResponsiveContainer>
 
                             <div className="absolute top-4 right-4 flex flex-col items-end">
-                                <span className="text-4xl font-bold text-white">{motorLoad.toFixed(0)}%</span>
+                                <span className="text-4xl font-bold text-white">{machineData.motorLoad.toFixed(0)}%</span>
                                 <span className="text-xs text-slate-400">{t.telemetry.current_load}</span>
                             </div>
                         </div>
@@ -189,10 +210,10 @@ export function TelemetryView({
                             <div className="relative flex items-center justify-center w-48 h-48 rounded-full border-4 border-slate-700">
                                 <div
                                     className="absolute inset-0 rounded-full border-4 border-yellow-500 border-t-transparent animate-spin duration-3000"
-                                    style={{ animationDuration: `${3000 / powerUsage}ms` }}
+                                    style={{ animationDuration: `${3000 / machineData.powerUsage}ms` }}
                                 ></div>
                                 <div className="text-center">
-                                    <span className="block text-4xl font-bold text-white">{powerUsage.toFixed(2)}</span>
+                                    <span className="block text-4xl font-bold text-white">{machineData.powerUsage.toFixed(2)}</span>
                                     <span className="text-sm text-yellow-400">kW/h</span>
                                 </div>
                             </div>
@@ -201,7 +222,7 @@ export function TelemetryView({
                                 <div className="text-center">
                                     <span className="block text-slate-400 text-xs mb-1">{t.telemetry.daily_cost}</span>
                                     <span className="block text-2xl font-bold text-white">
-                                        ${(powerUsage * 24 * 0.12).toFixed(2)}
+                                        ${(machineData.powerUsage * 24 * 0.12).toFixed(2)}
                                     </span>
                                 </div>
                                 <div className="text-center">

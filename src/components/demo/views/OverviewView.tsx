@@ -57,7 +57,7 @@ export function OverviewView({
     const calculatedActiveBots = FLEET_DATA.filter(u => u.status !== 'status_maintenance').length;
 
     return (
-        <div className="p-6 pt-24 max-w-7xl mx-auto space-y-6">
+        <div className="px-6 pb-6 pt-0 max-w-7xl mx-auto space-y-6">
             {/* User Profile Bar */}
             <div className="bg-slate-900/60 border-y border-slate-700 backdrop-blur-md -mx-6 px-6 py-4 mb-6 flex flex-col md:flex-row gap-6 md:items-center justify-between animate-in fade-in slide-in-from-top-4 duration-700">
                 {/* User Info */}
@@ -122,7 +122,7 @@ export function OverviewView({
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
                 <MetricCard
                     title={t.metrics.total_revenue}
-                    value={formattedRevenue}
+                    value="US$154,383"
                     trend={isCritical ? "-20.0% Efficiency" : isRushActive ? "++34.2%" : "+12.5%"}
                     trendUp={!isCritical}
                     icon={<TrendingUp size={20} className="text-blue-400" />}

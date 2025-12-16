@@ -72,7 +72,7 @@ export function Navbar() {
                     </div>
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center space-x-8">
+                    <div className="hidden xl:flex items-center space-x-4">
                         <a href="/#fleet" onClick={(e) => handleScrollTo(e, 'fleet')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.fleet")}
                         </a>
@@ -88,15 +88,15 @@ export function Navbar() {
                         <a href="/#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.trust")}
                         </a>
-                        <a href="https://botsbowls.com/products" className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition text-sm font-bold shadow-md hover:shadow-lg">
+                        <a href="https://botsbowls.com/products" className="bg-orange-500 text-white px-3 py-2 rounded-full hover:bg-orange-600 transition text-sm font-bold shadow-md hover:shadow-lg">
                             {t("nav.product_specs")}
                         </a>
-                        <a href="/#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="px-4 py-2 rounded-full bg-[#F26B21] text-white text-sm font-bold hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg">
+                        <a href="/#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="px-3 py-2 rounded-full bg-[#F26B21] text-white text-sm font-bold hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg">
                             {t("nav.contact")}
                         </a>
                     </div>
 
-                    <div className="hidden md:flex items-center space-x-4">
+                    <div className="hidden xl:flex items-center space-x-4">
                         <button
                             onClick={() => alert("Tokenomics Whitepaper coming soon.")}
                             className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold"
@@ -105,7 +105,7 @@ export function Navbar() {
                         </button>
                         <Link
                             href={`/${currentLocale}/dashboard`}
-                            className="hidden sm:block px-5 py-2 rounded-full bg-[#F26B21] hover:bg-orange-600 text-white text-sm font-bold transition-colors shadow-md hover:shadow-lg"
+                            className="hidden sm:block px-3 py-2 rounded-full bg-[#F26B21] hover:bg-orange-600 text-white text-sm font-bold transition-colors shadow-md hover:shadow-lg"
                         >
                             {currentLocale === 'zh-TW' ? '登入 (儀表板)' : 'Login (Dashboard)'}
                         </Link>
@@ -124,7 +124,7 @@ export function Navbar() {
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center gap-4">
+                    <div className="xl:hidden flex items-center gap-4">
                         <div>
                             <select
                                 onChange={handleChange}
@@ -149,7 +149,7 @@ export function Navbar() {
 
             {/* Mobile Menu Dropdown */}
             {isOpen && (
-                <div className="md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0 top-16 py-4 px-4 flex flex-col space-y-4">
+                <div className="xl:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0 top-16 py-4 px-4 flex flex-col space-y-4">
                     <a href="/#fleet" onClick={(e) => handleScrollTo(e, 'fleet')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
                         {t("nav.fleet")}
                     </a>

@@ -6,7 +6,7 @@
         "cta_primary": "獲取投資簡報",
         "cta_secondary": "觀看運作演示",
         "badge": "投資論點",
-        "email_placeholder": "輸入您的電子郵件"
+        "email_placeholder": "輸入您的電子郵件", "try_dashboard": "前往儀表板試用"
     },
     "problem": {
         "title": "利潤蒸發危機",
@@ -156,7 +156,7 @@
         }
     },
     "trust": {
-        "title": "巨人肩膀上的創新",
+        "title": "不可能的三角：已解決",
         "vision": {
             "title": "不可能的三角：已解決",
             "speed": {
@@ -225,7 +225,7 @@
         "scenarios": "應用場景",
         "solution": "解決方案",
         "profit": "獲利能力",
-        "trust": "信任",
+        "trust": "信任", "video": "實機影片",
         "showroom": "展示廳",
         "contact": "聯繫我們", "product_specs": "產品規格",
         "tokenomics": "代幣經濟",

@@ -1,11 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function SolutionSection() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const benefits = ["benefit1", "benefit2", "benefit3"];
 
@@ -46,6 +47,13 @@ export function SolutionSection() {
                                 </motion.div>
                             ))}
                         </div>
+
+                        <Link
+                            href={`/${i18n.language}/dashboard`}
+                            className="bg-orange-500 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-lg mt-8 inline-block"
+                        >
+                            {t("hero.try_dashboard")}
+                        </Link>
                     </div>
 
                     <div className="relative">

@@ -85,8 +85,8 @@ export function Navbar() {
                         <a href="/#profitability" onClick={(e) => handleScrollTo(e, 'profitability')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
                             {t("nav.profit")}
                         </a>
-                        <a href="/#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
-                            {t("nav.trust")}
+                        <a href="/#video-gallery" onClick={(e) => handleScrollTo(e, 'video-gallery')} className="text-[#F26B21] hover:text-orange-600 transition-colors text-sm font-bold">
+                            {t("nav.video")}
                         </a>
                         <a href="https://botsbowls.com/products" className="bg-orange-500 text-white px-3 py-2 rounded-full hover:bg-orange-600 transition text-sm font-bold shadow-md hover:shadow-lg">
                             {t("nav.product_specs")}
@@ -162,8 +162,8 @@ export function Navbar() {
                     <a href="/#profitability" onClick={(e) => handleScrollTo(e, 'profitability')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
                         {t("nav.profit")}
                     </a>
-                    <a href="/#trust" onClick={(e) => handleScrollTo(e, 'trust')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
-                        {t("nav.trust")}
+                    <a href="/#video-gallery" onClick={(e) => handleScrollTo(e, 'video-gallery')} className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
+                        {t("nav.video")}
                     </a>
                     <a href="https://botsbowls.com/products" className="text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50">
                         {t("nav.product_specs")}
@@ -180,9 +180,9 @@ export function Navbar() {
                     <Link
                         href={`/${currentLocale}/dashboard`}
                         onClick={() => setIsOpen(false)}
-                        className="text-left text-[#F26B21] font-bold text-lg py-2 border-b border-gray-50"
+                        className="text-center bg-orange-500 text-white font-bold text-lg py-3 rounded-xl shadow-md mt-4 block hover:bg-orange-600 transition-colors"
                     >
-                        {currentLocale === 'zh-TW' ? '登入 (儀表板)' : 'Login (Dashboard)'}
+                        {t("hero.try_dashboard")}
                     </Link>
                     <a href="/#contact" onClick={(e) => handleScrollTo(e, 'contact')} className="bg-[#F26B21] text-white text-center font-bold text-lg py-3 rounded-xl shadow-md">
                         {t("nav.contact")}

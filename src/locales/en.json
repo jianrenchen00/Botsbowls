@@ -6,7 +6,7 @@
     "cta_primary": "Get Investment Deck",
     "cta_secondary": "Watch How It Works",
     "badge": "Investment Thesis",
-    "email_placeholder": "Enter your email"
+    "email_placeholder": "Enter your email", "try_dashboard": "Try in our Dashboard"
   },
   "problem": {
     "title": "The Profit Evaporation Crisis",
@@ -155,7 +155,7 @@
     }
   },
   "trust": {
-    "title": "Powered by Giants",
+    "title": "The Impossible Triangle: Solved",
     "vision": {
       "title": "The Impossible Triangle: Solved",
       "speed": {
@@ -224,7 +224,7 @@
     "scenarios": "Scenarios",
     "solution": "The Solution",
     "profit": "Profitability",
-    "trust": "Trust",
+    "trust": "Trust", "video": "Video",
     "contact": "Contact", "product_specs": "Product Specs",
     "tokenomics": "Tokenomics",
     "signin": "Sign In"

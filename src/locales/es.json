@@ -6,7 +6,7 @@
         "cta_primary": "Obtener Deck de Inversión",
         "cta_secondary": "Ver Cómo Funciona",
         "badge": "Tesis de Inversión",
-        "email_placeholder": "Introduce tu email"
+        "email_placeholder": "Introduce tu email", "try_dashboard": "Prueba nuestro Panel"
     },
     "problem": {
         "title": "La Crisis de Evaporación de Beneficios",
@@ -156,7 +156,7 @@
         }
     },
     "trust": {
-        "title": "Impulsado por Gigantes",
+        "title": "El Triángulo Imposible: Resuelto",
         "vision": {
             "title": "El Triángulo Imposible: Resuelto",
             "speed": {
@@ -225,7 +225,7 @@
         "scenarios": "Escenarios",
         "solution": "La Solución",
         "profit": "Rentabilidad",
-        "trust": "Confianza",
+        "trust": "Confianza", "video": "Vídeo",
         "contact": "Contacto", "product_specs": "Especificaciones",
         "tokenomics": "Tokenomics",
         "signin": "Iniciar sesión"

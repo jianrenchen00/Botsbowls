@@ -6,7 +6,7 @@
         "cta_primary": "Obtenir le Deck d'Investissement",
         "cta_secondary": "Voir en Action",
         "badge": "Thèse d'Investissement",
-        "email_placeholder": "Entrez votre email"
+        "email_placeholder": "Entrez votre email", "try_dashboard": "Essayer le Tableau de Bord"
     },
     "problem": {
         "title": "La Crise de l'Évaporation des Profits",
@@ -155,7 +155,7 @@
         }
     },
     "trust": {
-        "title": "Propulsé par des Géants",
+        "title": "Le Triangle Impossible : Résolu",
         "vision": {
             "title": "Le Triangle Impossible : Résolu",
             "speed": {
@@ -224,7 +224,7 @@
         "scenarios": "Scénarios",
         "solution": "La Solution",
         "profit": "Rentabilité",
-        "trust": "Confiance",
+        "trust": "Confiance", "video": "Vidéo",
         "contact": "Contact", "product_specs": "Spécifications",
         "tokenomics": "Tokenomics",
         "signin": "Se Connecter"

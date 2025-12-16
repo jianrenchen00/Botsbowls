@@ -34,7 +34,7 @@ export default function MarketingPage() {
         <TrustSection />
       </div>
       <VideoShowcase />
-      <AIRoboticSolutions />
+      {/* <AIRoboticSolutions /> */}
       <div id="contact">
         <ContactSection />
       </div>

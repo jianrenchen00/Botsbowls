@@ -20,9 +20,7 @@ export function TrustSection() {
 
                 {/* Iron Triangle Text */}
                 <div className="max-w-7xl mx-auto mb-20">
-                    <h3 className="text-3xl font-bold text-black text-center mb-12">
-                        {t("trust.vision.title")}
-                    </h3>
+                    {/* Title removed as it is now the section title */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* Speed */}
                         <div className="flex flex-col items-center text-center">

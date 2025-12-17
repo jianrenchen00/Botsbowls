@@ -11,12 +11,13 @@ export function ContactSection() {
         role: "End user (Individual)",
         region: "United States",
         name: "",
-        email: ""
+        email: "",
+        message: ""
     });
 
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzUXowHXgU_iZiPq0e4COdthg_N99MvW-lUwqWQvSGU1cmqVU_Vf8-_BSn5VRKOtpWmJw/exec';
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
@@ -41,7 +42,8 @@ export function ContactSection() {
                 role: "End user (Individual)",
                 region: "United States",
                 name: "",
-                email: ""
+                email: "",
+                message: ""
             });
         } catch (error) {
             console.error("Error submitting form:", error);
@@ -92,8 +94,8 @@ export function ContactSection() {
                                     <div className="flex justify-center">
                                         <Mail className="h-5 w-5 text-[#F26B21]" />
                                     </div>
-                                    <a href="mailto:hello@botsandbowls.com" className="hover:text-[#F26B21] transition-colors">
-                                        {t("contact.email")}
+                                    <a href="mailto:ren.chen@botsbowls.com" className="hover:text-[#F26B21] transition-colors">
+                                        ren.chen@botsbowls.com
                                     </a>
                                 </div>
                             </div>
@@ -182,6 +184,19 @@ export function ContactSection() {
                                         onChange={handleChange}
                                         required
                                         className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:border-neon-orange focus:ring-1 focus:ring-neon-orange transition-all"
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label className="text-sm font-bold text-black">
+                                        {t("contact.form.message_label")}
+                                    </label>
+                                    <textarea
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        rows={4}
+                                        className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:border-neon-orange focus:ring-1 focus:ring-neon-orange transition-all resize-none"
                                     />
                                 </div>
 

@@ -194,7 +194,7 @@
   },
   "contact": {
     "title": "Contact Us",
-    "hq_title": "Global HQ",
+    "hq_title": "Barcelona Showroom",
     "address": "Carrer de la Diputació, 246, 08007 Barcelona, Spain",
     "phone": "+34 93 123 45 67",
     "email": "hello@botsandbowls.com",
@@ -216,7 +216,7 @@
       "region_other": "Other",
       "name_label": "Name",
       "email_label": "Email",
-      "submit": "Start consultation"
+      "message_label": "Your Message", "submit": "Start consultation"
     }
   },
   "nav": {

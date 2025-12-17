@@ -195,7 +195,7 @@
     },
     "contact": {
         "title": "Contact Us",
-        "hq_title": "全球總部",
+        "hq_title": "巴賽隆納展示店",
         "address": "Carrer de la Diputació, 246, 08007 Barcelona, Spain",
         "phone": "+34 93 123 45 67",
         "email": "hello@botsandbowls.com",
@@ -217,7 +217,7 @@
             "region_other": "其他",
             "name_label": "姓名",
             "email_label": "電子郵件",
-            "submit": "開始諮詢"
+            "message_label": "您的留言", "submit": "開始諮詢"
         }
     },
     "nav": {

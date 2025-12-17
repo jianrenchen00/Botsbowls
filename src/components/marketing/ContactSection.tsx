@@ -14,8 +14,10 @@ export function ContactSection() {
         email: "",
         message: ""
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
 
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzUXowHXgU_iZiPq0e4COdthg_N99MvW-lUwqWQvSGU1cmqVU_Vf8-_BSn5VRKOtpWmJw/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWnq_FdY9b_NEtm3W6vBZ_Y5Ua3hzcs50gfyf1eDcGr7vC74KS7X3tqBiWAfMWxEtbkA/exec';
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,6 +25,7 @@ export function ContactSection() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setIsSubmitting(true);
 
         try {
             await fetch(GOOGLE_SCRIPT_URL, {
@@ -31,13 +34,18 @@ export function ContactSection() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    role: formData.role,
+                    region: formData.region,
+                    message: formData.message
+                }),
             });
 
-            // With no-cors, we can't check response.ok, so we assume success if no error is thrown.
+            setIsSuccess(true);
             alert("Thank you! Your consultation request has been sent.");
 
-            // Reset form
             setFormData({
                 role: "End user (Individual)",
                 region: "United States",
@@ -48,6 +56,8 @@ export function ContactSection() {
         } catch (error) {
             console.error("Error submitting form:", error);
             alert("There was an error sending your request. Please try again.");
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -202,9 +212,10 @@ export function ContactSection() {
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-[#F26B21] text-white font-bold py-4 rounded-lg hover:bg-orange-700 hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-95"
+                                    disabled={isSubmitting}
+                                    className="w-full bg-[#F26B21] text-white font-bold py-4 rounded-lg hover:bg-orange-700 hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
-                                    {t("contact.form.submit")}
+                                    {isSubmitting ? "Sending..." : t("contact.form.submit")}
                                 </button>
                             </form>
                         </div>
